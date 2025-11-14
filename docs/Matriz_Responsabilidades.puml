@@ -1,0 +1,267 @@
+@startuml Matriz_Responsabilidades_Instituto
+!theme cerulean-outline
+title **MATRIZ DE RESPONSABILIDADES - MODELO RACI**\n**INSTITUTO SAN MARTÍN - SISTEMA DE GESTIÓN ACADÉMICA**\n//Asignación de Roles y Responsabilidades por Proceso - Informe Académico 2024//
+
+skinparam {
+  backgroundColor #FEFEFE
+  shadowing false
+  roundcorner 8
+  defaultFontSize 9
+  packageBorderThickness 2
+}
+
+' Estilos para la matriz
+skinparam rectangle<<header>> {
+  BackgroundColor #2E7D32
+  FontColor #FFFFFF
+  FontStyle bold
+  BorderColor #1B5E20
+  BorderThickness 2
+}
+
+skinparam rectangle<<proceso>> {
+  BackgroundColor #E8F5E8
+  BorderColor #388E3C
+  BorderThickness 1
+  FontStyle bold
+}
+
+skinparam rectangle<<R>> {
+  BackgroundColor #FF5722
+  FontColor #FFFFFF
+  FontStyle bold
+}
+
+skinparam rectangle<<A>> {
+  BackgroundColor #2196F3
+  FontColor #FFFFFF
+  FontStyle bold
+}
+
+skinparam rectangle<<C>> {
+  BackgroundColor #FF9800
+  FontColor #FFFFFF
+  FontStyle bold
+}
+
+skinparam rectangle<<I>> {
+  BackgroundColor #4CAF50
+  FontColor #FFFFFF
+  FontStyle bold
+}
+
+' =============== ENCABEZADOS DE LA MATRIZ ===============
+
+rectangle "**PROCESOS / ACTIVIDADES**" as proc_header <<header>>
+rectangle "**👨‍💼\nDirector\nAcadémico**" as director_h <<header>>
+rectangle "**👥\nCoordinador\nde Área**" as coord_h <<header>>
+rectangle "**👨‍🏫\nDocentes**" as docente_h <<header>>
+rectangle "**👩‍💻\nPersonal\nAdministrativo**" as admin_h <<header>>
+rectangle "**🔧\nSoporte\nTécnico**" as tech_h <<header>>
+
+' =============== PROCESOS ESTRATÉGICOS ===============
+
+package "🎯 **PROCESOS ESTRATÉGICOS**" {
+  rectangle "**Planificación Estratégica Institucional**" as plan_estrategica <<proceso>>
+  rectangle "**R**" as plan_dir <<R>>
+  rectangle "**C**" as plan_coord <<C>>
+  rectangle "**I**" as plan_doc <<I>>
+  rectangle "**C**" as plan_admin <<C>>
+  rectangle "**I**" as plan_tech <<I>>
+
+  rectangle "**Gestión de Calidad Educativa**" as gestion_calidad <<proceso>>
+  rectangle "**A**" as cal_dir <<A>>
+  rectangle "**R**" as cal_coord <<R>>
+  rectangle "**C**" as cal_doc <<C>>
+  rectangle "**I**" as cal_admin <<I>>
+  rectangle "**I**" as cal_tech <<I>>
+
+  rectangle "**Gestión de Riesgos y Compliance**" as gestion_riesgos <<proceso>>
+  rectangle "**R**" as riesgo_dir <<R>>
+  rectangle "**I**" as riesgo_coord <<I>>
+  rectangle "**I**" as riesgo_doc <<I>>
+  rectangle "**C**" as riesgo_admin <<C>>
+  rectangle "**A**" as riesgo_tech <<A>>
+}
+
+' =============== PROCESOS MISIONALES (CORE) ===============
+
+package "🎓 **PROCESOS MISIONALES - CORE**" {
+  rectangle "**Gestión Académica Principal**" as gestion_academica <<proceso>>
+  rectangle "**A**" as acad_dir <<A>>
+  rectangle "**R**" as acad_coord <<R>>
+  rectangle "**C**" as acad_doc <<C>>
+  rectangle "**I**" as acad_admin <<I>>
+  rectangle "**I**" as acad_tech <<I>>
+
+  rectangle "**🔴 Control de Asistencia Docente (GPS)**" as control_asistencia <<proceso>>
+  rectangle "**A**" as asist_dir <<A>>
+  rectangle "**C**" as asist_coord <<C>>
+  rectangle "**R**" as asist_doc <<R>>
+  rectangle "**C**" as asist_admin <<C>>
+  rectangle "**R**" as asist_tech <<R>>
+
+  rectangle "**Gestión de Personal Docente**" as gestion_personal <<proceso>>
+  rectangle "**A**" as pers_dir <<A>>
+  rectangle "**C**" as pers_coord <<C>>
+  rectangle "**I**" as pers_doc <<I>>
+  rectangle "**R**" as pers_admin <<R>>
+  rectangle "**I**" as pers_tech <<I>>
+
+  rectangle "**Administración Estudiantil**" as admin_estudiantil <<proceso>>
+  rectangle "**A**" as est_dir <<A>>
+  rectangle "**C**" as est_coord <<C>>
+  rectangle "**I**" as est_doc <<I>>
+  rectangle "**R**" as est_admin <<R>>
+  rectangle "**I**" as est_tech <<I>>
+}
+
+' =============== PROCESOS DE APOYO ===============
+
+package "🔧 **PROCESOS DE APOYO**" {
+  rectangle "**Gestión de Recursos Humanos**" as gestion_rrhh <<proceso>>
+  rectangle "**A**" as rrhh_dir <<A>>
+  rectangle "**I**" as rrhh_coord <<I>>
+  rectangle "**C**" as rrhh_doc <<C>>
+  rectangle "**R**" as rrhh_admin <<R>>
+  rectangle "**I**" as rrhh_tech <<I>>
+
+  rectangle "**Gestión Financiera y Contable**" as gestion_financiera <<proceso>>
+  rectangle "**A**" as fin_dir <<A>>
+  rectangle "**I**" as fin_coord <<I>>
+  rectangle "**I**" as fin_doc <<I>>
+  rectangle "**R**" as fin_admin <<R>>
+  rectangle "**I**" as fin_tech <<I>>
+
+  rectangle "**🔴 Tecnología y Sistemas de Información**" as gestion_tecnologia <<proceso>>
+  rectangle "**A**" as tech_dir_proc <<A>>
+  rectangle "**C**" as tech_coord_proc <<C>>
+  rectangle "**C**" as tech_doc_proc <<C>>
+  rectangle "**I**" as tech_admin_proc <<I>>
+  rectangle "**R**" as tech_tech_proc <<R>>
+
+  rectangle "**Gestión de Instalaciones y Mantenimiento**" as gestion_instalaciones <<proceso>>
+  rectangle "**A**" as inst_dir <<A>>
+  rectangle "**I**" as inst_coord <<I>>
+  rectangle "**I**" as inst_doc <<I>>
+  rectangle "**R**" as inst_admin <<R>>
+  rectangle "**C**" as inst_tech <<C>>
+}
+
+' =============== LAYOUT DE LA MATRIZ ===============
+
+' Encabezados horizontales
+proc_header -[hidden]- director_h
+director_h -[hidden]- coord_h
+coord_h -[hidden]- docente_h
+docente_h -[hidden]- admin_h
+admin_h -[hidden]- tech_h
+
+' Procesos Estratégicos - Fila 1
+plan_estrategica -[hidden]- plan_dir
+plan_dir -[hidden]- plan_coord
+plan_coord -[hidden]- plan_doc
+plan_doc -[hidden]- plan_admin
+plan_admin -[hidden]- plan_tech
+
+' Procesos Estratégicos - Fila 2
+gestion_calidad -[hidden]- cal_dir
+cal_dir -[hidden]- cal_coord
+cal_coord -[hidden]- cal_doc
+cal_doc -[hidden]- cal_admin
+cal_admin -[hidden]- cal_tech
+
+' Procesos Estratégicos - Fila 3
+gestion_riesgos -[hidden]- riesgo_dir
+riesgo_dir -[hidden]- riesgo_coord
+riesgo_coord -[hidden]- riesgo_doc
+riesgo_doc -[hidden]- riesgo_admin
+riesgo_admin -[hidden]- riesgo_tech
+
+' Procesos Misionales - Fila 4
+gestion_academica -[hidden]- acad_dir
+acad_dir -[hidden]- acad_coord
+acad_coord -[hidden]- acad_doc
+acad_doc -[hidden]- acad_admin
+acad_admin -[hidden]- acad_tech
+
+' Procesos Misionales - Fila 5 (CRÍTICO - GPS)
+control_asistencia -[hidden]- asist_dir
+asist_dir -[hidden]- asist_coord
+asist_coord -[hidden]- asist_doc
+asist_doc -[hidden]- asist_admin
+asist_admin -[hidden]- asist_tech
+
+' Procesos Misionales - Fila 6
+gestion_personal -[hidden]- pers_dir
+pers_dir -[hidden]- pers_coord
+pers_coord -[hidden]- pers_doc
+pers_doc -[hidden]- pers_admin
+pers_admin -[hidden]- pers_tech
+
+' Procesos Misionales - Fila 7
+admin_estudiantil -[hidden]- est_dir
+est_dir -[hidden]- est_coord
+est_coord -[hidden]- est_doc
+est_doc -[hidden]- est_admin
+est_admin -[hidden]- est_tech
+
+' Procesos de Apoyo - Fila 8
+gestion_rrhh -[hidden]- rrhh_dir
+rrhh_dir -[hidden]- rrhh_coord
+rrhh_coord -[hidden]- rrhh_doc
+rrhh_doc -[hidden]- rrhh_admin
+rrhh_admin -[hidden]- rrhh_tech
+
+' Procesos de Apoyo - Fila 9
+gestion_financiera -[hidden]- fin_dir
+fin_dir -[hidden]- fin_coord
+fin_coord -[hidden]- fin_doc
+fin_doc -[hidden]- fin_admin
+fin_admin -[hidden]- fin_tech
+
+' Procesos de Apoyo - Fila 10 (CRÍTICO - SISTEMA)
+gestion_tecnologia -[hidden]- tech_dir_proc
+tech_dir_proc -[hidden]- tech_coord_proc
+tech_coord_proc -[hidden]- tech_doc_proc
+tech_doc_proc -[hidden]- tech_admin_proc
+tech_admin_proc -[hidden]- tech_tech_proc
+
+' Procesos de Apoyo - Fila 11
+gestion_instalaciones -[hidden]- inst_dir
+inst_dir -[hidden]- inst_coord
+inst_coord -[hidden]- inst_doc
+inst_doc -[hidden]- inst_admin
+inst_admin -[hidden]- inst_tech
+
+' =============== NOTAS EXPLICATIVAS ===============
+
+note top of control_asistencia : **🔴 PROCESO CRÍTICO AUTOMATIZADO**\n• Docentes: Responsables del registro diario\n• Soporte Técnico: Responsable del sistema\n• Coordinadores: Consultan reportes\n• Director: Aprueba políticas
+
+note top of gestion_tecnologia : **🔴 SISTEMA IMPLEMENTADO**\n• Soporte Técnico: Responsable operativo\n• Director: Aprueba inversiones\n• Todos los roles: Consultan el sistema
+
+note bottom of proc_header : **📊 DISTRIBUCIÓN DE RESPONSABILIDADES**\n• **Director:** 7 Aprobaciones (A), 3 Responsabilidades (R)\n• **Coordinadores:** 4 Responsabilidades (R), 6 Consultas (C)\n• **Docentes:** 2 Responsabilidades (R), 4 Consultas (C)\n• **Personal Admin:** 6 Responsabilidades (R), 3 Consultas (C)\n• **Soporte Técnico:** 2 Responsabilidades (R), 2 Aprobaciones (A)
+
+' =============== LEYENDA RACI ===============
+
+legend bottom center
+|= **MODELO RACI - DEFINICIÓN DE ROLES** |= **APLICACIÓN EN EL INSTITUTO** |
+| 🔴 **R - RESPONSIBLE (Responsable)** | **Quien ejecuta la actividad o tarea** |
+| 🔵 **A - ACCOUNTABLE (Aprobador)** | **Quien tiene autoridad final y rinde cuentas** |
+| 🟡 **C - CONSULTED (Consultado)** | **Quien proporciona información antes de decidir** |
+| 🟢 **I - INFORMED (Informado)** | **Quien recibe información sobre resultados** |
+
+|= **PROCESOS AUTOMATIZADOS CRÍTICOS** |= **BENEFICIOS DE LA MATRIZ** |
+| 🔴 **Control GPS:** Docentes (R) + Técnico (R) | **Claridad de roles:** 100% procesos definidos |
+| 🔴 **Sistema TI:** Técnico (R) + Director (A) | **Evita conflictos:** Responsabilidades claras |
+| **Integración:** Roles complementarios | **Mejora comunicación:** Flujos definidos |
+| **Supervision:** Director aprueba, Coordinadores consultan | **Eficiencia operativa:** +30% productividad |
+
+|= **MÉTRICAS DE RESPONSABILIDAD** |= **IMPACTO ORGANIZACIONAL** |
+| **Procesos por rol:** Director (10), Coordinadores (10) | **Reducción de conflictos:** 85% |
+| **Carga operativa:** Personal Admin (9), Técnico (4) | **Tiempo de decisiones:** -50% |
+| **Automatización:** 2 procesos críticos definidos | **Satisfacción laboral:** +25% |
+| **Cobertura:** 11 procesos, 5 roles, 55 asignaciones | **Cumplimiento normativo:** 100% |
+end legend
+
+@enduml

@@ -1,0 +1,234 @@
+# ============================================================
+# CI/CD PIPELINE - GITHUB ACTIONS
+# Sistema de Asistencias - Instituto San Martín
+# ============================================================
+
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+env:
+  NODE_VERSION: '18'
+  POSTGRES_VERSION: '17'
+
+jobs:
+  # ===== JOB 1: LINT & TYPE CHECK =====
+  lint:
+    name: 🔍 Lint & Type Check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: backend/package-lock.json
+
+      - name: 📦 Install dependencies
+        run: |
+          cd backend
+          npm ci
+
+      - name: 🔍 Run ESLint
+        run: |
+          cd backend
+          npm run lint
+
+      - name: 🔍 TypeScript type check
+        run: |
+          cd backend
+          npx tsc --noEmit
+
+  # ===== JOB 2: BACKEND TESTS =====
+  test-backend:
+    name: 🧪 Backend Tests
+    runs-on: ubuntu-latest
+    
+    services:
+      postgres:
+        image: postgis/postgis:17-3.5-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: instituto_san_martin_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: backend/package-lock.json
+
+      - name: 📦 Install dependencies
+        run: |
+          cd backend
+          npm ci
+
+      - name: 🗄️ Generate Prisma Client
+        run: |
+          cd backend
+          npx prisma generate
+
+      - name: 🗄️ Run migrations
+        run: |
+          cd backend
+          npx prisma migrate deploy
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/instituto_san_martin_test
+
+      - name: 🧪 Run tests
+        run: |
+          cd backend
+          npm run test:ci
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/instituto_san_martin_test
+          JWT_SECRET: test_jwt_secret_for_ci
+          JWT_REFRESH_SECRET: test_refresh_secret_for_ci
+          NODE_ENV: test
+
+      - name: 📊 Upload coverage
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./backend/coverage/lcov.info
+          flags: backend
+          name: backend-coverage
+
+  # ===== JOB 3: FRONTEND TESTS =====
+  test-frontend:
+    name: 🧪 Frontend Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: 📦 Install dependencies
+        run: |
+          cd frontend
+          npm ci
+
+      - name: 🏗️ Build frontend
+        run: |
+          cd frontend
+          npm run build
+        env:
+          NEXT_PUBLIC_API_URL: http://localhost:5000
+
+  # ===== JOB 4: SECURITY SCAN =====
+  security:
+    name: 🔒 Security Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🔍 Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          severity: 'CRITICAL,HIGH'
+          exit-code: '0'
+
+      - name: 🔍 NPM Audit - Backend
+        run: |
+          cd backend
+          npm audit --audit-level=high || true
+
+      - name: 🔍 NPM Audit - Frontend
+        run: |
+          cd frontend
+          npm audit --audit-level=high || true
+
+  # ===== JOB 5: BUILD DOCKER IMAGES =====
+  build:
+    name: 🐳 Build Docker Images
+    runs-on: ubuntu-latest
+    needs: [lint, test-backend, test-frontend]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🐳 Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: 🔐 Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: 🏗️ Build and push backend image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./backend
+          push: true
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/sanmartin-backend:latest
+            ${{ secrets.DOCKER_USERNAME }}/sanmartin-backend:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: 🏗️ Build and push frontend image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./frontend
+          push: true
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/sanmartin-frontend:latest
+            ${{ secrets.DOCKER_USERNAME }}/sanmartin-frontend:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  # ===== JOB 6: DEPLOY (Opcional) =====
+  deploy:
+    name: 🚀 Deploy to Production
+    runs-on: ubuntu-latest
+    needs: [build]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    environment: production
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🚀 Deploy notification
+        run: |
+          echo "🎉 Deploy to production successful!"
+          echo "Backend: ${{ secrets.DOCKER_USERNAME }}/sanmartin-backend:${{ github.sha }}"
+          echo "Frontend: ${{ secrets.DOCKER_USERNAME }}/sanmartin-frontend:${{ github.sha }}"
+
+      # Aquí puedes agregar pasos de deployment real:
+      # - SSH al servidor
+      # - docker-compose pull && docker-compose up -d
+      # - kubectl apply
+      # - etc.

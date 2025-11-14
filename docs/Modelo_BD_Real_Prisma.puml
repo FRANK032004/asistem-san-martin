@@ -1,0 +1,368 @@
+@startuml Modelo_Base_Datos_Real
+!define LIGHTBLUE #E1F5FE
+!define LIGHTGREEN #E8F5E8
+!define LIGHTYELLOW #FFF8E1
+!define LIGHTPINK #FCE4EC
+!define LIGHTGRAY #F5F5F5
+
+skinparam backgroundColor white
+skinparam entity {
+    BackgroundColor LIGHTBLUE
+    BorderColor black
+    FontName Arial
+    FontSize 10
+}
+
+skinparam class {
+    BackgroundColor LIGHTGREEN
+    BorderColor black
+    FontName Arial
+    FontSize 10
+}
+
+title "MODELO DE BASE DE DATOS - SISTEMA GPS DE ASISTENCIA\nInstituto San Martín\n(Implementación Real PostgreSQL + Prisma)" 
+
+entity Role {
+    * id : INT <<PK>>
+    --
+    * name : VARCHAR(50) <<UNIQUE>>
+    * description : VARCHAR(255)
+    created_at : TIMESTAMP
+    updated_at : TIMESTAMP
+}
+
+entity Usuario {
+    * id : UUID <<PK>>
+    --
+    * email : VARCHAR(255) <<UNIQUE>>
+    * password : VARCHAR(255)
+    * firstName : VARCHAR(100)
+    * lastName : VARCHAR(100)
+    * roleId : INT <<FK>>
+    * isActive : BOOLEAN
+    * lastLogin : TIMESTAMP
+    * isEmailVerified : BOOLEAN
+    * emailVerificationToken : VARCHAR(255)
+    * passwordResetToken : VARCHAR(255)
+    * passwordResetExpires : TIMESTAMP
+    created_at : TIMESTAMP
+    updated_at : TIMESTAMP
+}
+
+entity Area {
+    * id : INT <<PK>>
+    --
+    * nombre : VARCHAR(100) <<UNIQUE>>
+    * descripcion : TEXT
+    * coordinadorId : UUID <<FK>>
+    * activo : BOOLEAN
+    created_at : TIMESTAMP
+    updated_at : TIMESTAMP
+}
+
+entity ContratoDocente {
+    * id : INT <<PK>>
+    --
+    * docenteId : UUID <<FK>>
+    * tipoContrato : VARCHAR(50)
+    * horasSemanales : DECIMAL(4,2)
+    * tarifaHora : DECIMAL(8,2)
+    * fechaInicio : DATE
+    * fechaFin : DATE
+    * observaciones : TEXT
+    * activo : BOOLEAN
+    created_at : TIMESTAMP
+    updated_at : TIMESTAMP
+}
+
+entity Docente {
+    * id : UUID <<PK>>
+    --
+    * usuarioId : UUID <<FK>> <<UNIQUE>>
+    * areaId : INT <<FK>>
+    * dni : VARCHAR(8) <<UNIQUE>>
+    * telefono : VARCHAR(15)
+    * direccion : TEXT
+    * fechaIngreso : DATE
+    * fechaNacimiento : DATE
+    * estado : VARCHAR(20)
+    * observaciones : TEXT
+    created_at : TIMESTAMP
+    updated_at : TIMESTAMP
+}
+
+entity HorarioBase {
+    * id : INT <<PK>>
+    --
+    * docenteId : UUID <<FK>>
+    * diaSemana : INT
+    * horaEntrada : TIME
+    * horaSalida : TIME
+    * horasAsignadas : DECIMAL(4,2)
+    * activo : BOOLEAN
+    created_at : TIMESTAMP
+    updated_at : TIMESTAMP
+}
+
+entity HoraTrabajada {
+    * id : UUID <<PK>>
+    --
+    * asistenciaId : UUID <<FK>>
+    * docenteId : UUID <<FK>>
+    * contratoId : INT <<FK>>
+    * fecha : DATE
+    * horasNormales : DECIMAL(4,2)
+    * horasExtras : DECIMAL(4,2)
+    * factorHoraExtra : DECIMAL(3,2)
+    * montoHorasNormales : DECIMAL(8,2)
+    * montoHorasExtras : DECIMAL(8,2)
+    * montoTotal : DECIMAL(8,2)
+    * aprobado : BOOLEAN
+    created_at : TIMESTAMP
+    updated_at : TIMESTAMP
+}
+
+entity UbicacionPermitida {
+    * id : INT <<PK>>
+    --
+    * nombre : VARCHAR(100)
+    * latitud : DECIMAL(10,8)
+    * longitud : DECIMAL(11,8)
+    * radioMetros : INT
+    * direccion : TEXT
+    * activo : BOOLEAN
+    * tipoUbicacion : VARCHAR(20)
+    created_at : TIMESTAMP
+    updated_at : TIMESTAMP
+}
+
+entity Asistencia {
+    * id : UUID <<PK>>
+    --
+    * docenteId : UUID <<FK>>
+    * fecha : DATE
+    * horaEntrada : TIMESTAMP
+    * horaSalida : TIMESTAMP
+    * latitudEntrada : DECIMAL(10,8)
+    * longitudEntrada : DECIMAL(11,8)
+    * latitudSalida : DECIMAL(10,8)
+    * longitudSalida : DECIMAL(11,8)
+    * ubicacionEntradaId : INT <<FK>>
+    * ubicacionSalidaId : INT <<FK>>
+    * estado : VARCHAR(20)
+    * estadoSalida : VARCHAR(20)
+    * observaciones : TEXT
+    * ipEntrada : INET
+    * ipSalida : INET
+    * dispositivoEntrada : TEXT
+    * dispositivoSalida : TEXT
+    * navegadorEntrada : TEXT
+    * navegadorSalida : TEXT
+    * distanciaEntrada : DECIMAL(8,2)
+    * distanciaSalida : DECIMAL(8,2)
+    * gpsValidoEntrada : BOOLEAN
+    * gpsValidoSalida : BOOLEAN
+    * horasTrabajadas : DECIMAL(4,2)
+    * tardanzaMinutos : INT
+    * salidaTempranaMin : INT
+    created_at : TIMESTAMP
+    updated_at : TIMESTAMP
+}
+
+entity PlanillaHoras {
+    * id : UUID <<PK>>
+    --
+    * docenteId : UUID <<FK>>
+    * contratoId : INT <<FK>>
+    * mes : INT
+    * año : INT
+    * horasContractuales : DECIMAL(6,2)
+    * horasTrabajadas : DECIMAL(6,2)
+    * horasExtras : DECIMAL(6,2)
+    * horasFaltantes : DECIMAL(6,2)
+    * diasTrabajados : INT
+    * tardanzasCantidad : INT
+    * tardanzasMinutos : INT
+    * faltasJustificadas : INT
+    * faltasInjustificadas : INT
+    * tarifaHora : DECIMAL(8,2)
+    * montoHorasNormales : DECIMAL(10,2)
+    * montoHorasExtras : DECIMAL(10,2)
+    * descuentoTardanzas : DECIMAL(10,2)
+    * descuentoFaltas : DECIMAL(10,2)
+    * bonificaciones : DECIMAL(10,2)
+    * montoTotal : DECIMAL(10,2)
+    * calculado : BOOLEAN
+    * aprobado : BOOLEAN
+    * pagado : BOOLEAN
+    * fechaAprobacion : TIMESTAMP
+    * fechaPago : TIMESTAMP
+    * observaciones : TEXT
+    created_at : TIMESTAMP
+    updated_at : TIMESTAMP
+}
+
+entity EvaluacionDocente {
+    * id : UUID <<PK>>
+    --
+    * docenteId : UUID <<FK>>
+    * evaluadorId : UUID <<FK>>
+    * periodo : VARCHAR(20)
+    * porcentajeAsistencia : DECIMAL(5,2)
+    * porcentajePuntualidad : DECIMAL(5,2)
+    * horasCompletas : DECIMAL(5,2)
+    * tardanzasPromedio : DECIMAL(5,2)
+    * faltasTotal : INT
+    * cumplimientoHorario : INT
+    * responsabilidad : INT
+    * calificacionGeneral : DECIMAL(3,1)
+    * fortalezas : TEXT
+    * areasMejora : TEXT
+    * recomendaciones : TEXT
+    * fechaEvaluacion : TIMESTAMP
+    created_at : TIMESTAMP
+}
+
+entity Justificacion {
+    * id : UUID <<PK>>
+    --
+    * docenteId : UUID <<FK>>
+    * asistenciaId : UUID <<FK>>
+    * fechaInicio : DATE
+    * fechaFin : DATE
+    * tipo : VARCHAR(50)
+    * motivo : TEXT
+    * documentoAdjunto : VARCHAR(255)
+    * estado : VARCHAR(20)
+    * aprobadoPor : UUID <<FK>>
+    * fechaAprobacion : TIMESTAMP
+    * observacionesAdmin : TEXT
+    * afectaPago : BOOLEAN
+    * horasAfectadas : DECIMAL(4,2)
+    * porcentajeDescuento : DECIMAL(5,2)
+    * prioridad : VARCHAR(20)
+    created_at : TIMESTAMP
+    updated_at : TIMESTAMP
+}
+
+entity HorarioEspecial {
+    * id : INT <<PK>>
+    --
+    * docenteId : UUID <<FK>>
+    * fecha : DATE
+    * horaEntradaEspecial : TIME
+    * horaSalidaEspecial : TIME
+    * motivo : TEXT
+    * aprobadoPor : UUID <<FK>>
+    * horasEspeciales : DECIMAL(4,2)
+    * activo : BOOLEAN
+    created_at : TIMESTAMP
+}
+
+entity Notificacion {
+    * id : UUID <<PK>>
+    --
+    * usuarioId : UUID <<FK>>
+    * tipo : VARCHAR(50)
+    * titulo : VARCHAR(100)
+    * mensaje : TEXT
+    * datos : JSON
+    * leido : BOOLEAN
+    * importante : BOOLEAN
+    * fechaEnvio : TIMESTAMP
+    * fechaLeido : TIMESTAMP
+}
+
+entity SesionUsuario {
+    * id : UUID <<PK>>
+    --
+    * usuarioId : UUID <<FK>>
+    * token : VARCHAR(255) <<UNIQUE>>
+    * dispositivo : TEXT
+    * navegador : TEXT
+    * ipAddress : INET
+    * ubicacion : TEXT
+    * activa : BOOLEAN
+    * ultimaActividad : TIMESTAMP
+    * fechaExpiracion : TIMESTAMP
+    created_at : TIMESTAMP
+}
+
+entity Reporte {
+    * id : UUID <<PK>>
+    --
+    * generadoPor : UUID <<FK>>
+    * tipoReporte : VARCHAR(50)
+    * subtipo : VARCHAR(30)
+    * parametros : JSON
+    * fechaInicio : DATE
+    * fechaFin : DATE
+    * archivoGenerado : VARCHAR(255)
+    * formatoArchivo : VARCHAR(10)
+    * tamano : INT
+    * tiempoGeneracion : DECIMAL(6,2)
+    * estado : VARCHAR(20)
+    * filtros : JSON
+    created_at : TIMESTAMP
+}
+
+entity Configuracion {
+    * id : INT <<PK>>
+    --
+    * clave : VARCHAR(100) <<UNIQUE>>
+    * valor : TEXT
+    * descripcion : TEXT
+    * tipo : VARCHAR(20)
+    * categoria : VARCHAR(50)
+    * esPublico : BOOLEAN
+    * validacion : TEXT
+    updated_at : TIMESTAMP
+}
+
+entity LogActividad {
+    * id : UUID <<PK>>
+    --
+    * usuarioId : UUID <<FK>>
+    * accion : VARCHAR(100)
+    * tablaAfectada : VARCHAR(50)
+    * registroId : UUID
+    * datosAnteriores : JSON
+    * datosNuevos : JSON
+    * ipAddress : INET
+    * userAgent : TEXT
+    * modulo : VARCHAR(50)
+    * resultado : VARCHAR(20)
+    * duracionMs : INT
+    created_at : TIMESTAMP
+}
+
+' Relaciones principales basadas en el esquema real de Prisma
+Usuario ||--|| Role : "tiene"
+Usuario ||--o{ Docente : "puede ser"
+Area ||--o{ Docente : "pertenece a"
+Docente ||--o{ ContratoDocente : "tiene"
+Docente ||--o{ HorarioBase : "tiene"
+Docente ||--o{ Asistencia : "registra"
+Docente ||--o{ Justificacion : "presenta"
+Docente ||--o{ HorarioEspecial : "tiene"
+Docente ||--o{ EvaluacionDocente : "evaluado en"
+Docente ||--o{ PlanillaHoras : "genera"
+
+Asistencia ||--o{ HoraTrabajada : "calcula"
+Asistencia ||--o{ Justificacion : "puede tener"
+Asistencia }o--|| UbicacionPermitida : "entrada en"
+Asistencia }o--|| UbicacionPermitida : "salida en"
+
+ContratoDocente ||--o{ HoraTrabajada : "aplica a"
+ContratoDocente ||--o{ PlanillaHoras : "genera"
+
+Usuario ||--o{ Justificacion : "aprueba"
+Usuario ||--o{ EvaluacionDocente : "evalúa"
+Usuario ||--o{ Notificacion : "recibe"
+Usuario ||--o{ SesionUsuario : "crea"
+Usuario ||--o{ Reporte : "genera"
+Usuario ||--o{ LogActividad : "registra"
+
+note top : Este modelo refleja exactamente\nla implementación real en PostgreSQL\ncon Prisma ORM
+
+@enduml

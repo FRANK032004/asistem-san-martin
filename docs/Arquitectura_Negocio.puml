@@ -1,0 +1,170 @@
+@startuml Arquitectura_Negocio_Instituto
+!theme cerulean-outline
+title **ARQUITECTURA DE NEGOCIO - MAPA DE MACROPROCESOS**\n**INSTITUTO SAN MARTÍN - SISTEMA DE GESTIÓN ACADÉMICA**\n//Procesos Institucionales y de Negocio - Informe Académico 2024//
+
+skinparam {
+  backgroundColor #FEFEFE
+  shadowing false
+  roundcorner 8
+  defaultFontSize 10
+  packageBorderThickness 3
+}
+
+' Colores por tipo de proceso
+skinparam package<<estrategico>> {
+  BackgroundColor #E8F5E8
+  BorderColor #388E3C
+  BorderThickness 3
+  FontStyle bold
+}
+
+skinparam package<<misional>> {
+  BackgroundColor #E3F2FD
+  BorderColor #1976D2
+  BorderThickness 3
+  FontStyle bold
+}
+
+skinparam package<<apoyo>> {
+  BackgroundColor #FFF3E0
+  BorderColor #F57C00
+  BorderThickness 3
+  FontStyle bold
+}
+
+skinparam rectangle<<proceso>> {
+  BackgroundColor #F8F9FA
+  BorderColor #6C757D
+  BorderThickness 2
+}
+
+skinparam rectangle<<subproceso>> {
+  BackgroundColor #FFFFFF
+  BorderColor #ADB5BD
+  BorderThickness 1
+}
+
+' =============== PROCESOS ESTRATÉGICOS ===============
+package "🎯 PROCESOS ESTRATÉGICOS" as estrategicos <<estrategico>> {
+  
+  rectangle "**Planificación Estratégica**\nInstitucional" as planificacion <<proceso>> {
+    rectangle "• Planificación Académica Anual\n• Definición de Objetivos\n• Estrategia Institucional" as plan_sub <<subproceso>>
+  }
+  
+  rectangle "**Gestión de Calidad**\nEducativa" as calidad <<proceso>> {
+    rectangle "• Evaluación Institucional\n• Mejora Continua\n• Indicadores de Rendimiento" as calidad_sub <<subproceso>>
+  }
+  
+  rectangle "**Gestión de Riesgos**\ny Compliance" as riesgos <<proceso>> {
+    rectangle "• Identificación de Riesgos\n• Cumplimiento Normativo\n• Auditorías Internas" as riesgos_sub <<subproceso>>
+  }
+}
+
+' =============== PROCESOS MISIONALES (CORE) ===============
+package "🎓 PROCESOS MISIONALES - CORE DEL NEGOCIO" as misionales <<misional>> {
+  
+  rectangle "**Gestión Académica**\nPrincipal" as academica <<proceso>> {
+    rectangle "• Planificación Curricular\n• Programación de Clases\n• Evaluación Académica\n• Seguimiento Estudiantil" as acad_sub <<subproceso>>
+  }
+  
+  rectangle "**Control de Asistencia**\nDocente" as asistencia <<proceso>> {
+    rectangle "🔴 **PROCESO AUTOMATIZADO**\n• Registro GPS de Entrada/Salida\n• Validación de Ubicación\n• Cálculo de Horas Trabajadas\n• Generación de Reportes" as asist_sub <<subproceso>>
+  }
+  
+  rectangle "**Gestión de Personal**\nDocente" as personal <<proceso>> {
+    rectangle "• Selección y Contratación\n• Evaluación del Desempeño\n• Desarrollo Profesional\n• Gestión de Horarios" as pers_sub <<subproceso>>
+  }
+  
+  rectangle "**Administración**\nEstudiantil" as estudiantes <<proceso>> {
+    rectangle "• Admisiones\n• Matriculación\n• Seguimiento Académico\n• Graduación" as est_sub <<subproceso>>
+  }
+}
+
+' =============== PROCESOS DE APOYO ===============
+package "🔧 PROCESOS DE APOYO" as apoyo <<apoyo>> {
+  
+  rectangle "**Gestión de Recursos**\nHumanos" as rrhh <<proceso>> {
+    rectangle "• Administración de Personal\n• Nómina y Pagos\n• Capacitación\n• Bienestar Laboral" as rrhh_sub <<subproceso>>
+  }
+  
+  rectangle "**Gestión Financiera**\ny Contable" as finanzas <<proceso>> {
+    rectangle "• Presupuesto Institucional\n• Control de Gastos\n• Facturación\n• Reportes Financieros" as fin_sub <<subproceso>>
+  }
+  
+  rectangle "**Tecnología y Sistemas**\nde Información" as tecnologia <<proceso>> {
+    rectangle "🔴 **SISTEMA IMPLEMENTADO**\n• Infraestructura TI\n• Desarrollo de Software\n• Soporte Técnico\n• Seguridad Informática" as tech_sub <<subproceso>>
+  }
+  
+  rectangle "**Gestión de Instalaciones**\ny Mantenimiento" as instalaciones <<proceso>> {
+    rectangle "• Mantenimiento de Aulas\n• Servicios Generales\n• Seguridad Física\n• Gestión de Espacios" as inst_sub <<subproceso>>
+  }
+}
+
+' =============== FLUJOS PRINCIPALES ENTRE PROCESOS ===============
+
+' Flujos Estratégicos
+planificacion --> academica : "Objetivos\nAcadémicos"
+calidad --> asistencia : "Indicadores\nde Control"
+riesgos --> tecnologia : "Políticas de\nSeguridad"
+
+' Flujos Misionales
+academica --> personal : "Requerimientos\nde Personal"
+personal --> asistencia : "Horarios y\nAsignaciones"
+asistencia --> academica : "Reportes de\nAsistencia"
+
+' Flujos de Apoyo
+rrhh --> personal : "Gestión de\nContratos"
+asistencia --> finanzas : "Datos para\nNómina"
+tecnologia --> asistencia : "Soporte\nTécnico"
+instalaciones --> asistencia : "Ubicaciones\nPermitidas"
+
+' Flujos de Retroalimentación (dotted)
+asistencia ..> calidad : "Métricas de\nRendimiento"
+finanzas ..> planificacion : "Información\nPresupuestal"
+tecnologia ..> riesgos : "Reportes de\nSeguridad"
+
+' =============== INDICADORES CLAVE ===============
+
+note top of asistencia : **📊 INDICADORES CLAVE DEL PROCESO**\n• Puntualidad: 92.3% promedio\n• Asistencia: 85.5% mensual\n• Cobertura GPS: 100% docentes\n• Tiempo de procesamiento: <5 min
+
+note bottom of tecnologia : **🔧 CAPACIDADES TÉCNICAS**\n• Usuarios concurrentes: 50+\n• Disponibilidad: 99.9%\n• Precisión GPS: 5-10 metros\n• Backup automático diario
+
+note right of planificacion : **🎯 OBJETIVOS ESTRATÉGICOS**\n• Eficiencia operacional: +25%\n• Transparencia administrativa: 100%\n• Digitalización procesos: 80%\n• Satisfacción docente: >85%
+
+' =============== ACTORES Y STAKEHOLDERS ===============
+
+actor "👨‍💼 **Director\nAcadémico**" as director
+actor "👥 **Coordinadores\nde Área**" as coordinadores  
+actor "👨‍🏫 **Docentes**" as docentes
+actor "👩‍💻 **Personal\nAdministrativo**" as admin
+actor "🏢 **Ministerio de\nEducación**" as minedu
+
+' Relaciones con procesos
+director --> planificacion : "Supervisión"
+coordinadores --> personal : "Gestión"
+docentes --> asistencia : "Registro Diario"
+admin --> rrhh : "Operación"
+minedu --> calidad : "Regulación"
+
+' =============== LEYENDA DE ARQUITECTURA DE NEGOCIO ===============
+
+legend bottom center
+|= **TIPOS DE PROCESOS** |= **CARACTERÍSTICAS** |
+| 🎯 **Estratégicos:** Dirección y planificación | **Frecuencia:** Anual/Semestral |
+| 🎓 **Misionales:** Core del negocio educativo | **Criticidad:** Alta - Impacto directo |
+| 🔧 **Apoyo:** Soporte a procesos principales | **Automatización:** Parcial/Manual |
+
+|= **PROCESO AUTOMATIZADO** |= **BENEFICIOS DEL SISTEMA** |
+| 🔴 **Control de Asistencia:** 100% digital | **Reducción de errores:** 95% |
+| 🔴 **Gestión TI:** Soporte automatizado | **Tiempo de procesamiento:** -80% |
+| **Integración:** Base de datos centralizada | **Transparencia:** +100% |
+| **Reportes:** Generación automática | **Eficiencia operacional:** +25% |
+
+|= **STAKEHOLDERS PRINCIPALES** |= **ROI Y IMPACTO** |
+| **Internos:** Director, Coordinadores, Docentes | **ROI Estimado:** 300% en 2 años |
+| **Externos:** MINEDU, Estudiantes, Familias | **Ahorro Operativo:** 40 horas/mes |
+| **Beneficiarios:** Comunidad educativa | **Mejora Procesos:** 8 de 11 procesos |
+| **Reguladores:** Entidades gubernamentales | **Cumplimiento:** 100% normativo |
+end legend
+
+@enduml

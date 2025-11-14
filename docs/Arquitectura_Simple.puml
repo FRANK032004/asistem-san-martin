@@ -1,0 +1,126 @@
+@startuml Arquitectura_Sistema_Simple
+!theme cerulean-outline
+title **ARQUITECTURA DE LA APLICACIÓN**\n**INSTITUTO SAN MARTÍN - SISTEMA DE GESTIÓN ACADÉMICA**\n//Vista de Arquitectura de Software - Informe Académico 2024//
+
+skinparam {
+  backgroundColor #FEFEFE
+  shadowing false
+  roundcorner 8
+  defaultFontSize 11
+}
+
+skinparam node<<server>> {
+  BackgroundColor #E3F2FD
+  BorderColor #1976D2
+  BorderThickness 3
+}
+
+skinparam node<<database>> {
+  BackgroundColor #E8F5E8
+  BorderColor #388E3C
+  BorderThickness 3
+}
+
+skinparam node<<client>> {
+  BackgroundColor #FFF3E0
+  BorderColor #F57C00
+  BorderThickness 3
+}
+
+skinparam cloud<<external>> {
+  BackgroundColor #F5F5F5
+  BorderColor #757575
+  BorderThickness 2
+}
+
+' =============== DISPOSITIVOS CLIENTE ===============
+node "👤 DISPOSITIVOS CLIENTE" as client_node <<client>> {
+  [Navegador Web\nChrome/Firefox/Safari\nEdge 90+] as browsers
+  [Dispositivos Móviles\nAndroid/iOS\nProgressive Web App] as mobile
+}
+
+' =============== SERVIDOR WEB ===============
+node "🌐 SERVIDOR WEB\nPuerto 3000" as web_server <<server>> {
+  [Next.js 15.5\nReact 19 + TypeScript\nSSR/SSG + Turbopack] as nextjs
+  [Static Assets\nCSS/JS/Images\nFonts + PWA Manifest] as assets
+  [Web Middleware\nAuth + Route Guards\nError Boundaries] as web_middleware
+}
+
+' =============== SERVIDOR API ===============
+node "🔧 SERVIDOR API\nPuerto 5000" as api_server <<server>> {
+  [Express.js Server\nNode.js 18+ TypeScript\nMiddleware Pipeline] as express
+  [API Routes\n/auth /docentes\n/asistencias /reportes] as routes
+  [Business Logic\nControllers + Services\nValidators + GPS] as logic
+  [Security Layer\nJWT + CORS\nRate Limiting] as security
+}
+
+' =============== BASE DE DATOS ===============
+node "💾 SERVIDOR BASE DE DATOS\nPuerto 5432" as db_server <<database>> {
+  [PostgreSQL 17\nACID Compliance\nConnection Pooling] as postgres
+  [PostGIS Extension\nSpatial Data Types\nGPS Calculations] as postgis
+  [Database Schema\n17 Tablas Relacionales\nÍndices Optimizados] as schema
+}
+
+' =============== SERVICIOS EXTERNOS ===============
+cloud "☁️ SERVICIOS EXTERNOS" as external <<external>> {
+  [Geolocation API\nNavigator.geolocation\nCoordenadas GPS] as geo_api
+  [Email Service\nSMTP/SendGrid\n(Futuro)] as email
+  [File Storage\nLocal/AWS S3\n(Futuro)] as storage
+}
+
+' =============== CONEXIONES ===============
+
+' Cliente a Servidor Web
+browsers --> nextjs : "HTTPS\nPuerto 3000"
+mobile --> nextjs : "PWA\nResponsive"
+
+' Servidor Web a API
+nextjs --> routes : "REST API\nHTTP/JSON"
+nextjs --> assets : "Asset Loading"
+web_middleware --> nextjs : "Protection"
+
+' API Internal Flow
+routes --> security : "Authentication"
+security --> logic : "Authorized Requests"
+logic --> postgres : "ORM Queries\n(Prisma)"
+logic --> postgis : "GPS Validation"
+
+' Database Internal
+postgres --> schema : "Data Operations"
+postgis --> schema : "Spatial Queries"
+
+' External Services
+browsers --> geo_api : "GPS Request"
+geo_api --> logic : "Coordinates"
+
+' Future Connections (dotted)
+logic ..> email : "Notifications\n(Futuro)"
+logic ..> storage : "Files/Reports\n(Futuro)"
+
+' =============== NOTAS ===============
+
+note top of client_node : **🎯 CAPA CLIENTE**\nInterfaz responsiva\nExperiencia multiplataforma\nPWA instalable
+
+note right of web_server : **⚡ FRONTEND SERVER**\nServer Side Rendering\nOptimización automática\nHot reload desarrollo
+
+note bottom of api_server : **🔧 BACKEND SERVER**\nAPI REST escalable\nMiddleware modular\nValidación robusta
+
+note left of db_server : **💾 PERSISTENCIA**\nBase relacional robusta\nExtensiones geoespaciales\nAlta disponibilidad
+
+' =============== LEYENDA ===============
+
+legend bottom center
+|= **ARQUITECTURA** |= **TECNOLOGÍAS** |
+| **Patrón:** 3 Capas + API REST | **Frontend:** Next.js 15.5 + React 19 |
+| **Comunicación:** HTTP/JSON | **Backend:** Node.js 18 + Express.js |
+| **Autenticación:** JWT Tokens | **Database:** PostgreSQL 17 + PostGIS |
+| **Geolocalización:** GPS + PostGIS | **ORM:** Prisma Client TypeScript |
+
+|= **PUERTOS** |= **CAPACIDADES** |
+| **Frontend:** 3000 (HTTPS) | **Usuarios:** 50+ concurrentes |
+| **API:** 5000 (HTTP) | **GPS:** 5-10m precisión |
+| **Database:** 5432 (TCP) | **API:** <100ms response |
+| **Protocolos:** HTTP/1.1 | **Uptime:** 99.9% disponibilidad |
+end legend
+
+@enduml

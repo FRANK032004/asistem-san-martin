@@ -1,0 +1,131 @@
+@startuml Modelo_Datos_Empresa
+!theme cerulean-outline
+
+title "MODELO DE DATOS EMPRESARIAL\nInstituto San Martín - Control de Asistencia GPS"
+
+package "ORGANIZACION" {
+    class "Dirección" {
+        + Planificación
+        + Supervisión
+        + Decisiones
+    }
+    
+    class "Coordinación" {
+        + Gestión Curricular
+        + Supervisión Docente
+    }
+    
+    class "Administración" {
+        + Control Personal
+        + Procesamiento Nómina
+    }
+    
+    class "Docentes" {
+        + Registro Asistencia
+        + Cumplimiento Horario
+    }
+}
+
+package "PROCESOS" {
+    class "Captura GPS" {
+        + Registro Entrada/Salida
+        + Validación Ubicación
+        + Control Tiempo Real
+    }
+    
+    class "Procesamiento" {
+        + Cálculo Horas
+        + Detección Tardanzas
+        + Generación Métricas
+    }
+    
+    class "Almacenamiento" {
+        + Base Datos PostgreSQL
+        + Histórico Asistencias
+        + Logs Auditoría
+    }
+    
+    class "Reportería" {
+        + Dashboards
+        + Reportes Ejecutivos
+        + Análisis Tendencias
+    }
+}
+
+package "FLUJOS INFORMACIÓN" {
+    class "Datos Operacionales" {
+        + Asistencias Tiempo Real
+        + Estados Personal
+        + Horarios Base
+    }
+    
+    class "Datos Analíticos" {
+        + KPIs Desempeño
+        + Tendencias
+        + Proyecciones
+    }
+    
+    class "Datos Control" {
+        + Configuraciones
+        + Reglas Negocio
+        + Parámetros GPS
+    }
+    
+    class "Compliance" {
+        + Reportes Legales
+        + Auditorías
+        + Documentación
+    }
+}
+
+package "ENTIDADES NEGOCIO" {
+    class "Personal" {
+        + DNI Único
+        + Datos Contractuales
+        + Historial Laboral
+    }
+    
+    class "Asistencia" {
+        + Registro Diario GPS
+        + Validación Horarios
+        + Métricas Cumplimiento
+    }
+    
+    class "Horarios" {
+        + Planificación Semanal
+        + Horarios Especiales
+        + Distribución Carga
+    }
+    
+    class "Nómina" {
+        + Cálculo Mensual
+        + Horas Trabajadas
+        + Descuentos/Bonificaciones
+    }
+}
+
+' Relaciones Organizacionales
+Dirección --> Coordinación : supervisa
+Dirección --> Administración : supervisa  
+Coordinación --> Docentes : coordina
+Administración --> Docentes : gestiona
+
+' Flujos de Procesos
+"Captura GPS" --> Procesamiento : datos
+Procesamiento --> Almacenamiento : procesa
+Almacenamiento --> Reportería : consulta
+Reportería --> Dirección : informa
+
+' Flujos de Información
+"Datos Operacionales" --> "Datos Analíticos" : agrega
+"Datos Control" --> Procesamiento : configura
+"Datos Analíticos" --> Compliance : genera
+
+' Entidades de Negocio
+Personal --> Asistencia : registra
+Asistencia --> Horarios : valida
+Asistencia --> Nómina : alimenta
+
+note right : **GOBIERNO DE DATOS**\n• Calidad: Validación GPS PostGIS\n• Seguridad: Roles + JWT\n• Auditoría: Logs completa\n• Compliance: Normas laborales
+
+@enduml

@@ -1,0 +1,81 @@
+@startuml
+!theme cerulean-outline
+title FLUJO DEL PROCESO PRINCIPAL - CONTROL DE ASISTENCIA GPS\nInstituto San Martin - Sistema ASISTEM
+
+skinparam activity {
+  BackgroundColor #E3F2FD
+  BorderColor #1976D2
+  FontStyle bold
+}
+
+skinparam decision {
+  BackgroundColor #FFF3E0
+  BorderColor #FF6F00
+}
+
+start
+
+:DOCENTE llega al Instituto\n(7:30 - 8:00 AM);
+note right: Horario establecido\nTolerancia: 15 minutos
+
+:DOCENTE abre App ASISTEM;
+
+:SISTEMA captura ubicacion GPS\nautomaticamente;
+
+:SISTEMA obtiene coordenadas\n(Latitud, Longitud);
+
+:SISTEMA valida geoperimetro\ndel Instituto;
+
+if (Esta dentro del radio permitido?) then (SI)
+  :SISTEMA: Ubicacion valida\n(Radio: 50 metros);
+else (NO)
+  :SISTEMA: Ubicacion invalida\nFuera del perimetro;
+  :SISTEMA envia notificacion\nde error al docente;
+  :DOCENTE contacta Admin\npara justificacion;
+  stop
+endif
+
+:SISTEMA registra en BD\nPostgreSQL + PostGIS;
+
+note right: Datos almacenados\n- ID Usuario\n- Timestamp\n- Coordenadas GPS\n- Tipo Registro\n- Dispositivo ID
+
+:SISTEMA calcula tiempo\nde llegada;
+
+if (Llego a tiempo?) then (PUNTUAL)
+  :SISTEMA: Asistencia puntual\n(Antes de 8:00 AM);
+else (TARDE)
+  :SISTEMA: Llegada tardia\n(Despues de 8:00 AM);
+  :SISTEMA calcula minutos\nde retraso;
+endif
+
+:SISTEMA envia confirmacion\nal docente;
+
+:DOCENTE recibe confirmacion\nde registro exitoso;
+
+note right: Confirmacion incluye\n- Hora de registro\n- Estado puntual/tardio\n- Ubicacion validada
+
+:DOCENTE al final del dia\n(4:00 - 6:00 PM);
+
+:DOCENTE registra salida\nen App ASISTEM;
+
+:SISTEMA captura GPS salida;
+
+:SISTEMA valida ubicacion\nde salida;
+
+:SISTEMA registra salida\nen BD;
+
+:SISTEMA calcula horas\ntrabajadas;
+
+note left: Calculo automatico\n- Hora entrada - salida\n- Descuento tardanzas\n- Horas extras
+
+:SISTEMA genera reporte\ndiario automatico;
+
+:COORDINADORES reciben\ndashboard con metricas;
+
+:DIRECTOR revisa reportes\nconsolidados;
+
+:ADMIN procesa datos\npara nomina;
+
+stop
+
+@enduml

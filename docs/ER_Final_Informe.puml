@@ -1,0 +1,279 @@
+@startuml Instituto_San_Martin_ER_Final
+!theme cerulean-outline
+title **MODELO ENTIDAD-RELACIÓN**\n**INSTITUTO SAN MARTÍN - SISTEMA DE GESTIÓN ACADÉMICA**\n//Diseño de Base de Datos - Informe Académico 2024//
+
+' =============== CONFIGURACIÓN PROFESIONAL PARA INFORME ===============
+skinparam {
+  backgroundColor #FEFEFE
+  shadowing false
+  linetype ortho
+  roundcorner 4
+  defaultFontSize 11
+  nodesep 55
+  ranksep 85
+  minClassWidth 170
+  packageBorderThickness 2
+}
+
+' Colores diferenciados por nivel funcional
+skinparam entity<<core>> {
+  BackgroundColor #E3F2FD
+  BorderColor #1976D2
+  BorderThickness 2
+}
+
+skinparam entity<<operation>> {
+  BackgroundColor #F3E5F5
+  BorderColor #7B1FA2
+  BorderThickness 2
+}
+
+skinparam entity<<management>> {
+  BackgroundColor #E8F5E8
+  BorderColor #388E3C
+  BorderThickness 2
+}
+
+skinparam entity {
+  FontSize 10
+  FontStyle bold
+}
+
+' =============== NIVEL 1: ENTIDADES CORE DEL SISTEMA ===============
+
+entity "Usuario" as usuario <<core>> {
+  🔑 **id** : UUID
+  --
+  • dni : VARCHAR(20) ⚪
+  • nombres : VARCHAR(100)
+  • apellidos : VARCHAR(100)
+  • email : VARCHAR(150) ⚪
+  • password_hash : VARCHAR(255)
+  🔗 rol_id : INT
+  • activo : BOOLEAN
+  • ultimo_acceso : TIMESTAMP
+  • created_at : TIMESTAMP
+}
+
+entity "Role" as role <<core>> {
+  🔑 **id** : INT
+  --
+  • nombre : VARCHAR(50) ⚪
+  • descripcion : TEXT
+  • permisos : VARCHAR[]
+  • created_at : TIMESTAMP
+  • updated_at : TIMESTAMP
+}
+
+entity "Area" as area <<core>> {
+  🔑 **id** : INT
+  --
+  • nombre : VARCHAR(100)
+  • codigo : VARCHAR(10) ⚪
+  • descripcion : TEXT
+  🔗 coordinador_id : UUID
+  • activa : BOOLEAN
+  • color_hex : VARCHAR(7)
+}
+
+entity "Docente" as docente <<core>> {
+  🔑 **id** : UUID
+  --
+  🔗 usuario_id : UUID
+  🔗 area_id : INT
+  • codigo_docente : VARCHAR(20) ⚪
+  • fecha_ingreso : DATE
+  • fecha_nacimiento : DATE
+  • sueldo : DECIMAL(10,2)
+  • estado : VARCHAR(20)
+  • observaciones : TEXT
+}
+
+' =============== NIVEL 2: ENTIDADES DE OPERACIÓN ===============
+
+entity "ContratoDocente" as contrato <<operation>> {
+  🔑 **id** : INT
+  --
+  🔗 docente_id : UUID
+  • tipo_contrato : VARCHAR(20)
+  • tarifa_por_hora : DECIMAL(8,2)
+  • sueldo_base : DECIMAL(10,2)
+  • fecha_inicio : DATE
+  • fecha_fin : DATE
+  • activo : BOOLEAN
+  • created_at : TIMESTAMP
+}
+
+entity "Asistencia" as asistencia <<operation>> {
+  🔑 **id** : UUID
+  --
+  🔗 docente_id : UUID
+  • fecha : DATE ⚪
+  • hora_entrada : TIMESTAMP
+  • hora_salida : TIMESTAMP
+  • estado : VARCHAR(20)
+  • tardanza_minutos : INT
+  • horas_trabajadas : DECIMAL(4,2)
+  • gps_valido_entrada : BOOLEAN
+  • observaciones : TEXT
+}
+
+entity "HorarioBase" as horario <<operation>> {
+  🔑 **id** : INT
+  --
+  🔗 docente_id : UUID
+  🔗 area_id : INT
+  • dia_semana : INT
+  • hora_inicio : TIME
+  • hora_fin : TIME
+  • tipo_clase : VARCHAR(50)
+  • activo : BOOLEAN
+  • created_at : TIMESTAMP
+}
+
+entity "UbicacionPermitida" as ubicacion <<operation>> {
+  🔑 **id** : INT
+  --
+  • nombre : VARCHAR(100)
+  • latitud : DECIMAL(10,8)
+  • longitud : DECIMAL(11,8)
+  • radio_metros : INT
+  • tipo_ubicacion : VARCHAR(30)
+  • activa : BOOLEAN
+}
+
+' =============== NIVEL 3: ENTIDADES DE GESTIÓN ===============
+
+entity "PlanillaHoras" as planilla <<management>> {
+  🔑 **id** : UUID
+  --
+  🔗 docente_id : UUID
+  🔗 contrato_id : INT
+  • anio : INT
+  • mes : INT
+  • horas_trabajadas : DECIMAL(6,2)
+  • horas_extras : DECIMAL(6,2)
+  • monto_total : DECIMAL(10,2)
+  • estado : VARCHAR(20)
+  • fecha_pago : DATE
+}
+
+entity "EvaluacionDocente" as evaluacion <<management>> {
+  🔑 **id** : UUID
+  --
+  🔗 docente_id : UUID
+  🔗 evaluador_id : UUID
+  • periodo : VARCHAR(20)
+  • porcentaje_asistencia : DECIMAL(5,2)
+  • porcentaje_puntualidad : DECIMAL(5,2)
+  • calificacion_general : DECIMAL(3,1)
+  • fecha_evaluacion : DATE
+  • observaciones : TEXT
+}
+
+entity "Justificacion" as justificacion <<management>> {
+  🔑 **id** : UUID
+  --
+  🔗 docente_id : UUID
+  🔗 asistencia_id : UUID
+  • tipo : VARCHAR(50)
+  • motivo : TEXT
+  • estado : VARCHAR(20)
+  🔗 aprobado_por : UUID
+  • afecta_pago : BOOLEAN
+  • created_at : TIMESTAMP
+}
+
+entity "Notificacion" as notificacion <<management>> {
+  🔑 **id** : UUID
+  --
+  🔗 usuario_id : UUID
+  • titulo : VARCHAR(200)
+  • mensaje : TEXT
+  • tipo : VARCHAR(50)
+  • leido : BOOLEAN
+  • fecha_envio : TIMESTAMP
+  • activa : BOOLEAN
+}
+
+' =============== RELACIONES PRINCIPALES ===============
+
+' Relaciones Core
+role ||--o{ usuario : "asigna"
+usuario ||--|| docente : "perfil"
+area ||--o{ docente : "pertenece"
+usuario ||--o{ area : "coordina"
+
+' Relaciones Operacionales
+docente ||--o{ contrato : "firma"
+docente ||--o{ asistencia : "registra"
+docente ||--o{ horario : "asignado"
+ubicacion ||--o{ asistencia : "válida en"
+
+' Relaciones de Gestión
+contrato ||--o{ planilla : "genera"
+docente ||--o{ evaluacion : "evaluado"
+asistencia ||--o{ justificacion : "justifica"
+usuario ||--o{ notificacion : "recibe"
+
+' Relaciones Transversales
+usuario ||--o{ evaluacion : "evalúa"
+usuario ||--o{ justificacion : "aprueba"
+
+' =============== ORGANIZACIÓN ESPACIAL ===============
+
+' Alineación horizontal por niveles
+usuario -[hidden]right-> role
+role -[hidden]right-> area
+area -[hidden]right-> docente
+
+contrato -[hidden]right-> asistencia
+asistencia -[hidden]right-> horario
+horario -[hidden]right-> ubicacion
+
+planilla -[hidden]right-> evaluacion
+evaluacion -[hidden]right-> justificacion
+justificacion -[hidden]right-> notificacion
+
+' Separación vertical por niveles
+usuario -[hidden]down-> contrato
+role -[hidden]down-> asistencia
+area -[hidden]down-> horario
+docente -[hidden]down-> ubicacion
+
+contrato -[hidden]down-> planilla
+asistencia -[hidden]down-> evaluacion
+horario -[hidden]down-> justificacion
+ubicacion -[hidden]down-> notificacion
+
+' =============== DOCUMENTACIÓN ACADÉMICA ===============
+
+note top of usuario : **🔐 NÚCLEO DE AUTENTICACIÓN**\nControl de acceso y seguridad\nBase para trazabilidad del sistema
+
+note top of docente : **👨‍🏫 ENTIDAD PRINCIPAL**\nCore del sistema académico\nCentraliza información docente
+
+note bottom of contrato : **📋 GESTIÓN CONTRACTUAL**\nModalidades: completo, por horas, temporal\nBase para cálculos de nómina
+
+note bottom of planilla : **💰 AUTOMATIZACIÓN FINANCIERA**\nCálculo automático de pagos\nIntegración asistencias-evaluaciones
+
+note right of evaluacion : **📊 SISTEMA DE EVALUACIÓN**\nMétricas de rendimiento académico\nSoporte a decisiones institucionales
+
+note left of asistencia : **📍 CONTROL GEOLOCALIZADO**\nValidación GPS y temporal\nTrazabilidad completa de horarios
+
+' =============== LEYENDA ACADÉMICA PROFESIONAL ===============
+
+legend bottom center
+|= **SIMBOLOGÍA TÉCNICA** |= **NIVELES ARQUITECTÓNICOS** |
+| 🔑 | Clave Primaria (Primary Key) | **Azul:** Entidades Core (Usuarios, Roles, Áreas) |
+| 🔗 | Clave Foránea (Foreign Key) | **Violeta:** Entidades Operacionales (Contratos, Asistencias) |
+| ⚪ | Campo Único (Unique Constraint) | **Verde:** Entidades de Gestión (Nómina, Evaluaciones) |
+| • | Campo Obligatorio (NOT NULL) | |
+
+|= **CARACTERÍSTICAS DEL SISTEMA** |= **INFORMACIÓN TÉCNICA** |
+| **Entidades Principales:** 12 | **Institución:** San Martín |
+| **Relaciones:** 15 conexiones | **Versión:** 2.0 Académica |
+| **Usuarios Concurrentes:** 50+ | **Fecha:** Octubre 2024 |
+| **Arquitectura:** 3 niveles funcionales | **Stack:** PostgreSQL + Prisma + Next.js |
+end legend
+
+@enduml

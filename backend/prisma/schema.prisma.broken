@@ -1,0 +1,495 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator erd {
+  provider = "prisma-erd-generator"
+  output   = "../docs/ER_Diagram.svg"
+  theme    = "forest"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model areas {
+  id             Int             @id @default(autoincrement())
+  nombre         String          @db.VarChar(100)
+  descripcion    String?
+  activo         Boolean?        @default(true)
+  created_at     DateTime?       @default(now()) @db.Timestamp(6)
+  updated_at     DateTime?       @default(now()) @db.Timestamp(6)
+  codigo         String?         @unique @db.VarChar(10)
+  color_hex      String?         @db.VarChar(7)
+  coordinador_id String?         @db.Uuid
+  usuarios       usuarios?       @relation(fields: [coordinador_id], references: [id])
+  docentes       docentes[]
+  horarios_base  horarios_base[]
+}
+
+model Asistencia {
+  id                 String              @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  docenteId          String              @map("docente_id") @db.Uuid
+  fecha              DateTime            @db.Date
+  horaEntrada        DateTime?           @map("hora_entrada") @db.Timestamp(6)
+  horaSalida         DateTime?           @map("hora_salida") @db.Timestamp(6)
+  latitudEntrada     Decimal?            @map("latitud_entrada") @db.Decimal(10, 8)
+  longitudEntrada    Decimal?            @map("longitud_entrada") @db.Decimal(11, 8)
+  latitudSalida      Decimal?            @map("latitud_salida") @db.Decimal(10, 8)
+  longitudSalida     Decimal?            @map("longitud_salida") @db.Decimal(11, 8)
+  ubicacionEntradaId Int?                @map("ubicacion_entrada_id")
+  ubicacionSalidaId  Int?                @map("ubicacion_salida_id")
+  estado             String?             @default("presente") @db.VarChar(20)
+  observaciones      String?
+  ipEntrada          String?             @map("ip_entrada") @db.Inet
+  ipSalida           String?             @map("ip_salida") @db.Inet
+  dispositivoEntrada String?             @map("dispositivo_entrada")
+  dispositivoSalida  String?             @map("dispositivo_salida")
+  createdAt          DateTime?           @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt          DateTime?           @default(now()) @updatedAt @map("updated_at") @db.Timestamp(6)
+  distanciaEntrada   Decimal?            @map("distancia_entrada") @db.Decimal(8, 2)
+  distanciaSalida    Decimal?            @map("distancia_salida") @db.Decimal(8, 2)
+  estadoSalida       String?             @map("estado_salida") @db.VarChar(20)
+  gpsValidoEntrada   Boolean?            @default(true) @map("gps_valido_entrada")
+  gpsValidoSalida    Boolean?            @default(true) @map("gps_valido_salida")
+  horasTrabajadas    Decimal?            @map("horas_trabajadas") @db.Decimal(4, 2)
+  navegadorEntrada   String?             @map("navegador_entrada")
+  navegadorSalida    String?             @map("navegador_salida")
+  salidaTempranaMin  Int?                @default(0) @map("salida_temprana_min")
+  tardanzaMinutos    Int?                @default(0) @map("tardanza_minutos")
+  docente            Docente             @relation(fields: [docenteId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  ubicacionEntrada   UbicacionPermitida? @relation("UbicacionEntrada", fields: [ubicacionEntradaId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  ubicacionSalida    UbicacionPermitida? @relation("UbicacionSalida", fields: [ubicacionSalidaId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  registrosHoras     HoraTrabajada[]
+  justificaciones    Justificacion[]
+
+  @@unique([docenteId, fecha], map: "unique_docente_fecha")
+  @@index([docenteId, fecha], map: "idx_asistencias_docente_fecha")
+  @@index([estado], map: "idx_asistencias_estado")
+  @@index([estado, fecha(sort: Desc)], map: "idx_asistencias_estado_fecha")
+  @@index([fecha], map: "idx_asistencias_fecha")
+  @@index([fecha(sort: Desc)], map: "idx_asistencias_fecha_desc")
+  @@map("asistencias")
+}
+
+model configuraciones {
+  id          Int       @id @default(autoincrement())
+  clave       String    @unique @db.VarChar(100)
+  valor       String
+  descripcion String?
+  tipo        String?   @default("string") @db.VarChar(20)
+  updated_at  DateTime? @default(now()) @db.Timestamp(6)
+  categoria   String?   @db.VarChar(50)
+  es_publico  Boolean   @default(false)
+  validacion  String?
+
+  @@index([categoria], map: "idx_configuraciones_categoria")
+}
+
+model configuraciones_sistema {
+  id          Int       @id @default(autoincrement())
+  clave       String    @unique @db.VarChar(100)
+  valor       String?
+  tipo        String    @default("string") @db.VarChar(50)
+  categoria   String    @db.VarChar(50)
+  descripcion String?
+  activo      Boolean   @default(true)
+  created_at  DateTime? @default(now()) @db.Timestamp(6)
+  updated_at  DateTime? @default(now()) @db.Timestamp(6)
+
+  @@index([activo], map: "idx_config_sistema_activo")
+  @@index([categoria], map: "idx_config_sistema_categoria")
+}
+
+model contratos_docentes {
+  id                      Int               @id @default(autoincrement())
+  docente_id              String            @db.Uuid
+  tipo_contrato           String            @db.VarChar(20)
+  horas_semanales_minimas Decimal?          @db.Decimal(5, 2)
+  horas_semanales_maximas Decimal?          @db.Decimal(5, 2)
+  tarifa_por_hora         Decimal           @db.Decimal(8, 2)
+  sueldo_base             Decimal?          @db.Decimal(10, 2)
+  fecha_inicio            DateTime          @db.Date
+  fecha_fin               DateTime?         @db.Date
+  activo                  Boolean           @default(true)
+  observaciones           String?
+  created_at              DateTime          @default(now()) @db.Timestamp(6)
+  updated_at              DateTime          @db.Timestamp(6)
+  docentes                docentes          @relation(fields: [docente_id], references: [id], onDelete: Cascade)
+  planillas_horas         planillas_horas[]
+
+  @@index([activo], map: "idx_contratos_activo")
+  @@index([docente_id], map: "idx_contratos_docente")
+  @@index([tipo_contrato], map: "idx_contratos_tipo")
+}
+
+model docentes {
+  id                    String                  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  usuario_id            String                  @db.Uuid
+  area_id               Int?
+  codigo_docente        String?                 @unique @db.VarChar(20)
+  fecha_ingreso         DateTime?               @db.Date
+  horario_entrada       DateTime?               @default(dbgenerated("'07:30:00'::time without time zone")) @db.Time(6)
+  horario_salida        DateTime?               @default(dbgenerated("'17:30:00'::time without time zone")) @db.Time(6)
+  sueldo                Decimal?                @db.Decimal(10, 2)
+  observaciones         String?
+  created_at            DateTime?               @default(now()) @db.Timestamp(6)
+  updated_at            DateTime?               @default(now()) @db.Timestamp(6)
+  banco                 String?                 @db.VarChar(50)
+  contacto_emergencia   String?                 @db.VarChar(100)
+  cuenta_bancaria       String?                 @db.VarChar(30)
+  direccion             String?                 @db.VarChar(255)
+  estado                String?                 @default("activo") @db.VarChar(20)
+  estado_civil          String?                 @db.VarChar(20)
+  fecha_nacimiento      DateTime?               @db.Date
+  numero_hijos          Int?                    @default(0)
+  telefono_emergencia   String?                 @db.VarChar(20)
+  asistencias           asistencias[]
+  contratos_docentes    contratos_docentes[]
+  areas                 areas?                  @relation(fields: [area_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  usuarios              usuarios                @relation(fields: [usuario_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  evaluaciones_docentes evaluaciones_docentes[]
+  horarios_base         horarios_base[]
+  horarios_especiales   horarios_especiales[]
+  horas_trabajadas      horas_trabajadas[]
+  justificaciones       justificaciones[]
+  planillas_horas       planillas_horas[]
+
+  @@index([area_id], map: "idx_docentes_area")
+  @@index([area_id, estado], map: "idx_docentes_area_estado")
+  @@index([codigo_docente], map: "idx_docentes_codigo")
+  @@index([estado], map: "idx_docentes_estado")
+  @@index([usuario_id], map: "idx_docentes_usuario")
+}
+
+model evaluaciones_docentes {
+  id                     String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  docente_id             String   @db.Uuid
+  evaluador_id           String   @db.Uuid
+  periodo                String   @db.VarChar(20)
+  porcentaje_asistencia  Decimal  @db.Decimal(5, 2)
+  porcentaje_puntualidad Decimal  @db.Decimal(5, 2)
+  horas_completas        Decimal  @db.Decimal(5, 2)
+  tardanzas_promedio     Decimal  @db.Decimal(5, 2)
+  faltas_total           Int
+  cumplimiento_horario   Int
+  responsabilidad        Int
+  calificacion_general   Decimal  @db.Decimal(3, 1)
+  fortalezas             String?
+  areas_mejora           String?
+  recomendaciones        String?
+  fecha_evaluacion       DateTime @db.Timestamp(6)
+  created_at             DateTime @default(now()) @db.Timestamp(6)
+  docentes               docentes @relation(fields: [docente_id], references: [id], onDelete: Cascade)
+  usuarios               usuarios @relation(fields: [evaluador_id], references: [id], onDelete: NoAction)
+
+  @@index([docente_id], map: "idx_evaluaciones_docente")
+  @@index([periodo], map: "idx_evaluaciones_periodo")
+}
+
+model horarios_base {
+  id               Int                @id @default(autoincrement())
+  docente_id       String             @db.Uuid
+  area_id          Int
+  dia_semana       Int
+  hora_inicio      DateTime           @db.Time(6)
+  hora_fin         DateTime           @db.Time(6)
+  tipo_clase       String?            @db.VarChar(30)
+  horas_semana     Decimal            @db.Decimal(4, 2)
+  activo           Boolean            @default(true)
+  fecha_vigencia   DateTime?          @db.Date
+  fecha_fin        DateTime?          @db.Date
+  created_at       DateTime           @default(now()) @db.Timestamp(6)
+  areas            areas              @relation(fields: [area_id], references: [id], onDelete: Cascade)
+  docentes         docentes           @relation(fields: [docente_id], references: [id], onDelete: Cascade)
+  horas_trabajadas horas_trabajadas[]
+
+  @@index([activo], map: "idx_horarios_activo")
+  @@index([dia_semana], map: "idx_horarios_dia")
+  @@index([docente_id], map: "idx_horarios_docente")
+  @@index([docente_id, activo, dia_semana], map: "idx_horarios_docente_activo")
+}
+
+model horarios_especiales {
+  id                    Int       @id @default(autoincrement())
+  docente_id            String    @db.Uuid
+  fecha                 DateTime  @db.Date
+  hora_entrada_especial DateTime? @db.Time(6)
+  hora_salida_especial  DateTime? @db.Time(6)
+  motivo                String?
+  activo                Boolean?  @default(true)
+  created_at            DateTime? @default(now()) @db.Timestamp(6)
+  aprobado_por          String?   @db.Uuid
+  horas_especiales      Decimal?  @db.Decimal(4, 2)
+  docentes              docentes  @relation(fields: [docente_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([docente_id, fecha], map: "idx_horarios_especiales_docente_fecha")
+}
+
+model horas_trabajadas {
+  id                String         @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  docente_id        String         @db.Uuid
+  horario_base_id   Int?
+  asistencia_id     String?        @db.Uuid
+  fecha             DateTime       @db.Date
+  hora_inicio       DateTime       @db.Time(6)
+  hora_fin          DateTime       @db.Time(6)
+  horas_programadas Decimal        @db.Decimal(4, 2)
+  horas_efectivas   Decimal        @db.Decimal(4, 2)
+  horas_extras      Decimal?       @db.Decimal(4, 2)
+  tipo_hora         String         @db.VarChar(20)
+  tardanza_minutos  Int?           @default(0)
+  salida_temprana   Int?           @default(0)
+  estado            String         @default("completo") @db.VarChar(20)
+  observaciones     String?
+  created_at        DateTime       @default(now()) @db.Timestamp(6)
+  asistencias       asistencias?   @relation(fields: [asistencia_id], references: [id])
+  docentes          docentes       @relation(fields: [docente_id], references: [id], onDelete: Cascade)
+  horarios_base     horarios_base? @relation(fields: [horario_base_id], references: [id])
+
+  @@index([docente_id, fecha], map: "idx_horas_docente_fecha")
+  @@index([fecha], map: "idx_horas_fecha")
+  @@index([tipo_hora], map: "idx_horas_tipo")
+}
+
+model justificaciones {
+  id                   String       @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  docente_id           String       @db.Uuid
+  fecha_inicio         DateTime     @db.Date
+  fecha_fin            DateTime     @db.Date
+  tipo                 String       @db.VarChar(50)
+  motivo               String
+  documento_adjunto    String?      @db.VarChar(255)
+  estado               String?      @default("pendiente") @db.VarChar(20)
+  aprobado_por         String?      @db.Uuid
+  fecha_aprobacion     DateTime?    @db.Timestamp(6)
+  observaciones_admin  String?
+  created_at           DateTime?    @default(now()) @db.Timestamp(6)
+  updated_at           DateTime?    @default(now()) @db.Timestamp(6)
+  afecta_pago          Boolean      @default(true)
+  asistencia_id        String?      @db.Uuid
+  horas_afectadas      Decimal?     @db.Decimal(4, 2)
+  porcentaje_descuento Decimal?     @default(0) @db.Decimal(5, 2)
+  prioridad            String?      @default("normal") @db.VarChar(20)
+  usuarios             usuarios?    @relation(fields: [aprobado_por], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  asistencias          asistencias? @relation(fields: [asistencia_id], references: [id])
+  docentes             docentes     @relation(fields: [docente_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([docente_id], map: "idx_justificaciones_docente")
+  @@index([docente_id, estado], map: "idx_justificaciones_docente_estado")
+  @@index([estado], map: "idx_justificaciones_estado")
+  @@index([fecha_inicio, fecha_fin], map: "idx_justificaciones_fechas")
+  @@index([fecha_inicio, fecha_fin], map: "idx_justificaciones_periodo")
+}
+
+model logs_actividad {
+  id               String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  usuario_id       String?   @db.Uuid
+  accion           String    @db.VarChar(100)
+  tabla_afectada   String?   @db.VarChar(50)
+  registro_id      String?   @db.Uuid
+  datos_anteriores Json?
+  datos_nuevos     Json?
+  ip_address       String?   @db.Inet
+  user_agent       String?
+  created_at       DateTime? @default(now()) @db.Timestamp(6)
+  duracion_ms      Int?
+  modulo           String?   @db.VarChar(50)
+  resultado        String?   @db.VarChar(20)
+  usuarios         usuarios? @relation(fields: [usuario_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([accion], map: "idx_logs_accion")
+  @@index([created_at(sort: Desc)], map: "idx_logs_created_at_desc")
+  @@index([created_at], map: "idx_logs_fecha")
+  @@index([modulo], map: "idx_logs_modulo")
+  @@index([usuario_id], map: "idx_logs_usuario")
+  @@index([usuario_id, modulo], map: "idx_logs_usuario_modulo")
+}
+
+model notificaciones {
+  id          String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  usuario_id  String    @db.Uuid
+  tipo        String    @db.VarChar(50)
+  titulo      String    @db.VarChar(100)
+  mensaje     String
+  datos       Json?
+  leido       Boolean   @default(false)
+  importante  Boolean   @default(false)
+  fecha_envio DateTime  @default(now()) @db.Timestamp(6)
+  fecha_leido DateTime? @db.Timestamp(6)
+  usuarios    usuarios  @relation(fields: [usuario_id], references: [id], onDelete: Cascade)
+
+  @@index([leido], map: "idx_notificaciones_leido")
+  @@index([tipo], map: "idx_notificaciones_tipo")
+  @@index([usuario_id], map: "idx_notificaciones_usuario")
+  @@index([usuario_id, leido, fecha_envio(sort: Desc)], map: "idx_notificaciones_usuario_leido")
+}
+
+model planillas_horas {
+  id                    String             @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  docente_id            String             @db.Uuid
+  contrato_id           Int
+  mes                   Int
+  a_o                   Int                @map("año")
+  horas_contractuales   Decimal            @db.Decimal(6, 2)
+  horas_trabajadas      Decimal            @db.Decimal(6, 2)
+  horas_extras          Decimal            @default(0) @db.Decimal(6, 2)
+  horas_faltantes       Decimal            @default(0) @db.Decimal(6, 2)
+  dias_trabajados       Int
+  tardanzas_cantidad    Int                @default(0)
+  tardanzas_minutos     Int                @default(0)
+  faltas_justificadas   Int                @default(0)
+  faltas_injustificadas Int                @default(0)
+  tarifa_hora           Decimal            @db.Decimal(8, 2)
+  monto_horas_normales  Decimal            @db.Decimal(10, 2)
+  monto_horas_extras    Decimal            @default(0) @db.Decimal(10, 2)
+  descuento_tardanzas   Decimal            @default(0) @db.Decimal(10, 2)
+  descuento_faltas      Decimal            @default(0) @db.Decimal(10, 2)
+  bonificaciones        Decimal            @default(0) @db.Decimal(10, 2)
+  monto_total           Decimal            @db.Decimal(10, 2)
+  calculado             Boolean            @default(false)
+  aprobado              Boolean            @default(false)
+  pagado                Boolean            @default(false)
+  fecha_aprobacion      DateTime?          @db.Timestamp(6)
+  fecha_pago            DateTime?          @db.Timestamp(6)
+  observaciones         String?
+  created_at            DateTime           @default(now()) @db.Timestamp(6)
+  updated_at            DateTime           @db.Timestamp(6)
+  contratos_docentes    contratos_docentes @relation(fields: [contrato_id], references: [id], onDelete: Cascade)
+  docentes              docentes           @relation(fields: [docente_id], references: [id], onDelete: Cascade)
+
+  @@unique([docente_id, mes, a_o], map: "unique_planilla_mes_anio")
+  @@index([aprobado], map: "idx_planillas_aprobado")
+  @@index([calculado], map: "idx_planillas_calculado")
+  @@index([mes, a_o], map: "idx_planillas_periodo")
+}
+
+model refresh_tokens {
+  id         String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  token      String    @unique
+  usuario_id String    @db.Uuid
+  expires_at DateTime  @db.Timestamp(6)
+  created_at DateTime  @default(now()) @db.Timestamp(6)
+  revoked_at DateTime? @db.Timestamp(6)
+  usuarios   usuarios  @relation(fields: [usuario_id], references: [id], onDelete: Cascade)
+
+  @@index([expires_at], map: "idx_refresh_tokens_expires")
+  @@index([usuario_id], map: "idx_refresh_tokens_usuario")
+}
+
+model reportes {
+  id                String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  generado_por      String    @db.Uuid
+  tipo_reporte      String    @db.VarChar(50)
+  parametros        Json?
+  fecha_inicio      DateTime? @db.Date
+  fecha_fin         DateTime? @db.Date
+  archivo_generado  String?   @db.VarChar(255)
+  created_at        DateTime? @default(now()) @db.Timestamp(6)
+  estado            String    @default("generando") @db.VarChar(20)
+  filtros           Json?
+  formato_archivo   String?   @db.VarChar(10)
+  subtipo           String?   @db.VarChar(30)
+  tama_o            Int?      @map("tamaño")
+  tiempo_generacion Decimal?  @db.Decimal(6, 2)
+  usuarios          usuarios  @relation(fields: [generado_por], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([estado], map: "idx_reportes_estado")
+  @@index([generado_por], map: "idx_reportes_generador")
+  @@index([tipo_reporte], map: "idx_reportes_tipo")
+}
+
+model roles {
+  id          Int        @id @default(autoincrement())
+  nombre      String     @unique @db.VarChar(50)
+  descripcion String?
+  created_at  DateTime?  @default(now()) @db.Timestamp(6)
+  updated_at  DateTime?  @default(now()) @db.Timestamp(6)
+  permisos    String[]
+  usuarios    usuarios[]
+}
+
+model sesiones_usuarios {
+  id               String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  usuario_id       String   @db.Uuid
+  token            String   @unique
+  dispositivo      String?
+  navegador        String?
+  ip_address       String   @db.Inet
+  ubicacion        String?
+  activa           Boolean  @default(true)
+  ultima_actividad DateTime @default(now()) @db.Timestamp(6)
+  fecha_expiracion DateTime @db.Timestamp(6)
+  created_at       DateTime @default(now()) @db.Timestamp(6)
+  usuarios         usuarios @relation(fields: [usuario_id], references: [id], onDelete: Cascade)
+
+  @@index([activa], map: "idx_sesiones_activa")
+  @@index([token], map: "idx_sesiones_token")
+  @@index([usuario_id], map: "idx_sesiones_usuario")
+  @@index([usuario_id, activa, ultima_actividad(sort: Desc)], map: "idx_sesiones_usuario_activa")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model spatial_ref_sys {
+  srid      Int     @id
+  auth_name String? @db.VarChar(256)
+  auth_srid Int?
+  srtext    String? @db.VarChar(2048)
+  proj4text String? @db.VarChar(2048)
+}
+
+model ubicaciones_permitidas {
+  id                                                                   Int                       @id @default(autoincrement())
+  nombre                                                               String                    @db.VarChar(100)
+  descripcion                                                          String?
+  latitud                                                              Decimal                   @db.Decimal(10, 8)
+  longitud                                                             Decimal                   @db.Decimal(11, 8)
+  radio_metros                                                         Int?                      @default(100)
+  activo                                                               Boolean?                  @default(true)
+  created_at                                                           DateTime?                 @default(now()) @db.Timestamp(6)
+  updated_at                                                           DateTime?                 @default(now()) @db.Timestamp(6)
+  tipo_ubicacion                                                       String?                   @default("sede") @db.VarChar(20)
+  punto_geo                                                            Unsupported("geography")?
+  asistencias_asistencias_ubicacion_entrada_idToubicaciones_permitidas asistencias[]             @relation("asistencias_ubicacion_entrada_idToubicaciones_permitidas")
+  asistencias_asistencias_ubicacion_salida_idToubicaciones_permitidas  asistencias[]             @relation("asistencias_ubicacion_salida_idToubicaciones_permitidas")
+
+  @@index([activo], map: "idx_ubicaciones_activo")
+  @@index([punto_geo], map: "idx_ubicaciones_punto_geo", type: Gist)
+}
+
+model usuarios {
+  id                     String                  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  dni                    String                  @unique @db.VarChar(20)
+  nombres                String                  @db.VarChar(100)
+  apellidos              String                  @db.VarChar(100)
+  email                  String                  @unique @db.VarChar(150)
+  telefono               String?                 @db.VarChar(20)
+  password_hash          String                  @db.VarChar(255)
+  rol_id                 Int
+  activo                 Boolean?                @default(true)
+  ultimo_acceso          DateTime?               @db.Timestamp(6)
+  created_at             DateTime?               @default(now()) @db.Timestamp(6)
+  updated_at             DateTime?               @default(now()) @db.Timestamp(6)
+  bloqueado_hasta        DateTime?               @db.Timestamp(6)
+  fecha_expiracion_token DateTime?               @db.Timestamp(6)
+  intentos_fallidos      Int?                    @default(0)
+  token_reset_password   String?
+  areas                  areas[]
+  docentes               docentes[]
+  evaluaciones_docentes  evaluaciones_docentes[]
+  justificaciones        justificaciones[]
+  logs_actividad         logs_actividad[]
+  notificaciones         notificaciones[]
+  refresh_tokens         refresh_tokens[]
+  reportes               reportes[]
+  sesiones_usuarios      sesiones_usuarios[]
+  roles                  roles                   @relation(fields: [rol_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([activo], map: "idx_usuarios_activo")
+  @@index([dni], map: "idx_usuarios_dni")
+  @@index([email], map: "idx_usuarios_email")
+  @@index([email, activo], map: "idx_usuarios_email_activo")
+  @@index([rol_id], map: "idx_usuarios_rol")
+  @@index([rol_id, activo], map: "idx_usuarios_rol_activo")
+}

@@ -1,0 +1,142 @@
+@startuml Diagrama_Componentes_Sistema_Simple
+!theme cerulean-outline
+title **DIAGRAMA DE COMPONENTES DEL SISTEMA**\n**INSTITUTO SAN MARTÍN
+
+skinparam {
+  backgroundColor #FEFEFE
+  shadowing false
+  roundcorner 8
+  defaultFontSize 11
+  packageBorderThickness 2
+}
+
+skinparam component<<frontend>> {
+  BackgroundColor #E3F2FD
+  BorderColor #1976D2
+  BorderThickness 2
+}
+
+skinparam component<<backend>> {
+  BackgroundColor #F3E5F5
+  BorderColor #7B1FA2
+  BorderThickness 2
+}
+
+skinparam component<<database>> {
+  BackgroundColor #E8F5E8
+  BorderColor #388E3C
+  BorderThickness 2
+}
+
+skinparam component<<external>> {
+  BackgroundColor #FFF3E0
+  BorderColor #F57C00
+  BorderThickness 2
+}
+
+skinparam package {
+  BackgroundColor #F8F9FA
+  BorderColor #6C757D
+  BorderThickness 2
+  FontStyle bold
+}
+
+' =============== CAPA DE PRESENTACIÓN ===============
+package "🎨 CAPA DE PRESENTACIÓN" as presentation {
+  component [**Interfaz Web**\nNext.js 15.5\nReact + TypeScript] as webapp <<frontend>>
+  component [**Componentes UI**\nShadcn/ui + Tailwind\nDesign System] as ui_components <<frontend>>
+  component [**Estado Global**\nZustand Store\nManejo de Estado] as state_management <<frontend>>
+  component [**Cliente HTTP**\nAxios + Interceptors\nAPI Communication] as http_client <<frontend>>
+}
+
+' =============== CAPA DE SERVICIOS ===============
+package "⚙️ CAPA DE SERVICIOS" as services {
+  component [**API Gateway**\nExpress.js Router\nPunto de Entrada] as api_gateway <<backend>>
+  component [**Autenticación**\nJWT Middleware\nValidación de Tokens] as auth_middleware <<backend>>
+  component [**Controladores**\nBusiness Logic\nMVC Controllers] as controllers <<backend>>
+  component [**Servicios GPS**\nGeolocation Validator\nValidación de Ubicación] as gps_service <<backend>>
+}
+
+' =============== CAPA DE ACCESO A DATOS ===============
+package "🗄️ CAPA DE ACCESO A DATOS" as data_access {
+  component [**ORM Prisma**\nDatabase Abstraction\nType-Safe Queries] as orm_prisma <<backend>>
+  component [**Repositorios**\nData Access Layer\nRepository Pattern] as repositories <<backend>>
+  component [**Validaciones**\nData Validation\nZod Schemas] as validations <<backend>>
+}
+
+' =============== CAPA DE DATOS ===============
+package "💾 CAPA DE DATOS" as data_layer {
+  component [**PostgreSQL 17**\nBase de Datos Principal\n17 Tablas Relacionales] as postgres_db <<database>>
+  component [**PostGIS**\nExtensión Geoespacial\nCálculos GPS] as postgis <<database>>
+}
+
+' =============== SERVICIOS EXTERNOS ===============
+package "🌐 SERVICIOS EXTERNOS" as external_services {
+  component [**Navegador Web**\nChrome/Firefox/Safari\nCliente de la App] as browser <<external>>
+  component [**API Geolocalización**\nNavigator.geolocation\nCoordenadas GPS] as geo_api <<external>>
+  component [**Sistema Operativo**\nWindows/Linux/macOS\nRecursos del Sistema] as operating_system <<external>>
+}
+
+' =============== RELACIONES ENTRE COMPONENTES ===============
+
+' Frontend Flow
+browser --> webapp : "Interacción Usuario"
+webapp --> ui_components : "Renderizado de Componentes"
+webapp --> state_management : "Gestión de Estado"
+webapp --> http_client : "Llamadas API"
+browser --> geo_api : "Solicitud GPS"
+geo_api --> webapp : "Coordenadas"
+
+' API Communication
+http_client --> api_gateway : "HTTP Requests\n(Puerto 5000)"
+api_gateway --> auth_middleware : "Validación JWT"
+auth_middleware --> controllers : "Request Autorizado"
+
+' Business Logic
+controllers --> repositories : "Operaciones de Datos"
+controllers --> gps_service : "Validación GPS"
+repositories --> validations : "Validación de Datos"
+repositories --> orm_prisma : "Consultas ORM"
+
+' Data Layer
+orm_prisma --> postgres_db : "SQL Queries"
+gps_service --> postgis : "Consultas GIS"
+postgres_db --> operating_system : "Recursos del Sistema"
+
+' Response Flow (dotted arrows)
+postgres_db ..> orm_prisma : "Resultados SQL"
+postgis ..> gps_service : "Datos Geoespaciales"
+orm_prisma ..> repositories : "Datos Procesados"
+repositories ..> controllers : "Respuesta de Datos"
+controllers ..> api_gateway : "Respuesta Business"
+api_gateway ..> http_client : "HTTP Response"
+http_client ..> webapp : "Datos para UI"
+
+' =============== NOTAS EXPLICATIVAS ===============
+
+note top of webapp : **🎯 INTERFAZ PRINCIPAL**\nSingle Page Application\nServer Side Rendering\nOptimización Turbopack
+
+note right of api_gateway : **🚪 PUNTO DE ENTRADA**\nEnrutamiento de solicitudes\nControl CORS y seguridad\nMiddleware pipeline
+
+note bottom of postgres_db : **💾 ALMACENAMIENTO**\n17 tablas sincronizadas\nÍndices optimizados\nBackup automático
+
+note left of gps_service : **📍 VALIDACIÓN GPS**\nRadio de 50 metros\nCálculo de distancias\nPrevención de spoofing
+
+' =============== LEYENDA TÉCNICA ===============
+
+legend bottom center
+|= **TIPOS DE COMPONENTES** |= **TECNOLOGÍAS CLAVE** |
+| 🎨 **Frontend:** Interfaz y presentación | **Next.js 15.5** - Framework React con SSR |
+| ⚙️ **Backend:** Lógica de negocio | **Express.js** - Servidor web Node.js |
+| 🗄️ **Data Access:** Acceso a datos | **Prisma ORM** - Type-safe database access |
+| 💾 **Database:** Almacenamiento | **PostgreSQL 17** - Base relacional |
+| 🌐 **External:** Servicios externos | **Web APIs** - Geolocalización nativa |
+
+|= **PATRONES ARQUITECTÓNICOS** |= **COMUNICACIÓN** |
+| **Arquitectura por Capas** - Separación responsabilidades | **HTTP/REST** - API RESTful |
+| **Repository Pattern** - Abstracción de datos | **JWT** - Autenticación stateless |
+| **MVC Pattern** - Modelo Vista Controlador | **WebSocket** - Tiempo real (futuro) |
+| **Middleware Pattern** - Pipeline de procesamiento | **GPS** - Validación geográfica |
+end legend
+
+@enduml

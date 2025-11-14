@@ -1,0 +1,159 @@
+import api from '@/lib/api';
+
+// Tipos para Usuario
+export interface Usuario {
+    try {
+      const params = new URLSearchParams();
+      if (filtros?.search) params.append('search', filtros.search);
+      if (filtros?.rol) params.append('rol', filtros.rol);
+      if (filtros?.activo !== undefined) params.append('activo', filtros.activo.toString());
+
+      const response = await api.get(`/admin/usuarios?${params.toString()}`);
+      return response.data;
+    } catch (error: any) {
+      console.error('Error al obtener usuarios:', error);
+      throw new Error(error.response?.data?.message || 'Error al obtener usuarios');
+    }
+  }
+  id: string;
+  nombres: string;
+  apellidos: string;
+  email: string;
+  dni: string;
+  telefono?: string;
+  rol: 'ADMIN' | 'DOCENTE';
+  activo: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface CrearUsuarioData {
+  nombres: string;
+  apellidos: string;
+  email: string;
+  dni: string;
+  telefono?: string;
+  rol: 'ADMIN' | 'DOCENTE';
+  password: string;
+}
+
+export interface EditarUsuarioData {
+  nombres: string;
+  apellidos: string;
+  email: string;
+  dni: string;
+  telefono?: string;
+  rol: 'ADMIN' | 'DOCENTE';
+  activo: boolean;
+  password?: string;
+}
+
+export interface FiltrosUsuario {
+  search?: string;
+  rol?: 'ADMIN' | 'DOCENTE';
+  activo?: boolean;
+}
+
+class UsuarioApiService {
+  // Obtener todos los usuarios con filtros
+  async obtenerUsuarios(filtros?: FiltrosUsuario): Promise<Usuario[]> {
+    try {
+      const params = new URLSearchParams();
+      if (filtros?.search) params.append('search', filtros.search);
+      if (filtros?.rol) params.append('rol', filtros.rol);
+      if (filtros?.activo !== undefined) params.append('activo', filtros.activo.toString());
+
+      const response = await api.get(`/usuarios?${params.toString()}`);
+      return response.data;
+    } catch (error: any) {
+      console.error('Error al obtener usuarios:', error);
+      throw new Error(error.response?.data?.message || 'Error al obtener usuarios');
+    }
+  }
+
+  // Obtener usuario por ID
+  async obtenerUsuarioPorId(id: string): Promise<Usuario> {
+    try {
+      const response = await api.get(`/usuarios/${id}`);
+      return response.data;
+    } catch (error: any) {
+      console.error('Error al obtener usuario:', error);
+      throw new Error(error.response?.data?.message || 'Usuario no encontrado');
+    }
+  }
+
+  // Crear nuevo usuario
+  async crearUsuario(data: CrearUsuarioData): Promise<Usuario> {
+    try {
+      const response = await api.post('/usuarios', data);
+      return response.data;
+    } catch (error: any) {
+      console.error('Error al crear usuario:', error);
+      throw new Error(error.response?.data?.message || 'Error al crear usuario');
+    }
+  }
+
+  // Actualizar usuario
+  async actualizarUsuario(id: string, data: EditarUsuarioData): Promise<Usuario> {
+    try {
+      const response = await api.put(`/usuarios/${id}`, data);
+      return response.data;
+    } catch (error: any) {
+      console.error('Error al actualizar usuario:', error);
+      throw new Error(error.response?.data?.message || 'Error al actualizar usuario');
+    }
+  }
+
+  // Cambiar estado del usuario (activar/desactivar)
+  async cambiarEstadoUsuario(id: string, activo: boolean): Promise<Usuario> {
+    try {
+      const response = await api.patch(`/usuarios/${id}/estado`, { activo });
+      return response.data;
+    } catch (error: any) {
+      console.error('Error al cambiar estado:', error);
+      throw new Error(error.response?.data?.message || 'Error al cambiar estado del usuario');
+    }
+  }
+
+  // Eliminar usuario
+  async eliminarUsuario(id: string): Promise<void> {
+    try {
+      await api.delete(`/usuarios/${id}`);
+    } catch (error: any) {
+      console.error('Error al eliminar usuario:', error);
+      throw new Error(error.response?.data?.message || 'Error al eliminar usuario');
+    }
+  }
+
+  // Verificar disponibilidad de email
+  async verificarEmail(email: string, usuarioId?: string): Promise<boolean> {
+    try {
+      const params = new URLSearchParams();
+      params.append('email', email);
+      if (usuarioId) params.append('excludeId', usuarioId);
+      
+      const response = await api.get(`/usuarios/verificar-email?${params.toString()}`);
+      return response.data.disponible;
+    } catch (error: any) {
+      console.error('Error al verificar email:', error);
+      return false;
+    }
+  }
+
+  // Verificar disponibilidad de DNI
+  async verificarDni(dni: string, usuarioId?: string): Promise<boolean> {
+    try {
+      const params = new URLSearchParams();
+      params.append('dni', dni);
+      if (usuarioId) params.append('excludeId', usuarioId);
+      
+      const response = await api.get(`/usuarios/verificar-dni?${params.toString()}`);
+      return response.data.disponible;
+    } catch (error: any) {
+      console.error('Error al verificar DNI:', error);
+      return false;
+    }
+  }
+}
+
+export const usuarioService = new UsuarioApiService();

@@ -1,0 +1,55 @@
+========================================
+ASISTEM SAN MARTÍN - CREDENCIALES DE ACCESO
+========================================
+
+✅ CONFIGURACIÓN CORRECTA:
+- Backend: http://localhost:5000
+- Frontend: http://localhost:3000
+
+🔐 CREDENCIALES DE ADMINISTRADOR:
+Email: admin@sanmartin.edu.pe
+Password: admin123
+
+🧑‍🏫 CREDENCIALES DE DOCENTES:
+
+Docente de Prueba:
+Email: docente@sanmartin.edu.pe
+Password: docente123
+Docente ID: adfc49d4-2a90-4c97-a055-daf78157d169
+
+Docentes Reales:
+1. Juan Pérez
+   Email: jperez@sanmartin.edu.pe
+   Password: 123456
+
+2. María García
+   Email: mgarcia@sanmartin.edu.pe
+   Password: 123456
+
+3. Carlos Rodríguez
+   Email: crodriguez@sanmartin.edu.pe
+   Password: 123456
+
+4. Luis Gonzales
+   Email: luisgonzales@sanmartin.edu.pe
+   Password: 123456
+
+📝 INSTRUCCIONES:
+1. Ve a: http://localhost:3000
+2. Haz clic en "Iniciar Sesión" 
+3. Ingresa el email: admin@sanmartin.edu.pe
+4. Ingresa la contraseña: admin123
+5. Haz clic en "Ingresar"
+
+⚠️ IMPORTANTE:
+- NO uses admin@asistem.edu.pe (incorrecto)
+- SÍ usa admin@sanmartin.edu.pe (correcto)
+- La contraseña es: admin123
+
+🎯 ROLES DISPONIBLES:
+- ADMIN: Acceso completo al dashboard administrativo
+- DOCENTE: Acceso al registro de asistencias
+
+=======================================
+Sistema configurado por un Ingeniero de Sistemas
+=======================================
