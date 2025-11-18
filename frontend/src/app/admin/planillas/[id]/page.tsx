@@ -10,19 +10,23 @@ import { Badge } from '@/components/ui/badge';
 import { adminPlanillaService, type PlanillaDetalle } from '@/services/admin-planilla.service';
 import { toast } from 'sonner';
 
-export default function DetallePlanillaPage({ params }: { params: { id: string } }) {
+export default function DetallePlanillaPage({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter();
   const [planilla, setPlanilla] = useState<PlanillaDetalle | null>(null);
   const [loading, setLoading] = useState(true);
+  const [planillaId, setPlanillaId] = useState<string>('');
 
   useEffect(() => {
-    cargarPlanilla();
-  }, [params.id]);
+    params.then(p => {
+      setPlanillaId(p.id);
+      cargarPlanilla(p.id);
+    });
+  }, []);
 
-  const cargarPlanilla = async () => {
+  const cargarPlanilla = async (id: string) => {
     try {
       setLoading(true);
-      const data = await adminPlanillaService.obtenerDetallePlanilla(params.id);
+      const data = await adminPlanillaService.obtenerDetallePlanilla(id);
       setPlanilla(data);
     } catch (error: any) {
       toast.error(error.message || 'Error al cargar planilla');
