@@ -3,6 +3,9 @@
 # ==================================
 FROM node:22-slim AS builder
 
+# Force rebuild
+ENV REBUILD_CACHE=2025-11-18
+
 # Metadata
 LABEL maintainer="ASISTEM San Martin <dev@sanmartin.edu.pe>"
 LABEL description="Sistema de Asistencia - Backend"
