@@ -1,8 +1,8 @@
 [phases.setup]
-nixPkgs = ['nodejs_20']
+providers = ['node']
 
 [phases.install]
-cmds = ['npm ci']
+cmds = ['npm ci --production=false']
 
 [phases.build]
 cmds = ['npx prisma generate']
