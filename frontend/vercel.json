@@ -6,10 +6,6 @@
       "use": "@vercel/next"
     }
   ],
-  "env": {
-    "NEXT_PUBLIC_API_URL": "@next_public_api_url",
-    "NEXT_PUBLIC_APP_NAME": "ASISTEM San Martín"
-  },
   "build": {
     "env": {
       "NEXT_TELEMETRY_DISABLED": "1"
