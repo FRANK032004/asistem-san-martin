@@ -1,7 +1,7 @@
 # ==================================
 # STAGE 1: BUILD
 # ==================================
-FROM node:22-alpine AS builder
+FROM node:22-slim AS builder
 
 # Metadata
 LABEL maintainer="ASISTEM San Martin <dev@sanmartin.edu.pe>"
@@ -32,11 +32,11 @@ RUN npm prune --production
 # ==================================
 # STAGE 2: PRODUCTION
 # ==================================
-FROM node:22-alpine
+FROM node:22-slim
 
 # Create non-root user for security
-RUN addgroup -g 1001 -S nodejs && \
-    adduser -S nodejs -u 1001
+RUN groupadd -g 1001 nodejs && \
+    useradd -r -u 1001 -g nodejs nodejs
 
 # Set working directory
 WORKDIR /app
