@@ -82,8 +82,8 @@ prisma/migrations/
 prisma/seed.ts
 
 # TypeScript
-tsconfig.json
-tsconfig.*.json
+# tsconfig.json  # COMENTADO: Necesario para build en Railway
+tsconfig.test.json
 
 # Linting
 .eslintrc*
