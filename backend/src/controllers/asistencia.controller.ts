@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+ï»¿import { Request, Response } from 'express';
 import prisma from '../utils/database';
 import { asyncHandler } from '../middleware/error-handler';
 import { ResponseFormatter } from '../utils/response-formatter';
@@ -131,7 +131,7 @@ export const registrarEntrada = asyncHandler(async (req: AuthRequest, res: Respo
     throw new ValidationError('Usuario no es un docente v?lido');
   }
 
-  // 1. Verificar si ya registró entrada hoy
+  // 1. Verificar si ya registrÃ³ entrada hoy
   const hoy = new Date();
   hoy.setHours(0, 0, 0, 0);
   const tomorrow = new Date(hoy);
@@ -181,8 +181,8 @@ export const registrarEntrada = asyncHandler(async (req: AuthRequest, res: Respo
       ubicacionEntradaId: Number(ubicacionCercana.id),
       estado: 'presente',
       observaciones: deviceInfo ? 
-        `${deviceInfo} | Ubicación: ${ubicacionCercana.nombre} (${Math.round(ubicacionCercana.distancia_metros)}m)` 
-        : `Ubicación: ${ubicacionCercana.nombre} (${Math.round(ubicacionCercana.distancia_metros)}m)`
+        `${deviceInfo} | UbicaciÃ³n: ${ubicacionCercana.nombre} (${Math.round(ubicacionCercana.distancia_metros)}m)` 
+        : `UbicaciÃ³n: ${ubicacionCercana.nombre} (${Math.round(ubicacionCercana.distancia_metros)}m)`
     }
   });
 
