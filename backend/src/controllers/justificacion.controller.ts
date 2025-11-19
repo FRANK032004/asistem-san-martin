@@ -1,4 +1,4 @@
-/**
+Ôªø/**
  * Controlador de Justificaciones
  * Maneja las justificaciones de ausencias/tardanzas
  */
@@ -23,7 +23,7 @@ type AuthRequest = Request & {
 }
 
 /**
- * Crear una justificaciÛn para una asistencia
+ * Crear una justificaci√≥n para una asistencia
  * POST /api/justificaciones
  */
 export const crearJustificacion = asyncHandler(
@@ -45,21 +45,21 @@ export const crearJustificacion = asyncHandler(
       throw new NotFoundError('Asistencia no encontrada');
     }
 
-    // Verificar que el docente es dueÒo de la asistencia
+    // Verificar que el docente es due√±o de la asistencia
     if (asistencia.docenteId !== docenteId) {
       throw new AuthorizationError('No tienes permiso para justificar esta asistencia');
     }
 
-    // Verificar que no tiene justificaciÛn previa
+    // Verificar que no tiene justificaci√≥n previa
     const justificacionExistente = await prisma.justificaciones.findFirst({
       where: { asistencia_id: dto.asistencia_id }
     });
 
     if (justificacionExistente) {
-      throw new ValidationError('Esta asistencia ya tiene una justificaciÛn');
+      throw new ValidationError('Esta asistencia ya tiene una justificaci√≥n');
     }
 
-    // Crear justificaciÛn
+    // Crear justificaci√≥n
     const justificacion = await prisma.justificaciones.create({
       data: {
         docente_id: docenteId,
@@ -101,7 +101,7 @@ export const crearJustificacion = asyncHandler(
     res.status(201).json(
       ResponseFormatter.success(
         justificacion, 
-        'JustificaciÛn creada exitosamente'
+        'Justificaci√≥n creada exitosamente'
       )
     );
   }
@@ -208,7 +208,7 @@ export const obtenerJustificacionesPendientes = asyncHandler(
 );
 
 /**
- * Aprobar o rechazar justificaciÛn (Admin)
+ * Aprobar o rechazar justificaci√≥n (Admin)
  * PATCH /api/justificaciones/:id/estado
  */
 export const cambiarEstadoJustificacion = asyncHandler(
@@ -221,7 +221,7 @@ export const cambiarEstadoJustificacion = asyncHandler(
       throw new ValidationError('Usuario no autenticado');
     }
 
-    // Verificar que la justificaciÛn existe
+    // Verificar que la justificaci√≥n existe
     const justificacion = await prisma.justificaciones.findUnique({
       where: { id },
       include: {
@@ -230,16 +230,16 @@ export const cambiarEstadoJustificacion = asyncHandler(
     });
 
     if (!justificacion) {
-      throw new NotFoundError('JustificaciÛn no encontrada');
+      throw new NotFoundError('Justificaci√≥n no encontrada');
     }
 
     if (justificacion.estado !== 'pendiente') {
-      throw new ValidationError('Esta justificaciÛn ya fue procesada');
+      throw new ValidationError('Esta justificaci√≥n ya fue procesada');
     }
 
     const nuevoEstado = dto.estado === 'APROBADO' ? 'aprobada' : 'rechazada';
 
-    // Actualizar justificaciÛn
+    // Actualizar justificaci√≥n
     const justificacionActualizada = await prisma.justificaciones.update({
       where: { id },
       data: {
@@ -289,14 +289,14 @@ export const cambiarEstadoJustificacion = asyncHandler(
     res.json(
       ResponseFormatter.success(
         justificacionActualizada, 
-        `JustificaciÛn ${nuevoEstado} exitosamente`
+        `Justificaci√≥n ${nuevoEstado} exitosamente`
       )
     );
   }
 );
 
 /**
- * Eliminar justificaciÛn (antes de ser revisada)
+ * Eliminar justificaci√≥n (antes de ser revisada)
  * DELETE /api/justificaciones/:id
  */
 export const eliminarJustificacion = asyncHandler(
@@ -314,17 +314,17 @@ export const eliminarJustificacion = asyncHandler(
     });
 
     if (!justificacion) {
-      throw new NotFoundError('JustificaciÛn no encontrada');
+      throw new NotFoundError('Justificaci√≥n no encontrada');
     }
 
-    // Verificar que el docente es dueÒo
+    // Verificar que el docente es due√±o
     if (justificacion.docente_id !== docenteId) {
-      throw new AuthorizationError('No tienes permiso para eliminar esta justificaciÛn');
+      throw new AuthorizationError('No tienes permiso para eliminar esta justificaci√≥n');
     }
 
-    // Solo se puede eliminar si est· pendiente
+    // Solo se puede eliminar si est√° pendiente
     if (justificacion.estado !== 'pendiente') {
-      throw new ValidationError('No puedes eliminar una justificaciÛn ya procesada');
+      throw new ValidationError('No puedes eliminar una justificaci√≥n ya procesada');
     }
 
     await prisma.justificaciones.delete({
@@ -334,7 +334,7 @@ export const eliminarJustificacion = asyncHandler(
     res.json(
       ResponseFormatter.success(
         null, 
-        'JustificaciÛn eliminada exitosamente'
+        'Justificaci√≥n eliminada exitosamente'
       )
     );
   }
