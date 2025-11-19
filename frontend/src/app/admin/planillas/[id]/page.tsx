@@ -42,7 +42,7 @@ export default function DetallePlanillaPage({ params }: { params: Promise<{ id: 
     try {
       await adminPlanillaService.actualizarEstado(planilla.id, nuevoEstado);
       toast.success(`Planilla marcada como ${nuevoEstado}`);
-      cargarPlanilla();
+      cargarPlanilla(planillaId);
     } catch (error: any) {
       toast.error(error.message || 'Error al actualizar estado');
     }

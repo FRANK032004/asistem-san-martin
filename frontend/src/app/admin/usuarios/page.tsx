@@ -1755,8 +1755,8 @@ export default function UsuariosPage() {
                     <TableHead className="min-w-[200px]">Usuario</TableHead>
                     <TableHead className="min-w-[180px]">Email</TableHead>
                     <TableHead className="min-w-[100px]">DNI</TableHead>
-                    <TableHead className="min-w-[80px]">Rol</TableHead>
-                    <TableHead className="min-w-[80px]">Estado</TableHead>
+                    <TableHead className="min-w-20">Rol</TableHead>
+                    <TableHead className="min-w-20">Estado</TableHead>
                     <TableHead className="text-right min-w-[120px]">Acciones</TableHead>
                   </TableRow>
                 </TableHeader>

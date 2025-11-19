@@ -245,7 +245,7 @@ export default function AdminPlanillasPage() {
                         <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase min-w-[100px]">
                           Estado
                         </th>
-                        <th className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase min-w-[80px]">
+                        <th className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase min-w-20">
                           Horas
                         </th>
                         <th className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase min-w-[120px]">

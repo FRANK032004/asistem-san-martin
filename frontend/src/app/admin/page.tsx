@@ -377,26 +377,26 @@ export default function AdminPage() {
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap gap-3">
-              <Link href="/admin/usuarios" className="flex-1 min-w-[160px] sm:flex-initial">
-                <Button className="gap-2 w-full sm:w-auto min-h-[44px]">
+              <Link href="/admin/usuarios" className="flex-1 min-w-40 sm:flex-initial">
+                <Button className="gap-2 w-full sm:w-auto min-h-11">
                   <Users className="h-4 w-4" />
                   Crear Usuario
                 </Button>
               </Link>
-              <Link href="/admin/docentes" className="flex-1 min-w-[160px] sm:flex-initial">
-                <Button variant="outline" className="gap-2 w-full sm:w-auto min-h-[44px]">
+              <Link href="/admin/docentes" className="flex-1 min-w-40 sm:flex-initial">
+                <Button variant="outline" className="gap-2 w-full sm:w-auto min-h-11">
                   <UserCheck className="h-4 w-4" />
                   Registrar Docente
                 </Button>
               </Link>
-              <Link href="/admin/reportes" className="flex-1 min-w-[160px] sm:flex-initial">
-                <Button variant="outline" className="gap-2 w-full sm:w-auto min-h-[44px]">
+              <Link href="/admin/reportes" className="flex-1 min-w-40 sm:flex-initial">
+                <Button variant="outline" className="gap-2 w-full sm:w-auto min-h-11">
                   <BarChart3 className="h-4 w-4" />
                   Ver Reportes
                 </Button>
               </Link>
-              <Link href="/admin/justificaciones" className="flex-1 min-w-[160px] sm:flex-initial">
-                <Button variant="outline" className="gap-2 relative w-full sm:w-auto min-h-[44px]">
+              <Link href="/admin/justificaciones" className="flex-1 min-w-40 sm:flex-initial">
+                <Button variant="outline" className="gap-2 relative w-full sm:w-auto min-h-11">
                   <FileText className="h-4 w-4" />
                   Revisar Justificaciones
                   {justificacionesPendientes > 0 && (
@@ -406,8 +406,8 @@ export default function AdminPage() {
                   )}
                 </Button>
               </Link>
-              <Link href="/admin/configuraciones" className="flex-1 min-w-[160px] sm:flex-initial">
-                <Button variant="outline" className="gap-2 w-full sm:w-auto min-h-[44px]">
+              <Link href="/admin/configuraciones" className="flex-1 min-w-40 sm:flex-initial">
+                <Button variant="outline" className="gap-2 w-full sm:w-auto min-h-11">
                   <Settings className="h-4 w-4" />
                   Configurar Sistema
                 </Button>
