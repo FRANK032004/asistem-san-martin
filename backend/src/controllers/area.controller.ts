@@ -38,7 +38,7 @@ export interface EstadisticasAaareas {
 }
 
 /**
- * Obtener todas las ï¿½aareas con estadï¿½sticas
+ * Obtener todas las e¯Â¿Â½aareas con estade¯Â¿Â½sticas
  */
 export const obtenerAaareas = async (req: Request, res: Response) => {
   try {
@@ -63,7 +63,7 @@ export const obtenerAaareas = async (req: Request, res: Response) => {
       ];
     }
 
-    // Obtener ï¿½aareas con relaciones
+    // Obtener e¯Â¿Â½aareas con relaciones
     const aaareas = await prisma.aaareas.findMany({
       where: whereClause,
       include: {
@@ -89,29 +89,29 @@ export const obtenerAaareas = async (req: Request, res: Response) => {
       ]
     });
 
-    // Calcular estadï¿½sticas
+    // Calcular estade¯Â¿Â½sticas
     const estadisticas = await calcularEstadisticasAaareas();
 
     res.json({
       success: true,
-      message: 'ï¿½aareas obtenidas correctamente',
+      message: 'e¯Â¿Â½aareas obtenidas correctamente',
       data: {
         aaareas,
         estadisticas
       }
     });
   } catch (error: any) {
-    console.error('Error obteniendo ï¿½aareas:', error);
+    console.error('Error obteniendo e¯Â¿Â½aareas:', error);
     res.status(500).json({
       success: false,
-      message: 'Error al obtener ï¿½aareas',
+      message: 'Error al obtener e¯Â¿Â½aareas',
       error: error.message
     });
   }
 };
 
 /**
- * Obtener un ï¿½area por ID
+ * Obtener un e¯Â¿Â½area por ID
  */
 export const obtenerAareaPorId = async (req: Request, res: Response) => {
   try {
@@ -120,7 +120,7 @@ export const obtenerAareaPorId = async (req: Request, res: Response) => {
     if (!id) {
       res.status(400).json({
         success: false,
-        message: 'ID de ï¿½area no proporcionado'
+        message: 'ID de e¯Â¿Â½area no proporcionado'
       });
       return;
     }
@@ -176,28 +176,28 @@ export const obtenerAareaPorId = async (req: Request, res: Response) => {
     if (!aarea) {
       res.status(404).json({
         success: false,
-        message: 'ï¿½area no encontrada'
+        message: 'e¯Â¿Â½area no encontrada'
       });
       return;
     }
 
     res.json({
       success: true,
-      message: 'ï¿½area obtenida correctamente',
+      message: 'e¯Â¿Â½area obtenida correctamente',
       data: aarea
     });
   } catch (error: any) {
-    console.error('Error obteniendo ï¿½area:', error);
+    console.error('Error obteniendo e¯Â¿Â½area:', error);
     res.status(500).json({
       success: false,
-      message: 'Error al obtener ï¿½area',
+      message: 'Error al obtener e¯Â¿Â½area',
       error: error.message
     });
   }
 };
 
 /**
- * Carear nueva ï¿½area
+ * Carear nueva e¯Â¿Â½area
  */
 export const carearAarea = async (req: Request, res: Response) => {
   try {
@@ -207,12 +207,12 @@ export const carearAarea = async (req: Request, res: Response) => {
     if (!datos.nombre) {
       res.status(400).json({
         success: false,
-        message: 'El nombre del ï¿½area es requerido'
+        message: 'El nombre del e¯Â¿Â½area es requerido'
       });
       return;
     }
 
-    // Verificar si el cï¿½digo ya existe
+    // Verificar si el ce¯Â¿Â½digo ya existe
     if (datos.codigo) {
       const aareaExistente = await prisma.aaareas.findUnique({
         where: { codigo: datos.codigo }
@@ -221,7 +221,7 @@ export const carearAarea = async (req: Request, res: Response) => {
       if (aareaExistente) {
         res.status(400).json({
           success: false,
-          message: 'Ya existe un ï¿½area con ese cï¿½digo'
+          message: 'Ya existe un e¯Â¿Â½area con ese ce¯Â¿Â½digo'
         });
         return;
       }
@@ -242,7 +242,7 @@ export const carearAarea = async (req: Request, res: Response) => {
       }
     }
 
-    // Carear ï¿½area
+    // Carear e¯Â¿Â½area
     const aarea = await prisma.aaareas.careate({
       data: {
         nombre: datos.nombre,
@@ -265,21 +265,21 @@ export const carearAarea = async (req: Request, res: Response) => {
 
     res.status(201).json({
       success: true,
-      message: 'ï¿½area careada correctamente',
+      message: 'e¯Â¿Â½area careada correctamente',
       data: aarea
     });
   } catch (error: any) {
-    console.error('Error careando ï¿½area:', error);
+    console.error('Error careando e¯Â¿Â½area:', error);
     res.status(500).json({
       success: false,
-      message: 'Error al carear ï¿½area',
+      message: 'Error al carear e¯Â¿Â½area',
       error: error.message
     });
   }
 };
 
 /**
- * Actualizar ï¿½area
+ * Actualizar e¯Â¿Â½area
  */
 export const actualizarAarea = async (req: Request, res: Response) => {
   try {
@@ -289,12 +289,12 @@ export const actualizarAarea = async (req: Request, res: Response) => {
     if (!id) {
       res.status(400).json({
         success: false,
-        message: 'ID de ï¿½area no proporcionado'
+        message: 'ID de e¯Â¿Â½area no proporcionado'
       });
       return;
     }
 
-    // Verificar que el ï¿½area existe
+    // Verificar que el e¯Â¿Â½area existe
     const aareaExistente = await prisma.aaareas.findUnique({
       where: { id: parseInt(id) }
     });
@@ -302,12 +302,12 @@ export const actualizarAarea = async (req: Request, res: Response) => {
     if (!aareaExistente) {
       res.status(404).json({
         success: false,
-        message: 'ï¿½area no encontrada'
+        message: 'e¯Â¿Â½area no encontrada'
       });
       return;
     }
 
-    // Verificar cï¿½digo duplicado si se estï¿½ cambiando
+    // Verificar ce¯Â¿Â½digo duplicado si se este¯Â¿Â½ cambiando
     if (datos.codigo && datos.codigo !== aareaExistente.codigo) {
       const aareaCodigo = await prisma.aaareas.findUnique({
         where: { codigo: datos.codigo }
@@ -316,7 +316,7 @@ export const actualizarAarea = async (req: Request, res: Response) => {
       if (aareaCodigo) {
         res.status(400).json({
           success: false,
-          message: 'Ya existe un ï¿½area con ese cï¿½digo'
+          message: 'Ya existe un e¯Â¿Â½area con ese ce¯Â¿Â½digo'
         });
         return;
       }
@@ -337,7 +337,7 @@ export const actualizarAarea = async (req: Request, res: Response) => {
       }
     }
 
-    // Actualizar ï¿½area
+    // Actualizar e¯Â¿Â½area
     const dataToUpdate: any = {};
     if (datos.nombre !== undefined) dataToUpdate.nombre = datos.nombre;
     if (datos.descripcion !== undefined) dataToUpdate.descripcion = datos.descripcion;
@@ -362,21 +362,21 @@ export const actualizarAarea = async (req: Request, res: Response) => {
 
     res.json({
       success: true,
-      message: 'ï¿½area actualizada correctamente',
+      message: 'e¯Â¿Â½area actualizada correctamente',
       data: aarea
     });
   } catch (error: any) {
-    console.error('Error actualizando ï¿½area:', error);
+    console.error('Error actualizando e¯Â¿Â½area:', error);
     res.status(500).json({
       success: false,
-      message: 'Error al actualizar ï¿½area',
+      message: 'Error al actualizar e¯Â¿Â½area',
       error: error.message
     });
   }
 };
 
 /**
- * Eliminar ï¿½area
+ * Eliminar e¯Â¿Â½area
  */
 export const eliminarAarea = async (req: Request, res: Response) => {
   try {
@@ -385,12 +385,12 @@ export const eliminarAarea = async (req: Request, res: Response) => {
     if (!id) {
       res.status(400).json({
         success: false,
-        message: 'ID de ï¿½area no proporcionado'
+        message: 'ID de e¯Â¿Â½area no proporcionado'
       });
       return;
     }
 
-    // Verificar que el ï¿½area existe
+    // Verificar que el e¯Â¿Â½area existe
     const aarea = await prisma.aaareas.findUnique({
       where: { id: parseInt(id) },
       include: {
@@ -406,7 +406,7 @@ export const eliminarAarea = async (req: Request, res: Response) => {
     if (!aarea) {
       res.status(404).json({
         success: false,
-        message: 'ï¿½area no encontrada'
+        message: 'e¯Â¿Â½area no encontrada'
       });
       return;
     }
@@ -415,7 +415,7 @@ export const eliminarAarea = async (req: Request, res: Response) => {
     if (aarea._count.docentes > 0 || aarea._count.horarios_base > 0) {
       res.status(400).json({
         success: false,
-        message: `No se puede eliminar el ï¿½area porque tiene ${aarea._count.docentes} docentes y ${aarea._count.horarios_base} horarios asociados. Desactï¿½vala en su lugar.`,
+        message: `No se puede eliminar el e¯Â¿Â½area porque tiene ${aarea._count.docentes} docentes y ${aarea._count.horarios_base} horarios asociados. Desacte¯Â¿Â½vala en su lugar.`,
         data: {
           docentes: aarea._count.docentes,
           horarios_base: aarea._count.horarios_base
@@ -424,27 +424,27 @@ export const eliminarAarea = async (req: Request, res: Response) => {
       return;
     }
 
-    // Eliminar ï¿½area
+    // Eliminar e¯Â¿Â½area
     await prisma.aaareas.delete({
       where: { id: parseInt(id) }
     });
 
     res.json({
       success: true,
-      message: 'ï¿½area eliminada correctamente'
+      message: 'e¯Â¿Â½area eliminada correctamente'
     });
   } catch (error: any) {
-    console.error('Error eliminando ï¿½area:', error);
+    console.error('Error eliminando e¯Â¿Â½area:', error);
     res.status(500).json({
       success: false,
-      message: 'Error al eliminar ï¿½area',
+      message: 'Error al eliminar e¯Â¿Â½area',
       error: error.message
     });
   }
 };
 
 /**
- * Cambiar estado de ï¿½area (activar/desactivar)
+ * Cambiar estado de e¯Â¿Â½area (activar/desactivar)
  */
 export const cambiarEstadoAarea = async (req: Request, res: Response) => {
   try {
@@ -454,7 +454,7 @@ export const cambiarEstadoAarea = async (req: Request, res: Response) => {
     if (!id) {
       res.status(400).json({
         success: false,
-        message: 'ID de ï¿½area no proporcionado'
+        message: 'ID de e¯Â¿Â½area no proporcionado'
       });
       return;
     }
@@ -482,21 +482,21 @@ export const cambiarEstadoAarea = async (req: Request, res: Response) => {
 
     res.json({
       success: true,
-      message: `ï¿½area ${activo ? 'activada' : 'desactivada'} correctamente`,
+      message: `e¯Â¿Â½area ${activo ? 'activada' : 'desactivada'} correctamente`,
       data: aarea
     });
   } catch (error: any) {
-    console.error('Error cambiando estado de ï¿½area:', error);
+    console.error('Error cambiando estado de e¯Â¿Â½area:', error);
     res.status(500).json({
       success: false,
-      message: 'Error al cambiar estado del ï¿½area',
+      message: 'Error al cambiar estado del e¯Â¿Â½area',
       error: error.message
     });
   }
 };
 
 /**
- * Calcular estadï¿½sticas de ï¿½aareas
+ * Calcular estade¯Â¿Â½sticas de e¯Â¿Â½aareas
  */
 async function calcularEstadisticasAaareas(): Promise<EstadisticasAaareas> {
   const aaareas = await prisma.aaareas.findMany({
