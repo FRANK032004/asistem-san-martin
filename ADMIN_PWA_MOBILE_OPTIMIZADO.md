@@ -80,8 +80,8 @@ Ahora al mantener presionado el ícono de la app (Android) o hacer 3D Touch (iPh
 
 **Código:**
 ```tsx
-<Link href="/admin/usuarios" className="flex-1 min-w-[160px] sm:flex-initial">
-  <Button className="gap-2 w-full sm:w-auto min-h-[44px]">
+<Link href="/admin/usuarios" className="flex-1 min-w-40 sm:flex-initial">
+  <Button className="gap-2 w-full sm:w-auto min-h-11">
     <Users className="h-4 w-4" />
     Crear Usuario
   </Button>
