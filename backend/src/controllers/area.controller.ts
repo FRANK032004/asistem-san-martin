@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
 import prisma from '../utils/database';
 
-// Interface para datos de �rea
-export interface DatosArea {
+// Interface para datos de aarea
+export interface DatosAarea {
   nombre: string;
   descripcion?: string;
   codigo?: string;
@@ -11,15 +11,15 @@ export interface DatosArea {
   activo?: boolean;
 }
 
-// Interface para filtros de �reas
-export interface FiltrosAreas {
+// Interface para filtros de aaareas
+export interface FiltrosAaareas {
   activo?: boolean;
   coordinador_id?: string;
   busqueda?: string;
 }
 
-// Interface para estad�sticas de �reas
-export interface EstadisticasAreas {
+// Interface para estadisticas de aaareas
+export interface EstadisticasAaareas {
   total: number;
   activas: number;
   inactivas: number;
@@ -30,17 +30,17 @@ export interface EstadisticasAreas {
   totalDocentes: number;
   totalhorarios_base: number;
   distribucion: {
-    area_id: number;
-    areaNombre: string;
+    aarea_id: number;
+    aareaNombre: string;
     totalDocentes: number;
     totalhorarios_base: number;
   }[];
 }
 
 /**
- * Obtener todas las �reas con estad�sticas
+ * Obtener todas las ï¿½aareas con estadï¿½sticas
  */
-export const obtenerAreas = async (req: Request, res: Response) => {
+export const obtenerAaareas = async (req: Request, res: Response) => {
   try {
     const { activo, coordinador_id, busqueda } = req.query;
     
@@ -63,8 +63,8 @@ export const obtenerAreas = async (req: Request, res: Response) => {
       ];
     }
 
-    // Obtener �reas con relaciones
-    const areas = await prisma.areas.findMany({
+    // Obtener ï¿½aareas con relaciones
+    const aaareas = await prisma.aaareas.findMany({
       where: whereClause,
       include: {
         usuarios: {
@@ -89,43 +89,43 @@ export const obtenerAreas = async (req: Request, res: Response) => {
       ]
     });
 
-    // Calcular estad�sticas
-    const estadisticas = await calcularEstadisticasAreas();
+    // Calcular estadï¿½sticas
+    const estadisticas = await calcularEstadisticasAaareas();
 
     res.json({
       success: true,
-      message: '�reas obtenidas correctamente',
+      message: 'ï¿½aareas obtenidas correctamente',
       data: {
-        areas,
+        aaareas,
         estadisticas
       }
     });
   } catch (error: any) {
-    console.error('Error obteniendo �reas:', error);
+    console.error('Error obteniendo ï¿½aareas:', error);
     res.status(500).json({
       success: false,
-      message: 'Error al obtener �reas',
+      message: 'Error al obtener ï¿½aareas',
       error: error.message
     });
   }
 };
 
 /**
- * Obtener un �rea por ID
+ * Obtener un ï¿½area por ID
  */
-export const obtenerAreaPorId = async (req: Request, res: Response) => {
+export const obtenerAareaPorId = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
 
     if (!id) {
       res.status(400).json({
         success: false,
-        message: 'ID de �rea no proporcionado'
+        message: 'ID de ï¿½area no proporcionado'
       });
       return;
     }
 
-    const area = await prisma.areas.findUnique({
+    const aarea = await prisma.aaareas.findUnique({
       where: { id: parseInt(id) },
       include: {
         usuarios: {
@@ -173,55 +173,55 @@ export const obtenerAreaPorId = async (req: Request, res: Response) => {
       }
     });
 
-    if (!area) {
+    if (!aarea) {
       res.status(404).json({
         success: false,
-        message: '�rea no encontrada'
+        message: 'ï¿½area no encontrada'
       });
       return;
     }
 
     res.json({
       success: true,
-      message: '�rea obtenida correctamente',
-      data: area
+      message: 'ï¿½area obtenida correctamente',
+      data: aarea
     });
   } catch (error: any) {
-    console.error('Error obteniendo �rea:', error);
+    console.error('Error obteniendo ï¿½area:', error);
     res.status(500).json({
       success: false,
-      message: 'Error al obtener �rea',
+      message: 'Error al obtener ï¿½area',
       error: error.message
     });
   }
 };
 
 /**
- * Crear nueva �rea
+ * Carear nueva ï¿½area
  */
-export const crearArea = async (req: Request, res: Response) => {
+export const carearAarea = async (req: Request, res: Response) => {
   try {
-    const datos: DatosArea = req.body;
+    const datos: DatosAarea = req.body;
 
     // Validar datos requeridos
     if (!datos.nombre) {
       res.status(400).json({
         success: false,
-        message: 'El nombre del �rea es requerido'
+        message: 'El nombre del ï¿½area es requerido'
       });
       return;
     }
 
-    // Verificar si el c�digo ya existe
+    // Verificar si el cï¿½digo ya existe
     if (datos.codigo) {
-      const areaExistente = await prisma.areas.findUnique({
+      const aareaExistente = await prisma.aaareas.findUnique({
         where: { codigo: datos.codigo }
       });
 
-      if (areaExistente) {
+      if (aareaExistente) {
         res.status(400).json({
           success: false,
-          message: 'Ya existe un �rea con ese c�digo'
+          message: 'Ya existe un ï¿½area con ese cï¿½digo'
         });
         return;
       }
@@ -242,8 +242,8 @@ export const crearArea = async (req: Request, res: Response) => {
       }
     }
 
-    // Crear �rea
-    const area = await prisma.areas.create({
+    // Carear ï¿½area
+    const aarea = await prisma.aaareas.careate({
       data: {
         nombre: datos.nombre,
         ...(datos.descripcion && { descripcion: datos.descripcion }),
@@ -265,58 +265,58 @@ export const crearArea = async (req: Request, res: Response) => {
 
     res.status(201).json({
       success: true,
-      message: '�rea creada correctamente',
-      data: area
+      message: 'ï¿½area careada correctamente',
+      data: aarea
     });
   } catch (error: any) {
-    console.error('Error creando �rea:', error);
+    console.error('Error careando ï¿½area:', error);
     res.status(500).json({
       success: false,
-      message: 'Error al crear �rea',
+      message: 'Error al carear ï¿½area',
       error: error.message
     });
   }
 };
 
 /**
- * Actualizar �rea
+ * Actualizar ï¿½area
  */
-export const actualizarArea = async (req: Request, res: Response) => {
+export const actualizarAarea = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    const datos: DatosArea = req.body;
+    const datos: DatosAarea = req.body;
 
     if (!id) {
       res.status(400).json({
         success: false,
-        message: 'ID de �rea no proporcionado'
+        message: 'ID de ï¿½area no proporcionado'
       });
       return;
     }
 
-    // Verificar que el �rea existe
-    const areaExistente = await prisma.areas.findUnique({
+    // Verificar que el ï¿½area existe
+    const aareaExistente = await prisma.aaareas.findUnique({
       where: { id: parseInt(id) }
     });
 
-    if (!areaExistente) {
+    if (!aareaExistente) {
       res.status(404).json({
         success: false,
-        message: '�rea no encontrada'
+        message: 'ï¿½area no encontrada'
       });
       return;
     }
 
-    // Verificar c�digo duplicado si se est� cambiando
-    if (datos.codigo && datos.codigo !== areaExistente.codigo) {
-      const areaCodigo = await prisma.areas.findUnique({
+    // Verificar cï¿½digo duplicado si se estï¿½ cambiando
+    if (datos.codigo && datos.codigo !== aareaExistente.codigo) {
+      const aareaCodigo = await prisma.aaareas.findUnique({
         where: { codigo: datos.codigo }
       });
 
-      if (areaCodigo) {
+      if (aareaCodigo) {
         res.status(400).json({
           success: false,
-          message: 'Ya existe un �rea con ese c�digo'
+          message: 'Ya existe un ï¿½area con ese cï¿½digo'
         });
         return;
       }
@@ -337,7 +337,7 @@ export const actualizarArea = async (req: Request, res: Response) => {
       }
     }
 
-    // Actualizar �rea
+    // Actualizar ï¿½area
     const dataToUpdate: any = {};
     if (datos.nombre !== undefined) dataToUpdate.nombre = datos.nombre;
     if (datos.descripcion !== undefined) dataToUpdate.descripcion = datos.descripcion;
@@ -346,7 +346,7 @@ export const actualizarArea = async (req: Request, res: Response) => {
     if (datos.coordinador_id !== undefined) dataToUpdate.coordinador_id = datos.coordinador_id;
     if (datos.activo !== undefined) dataToUpdate.activo = datos.activo;
 
-    const area = await prisma.areas.update({
+    const aarea = await prisma.aaareas.update({
       where: { id: parseInt(id) },
       data: dataToUpdate,
       include: {
@@ -362,36 +362,36 @@ export const actualizarArea = async (req: Request, res: Response) => {
 
     res.json({
       success: true,
-      message: '�rea actualizada correctamente',
-      data: area
+      message: 'ï¿½area actualizada correctamente',
+      data: aarea
     });
   } catch (error: any) {
-    console.error('Error actualizando �rea:', error);
+    console.error('Error actualizando ï¿½area:', error);
     res.status(500).json({
       success: false,
-      message: 'Error al actualizar �rea',
+      message: 'Error al actualizar ï¿½area',
       error: error.message
     });
   }
 };
 
 /**
- * Eliminar �rea
+ * Eliminar ï¿½area
  */
-export const eliminarArea = async (req: Request, res: Response) => {
+export const eliminarAarea = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
 
     if (!id) {
       res.status(400).json({
         success: false,
-        message: 'ID de �rea no proporcionado'
+        message: 'ID de ï¿½area no proporcionado'
       });
       return;
     }
 
-    // Verificar que el �rea existe
-    const area = await prisma.areas.findUnique({
+    // Verificar que el ï¿½area existe
+    const aarea = await prisma.aaareas.findUnique({
       where: { id: parseInt(id) },
       include: {
         _count: {
@@ -403,50 +403,50 @@ export const eliminarArea = async (req: Request, res: Response) => {
       }
     });
 
-    if (!area) {
+    if (!aarea) {
       res.status(404).json({
         success: false,
-        message: '�rea no encontrada'
+        message: 'ï¿½area no encontrada'
       });
       return;
     }
 
     // Verificar si tiene docentes o horarios asociados
-    if (area._count.docentes > 0 || area._count.horarios_base > 0) {
+    if (aarea._count.docentes > 0 || aarea._count.horarios_base > 0) {
       res.status(400).json({
         success: false,
-        message: `No se puede eliminar el �rea porque tiene ${area._count.docentes} docentes y ${area._count.horarios_base} horarios asociados. Desact�vala en su lugar.`,
+        message: `No se puede eliminar el ï¿½area porque tiene ${aarea._count.docentes} docentes y ${aarea._count.horarios_base} horarios asociados. Desactï¿½vala en su lugar.`,
         data: {
-          docentes: area._count.docentes,
-          horarios_base: area._count.horarios_base
+          docentes: aarea._count.docentes,
+          horarios_base: aarea._count.horarios_base
         }
       });
       return;
     }
 
-    // Eliminar �rea
-    await prisma.areas.delete({
+    // Eliminar ï¿½area
+    await prisma.aaareas.delete({
       where: { id: parseInt(id) }
     });
 
     res.json({
       success: true,
-      message: '�rea eliminada correctamente'
+      message: 'ï¿½area eliminada correctamente'
     });
   } catch (error: any) {
-    console.error('Error eliminando �rea:', error);
+    console.error('Error eliminando ï¿½area:', error);
     res.status(500).json({
       success: false,
-      message: 'Error al eliminar �rea',
+      message: 'Error al eliminar ï¿½area',
       error: error.message
     });
   }
 };
 
 /**
- * Cambiar estado de �rea (activar/desactivar)
+ * Cambiar estado de ï¿½area (activar/desactivar)
  */
-export const cambiarEstadoArea = async (req: Request, res: Response) => {
+export const cambiarEstadoAarea = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const { activo } = req.body;
@@ -454,7 +454,7 @@ export const cambiarEstadoArea = async (req: Request, res: Response) => {
     if (!id) {
       res.status(400).json({
         success: false,
-        message: 'ID de �rea no proporcionado'
+        message: 'ID de ï¿½area no proporcionado'
       });
       return;
     }
@@ -467,7 +467,7 @@ export const cambiarEstadoArea = async (req: Request, res: Response) => {
       return;
     }
 
-    const area = await prisma.areas.update({
+    const aarea = await prisma.aaareas.update({
       where: { id: parseInt(id) },
       data: { activo },
       include: {
@@ -482,24 +482,24 @@ export const cambiarEstadoArea = async (req: Request, res: Response) => {
 
     res.json({
       success: true,
-      message: `�rea ${activo ? 'activada' : 'desactivada'} correctamente`,
-      data: area
+      message: `ï¿½area ${activo ? 'activada' : 'desactivada'} correctamente`,
+      data: aarea
     });
   } catch (error: any) {
-    console.error('Error cambiando estado de �rea:', error);
+    console.error('Error cambiando estado de ï¿½area:', error);
     res.status(500).json({
       success: false,
-      message: 'Error al cambiar estado del �rea',
+      message: 'Error al cambiar estado del ï¿½area',
       error: error.message
     });
   }
 };
 
 /**
- * Calcular estad�sticas de �reas
+ * Calcular estadï¿½sticas de ï¿½aareas
  */
-async function calcularEstadisticasAreas(): Promise<EstadisticasAreas> {
-  const areas = await prisma.areas.findMany({
+async function calcularEstadisticasAaareas(): Promise<EstadisticasAaareas> {
+  const aaareas = await prisma.aaareas.findMany({
     include: {
       _count: {
         select: {
@@ -510,17 +510,17 @@ async function calcularEstadisticasAreas(): Promise<EstadisticasAreas> {
     }
   });
 
-  const total = areas.length;
-  const activas = areas.filter(a => a.activo).length;
+  const total = aaareas.length;
+  const activas = aaareas.filter(a => a.activo).length;
   const inactivas = total - activas;
-  const conCoordinador = areas.filter(a => a.coordinador_id !== null).length;
+  const conCoordinador = aaareas.filter(a => a.coordinador_id !== null).length;
   const sinCoordinador = total - conCoordinador;
-  const totalDocentes = areas.reduce((sum, a) => sum + a._count.docentes, 0);
-  const totalHorarios = areas.reduce((sum, a) => sum + a._count.horarios_base, 0);
+  const totalDocentes = aaareas.reduce((sum, a) => sum + a._count.docentes, 0);
+  const totalHorarios = aaareas.reduce((sum, a) => sum + a._count.horarios_base, 0);
 
-  const distribucion = areas.map(a => ({
-    area_id: a.id,
-    areaNombre: a.nombre,
+  const distribucion = aaareas.map(a => ({
+    aarea_id: a.id,
+    aareaNombre: a.nombre,
     totalDocentes: a._count.docentes,
     totalhorarios_base: a._count.horarios_base
   }));
