@@ -1,154 +1,155 @@
-/**
- * ============================================================
- * TESTS UNITARIOS - CONSTANTES DE SEGURIDAD
- * Sistema de Asistencias - Instituto San Martín
- * ============================================================
- */
-
-/// <reference types="jest" />
-
-import {
-  BCRYPT_CONFIG,
-  JWT_CONFIG,
-  PASSWORD_POLICY,
-  RATE_LIMIT_CONFIG,
-  GPS_CONFIG,
-  PAGINATION_CONFIG,
-  SESSION_CONFIG,
-} from '../../shared/constants/security.constants';
-
-describe('Security Constants - Unit Tests', () => {
-  
-  describe('BCRYPT_CONFIG', () => {
-    it('debe tener salt rounds configurados correctamente', () => {
-      expect(BCRYPT_CONFIG.SALT_ROUNDS).toBe(10); // El valor actual en constants
-      expect(BCRYPT_CONFIG.SALT_ROUNDS).toBeGreaterThanOrEqual(BCRYPT_CONFIG.MIN_SALT_ROUNDS);
-      expect(BCRYPT_CONFIG.SALT_ROUNDS).toBeLessThanOrEqual(BCRYPT_CONFIG.MAX_SALT_ROUNDS);
-    });
-
-    it('debe tener valores numéricos válidos', () => {
-      expect(typeof BCRYPT_CONFIG.SALT_ROUNDS).toBe('number');
-      expect(typeof BCRYPT_CONFIG.MIN_SALT_ROUNDS).toBe('number');
-      expect(typeof BCRYPT_CONFIG.MAX_SALT_ROUNDS).toBe('number');
-    });
-  });
-
-  describe('JWT_CONFIG', () => {
-    it('debe tener configuración de expiración', () => {
-      expect(JWT_CONFIG.ACCESS_TOKEN_EXPIRES_IN).toBeDefined();
-      expect(JWT_CONFIG.REFRESH_TOKEN_EXPIRES_IN).toBeDefined();
-    });
-
-    it('debe tener algoritmo correcto', () => {
-      expect(JWT_CONFIG.ALGORITHM).toBe('HS256');
-    });
-
-    it('debe tener issuer y audience', () => {
-      expect(JWT_CONFIG.ISSUER).toBe('instituto-san-martin');
-      expect(JWT_CONFIG.AUDIENCE).toBe('instituto-san-martin-api');
-    });
-  });
-
-  describe('PASSWORD_POLICY', () => {
-    it('debe tener longitudes mínima y máxima válidas', () => {
-      expect(PASSWORD_POLICY.MIN_LENGTH).toBeGreaterThan(0);
-      expect(PASSWORD_POLICY.MAX_LENGTH).toBeGreaterThan(PASSWORD_POLICY.MIN_LENGTH);
-      expect(PASSWORD_POLICY.MIN_LENGTH).toBe(8);
-      expect(PASSWORD_POLICY.MAX_LENGTH).toBe(128);
-    });
-
-    it('debe tener requisitos de complejidad', () => {
-      expect(PASSWORD_POLICY.REQUIRE_UPPERCASE).toBe(true);
-      expect(PASSWORD_POLICY.REQUIRE_LOWERCASE).toBe(true);
-      expect(PASSWORD_POLICY.REQUIRE_NUMBER).toBe(true);
-      expect(PASSWORD_POLICY.REQUIRE_SPECIAL_CHAR).toBe(true);
-    });
-
-    it('debe tener caracteres especiales definidos', () => {
-      expect(PASSWORD_POLICY.SPECIAL_CHARS).toBeDefined();
-      expect(PASSWORD_POLICY.SPECIAL_CHARS.length).toBeGreaterThan(0);
-    });
-  });
-
-  describe('RATE_LIMIT_CONFIG', () => {
-    it('debe tener ventana de tiempo y máximo de requests', () => {
-      expect(RATE_LIMIT_CONFIG.WINDOW_MS).toBeGreaterThan(0);
-      expect(RATE_LIMIT_CONFIG.MAX_REQUESTS).toBeGreaterThan(0);
-    });
-
-    it('debe tener configuraciones específicas', () => {
-      expect(RATE_LIMIT_CONFIG.AUTH.MAX_REQUESTS).toBe(5);
-      expect(RATE_LIMIT_CONFIG.CREATE.MAX_REQUESTS).toBe(10);
-      expect(RATE_LIMIT_CONFIG.PUBLIC.MAX_REQUESTS).toBe(60);
-    });
-  });
-
-  describe('GPS_CONFIG', () => {
-    it('debe tener precisión en metros', () => {
-      expect(GPS_CONFIG.PRECISION_METERS).toBe(50);
-      expect(GPS_CONFIG.MIN_RADIUS_METERS).toBe(10);
-      expect(GPS_CONFIG.MAX_RADIUS_METERS).toBe(500);
-    });
-
-    it('debe tener coordenadas por defecto válidas', () => {
-      expect(GPS_CONFIG.DEFAULT_LOCATION.LAT).toBeGreaterThan(-90);
-      expect(GPS_CONFIG.DEFAULT_LOCATION.LAT).toBeLessThan(90);
-      expect(GPS_CONFIG.DEFAULT_LOCATION.LNG).toBeGreaterThan(-180);
-      expect(GPS_CONFIG.DEFAULT_LOCATION.LNG).toBeLessThan(180);
-    });
-  });
-
-  describe('PAGINATION_CONFIG', () => {
-    it('debe tener límites válidos', () => {
-      expect(PAGINATION_CONFIG.DEFAULT_PAGE_SIZE).toBe(10);
-      expect(PAGINATION_CONFIG.MIN_PAGE_SIZE).toBe(1);
-      expect(PAGINATION_CONFIG.MAX_PAGE_SIZE).toBe(100);
-    });
-
-    it('debe tener relación lógica entre límites', () => {
-      expect(PAGINATION_CONFIG.MIN_PAGE_SIZE).toBeLessThan(PAGINATION_CONFIG.DEFAULT_PAGE_SIZE);
-      expect(PAGINATION_CONFIG.DEFAULT_PAGE_SIZE).toBeLessThan(PAGINATION_CONFIG.MAX_PAGE_SIZE);
-    });
-  });
-
-  describe('SESSION_CONFIG', () => {
-    it('debe tener duración máxima', () => {
-      expect(SESSION_CONFIG.MAX_DURATION_HOURS).toBe(24);
-    });
-
-    it('debe tener timeout de inactividad', () => {
-      expect(SESSION_CONFIG.INACTIVITY_TIMEOUT_MINUTES).toBe(30);
-      expect(SESSION_CONFIG.INACTIVITY_TIMEOUT_MS).toBe(30 * 60 * 1000);
-    });
-
-    it('debe tener límite de sesiones activas', () => {
-      expect(SESSION_CONFIG.MAX_ACTIVE_SESSIONS).toBe(5);
-      expect(SESSION_CONFIG.MAX_ACTIVE_SESSIONS).toBeGreaterThan(0);
-    });
-  });
-
-  describe('Consistency Checks', () => {
-    it('todas las constantes deben ser readonly (frozen)', () => {
-      expect(Object.isFrozen(BCRYPT_CONFIG)).toBe(false); // 'as const' hace inmutable en TS, no en runtime
-      // Pero TypeScript previene modificación en tiempo de compilación
-    });
-
-    it('no debe haber valores undefined', () => {
-      const checkNoUndefined = (obj: any, path = ''): void => {
-        Object.entries(obj).forEach(([key, value]) => {
-          const currentPath = path ? `${path}.${key}` : key;
-          if (value === undefined) {
-            throw new Error(`Valor undefined encontrado en: ${currentPath}`);
-          }
-          if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
-            checkNoUndefined(value, currentPath);
-          }
-        });
-      };
-
-      expect(() => checkNoUndefined(BCRYPT_CONFIG)).not.toThrow();
-      expect(() => checkNoUndefined(JWT_CONFIG)).not.toThrow();
-      expect(() => checkNoUndefined(PASSWORD_POLICY)).not.toThrow();
-    });
-  });
-});
+a/a*a*aa
+a a*a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
+a a*a aTaEaSaTaSa aUaNaIaTaAaRaIaOaSa a-a aCaOaNaSaTaAaNaTaEaSa aDaEa aSaEaGaUaRaIaDaAaDaa
+a a*a aSaiasataeamaaa adaea aAasaiasataeanacaiaaasa a-a aIanasataiatauataoa aSaaana aMaaarataÃa­anaa
+a a*a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
+a a*a/aa
+aa
+a/a/a/a a<araeafaearaeanacaea atayapaeasa=a"ajaeasata"a a/a>aa
+aa
+aiamapaoarata a{aa
+a a aBaCaRaYaPaTa_aCaOaNaFaIaGa,aa
+a a aJaWaTa_aCaOaNaFaIaGa,aa
+a a aPaAaSaSaWaOaRaDa_aPaOaLaIaCaYa,aa
+a a aRaAaTaEa_aLaIaMaIaTa_aCaOaNaFaIaGa,aa
+a a aGaPaSa_aCaOaNaFaIaGa,aa
+a a aPaAaGaIaNaAaTaIaOaNa_aCaOaNaFaIaGa,aa
+a a aSaEaSaSaIaOaNa_aCaOaNaFaIaGa,aa
+a}a afaraoama a'a.a.a/a.a.a/asahaaaraeada/acaoanasataaanatasa/asaeacauaraiataya.acaoanasataaanatasa'a;aa
+aa
+adaeasacaraiabaea(a'aSaeacauaraiataya aCaoanasataaanatasa a-a aUanaiata aTaeasatasa'a,a a(a)a a=a>a a{aa
+a a aa
+a a adaeasacaraiabaea(a'aBaCaRaYaPaTa_aCaOaNaFaIaGa'a,a a(a)a a=a>a a{aa
+a a a a aiata(a'adaeabaea ataeanaeara asaaalata araoauanadasa acaoanafaiagauaraaadaoasa acaoararaeacataaamaeanataea'a,a a(a)a a=a>a a{aa
+a a a a a a aeaxapaeacata(aBaCaRaYaPaTa_aCaOaNaFaIaGa.aSaAaLaTa_aRaOaUaNaDaSa)a.ataoaBaea(a1a0a)a;a a/a/a aEala avaaalaoara aaacatauaaala aeana acaoanasataaanatasaa
+a a a a a a aeaxapaeacata(aBaCaRaYaPaTa_aCaOaNaFaIaGa.aSaAaLaTa_aRaOaUaNaDaSa)a.ataoaBaeaGaraeaaataearaTahaaanaOaraEaqauaaala(aBaCaRaYaPaTa_aCaOaNaFaIaGa.aMaIaNa_aSaAaLaTa_aRaOaUaNaDaSa)a;aa
+a a a a a a aeaxapaeacata(aBaCaRaYaPaTa_aCaOaNaFaIaGa.aSaAaLaTa_aRaOaUaNaDaSa)a.ataoaBaeaLaeasasaTahaaanaOaraEaqauaaala(aBaCaRaYaPaTa_aCaOaNaFaIaGa.aMaAaXa_aSaAaLaTa_aRaOaUaNaDaSa)a;aa
+a a a a a}a)a;aa
+aa
+a a a a aiata(a'adaeabaea ataeanaeara avaaalaoaraeasa anauamaÃa©araiacaoasa avaÃa¡alaiadaoasa'a,a a(a)a a=a>a a{aa
+a a a a a a aeaxapaeacata(atayapaeaoafa aBaCaRaYaPaTa_aCaOaNaFaIaGa.aSaAaLaTa_aRaOaUaNaDaSa)a.ataoaBaea(a'anauamabaeara'a)a;aa
+a a a a a a aeaxapaeacata(atayapaeaoafa aBaCaRaYaPaTa_aCaOaNaFaIaGa.aMaIaNa_aSaAaLaTa_aRaOaUaNaDaSa)a.ataoaBaea(a'anauamabaeara'a)a;aa
+a a a a a a aeaxapaeacata(atayapaeaoafa aBaCaRaYaPaTa_aCaOaNaFaIaGa.aMaAaXa_aSaAaLaTa_aRaOaUaNaDaSa)a.ataoaBaea(a'anauamabaeara'a)a;aa
+a a a a a}a)a;aa
+a a a}a)a;aa
+aa
+a a adaeasacaraiabaea(a'aJaWaTa_aCaOaNaFaIaGa'a,a a(a)a a=a>a a{aa
+a a a a aiata(a'adaeabaea ataeanaeara acaoanafaiagauaraaacaiaÃa³ana adaea aeaxapaiaraaacaiaÃa³ana'a,a a(a)a a=a>a a{aa
+a a a a a a aeaxapaeacata(aJaWaTa_aCaOaNaFaIaGa.aAaCaCaEaSaSa_aTaOaKaEaNa_aEaXaPaIaRaEaSa_aIaNa)a.ataoaBaeaDaeafaianaeada(a)a;aa
+a a a a a a aeaxapaeacata(aJaWaTa_aCaOaNaFaIaGa.aRaEaFaRaEaSaHa_aTaOaKaEaNa_aEaXaPaIaRaEaSa_aIaNa)a.ataoaBaeaDaeafaianaeada(a)a;aa
+a a a a a}a)a;aa
+aa
+a a a a aiata(a'adaeabaea ataeanaeara aaalagaoaraiatamaoa acaoararaeacataoa'a,a a(a)a a=a>a a{aa
+a a a a a a aeaxapaeacata(aJaWaTa_aCaOaNaFaIaGa.aAaLaGaOaRaIaTaHaMa)a.ataoaBaea(a'aHaSa2a5a6a'a)a;aa
+a a a a a}a)a;aa
+aa
+a a a a aiata(a'adaeabaea ataeanaeara aiasasauaeara aya aaauadaiaeanacaea'a,a a(a)a a=a>a a{aa
+a a a a a a aeaxapaeacata(aJaWaTa_aCaOaNaFaIaGa.aIaSaSaUaEaRa)a.ataoaBaea(a'aianasataiatauataoa-asaaana-amaaarataiana'a)a;aa
+a a a a a a aeaxapaeacata(aJaWaTa_aCaOaNaFaIaGa.aAaUaDaIaEaNaCaEa)a.ataoaBaea(a'aianasataiatauataoa-asaaana-amaaarataiana-aaapaia'a)a;aa
+a a a a a}a)a;aa
+a a a}a)a;aa
+aa
+a a adaeasacaraiabaea(a'aPaAaSaSaWaOaRaDa_aPaOaLaIaCaYa'a,a a(a)a a=a>a a{aa
+a a a a aiata(a'adaeabaea ataeanaeara alaoanagaiatauadaeasa amaÃa­anaiamaaa aya amaÃa¡axaiamaaa avaÃa¡alaiadaaasa'a,a a(a)a a=a>a a{aa
+a a a a a a aeaxapaeacata(aPaAaSaSaWaOaRaDa_aPaOaLaIaCaYa.aMaIaNa_aLaEaNaGaTaHa)a.ataoaBaeaGaraeaaataearaTahaaana(a0a)a;aa
+a a a a a a aeaxapaeacata(aPaAaSaSaWaOaRaDa_aPaOaLaIaCaYa.aMaAaXa_aLaEaNaGaTaHa)a.ataoaBaeaGaraeaaataearaTahaaana(aPaAaSaSaWaOaRaDa_aPaOaLaIaCaYa.aMaIaNa_aLaEaNaGaTaHa)a;aa
+a a a a a a aeaxapaeacata(aPaAaSaSaWaOaRaDa_aPaOaLaIaCaYa.aMaIaNa_aLaEaNaGaTaHa)a.ataoaBaea(a8a)a;aa
+a a a a a a aeaxapaeacata(aPaAaSaSaWaOaRaDa_aPaOaLaIaCaYa.aMaAaXa_aLaEaNaGaTaHa)a.ataoaBaea(a1a2a8a)a;aa
+a a a a a}a)a;aa
+aa
+a a a a aiata(a'adaeabaea ataeanaeara araeaqauaiasaiataoasa adaea acaoamapalaeajaiadaaada'a,a a(a)a a=a>a a{aa
+a a a a a a aeaxapaeacata(aPaAaSaSaWaOaRaDa_aPaOaLaIaCaYa.aRaEaQaUaIaRaEa_aUaPaPaEaRaCaAaSaEa)a.ataoaBaea(atarauaea)a;aa
+a a a a a a aeaxapaeacata(aPaAaSaSaWaOaRaDa_aPaOaLaIaCaYa.aRaEaQaUaIaRaEa_aLaOaWaEaRaCaAaSaEa)a.ataoaBaea(atarauaea)a;aa
+a a a a a a aeaxapaeacata(aPaAaSaSaWaOaRaDa_aPaOaLaIaCaYa.aRaEaQaUaIaRaEa_aNaUaMaBaEaRa)a.ataoaBaea(atarauaea)a;aa
+a a a a a a aeaxapaeacata(aPaAaSaSaWaOaRaDa_aPaOaLaIaCaYa.aRaEaQaUaIaRaEa_aSaPaEaCaIaAaLa_aCaHaAaRa)a.ataoaBaea(atarauaea)a;aa
+a a a a a}a)a;aa
+aa
+a a a a aiata(a'adaeabaea ataeanaeara acaaaraaacataearaeasa aeasapaeacaiaaalaeasa adaeafaianaiadaoasa'a,a a(a)a a=a>a a{aa
+a a a a a a aeaxapaeacata(aPaAaSaSaWaOaRaDa_aPaOaLaIaCaYa.aSaPaEaCaIaAaLa_aCaHaAaRaSa)a.ataoaBaeaDaeafaianaeada(a)a;aa
+a a a a a a aeaxapaeacata(aPaAaSaSaWaOaRaDa_aPaOaLaIaCaYa.aSaPaEaCaIaAaLa_aCaHaAaRaSa.alaeanagataha)a.ataoaBaeaGaraeaaataearaTahaaana(a0a)a;aa
+a a a a a}a)a;aa
+a a a}a)a;aa
+aa
+a a adaeasacaraiabaea(a'aRaAaTaEa_aLaIaMaIaTa_aCaOaNaFaIaGa'a,a a(a)a a=a>a a{aa
+a a a a aiata(a'adaeabaea ataeanaeara avaeanataaanaaa adaea ataiaeamapaoa aya amaÃa¡axaiamaoa adaea araeaqauaeasatasa'a,a a(a)a a=a>a a{aa
+a a a a a a aeaxapaeacata(aRaAaTaEa_aLaIaMaIaTa_aCaOaNaFaIaGa.aWaIaNaDaOaWa_aMaSa)a.ataoaBaeaGaraeaaataearaTahaaana(a0a)a;aa
+a a a a a a aeaxapaeacata(aRaAaTaEa_aLaIaMaIaTa_aCaOaNaFaIaGa.aMaAaXa_aRaEaQaUaEaSaTaSa)a.ataoaBaeaGaraeaaataearaTahaaana(a0a)a;aa
+a a a a a}a)a;aa
+aa
+a a a a aiata(a'adaeabaea ataeanaeara acaoanafaiagauaraaacaiaoanaeasa aeasapaeacaÃa­afaiacaaasa'a,a a(a)a a=a>a a{aa
+a a a a a a aeaxapaeacata(aRaAaTaEa_aLaIaMaIaTa_aCaOaNaFaIaGa.aAaUaTaHa.aMaAaXa_aRaEaQaUaEaSaTaSa)a.ataoaBaea(a5a)a;aa
+a a a a a a aeaxapaeacata(aRaAaTaEa_aLaIaMaIaTa_aCaOaNaFaIaGa.aCaRaEaAaTaEa.aMaAaXa_aRaEaQaUaEaSaTaSa)a.ataoaBaea(a1a0a)a;aa
+a a a a a a aeaxapaeacata(aRaAaTaEa_aLaIaMaIaTa_aCaOaNaFaIaGa.aPaUaBaLaIaCa.aMaAaXa_aRaEaQaUaEaSaTaSa)a.ataoaBaea(a6a0a)a;aa
+a a a a a}a)a;aa
+a a a}a)a;aa
+aa
+a a adaeasacaraiabaea(a'aGaPaSa_aCaOaNaFaIaGa'a,a a(a)a a=a>a a{aa
+a a a a aiata(a'adaeabaea ataeanaeara aparaeacaiasaiaÃa³ana aeana amaeataraoasa'a,a a(a)a a=a>a a{aa
+a a a a a a aeaxapaeacata(aGaPaSa_aCaOaNaFaIaGa.aPaRaEaCaIaSaIaOaNa_aMaEaTaEaRaSa)a.ataoaBaea(a5a0a)a;aa
+a a a a a a aeaxapaeacata(aGaPaSa_aCaOaNaFaIaGa.aMaIaNa_aRaAaDaIaUaSa_aMaEaTaEaRaSa)a.ataoaBaea(a1a0a)a;aa
+a a a a a a aeaxapaeacata(aGaPaSa_aCaOaNaFaIaGa.aMaAaXa_aRaAaDaIaUaSa_aMaEaTaEaRaSa)a.ataoaBaea(a5a0a0a)a;aa
+a a a a a}a)a;aa
+aa
+a a a a aiata(a'adaeabaea ataeanaeara acaoaoaradaeanaaadaaasa apaoara adaeafaeacataoa avaÃa¡alaiadaaasa'a,a a(a)a a=a>a a{aa
+a a a a a a aeaxapaeacata(aGaPaSa_aCaOaNaFaIaGa.aDaEaFaAaUaLaTa_aLaOaCaAaTaIaOaNa.aLaAaTa)a.ataoaBaeaGaraeaaataearaTahaaana(a-a9a0a)a;aa
+a a a a a a aeaxapaeacata(aGaPaSa_aCaOaNaFaIaGa.aDaEaFaAaUaLaTa_aLaOaCaAaTaIaOaNa.aLaAaTa)a.ataoaBaeaLaeasasaTahaaana(a9a0a)a;aa
+a a a a a a aeaxapaeacata(aGaPaSa_aCaOaNaFaIaGa.aDaEaFaAaUaLaTa_aLaOaCaAaTaIaOaNa.aLaNaGa)a.ataoaBaeaGaraeaaataearaTahaaana(a-a1a8a0a)a;aa
+a a a a a a aeaxapaeacata(aGaPaSa_aCaOaNaFaIaGa.aDaEaFaAaUaLaTa_aLaOaCaAaTaIaOaNa.aLaNaGa)a.ataoaBaeaLaeasasaTahaaana(a1a8a0a)a;aa
+a a a a a}a)a;aa
+a a a}a)a;aa
+aa
+a a adaeasacaraiabaea(a'aPaAaGaIaNaAaTaIaOaNa_aCaOaNaFaIaGa'a,a a(a)a a=a>a a{aa
+a a a a aiata(a'adaeabaea ataeanaeara alaÃa­amaiataeasa avaÃa¡alaiadaoasa'a,a a(a)a a=a>a a{aa
+a a a a a a aeaxapaeacata(aPaAaGaIaNaAaTaIaOaNa_aCaOaNaFaIaGa.aDaEaFaAaUaLaTa_aPaAaGaEa_aSaIaZaEa)a.ataoaBaea(a1a0a)a;aa
+a a a a a a aeaxapaeacata(aPaAaGaIaNaAaTaIaOaNa_aCaOaNaFaIaGa.aMaIaNa_aPaAaGaEa_aSaIaZaEa)a.ataoaBaea(a1a)a;aa
+a a a a a a aeaxapaeacata(aPaAaGaIaNaAaTaIaOaNa_aCaOaNaFaIaGa.aMaAaXa_aPaAaGaEa_aSaIaZaEa)a.ataoaBaea(a1a0a0a)a;aa
+a a a a a}a)a;aa
+aa
+a a a a aiata(a'adaeabaea ataeanaeara araealaaacaiaÃa³ana alaÃa³agaiacaaa aeanataraea alaÃa­amaiataeasa'a,a a(a)a a=a>a a{aa
+a a a a a a aeaxapaeacata(aPaAaGaIaNaAaTaIaOaNa_aCaOaNaFaIaGa.aMaIaNa_aPaAaGaEa_aSaIaZaEa)a.ataoaBaeaLaeasasaTahaaana(aPaAaGaIaNaAaTaIaOaNa_aCaOaNaFaIaGa.aDaEaFaAaUaLaTa_aPaAaGaEa_aSaIaZaEa)a;aa
+a a a a a a aeaxapaeacata(aPaAaGaIaNaAaTaIaOaNa_aCaOaNaFaIaGa.aDaEaFaAaUaLaTa_aPaAaGaEa_aSaIaZaEa)a.ataoaBaeaLaeasasaTahaaana(aPaAaGaIaNaAaTaIaOaNa_aCaOaNaFaIaGa.aMaAaXa_aPaAaGaEa_aSaIaZaEa)a;aa
+a a a a a}a)a;aa
+a a a}a)a;aa
+aa
+a a adaeasacaraiabaea(a'aSaEaSaSaIaOaNa_aCaOaNaFaIaGa'a,a a(a)a a=a>a a{aa
+a a a a aiata(a'adaeabaea ataeanaeara adauaraaacaiaÃa³ana amaÃa¡axaiamaaa'a,a a(a)a a=a>a a{aa
+a a a a a a aeaxapaeacata(aSaEaSaSaIaOaNa_aCaOaNaFaIaGa.aMaAaXa_aDaUaRaAaTaIaOaNa_aHaOaUaRaSa)a.ataoaBaea(a2a4a)a;aa
+a a a a a}a)a;aa
+aa
+a a a a aiata(a'adaeabaea ataeanaeara ataiamaeaoauata adaea aianaaacataiavaiadaaada'a,a a(a)a a=a>a a{aa
+a a a a a a aeaxapaeacata(aSaEaSaSaIaOaNa_aCaOaNaFaIaGa.aIaNaAaCaTaIaVaIaTaYa_aTaIaMaEaOaUaTa_aMaIaNaUaTaEaSa)a.ataoaBaea(a3a0a)a;aa
+a a a a a a aeaxapaeacata(aSaEaSaSaIaOaNa_aCaOaNaFaIaGa.aIaNaAaCaTaIaVaIaTaYa_aTaIaMaEaOaUaTa_aMaSa)a.ataoaBaea(a3a0a a*a a6a0a a*a a1a0a0a0a)a;aa
+a a a a a}a)a;aa
+aa
+a a a a aiata(a'adaeabaea ataeanaeara alaÃa­amaiataea adaea asaeasaiaoanaeasa aaacataiavaaasa'a,a a(a)a a=a>a a{aa
+a a a a a a aeaxapaeacata(aSaEaSaSaIaOaNa_aCaOaNaFaIaGa.aMaAaXa_aAaCaTaIaVaEa_aSaEaSaSaIaOaNaSa)a.ataoaBaea(a5a)a;aa
+a a a a a a aeaxapaeacata(aSaEaSaSaIaOaNa_aCaOaNaFaIaGa.aMaAaXa_aAaCaTaIaVaEa_aSaEaSaSaIaOaNaSa)a.ataoaBaeaGaraeaaataearaTahaaana(a0a)a;aa
+a a a a a}a)a;aa
+a a a}a)a;aa
+aa
+a a adaeasacaraiabaea(a'aCaoanasaiasataeanacaya aCahaeacakasa'a,a a(a)a a=a>a a{aa
+a a a a aiata(a'ataoadaaasa alaaasa acaoanasataaanataeasa adaeabaeana asaeara araeaaadaoanalaya a(afaraoazaeana)a'a,a a(a)a a=a>a a{aa
+a a a a a a aeaxapaeacata(aOabajaeacata.aiasaFaraoazaeana(aBaCaRaYaPaTa_aCaOaNaFaIaGa)a)a.ataoaBaea(afaaalasaea)a;a a/a/a a'aaasa acaoanasata'a ahaaacaea aianamauataaabalaea aeana aTaSa,a anaoa aeana arauanataiamaeaa
+a a a a a a a/a/a aPaearaoa aTayapaeaSacaraiapata aparaeavaiaeanaea amaoadaiafaiacaaacaiaÃa³ana aeana ataiaeamapaoa adaea acaoamapaialaaacaiaÃa³anaa
+a a a a a}a)a;aa
+aa
+a a a a aiata(a'anaoa adaeabaea ahaaabaeara avaaalaoaraeasa auanadaeafaianaeada'a,a a(a)a a=a>a a{aa
+a a a a a a acaoanasata acahaeacakaNaoaUanadaeafaianaeada a=a a(aoabaja:a aaanaya,a apaaataha a=a a'a'a)a:a avaoaiada a=a>a a{aa
+a a a a a a a a aOabajaeacata.aeanataraiaeasa(aoabaja)a.afaoaraEaaacaha(a(a[akaeaya,a avaaalauaea]a)a a=a>a a{aa
+a a a a a a a a a a acaoanasata acauararaeanataPaaataha a=a apaaataha a?a a`a$a{apaaataha}a.a$a{akaeaya}a`a a:a akaeaya;aa
+a a a a a a a a a a aiafa a(avaaalauaea a=a=a=a auanadaeafaianaeada)a a{aa
+a a a a a a a a a a a a ataharaoawa anaeawa aEararaoara(a`aVaaalaoara auanadaeafaianaeada aeanacaoanataraaadaoa aeana:a a$a{acauararaeanataPaaataha}a`a)a;aa
+a a a a a a a a a a a}aa
+a a a a a a a a a a aiafa a(atayapaeaoafa avaaalauaea a=a=a=a a'aoabajaeacata'a a&a&a avaaalauaea a!a=a=a anaualala a&a&a a!aAararaaaya.aiasaAararaaaya(avaaalauaea)a)a a{aa
+a a a a a a a a a a a a acahaeacakaNaoaUanadaeafaianaeada(avaaalauaea,a acauararaeanataPaaataha)a;aa
+a a a a a a a a a a a}aa
+a a a a a a a a a}a)a;aa
+a a a a a a a}a;aa
+aa
+a a a a a a aeaxapaeacata(a(a)a a=a>a acahaeacakaNaoaUanadaeafaianaeada(aBaCaRaYaPaTa_aCaOaNaFaIaGa)a)a.anaoata.ataoaTaharaoawa(a)a;aa
+a a a a a a aeaxapaeacata(a(a)a a=a>a acahaeacakaNaoaUanadaeafaianaeada(aJaWaTa_aCaOaNaFaIaGa)a)a.anaoata.ataoaTaharaoawa(a)a;aa
+a a a a a a aeaxapaeacata(a(a)a a=a>a acahaeacakaNaoaUanadaeafaianaeada(aPaAaSaSaWaOaRaDa_aPaOaLaIaCaYa)a)a.anaoata.ataoaTaharaoawa(a)a;aa
+a a a a a}a)a;aa
+a a a}a)a;aa
+a}a)a;aa
+a

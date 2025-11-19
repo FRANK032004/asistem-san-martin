@@ -1,124 +1,125 @@
-/**
- * @module DocenteDTO
- * @description DTOs para auto-gestión del docente autenticado
- * 
- * Solo para operaciones self-service del docente
- * Validaciones restrictivas para proteger datos sensibles
- */
-
-import { 
-  IsString, 
-  IsOptional,
-  MinLength,
-  MaxLength,
-  Matches,
-  IsInt,
-  Min,
-  Max
-} from 'class-validator';
-
-// ========================================
-// DTOs DE PERFIL PROPIO
-// ========================================
-
-/**
- * DTO para actualizar MI perfil (Docente autenticado)
- * Solo permite cambiar datos personales
- * 
- * Campos restringidos (solo admin puede cambiar):
- * - area
- * - sueldo
- * - codigo_docente
- * - horarios
- */
-export class UpdateMiPerfilDocenteDTO {
-  @IsString({ message: 'Teléfono debe ser un string' })
-  @IsOptional()
-  @Matches(/^\d{9}$/, { message: 'Teléfono debe tener exactamente 9 dígitos' })
-  telefono?: string;
-
-  @IsString({ message: 'Dirección debe ser un string' })
-  @IsOptional()
-  @MinLength(10, { message: 'Dirección debe tener al menos 10 caracteres' })
-  @MaxLength(255, { message: 'Dirección no puede exceder 255 caracteres' })
-  direccion?: string;
-
-  @IsString({ message: 'Contacto de emergencia debe ser un string' })
-  @IsOptional()
-  @MinLength(5, { message: 'Contacto de emergencia debe tener al menos 5 caracteres' })
-  @MaxLength(100, { message: 'Contacto de emergencia no puede exceder 100 caracteres' })
-  contacto_emergencia?: string;
-
-  @IsString({ message: 'Teléfono de emergencia debe ser un string' })
-  @IsOptional()
-  @Matches(/^\d{9}$/, { message: 'Teléfono de emergencia debe tener exactamente 9 dígitos' })
-  telefono_emergencia?: string;
-}
-
-// ========================================
-// DTOs DE CONSULTAS PROPIAS
-// ========================================
-
-/**
- * DTO para filtrar MIS justificaciones (Docente autenticado)
- */
-export class FiltrarMisJustificacionesDTO {
-  @IsString({ message: 'Estado debe ser un string' })
-  @IsOptional()
-  @Matches(/^(pendiente|aprobada|rechazada|todas)$/, { 
-    message: 'Estado debe ser: pendiente, aprobada, rechazada o todas' 
-  })
-  estado?: string = 'todas';
-
-  @IsString({ message: 'Fecha inicio debe ser un string' })
-  @IsOptional()
-  @Matches(/^\d{4}-\d{2}-\d{2}$/, { 
-    message: 'Fecha inicio debe tener formato YYYY-MM-DD' 
-  })
-  fecha_inicio?: string;
-
-  @IsString({ message: 'Fecha fin debe ser un string' })
-  @IsOptional()
-  @Matches(/^\d{4}-\d{2}-\d{2}$/, { 
-    message: 'Fecha fin debe tener formato YYYY-MM-DD' 
-  })
-  fecha_fin?: string;
-
-  @IsInt({ message: 'Límite debe ser un número entero' })
-  @Min(1, { message: 'Límite debe ser mayor a 0' })
-  @Max(100, { message: 'Límite no puede ser mayor a 100' })
-  @IsOptional()
-  limite?: number = 20;
-}
-
-/**
- * DTO para filtrar MIS asistencias (Docente autenticado)
- */
-export class FiltrarMisAsistenciasDTO {
-  @IsString({ message: 'Fecha inicio debe ser un string' })
-  @IsOptional()
-  @Matches(/^\d{4}-\d{2}-\d{2}$/, { 
-    message: 'Fecha inicio debe tener formato YYYY-MM-DD' 
-  })
-  fecha_inicio?: string;
-
-  @IsString({ message: 'Fecha fin debe ser un string' })
-  @IsOptional()
-  @Matches(/^\d{4}-\d{2}-\d{2}$/, { 
-    message: 'Fecha fin debe tener formato YYYY-MM-DD' 
-  })
-  fecha_fin?: string;
-
-  @IsString({ message: 'Estado debe ser un string' })
-  @IsOptional()
-  @Matches(/^(PRESENTE|TARDANZA|AUSENTE|JUSTIFICADA|todas)$/, { 
-    message: 'Estado debe ser: PRESENTE, TARDANZA, AUSENTE, JUSTIFICADA o todas' 
-  })
-  estado?: string = 'todas';
-
-  @IsInt({ message: 'Límite debe ser un número entero' })
-  @Min(1, { message: 'Límite debe ser mayor a 0' })
-  @Max(100, { message: 'Límite no puede ser mayor a 100' })
-  @IsOptional()
-  limite?: number = 20;
-}
+a/a*a*aa
+a a*a a@amaoadaualaea aDaoacaeanataeaDaTaOaa
+a a*a a@adaeasacaraiapataiaoana aDaTaOasa apaaaraaa aaauataoa-agaeasataiaÃa³ana adaeala adaoacaeanataea aaauataeanataiacaaadaoaa
+a a*a aa
+a a*a aSaoalaoa apaaaraaa aoapaearaaacaiaoanaeasa asaealafa-asaearavaiacaea adaeala adaoacaeanataeaa
+a a*a aVaaalaiadaaacaiaoanaeasa araeasataraiacataiavaaasa apaaaraaa aparaoataeagaeara adaaataoasa asaeanasaiabalaeasaa
+a a*a/aa
+aa
+aiamapaoarata a{a aa
+a a aIasaSataraianaga,a aa
+a a aIasaOapataiaoanaaala,aa
+a a aMaianaLaeanagataha,aa
+a a aMaaaxaLaeanagataha,aa
+a a aMaaatacahaeasa,aa
+a a aIasaIanata,aa
+a a aMaiana,aa
+a a aMaaaxaa
+a}a afaraoama a'acalaaasasa-avaaalaiadaaataoara'a;aa
+aa
+a/a/a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
+a/a/a aDaTaOasa aDaEa aPaEaRaFaIaLa aPaRaOaPaIaOaa
+a/a/a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
+aa
+a/a*a*aa
+a a*a aDaTaOa apaaaraaa aaacatauaaalaiazaaara aMaIa apaearafaiala a(aDaoacaeanataea aaauataeanataiacaaadaoa)aa
+a a*a aSaoalaoa apaearamaiataea acaaamabaiaaara adaaataoasa apaearasaoanaaalaeasaa
+a a*a aa
+a a*a aCaaamapaoasa araeasataraianagaiadaoasa a(asaoalaoa aaadamaiana apauaeadaea acaaamabaiaaara)a:aa
+a a*a a-a aaaraeaaaa
+a a*a a-a asauaealadaoaa
+a a*a a-a acaoadaiagaoa_adaoacaeanataeaa
+a a*a a-a ahaoaraaaraiaoasaa
+a a*a/aa
+aeaxapaoarata acalaaasasa aUapadaaataeaMaiaPaearafaialaDaoacaeanataeaDaTaOa a{aa
+a a a@aIasaSataraianaga(a{a amaeasasaaagaea:a a'aTaealaÃa©afaoanaoa adaeabaea asaeara auana asataraianaga'a a}a)aa
+a a a@aIasaOapataiaoanaaala(a)aa
+a a a@aMaaatacahaeasa(a/a^a\ada{a9a}a$a/a,a a{a amaeasasaaagaea:a a'aTaealaÃa©afaoanaoa adaeabaea ataeanaeara aeaxaaacataaamaeanataea a9a adaÃa­agaiataoasa'a a}a)aa
+a a ataealaeafaoanaoa?a:a asataraianaga;aa
+aa
+a a a@aIasaSataraianaga(a{a amaeasasaaagaea:a a'aDaiaraeacacaiaÃa³ana adaeabaea asaeara auana asataraianaga'a a}a)aa
+a a a@aIasaOapataiaoanaaala(a)aa
+a a a@aMaianaLaeanagataha(a1a0a,a a{a amaeasasaaagaea:a a'aDaiaraeacacaiaÃa³ana adaeabaea ataeanaeara aaala amaeanaoasa a1a0a acaaaraaacataearaeasa'a a}a)aa
+a a a@aMaaaxaLaeanagataha(a2a5a5a,a a{a amaeasasaaagaea:a a'aDaiaraeacacaiaÃa³ana anaoa apauaeadaea aeaxacaeadaeara a2a5a5a acaaaraaacataearaeasa'a a}a)aa
+a a adaiaraeacacaiaoana?a:a asataraianaga;aa
+aa
+a a a@aIasaSataraianaga(a{a amaeasasaaagaea:a a'aCaoanataaacataoa adaea aeamaearagaeanacaiaaa adaeabaea asaeara auana asataraianaga'a a}a)aa
+a a a@aIasaOapataiaoanaaala(a)aa
+a a a@aMaianaLaeanagataha(a5a,a a{a amaeasasaaagaea:a a'aCaoanataaacataoa adaea aeamaearagaeanacaiaaa adaeabaea ataeanaeara aaala amaeanaoasa a5a acaaaraaacataearaeasa'a a}a)aa
+a a a@aMaaaxaLaeanagataha(a1a0a0a,a a{a amaeasasaaagaea:a a'aCaoanataaacataoa adaea aeamaearagaeanacaiaaa anaoa apauaeadaea aeaxacaeadaeara a1a0a0a acaaaraaacataearaeasa'a a}a)aa
+a a acaoanataaacataoa_aeamaearagaeanacaiaaa?a:a asataraianaga;aa
+aa
+a a a@aIasaSataraianaga(a{a amaeasasaaagaea:a a'aTaealaÃa©afaoanaoa adaea aeamaearagaeanacaiaaa adaeabaea asaeara auana asataraianaga'a a}a)aa
+a a a@aIasaOapataiaoanaaala(a)aa
+a a a@aMaaatacahaeasa(a/a^a\ada{a9a}a$a/a,a a{a amaeasasaaagaea:a a'aTaealaÃa©afaoanaoa adaea aeamaearagaeanacaiaaa adaeabaea ataeanaeara aeaxaaacataaamaeanataea a9a adaÃa­agaiataoasa'a a}a)aa
+a a ataealaeafaoanaoa_aeamaearagaeanacaiaaa?a:a asataraianaga;aa
+a}aa
+aa
+a/a/a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
+a/a/a aDaTaOasa aDaEa aCaOaNaSaUaLaTaAaSa aPaRaOaPaIaAaSaa
+a/a/a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
+aa
+a/a*a*aa
+a a*a aDaTaOa apaaaraaa afaialataraaara aMaIaSa ajauasataiafaiacaaacaiaoanaeasa a(aDaoacaeanataea aaauataeanataiacaaadaoa)aa
+a a*a/aa
+aeaxapaoarata acalaaasasa aFaialataraaaraMaiasaJauasataiafaiacaaacaiaoanaeasaDaTaOa a{aa
+a a a@aIasaSataraianaga(a{a amaeasasaaagaea:a a'aEasataaadaoa adaeabaea asaeara auana asataraianaga'a a}a)aa
+a a a@aIasaOapataiaoanaaala(a)aa
+a a a@aMaaatacahaeasa(a/a^a(apaeanadaiaeanataea|aaaparaoabaaadaaa|araeacahaaazaaadaaa|ataoadaaasa)a$a/a,a a{a aa
+a a a a amaeasasaaagaea:a a'aEasataaadaoa adaeabaea asaeara:a apaeanadaiaeanataea,a aaaparaoabaaadaaa,a araeacahaaazaaadaaa aoa ataoadaaasa'a aa
+a a a}a)aa
+a a aeasataaadaoa?a:a asataraianaga a=a a'ataoadaaasa'a;aa
+aa
+a a a@aIasaSataraianaga(a{a amaeasasaaagaea:a a'aFaeacahaaa aianaiacaiaoa adaeabaea asaeara auana asataraianaga'a a}a)aa
+a a a@aIasaOapataiaoanaaala(a)aa
+a a a@aMaaatacahaeasa(a/a^a\ada{a4a}a-a\ada{a2a}a-a\ada{a2a}a$a/a,a a{a aa
+a a a a amaeasasaaagaea:a a'aFaeacahaaa aianaiacaiaoa adaeabaea ataeanaeara afaoaramaaataoa aYaYaYaYa-aMaMa-aDaDa'a aa
+a a a}a)aa
+a a afaeacahaaa_aianaiacaiaoa?a:a asataraianaga;aa
+aa
+a a a@aIasaSataraianaga(a{a amaeasasaaagaea:a a'aFaeacahaaa afaiana adaeabaea asaeara auana asataraianaga'a a}a)aa
+a a a@aIasaOapataiaoanaaala(a)aa
+a a a@aMaaatacahaeasa(a/a^a\ada{a4a}a-a\ada{a2a}a-a\ada{a2a}a$a/a,a a{a aa
+a a a a amaeasasaaagaea:a a'aFaeacahaaa afaiana adaeabaea ataeanaeara afaoaramaaataoa aYaYaYaYa-aMaMa-aDaDa'a aa
+a a a}a)aa
+a a afaeacahaaa_afaiana?a:a asataraianaga;aa
+aa
+a a a@aIasaIanata(a{a amaeasasaaagaea:a a'aLaÃa­amaiataea adaeabaea asaeara auana anaÃaºamaearaoa aeanataearaoa'a a}a)aa
+a a a@aMaiana(a1a,a a{a amaeasasaaagaea:a a'aLaÃa­amaiataea adaeabaea asaeara amaaayaoara aaa a0a'a a}a)aa
+a a a@aMaaaxa(a1a0a0a,a a{a amaeasasaaagaea:a a'aLaÃa­amaiataea anaoa apauaeadaea asaeara amaaayaoara aaa a1a0a0a'a a}a)aa
+a a a@aIasaOapataiaoanaaala(a)aa
+a a alaiamaiataea?a:a anauamabaeara a=a a2a0a;aa
+a}aa
+aa
+a/a*a*aa
+a a*a aDaTaOa apaaaraaa afaialataraaara aMaIaSa aaasaiasataeanacaiaaasa a(aDaoacaeanataea aaauataeanataiacaaadaoa)aa
+a a*a/aa
+aeaxapaoarata acalaaasasa aFaialataraaaraMaiasaAasaiasataeanacaiaaasaDaTaOa a{aa
+a a a@aIasaSataraianaga(a{a amaeasasaaagaea:a a'aFaeacahaaa aianaiacaiaoa adaeabaea asaeara auana asataraianaga'a a}a)aa
+a a a@aIasaOapataiaoanaaala(a)aa
+a a a@aMaaatacahaeasa(a/a^a\ada{a4a}a-a\ada{a2a}a-a\ada{a2a}a$a/a,a a{a aa
+a a a a amaeasasaaagaea:a a'aFaeacahaaa aianaiacaiaoa adaeabaea ataeanaeara afaoaramaaataoa aYaYaYaYa-aMaMa-aDaDa'a aa
+a a a}a)aa
+a a afaeacahaaa_aianaiacaiaoa?a:a asataraianaga;aa
+aa
+a a a@aIasaSataraianaga(a{a amaeasasaaagaea:a a'aFaeacahaaa afaiana adaeabaea asaeara auana asataraianaga'a a}a)aa
+a a a@aIasaOapataiaoanaaala(a)aa
+a a a@aMaaatacahaeasa(a/a^a\ada{a4a}a-a\ada{a2a}a-a\ada{a2a}a$a/a,a a{a aa
+a a a a amaeasasaaagaea:a a'aFaeacahaaa afaiana adaeabaea ataeanaeara afaoaramaaataoa aYaYaYaYa-aMaMa-aDaDa'a aa
+a a a}a)aa
+a a afaeacahaaa_afaiana?a:a asataraianaga;aa
+aa
+a a a@aIasaSataraianaga(a{a amaeasasaaagaea:a a'aEasataaadaoa adaeabaea asaeara auana asataraianaga'a a}a)aa
+a a a@aIasaOapataiaoanaaala(a)aa
+a a a@aMaaatacahaeasa(a/a^a(aPaRaEaSaEaNaTaEa|aTaAaRaDaAaNaZaAa|aAaUaSaEaNaTaEa|aJaUaSaTaIaFaIaCaAaDaAa|ataoadaaasa)a$a/a,a a{a aa
+a a a a amaeasasaaagaea:a a'aEasataaadaoa adaeabaea asaeara:a aPaRaEaSaEaNaTaEa,a aTaAaRaDaAaNaZaAa,a aAaUaSaEaNaTaEa,a aJaUaSaTaIaFaIaCaAaDaAa aoa ataoadaaasa'a aa
+a a a}a)aa
+a a aeasataaadaoa?a:a asataraianaga a=a a'ataoadaaasa'a;aa
+aa
+a a a@aIasaIanata(a{a amaeasasaaagaea:a a'aLaÃa­amaiataea adaeabaea asaeara auana anaÃaºamaearaoa aeanataearaoa'a a}a)aa
+a a a@aMaiana(a1a,a a{a amaeasasaaagaea:a a'aLaÃa­amaiataea adaeabaea asaeara amaaayaoara aaa a0a'a a}a)aa
+a a a@aMaaaxa(a1a0a0a,a a{a amaeasasaaagaea:a a'aLaÃa­amaiataea anaoa apauaeadaea asaeara amaaayaoara aaa a1a0a0a'a a}a)aa
+a a a@aIasaOapataiaoanaaala(a)aa
+a a alaiamaiataea?a:a anauamabaeara a=a a2a0a;aa
+a}aa
+a

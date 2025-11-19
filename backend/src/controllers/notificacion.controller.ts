@@ -1,327 +1,328 @@
-/**
- * Controlador de Notificaciones
- * Endpoints para gestión de notificaciones
- */
-
-import { Request, Response } from 'express';
-import { validationResult } from 'express-validator';
-import notificacionService from '../services/notificacion.service';
-import { TipoNotificacion } from '../dtos/notificacion.dto';
-
-/**
- * Obtener notificaciones del usuario autenticado
- * GET /api/notificaciones
- */
-export const obtenerMisNotificaciones = async (req: Request, res: Response): Promise<void> => {
-  try {
-    const usuario_id = req.usuario?.id;
-
-    if (!usuario_id) {
-      res.status(401).json({
-        ok: false,
-        mensaje: 'Usuario no autenticado',
-      });
-      return;
-    }
-
-    const { tipo, leido, importante } = req.query;
-
-    const filtros: any = {};
-
-    if (tipo) {
-      filtros.tipo = tipo as TipoNotificacion;
-    }
-
-    if (leido !== undefined) {
-      filtros.leido = leido === 'true';
-    }
-
-    if (importante !== undefined) {
-      filtros.importante = importante === 'true';
-    }
-
-    const notificaciones = await notificacionService.obtenerNotificaciones(
-      usuario_id,
-      filtros
-    );
-
-    res.status(200).json({
-      ok: true,
-      data: notificaciones,
-      total: notificaciones.length,
-    });
-  } catch (error: any) {
-    console.error('❌ Error al obtener notificaciones:', error);
-    res.status(500).json({
-      ok: false,
-      mensaje: 'Error al obtener notificaciones',
-      error: error.message,
-    });
-  }
-};
-
-/**
- * Marcar notificación como leída
- * PATCH /api/notificaciones/:id/marcar-leida
- */
-export const marcarComoLeida = async (req: Request, res: Response): Promise<void> => {
-  try {
-    const usuario_id = req.usuario?.id;
-
-    if (!usuario_id) {
-      res.status(401).json({
-        ok: false,
-        mensaje: 'Usuario no autenticado',
-      });
-      return;
-    }
-
-    const { id } = req.params;
-    // TypeScript necesita confirmación explícita después del null check
-    // @ts-expect-error - usuario_id is guaranteed to be string after null check above
-    const notificacion = await notificacionService.marcarComoLeida(id, usuario_id);
-
-    res.status(200).json({
-      ok: true,
-      data: notificacion,
-      mensaje: 'Notificación marcada como leída',
-    });
-  } catch (error: any) {
-    console.error('❌ Error al marcar notificación:', error);
-    
-    if (error.message === 'Notificación no encontrada') {
-      res.status(404).json({
-        ok: false,
-        mensaje: error.message,
-      });
-      return;
-    }
-
-    res.status(500).json({
-      ok: false,
-      mensaje: 'Error al marcar notificación',
-      error: error.message,
-    });
-  }
-};
-
-/**
- * Marcar todas las notificaciones como leídas
- * PATCH /api/notificaciones/marcar-todas-leidas
- */
-export const marcarTodasComoLeidas = async (req: Request, res: Response): Promise<void> => {
-  try {
-    const usuario_id = req.usuario?.id;
-
-    if (!usuario_id) {
-      res.status(401).json({
-        ok: false,
-        mensaje: 'Usuario no autenticado',
-      });
-      return;
-    }
-
-    const resultado = await notificacionService.marcarTodasComoLeidas(usuario_id as string);
-
-    res.status(200).json({
-      ok: true,
-      data: resultado,
-    });
-  } catch (error: any) {
-    console.error('❌ Error al marcar todas las notificaciones:', error);
-    res.status(500).json({
-      ok: false,
-      mensaje: 'Error al marcar notificaciones',
-      error: error.message,
-    });
-  }
-};
-
-/**
- * Eliminar notificación
- * DELETE /api/notificaciones/:id
- */
-export const eliminarNotificacion = async (req: Request, res: Response): Promise<void> => {
-  try {
-    const usuario_id = req.usuario?.id;
-
-    if (!usuario_id) {
-      res.status(401).json({
-        ok: false,
-        mensaje: 'Usuario no autenticado',
-      });
-      return;
-    }
-
-    const { id } = req.params;
-    // TypeScript necesita confirmación explícita después del null check
-    // @ts-expect-error - usuario_id is guaranteed to be string after null check above
-    const resultado = await notificacionService.eliminarNotificacion(id, usuario_id);
-
-    res.status(200).json({
-      ok: true,
-      data: resultado,
-    });
-  } catch (error: any) {
-    console.error('❌ Error al eliminar notificación:', error);
-    
-    if (error.message === 'Notificación no encontrada') {
-      res.status(404).json({
-        ok: false,
-        mensaje: error.message,
-      });
-      return;
-    }
-
-    res.status(500).json({
-      ok: false,
-      mensaje: 'Error al eliminar notificación',
-      error: error.message,
-    });
-  }
-};
-
-/**
- * Obtener contador de notificaciones no leídas
- * GET /api/notificaciones/contador-no-leidas
- */
-export const contadorNoLeidas = async (req: Request, res: Response): Promise<void> => {
-  try {
-    const usuario_id = req.usuario?.id;
-
-    if (!usuario_id) {
-      res.status(401).json({
-        ok: false,
-        mensaje: 'Usuario no autenticado',
-      });
-      return;
-    }
-
-    const resultado = await notificacionService.contarNoLeidas(usuario_id as string);
-
-    res.status(200).json({
-      ok: true,
-      data: resultado,
-    });
-  } catch (error: any) {
-    console.error('❌ Error al contar notificaciones:', error);
-    res.status(500).json({
-      ok: false,
-      mensaje: 'Error al contar notificaciones',
-      error: error.message,
-    });
-  }
-};
-
-/**
- * Limpiar notificaciones antiguas (más de 30 días y leídas)
- * DELETE /api/notificaciones/limpiar-antiguas
- */
-export const limpiarNotificacionesAntiguas = async (req: Request, res: Response): Promise<void> => {
-  try {
-    const usuario_id = req.usuario?.id;
-
-    if (!usuario_id) {
-      res.status(401).json({
-        ok: false,
-        mensaje: 'Usuario no autenticado',
-      });
-      return;
-    }
-
-    const resultado = await notificacionService.limpiarNotificacionesAntiguas(usuario_id as string);
-
-    res.status(200).json({
-      ok: true,
-      data: resultado,
-    });
-  } catch (error: any) {
-    console.error('❌ Error al limpiar notificaciones:', error);
-    res.status(500).json({
-      ok: false,
-      mensaje: 'Error al limpiar notificaciones',
-      error: error.message,
-    });
-  }
-};
-
-/**
- * Crear notificación (solo admin)
- * POST /api/notificaciones
- */
-export const crearNotificacion = async (req: Request, res: Response) => {
-  try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({
-        ok: false,
-        mensaje: 'Errores de validación',
-        errors: errors.array(),
-      });
-    }
-
-    const { usuario_id, tipo, titulo, mensaje, datos, importante } = req.body;
-
-    const notificacion = await notificacionService.crearNotificacion({
-      usuario_id,
-      tipo,
-      titulo,
-      mensaje,
-      datos,
-      importante,
-    });
-
-    return res.status(201).json({
-      ok: true,
-      data: notificacion,
-      mensaje: 'Notificación creada exitosamente',
-    });
-  } catch (error: any) {
-    console.error('❌ Error al crear notificación:', error);
-    return res.status(500).json({
-      ok: false,
-      mensaje: 'Error al crear notificación',
-      error: error.message,
-    });
-  }
-};
-
-/**
- * Crear notificación masiva (solo admin)
- * POST /api/notificaciones/masiva
- */
-export const crearNotificacionMasiva = async (req: Request, res: Response) => {
-  try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({
-        ok: false,
-        mensaje: 'Errores de validación',
-        errors: errors.array(),
-      });
-    }
-
-    const { usuarios_ids, tipo, titulo, mensaje, datos, importante } = req.body;
-
-    const resultado = await notificacionService.crearNotificacionMasiva(
-      usuarios_ids,
-      tipo,
-      titulo,
-      mensaje,
-      datos,
-      importante
-    );
-
-    return res.status(201).json({
-      ok: true,
-      data: resultado,
-    });
-  } catch (error: any) {
-    console.error('❌ Error al crear notificaciones masivas:', error);
-    return res.status(500).json({
-      ok: false,
-      mensaje: 'Error al crear notificaciones masivas',
-      error: error.message,
-    });
-  }
-};
+a/a*a*aa
+a a*a aCaoanataraoalaaadaoara adaea aNaoataiafaiacaaacaiaoanaeasaa
+a a*a aEanadapaoaianatasa apaaaraaa agaeasataiaÃa³ana adaea anaoataiafaiacaaacaiaoanaeasaa
+a a*a/aa
+aa
+aiamapaoarata a{a aRaeaqauaeasata,a aRaeasapaoanasaea a}a afaraoama a'aeaxaparaeasasa'a;aa
+aiamapaoarata a{a avaaalaiadaaataiaoanaRaeasaualata a}a afaraoama a'aeaxaparaeasasa-avaaalaiadaaataoara'a;aa
+aiamapaoarata anaoataiafaiacaaacaiaoanaSaearavaiacaea afaraoama a'a.a.a/asaearavaiacaeasa/anaoataiafaiacaaacaiaoana.asaearavaiacaea'a;aa
+aiamapaoarata a{a aTaiapaoaNaoataiafaiacaaacaiaoana a}a afaraoama a'a.a.a/adataoasa/anaoataiafaiacaaacaiaoana.adataoa'a;aa
+aa
+a/a*a*aa
+a a*a aOabataeanaeara anaoataiafaiacaaacaiaoanaeasa adaeala auasauaaaraiaoa aaauataeanataiacaaadaoaa
+a a*a aGaEaTa a/aaapaia/anaoataiafaiacaaacaiaoanaeasaa
+a a*a/aa
+aeaxapaoarata acaoanasata aoabataeanaearaMaiasaNaoataiafaiacaaacaiaoanaeasa a=a aaasayanaca a(araeaqa:a aRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a:a aParaoamaiasaea<avaoaiada>a a=a>a a{aa
+a a ataraya a{aa
+a a a a acaoanasata auasauaaaraiaoa_aiada a=a araeaqa.auasauaaaraiaoa?a.aiada;aa
+aa
+a a a a aiafa a(a!auasauaaaraiaoa_aiada)a a{aa
+a a a a a a araeasa.asataaatauasa(a4a0a1a)a.ajasaoana(a{aa
+a a a a a a a a aoaka:a afaaalasaea,aa
+a a a a a a a a amaeanasaaajaea:a a'aUasauaaaraiaoa anaoa aaauataeanataiacaaadaoa'a,aa
+a a a a a a a}a)a;aa
+a a a a a a araeatauarana;aa
+a a a a a}aa
+aa
+a a a a acaoanasata a{a ataiapaoa,a alaeaiadaoa,a aiamapaoarataaanataea a}a a=a araeaqa.aqauaearaya;aa
+aa
+a a a a acaoanasata afaialataraoasa:a aaanaya a=a a{a}a;aa
+aa
+a a a a aiafa a(ataiapaoa)a a{aa
+a a a a a a afaialataraoasa.ataiapaoa a=a ataiapaoa aaasa aTaiapaoaNaoataiafaiacaaacaiaoana;aa
+a a a a a}aa
+aa
+a a a a aiafa a(alaeaiadaoa a!a=a=a auanadaeafaianaeada)a a{aa
+a a a a a a afaialataraoasa.alaeaiadaoa a=a alaeaiadaoa a=a=a=a a'atarauaea'a;aa
+a a a a a}aa
+aa
+a a a a aiafa a(aiamapaoarataaanataea a!a=a=a auanadaeafaianaeada)a a{aa
+a a a a a a afaialataraoasa.aiamapaoarataaanataea a=a aiamapaoarataaanataea a=a=a=a a'atarauaea'a;aa
+a a a a a}aa
+aa
+a a a a acaoanasata anaoataiafaiacaaacaiaoanaeasa a=a aaawaaaiata anaoataiafaiacaaacaiaoanaSaearavaiacaea.aoabataeanaearaNaoataiafaiacaaacaiaoanaeasa(aa
+a a a a a a auasauaaaraiaoa_aiada,aa
+a a a a a a afaialataraoasaa
+a a a a a)a;aa
+aa
+a a a a araeasa.asataaatauasa(a2a0a0a)a.ajasaoana(a{aa
+a a a a a a aoaka:a atarauaea,aa
+a a a a a a adaaataaa:a anaoataiafaiacaaacaiaoanaeasa,aa
+a a a a a a ataoataaala:a anaoataiafaiacaaacaiaoanaeasa.alaeanagataha,aa
+a a a a a}a)a;aa
+a a a}a acaaatacaha a(aeararaoara:a aaanaya)a a{aa
+a a a a acaoanasaoalaea.aeararaoara(a'aâaaŒa aEararaoara aaala aoabataeanaeara anaoataiafaiacaaacaiaoanaeasa:a'a,a aeararaoara)a;aa
+a a a a araeasa.asataaatauasa(a5a0a0a)a.ajasaoana(a{aa
+a a a a a a aoaka:a afaaalasaea,aa
+a a a a a a amaeanasaaajaea:a a'aEararaoara aaala aoabataeanaeara anaoataiafaiacaaacaiaoanaeasa'a,aa
+a a a a a a aeararaoara:a aeararaoara.amaeasasaaagaea,aa
+a a a a a}a)a;aa
+a a a}aa
+a}a;aa
+aa
+a/a*a*aa
+a a*a aMaaaracaaara anaoataiafaiacaaacaiaÃa³ana acaoamaoa alaeaÃa­adaaaa
+a a*a aPaAaTaCaHa a/aaapaia/anaoataiafaiacaaacaiaoanaeasa/a:aiada/amaaaracaaara-alaeaiadaaaa
+a a*a/aa
+aeaxapaoarata acaoanasata amaaaracaaaraCaoamaoaLaeaiadaaa a=a aaasayanaca a(araeaqa:a aRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a:a aParaoamaiasaea<avaoaiada>a a=a>a a{aa
+a a ataraya a{aa
+a a a a acaoanasata auasauaaaraiaoa_aiada a=a araeaqa.auasauaaaraiaoa?a.aiada;aa
+aa
+a a a a aiafa a(a!auasauaaaraiaoa_aiada)a a{aa
+a a a a a a araeasa.asataaatauasa(a4a0a1a)a.ajasaoana(a{aa
+a a a a a a a a aoaka:a afaaalasaea,aa
+a a a a a a a a amaeanasaaajaea:a a'aUasauaaaraiaoa anaoa aaauataeanataiacaaadaoa'a,aa
+a a a a a a a}a)a;aa
+a a a a a a araeatauarana;aa
+a a a a a}aa
+aa
+a a a a acaoanasata a{a aiada a}a a=a araeaqa.apaaaraaamasa;aa
+a a a a a/a/a aTayapaeaSacaraiapata anaeacaeasaiataaa acaoanafaiaramaaacaiaÃa³ana aeaxapalaÃa­acaiataaa adaeasapauaÃa©asa adaeala anaualala acahaeacakaa
+a a a a a/a/a a@atasa-aeaxapaeacata-aeararaoara a-a auasauaaaraiaoa_aiada aiasa agauaaaraaanataeaeada ataoa abaea asataraianaga aaafataeara anaualala acahaeacaka aaabaoavaeaa
+a a a a acaoanasata anaoataiafaiacaaacaiaoana a=a aaawaaaiata anaoataiafaiacaaacaiaoanaSaearavaiacaea.amaaaracaaaraCaoamaoaLaeaiadaaa(aiada,a auasauaaaraiaoa_aiada)a;aa
+aa
+a a a a araeasa.asataaatauasa(a2a0a0a)a.ajasaoana(a{aa
+a a a a a a aoaka:a atarauaea,aa
+a a a a a a adaaataaa:a anaoataiafaiacaaacaiaoana,aa
+a a a a a a amaeanasaaajaea:a a'aNaoataiafaiacaaacaiaÃa³ana amaaaracaaadaaa acaoamaoa alaeaÃa­adaaa'a,aa
+a a a a a}a)a;aa
+a a a}a acaaatacaha a(aeararaoara:a aaanaya)a a{aa
+a a a a acaoanasaoalaea.aeararaoara(a'aâaaŒa aEararaoara aaala amaaaracaaara anaoataiafaiacaaacaiaÃa³ana:a'a,a aeararaoara)a;aa
+a a a a aa
+a a a a aiafa a(aeararaoara.amaeasasaaagaea a=a=a=a a'aNaoataiafaiacaaacaiaÃa³ana anaoa aeanacaoanataraaadaaa'a)a a{aa
+a a a a a a araeasa.asataaatauasa(a4a0a4a)a.ajasaoana(a{aa
+a a a a a a a a aoaka:a afaaalasaea,aa
+a a a a a a a a amaeanasaaajaea:a aeararaoara.amaeasasaaagaea,aa
+a a a a a a a}a)a;aa
+a a a a a a araeatauarana;aa
+a a a a a}aa
+aa
+a a a a araeasa.asataaatauasa(a5a0a0a)a.ajasaoana(a{aa
+a a a a a a aoaka:a afaaalasaea,aa
+a a a a a a amaeanasaaajaea:a a'aEararaoara aaala amaaaracaaara anaoataiafaiacaaacaiaÃa³ana'a,aa
+a a a a a a aeararaoara:a aeararaoara.amaeasasaaagaea,aa
+a a a a a}a)a;aa
+a a a}aa
+a}a;aa
+aa
+a/a*a*aa
+a a*a aMaaaracaaara ataoadaaasa alaaasa anaoataiafaiacaaacaiaoanaeasa acaoamaoa alaeaÃa­adaaasaa
+a a*a aPaAaTaCaHa a/aaapaia/anaoataiafaiacaaacaiaoanaeasa/amaaaracaaara-ataoadaaasa-alaeaiadaaasaa
+a a*a/aa
+aeaxapaoarata acaoanasata amaaaracaaaraTaoadaaasaCaoamaoaLaeaiadaaasa a=a aaasayanaca a(araeaqa:a aRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a:a aParaoamaiasaea<avaoaiada>a a=a>a a{aa
+a a ataraya a{aa
+a a a a acaoanasata auasauaaaraiaoa_aiada a=a araeaqa.auasauaaaraiaoa?a.aiada;aa
+aa
+a a a a aiafa a(a!auasauaaaraiaoa_aiada)a a{aa
+a a a a a a araeasa.asataaatauasa(a4a0a1a)a.ajasaoana(a{aa
+a a a a a a a a aoaka:a afaaalasaea,aa
+a a a a a a a a amaeanasaaajaea:a a'aUasauaaaraiaoa anaoa aaauataeanataiacaaadaoa'a,aa
+a a a a a a a}a)a;aa
+a a a a a a araeatauarana;aa
+a a a a a}aa
+aa
+a a a a acaoanasata araeasaualataaadaoa a=a aaawaaaiata anaoataiafaiacaaacaiaoanaSaearavaiacaea.amaaaracaaaraTaoadaaasaCaoamaoaLaeaiadaaasa(auasauaaaraiaoa_aiada aaasa asataraianaga)a;aa
+aa
+a a a a araeasa.asataaatauasa(a2a0a0a)a.ajasaoana(a{aa
+a a a a a a aoaka:a atarauaea,aa
+a a a a a a adaaataaa:a araeasaualataaadaoa,aa
+a a a a a}a)a;aa
+a a a}a acaaatacaha a(aeararaoara:a aaanaya)a a{aa
+a a a a acaoanasaoalaea.aeararaoara(a'aâaaŒa aEararaoara aaala amaaaracaaara ataoadaaasa alaaasa anaoataiafaiacaaacaiaoanaeasa:a'a,a aeararaoara)a;aa
+a a a a araeasa.asataaatauasa(a5a0a0a)a.ajasaoana(a{aa
+a a a a a a aoaka:a afaaalasaea,aa
+a a a a a a amaeanasaaajaea:a a'aEararaoara aaala amaaaracaaara anaoataiafaiacaaacaiaoanaeasa'a,aa
+a a a a a a aeararaoara:a aeararaoara.amaeasasaaagaea,aa
+a a a a a}a)a;aa
+a a a}aa
+a}a;aa
+aa
+a/a*a*aa
+a a*a aEalaiamaianaaara anaoataiafaiacaaacaiaÃa³anaa
+a a*a aDaEaLaEaTaEa a/aaapaia/anaoataiafaiacaaacaiaoanaeasa/a:aiadaa
+a a*a/aa
+aeaxapaoarata acaoanasata aealaiamaianaaaraNaoataiafaiacaaacaiaoana a=a aaasayanaca a(araeaqa:a aRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a:a aParaoamaiasaea<avaoaiada>a a=a>a a{aa
+a a ataraya a{aa
+a a a a acaoanasata auasauaaaraiaoa_aiada a=a araeaqa.auasauaaaraiaoa?a.aiada;aa
+aa
+a a a a aiafa a(a!auasauaaaraiaoa_aiada)a a{aa
+a a a a a a araeasa.asataaatauasa(a4a0a1a)a.ajasaoana(a{aa
+a a a a a a a a aoaka:a afaaalasaea,aa
+a a a a a a a a amaeanasaaajaea:a a'aUasauaaaraiaoa anaoa aaauataeanataiacaaadaoa'a,aa
+a a a a a a a}a)a;aa
+a a a a a a araeatauarana;aa
+a a a a a}aa
+aa
+a a a a acaoanasata a{a aiada a}a a=a araeaqa.apaaaraaamasa;aa
+a a a a a/a/a aTayapaeaSacaraiapata anaeacaeasaiataaa acaoanafaiaramaaacaiaÃa³ana aeaxapalaÃa­acaiataaa adaeasapauaÃa©asa adaeala anaualala acahaeacakaa
+a a a a a/a/a a@atasa-aeaxapaeacata-aeararaoara a-a auasauaaaraiaoa_aiada aiasa agauaaaraaanataeaeada ataoa abaea asataraianaga aaafataeara anaualala acahaeacaka aaabaoavaeaa
+a a a a acaoanasata araeasaualataaadaoa a=a aaawaaaiata anaoataiafaiacaaacaiaoanaSaearavaiacaea.aealaiamaianaaaraNaoataiafaiacaaacaiaoana(aiada,a auasauaaaraiaoa_aiada)a;aa
+aa
+a a a a araeasa.asataaatauasa(a2a0a0a)a.ajasaoana(a{aa
+a a a a a a aoaka:a atarauaea,aa
+a a a a a a adaaataaa:a araeasaualataaadaoa,aa
+a a a a a}a)a;aa
+a a a}a acaaatacaha a(aeararaoara:a aaanaya)a a{aa
+a a a a acaoanasaoalaea.aeararaoara(a'aâaaŒa aEararaoara aaala aealaiamaianaaara anaoataiafaiacaaacaiaÃa³ana:a'a,a aeararaoara)a;aa
+a a a a aa
+a a a a aiafa a(aeararaoara.amaeasasaaagaea a=a=a=a a'aNaoataiafaiacaaacaiaÃa³ana anaoa aeanacaoanataraaadaaa'a)a a{aa
+a a a a a a araeasa.asataaatauasa(a4a0a4a)a.ajasaoana(a{aa
+a a a a a a a a aoaka:a afaaalasaea,aa
+a a a a a a a a amaeanasaaajaea:a aeararaoara.amaeasasaaagaea,aa
+a a a a a a a}a)a;aa
+a a a a a a araeatauarana;aa
+a a a a a}aa
+aa
+a a a a araeasa.asataaatauasa(a5a0a0a)a.ajasaoana(a{aa
+a a a a a a aoaka:a afaaalasaea,aa
+a a a a a a amaeanasaaajaea:a a'aEararaoara aaala aealaiamaianaaara anaoataiafaiacaaacaiaÃa³ana'a,aa
+a a a a a a aeararaoara:a aeararaoara.amaeasasaaagaea,aa
+a a a a a}a)a;aa
+a a a}aa
+a}a;aa
+aa
+a/a*a*aa
+a a*a aOabataeanaeara acaoanataaadaoara adaea anaoataiafaiacaaacaiaoanaeasa anaoa alaeaÃa­adaaasaa
+a a*a aGaEaTa a/aaapaia/anaoataiafaiacaaacaiaoanaeasa/acaoanataaadaoara-anaoa-alaeaiadaaasaa
+a a*a/aa
+aeaxapaoarata acaoanasata acaoanataaadaoaraNaoaLaeaiadaaasa a=a aaasayanaca a(araeaqa:a aRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a:a aParaoamaiasaea<avaoaiada>a a=a>a a{aa
+a a ataraya a{aa
+a a a a acaoanasata auasauaaaraiaoa_aiada a=a araeaqa.auasauaaaraiaoa?a.aiada;aa
+aa
+a a a a aiafa a(a!auasauaaaraiaoa_aiada)a a{aa
+a a a a a a araeasa.asataaatauasa(a4a0a1a)a.ajasaoana(a{aa
+a a a a a a a a aoaka:a afaaalasaea,aa
+a a a a a a a a amaeanasaaajaea:a a'aUasauaaaraiaoa anaoa aaauataeanataiacaaadaoa'a,aa
+a a a a a a a}a)a;aa
+a a a a a a araeatauarana;aa
+a a a a a}aa
+aa
+a a a a acaoanasata araeasaualataaadaoa a=a aaawaaaiata anaoataiafaiacaaacaiaoanaSaearavaiacaea.acaoanataaaraNaoaLaeaiadaaasa(auasauaaaraiaoa_aiada aaasa asataraianaga)a;aa
+aa
+a a a a araeasa.asataaatauasa(a2a0a0a)a.ajasaoana(a{aa
+a a a a a a aoaka:a atarauaea,aa
+a a a a a a adaaataaa:a araeasaualataaadaoa,aa
+a a a a a}a)a;aa
+a a a}a acaaatacaha a(aeararaoara:a aaanaya)a a{aa
+a a a a acaoanasaoalaea.aeararaoara(a'aâaaŒa aEararaoara aaala acaoanataaara anaoataiafaiacaaacaiaoanaeasa:a'a,a aeararaoara)a;aa
+a a a a araeasa.asataaatauasa(a5a0a0a)a.ajasaoana(a{aa
+a a a a a a aoaka:a afaaalasaea,aa
+a a a a a a amaeanasaaajaea:a a'aEararaoara aaala acaoanataaara anaoataiafaiacaaacaiaoanaeasa'a,aa
+a a a a a a aeararaoara:a aeararaoara.amaeasasaaagaea,aa
+a a a a a}a)a;aa
+a a a}aa
+a}a;aa
+aa
+a/a*a*aa
+a a*a aLaiamapaiaaara anaoataiafaiacaaacaiaoanaeasa aaanataiagauaaasa a(amaÃa¡asa adaea a3a0a adaÃa­aaasa aya alaeaÃa­adaaasa)aa
+a a*a aDaEaLaEaTaEa a/aaapaia/anaoataiafaiacaaacaiaoanaeasa/alaiamapaiaaara-aaanataiagauaaasaa
+a a*a/aa
+aeaxapaoarata acaoanasata alaiamapaiaaaraNaoataiafaiacaaacaiaoanaeasaAanataiagauaaasa a=a aaasayanaca a(araeaqa:a aRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a:a aParaoamaiasaea<avaoaiada>a a=a>a a{aa
+a a ataraya a{aa
+a a a a acaoanasata auasauaaaraiaoa_aiada a=a araeaqa.auasauaaaraiaoa?a.aiada;aa
+aa
+a a a a aiafa a(a!auasauaaaraiaoa_aiada)a a{aa
+a a a a a a araeasa.asataaatauasa(a4a0a1a)a.ajasaoana(a{aa
+a a a a a a a a aoaka:a afaaalasaea,aa
+a a a a a a a a amaeanasaaajaea:a a'aUasauaaaraiaoa anaoa aaauataeanataiacaaadaoa'a,aa
+a a a a a a a}a)a;aa
+a a a a a a araeatauarana;aa
+a a a a a}aa
+aa
+a a a a acaoanasata araeasaualataaadaoa a=a aaawaaaiata anaoataiafaiacaaacaiaoanaSaearavaiacaea.alaiamapaiaaaraNaoataiafaiacaaacaiaoanaeasaAanataiagauaaasa(auasauaaaraiaoa_aiada aaasa asataraianaga)a;aa
+aa
+a a a a araeasa.asataaatauasa(a2a0a0a)a.ajasaoana(a{aa
+a a a a a a aoaka:a atarauaea,aa
+a a a a a a adaaataaa:a araeasaualataaadaoa,aa
+a a a a a}a)a;aa
+a a a}a acaaatacaha a(aeararaoara:a aaanaya)a a{aa
+a a a a acaoanasaoalaea.aeararaoara(a'aâaaŒa aEararaoara aaala alaiamapaiaaara anaoataiafaiacaaacaiaoanaeasa:a'a,a aeararaoara)a;aa
+a a a a araeasa.asataaatauasa(a5a0a0a)a.ajasaoana(a{aa
+a a a a a a aoaka:a afaaalasaea,aa
+a a a a a a amaeanasaaajaea:a a'aEararaoara aaala alaiamapaiaaara anaoataiafaiacaaacaiaoanaeasa'a,aa
+a a a a a a aeararaoara:a aeararaoara.amaeasasaaagaea,aa
+a a a a a}a)a;aa
+a a a}aa
+a}a;aa
+aa
+a/a*a*aa
+a a*a aCaraeaaara anaoataiafaiacaaacaiaÃa³ana a(asaoalaoa aaadamaiana)aa
+a a*a aPaOaSaTa a/aaapaia/anaoataiafaiacaaacaiaoanaeasaa
+a a*a/aa
+aeaxapaoarata acaoanasata acaraeaaaraNaoataiafaiacaaacaiaoana a=a aaasayanaca a(araeaqa:a aRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a a=a>a a{aa
+a a ataraya a{aa
+a a a a acaoanasata aeararaoarasa a=a avaaalaiadaaataiaoanaRaeasaualata(araeaqa)a;aa
+a a a a aiafa a(a!aeararaoarasa.aiasaEamapataya(a)a)a a{aa
+a a a a a a araeatauarana araeasa.asataaatauasa(a4a0a0a)a.ajasaoana(a{aa
+a a a a a a a a aoaka:a afaaalasaea,aa
+a a a a a a a a amaeanasaaajaea:a a'aEararaoaraeasa adaea avaaalaiadaaacaiaÃa³ana'a,aa
+a a a a a a a a aeararaoarasa:a aeararaoarasa.aaararaaaya(a)a,aa
+a a a a a a a}a)a;aa
+a a a a a}aa
+aa
+a a a a acaoanasata a{a auasauaaaraiaoa_aiada,a ataiapaoa,a ataiataualaoa,a amaeanasaaajaea,a adaaataoasa,a aiamapaoarataaanataea a}a a=a araeaqa.abaoadaya;aa
+aa
+a a a a acaoanasata anaoataiafaiacaaacaiaoana a=a aaawaaaiata anaoataiafaiacaaacaiaoanaSaearavaiacaea.acaraeaaaraNaoataiafaiacaaacaiaoana(a{aa
+a a a a a a auasauaaaraiaoa_aiada,aa
+a a a a a a ataiapaoa,aa
+a a a a a a ataiataualaoa,aa
+a a a a a a amaeanasaaajaea,aa
+a a a a a a adaaataoasa,aa
+a a a a a a aiamapaoarataaanataea,aa
+a a a a a}a)a;aa
+aa
+a a a a araeatauarana araeasa.asataaatauasa(a2a0a1a)a.ajasaoana(a{aa
+a a a a a a aoaka:a atarauaea,aa
+a a a a a a adaaataaa:a anaoataiafaiacaaacaiaoana,aa
+a a a a a a amaeanasaaajaea:a a'aNaoataiafaiacaaacaiaÃa³ana acaraeaaadaaa aeaxaiataoasaaamaeanataea'a,aa
+a a a a a}a)a;aa
+a a a}a acaaatacaha a(aeararaoara:a aaanaya)a a{aa
+a a a a acaoanasaoalaea.aeararaoara(a'aâaaŒa aEararaoara aaala acaraeaaara anaoataiafaiacaaacaiaÃa³ana:a'a,a aeararaoara)a;aa
+a a a a araeatauarana araeasa.asataaatauasa(a5a0a0a)a.ajasaoana(a{aa
+a a a a a a aoaka:a afaaalasaea,aa
+a a a a a a amaeanasaaajaea:a a'aEararaoara aaala acaraeaaara anaoataiafaiacaaacaiaÃa³ana'a,aa
+a a a a a a aeararaoara:a aeararaoara.amaeasasaaagaea,aa
+a a a a a}a)a;aa
+a a a}aa
+a}a;aa
+aa
+a/a*a*aa
+a a*a aCaraeaaara anaoataiafaiacaaacaiaÃa³ana amaaasaiavaaa a(asaoalaoa aaadamaiana)aa
+a a*a aPaOaSaTa a/aaapaia/anaoataiafaiacaaacaiaoanaeasa/amaaasaiavaaaa
+a a*a/aa
+aeaxapaoarata acaoanasata acaraeaaaraNaoataiafaiacaaacaiaoanaMaaasaiavaaa a=a aaasayanaca a(araeaqa:a aRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a a=a>a a{aa
+a a ataraya a{aa
+a a a a acaoanasata aeararaoarasa a=a avaaalaiadaaataiaoanaRaeasaualata(araeaqa)a;aa
+a a a a aiafa a(a!aeararaoarasa.aiasaEamapataya(a)a)a a{aa
+a a a a a a araeatauarana araeasa.asataaatauasa(a4a0a0a)a.ajasaoana(a{aa
+a a a a a a a a aoaka:a afaaalasaea,aa
+a a a a a a a a amaeanasaaajaea:a a'aEararaoaraeasa adaea avaaalaiadaaacaiaÃa³ana'a,aa
+a a a a a a a a aeararaoarasa:a aeararaoarasa.aaararaaaya(a)a,aa
+a a a a a a a}a)a;aa
+a a a a a}aa
+aa
+a a a a acaoanasata a{a auasauaaaraiaoasa_aiadasa,a ataiapaoa,a ataiataualaoa,a amaeanasaaajaea,a adaaataoasa,a aiamapaoarataaanataea a}a a=a araeaqa.abaoadaya;aa
+aa
+a a a a acaoanasata araeasaualataaadaoa a=a aaawaaaiata anaoataiafaiacaaacaiaoanaSaearavaiacaea.acaraeaaaraNaoataiafaiacaaacaiaoanaMaaasaiavaaa(aa
+a a a a a a auasauaaaraiaoasa_aiadasa,aa
+a a a a a a ataiapaoa,aa
+a a a a a a ataiataualaoa,aa
+a a a a a a amaeanasaaajaea,aa
+a a a a a a adaaataoasa,aa
+a a a a a a aiamapaoarataaanataeaa
+a a a a a)a;aa
+aa
+a a a a araeatauarana araeasa.asataaatauasa(a2a0a1a)a.ajasaoana(a{aa
+a a a a a a aoaka:a atarauaea,aa
+a a a a a a adaaataaa:a araeasaualataaadaoa,aa
+a a a a a}a)a;aa
+a a a}a acaaatacaha a(aeararaoara:a aaanaya)a a{aa
+a a a a acaoanasaoalaea.aeararaoara(a'aâaaŒa aEararaoara aaala acaraeaaara anaoataiafaiacaaacaiaoanaeasa amaaasaiavaaasa:a'a,a aeararaoara)a;aa
+a a a a araeatauarana araeasa.asataaatauasa(a5a0a0a)a.ajasaoana(a{aa
+a a a a a a aoaka:a afaaalasaea,aa
+a a a a a a amaeanasaaajaea:a a'aEararaoara aaala acaraeaaara anaoataiafaiacaaacaiaoanaeasa amaaasaiavaaasa'a,aa
+a a a a a a aeararaoara:a aeararaoara.amaeasasaaagaea,aa
+a a a a a}a)a;aa
+a a a}aa
+a}a;aa
+a

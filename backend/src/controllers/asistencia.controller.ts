@@ -1,647 +1,648 @@
-import { Request, Response } from 'express';
-import prisma from '../utils/database';
-import { asyncHandler } from '../middleware/error-handler';
-import { ResponseFormatter } from '../utils/response-formatter';
-import { NotFoundError, ValidationError, ConflictError } from '../utils/app-error';
-
-type AuthRequest = Request & { 
-  user?: { 
-    id: string; 
-    email: string; 
-    rol: string; 
-    rol_id: number; 
-    isDocente: boolean; 
-    docenteId?: string; 
-  }; 
-  usuario?: { 
-    id: string; 
-    email: string; 
-    rol: string; 
-    rol_id: number; 
-    isDocente: boolean; 
-    docenteId?: string; 
-  }; 
-};
-
-/**
- * ?? FUNCIONES POSTGIS PARA GPS DE ALTA PRECISI?N
- * Utilizan c?lculos geoespaciales del servidor PostgreSQL
- * Precisi?n: hasta ?5 metros (vs ?17km sin PostGIS)
- */
-
-/**
- * Validar si coordenadas est?n dentro de una ubicaci?n permitida
- * Usa: ST_DWithin() de PostGIS para c?lculo preciso en servidor
- * 
- * @deprecated - Usar encontrarUbicacionCercana() que incluye validaci?n
- */
-/*
-const validarUbicacionConPostGIS = async (
-  latitud: number,
-  longitud: number,
-  ubicacionId: number
-): Promise<boolean> => {
-  try {
-    const resultado = await prisma.$queryRaw<Array<{ validar_ubicacion_en_radio: boolean }>>`
-      SELECT validar_ubicacion_en_radio(
-        ${latitud}::DOUBLE PRECISION,
-        ${longitud}::DOUBLE PRECISION,
-        ${ubicacionId}::BIGINT
-      ) as validar_ubicacion_en_radio
-    `;
-    return resultado[0]?.validar_ubicacion_en_radio || false;
-  } catch (error) {
-    console.error('? Error validando ubicaci?n con PostGIS:', error);
-    return false;
-  }
-};
-*/
-
-/**
- * Encontrar la ubicaci?n permitida m?s cercana
- * Usa: ST_Distance() de PostGIS + ?ndice GiST para b?squeda r?pida
- */
-const encontrarUbicacionCercana = async (
-  latitud: number,
-  longitud: number
-): Promise<{
-  id: bigint;
-  nombre: string;
-  distancia_metros: number;
-  dentro_radio: boolean;
-} | null> => {
-  try {
-    const resultado = await prisma.$queryRaw<Array<{
-      id: bigint;
-      nombre: string;
-      distancia_metros: number;
-      dentro_radio: boolean;
-    }>>`
-      SELECT * FROM encontrar_ubicacion_cercana(
-        ${latitud}::DOUBLE PRECISION,
-        ${longitud}::DOUBLE PRECISION
-      )
-    `;
-    return resultado[0] || null;
-  } catch (error) {
-    console.error('? Error encontrando ubicaci?n cercana:', error);
-    return null;
-  }
-};
-
-/**
- * Calcular distancia exacta entre dos puntos GPS
- * Usa: ST_Distance() de PostGIS (precisi?n geod?sica)
- * 
- * @deprecated - Reservada para uso futuro (an?lisis de distancias)
- */
-/*
-const calcularDistanciaPostGIS = async (
-  lat1: number,
-  lng1: number,
-  lat2: number,
-  lng2: number
-): Promise<number> => {
-  try {
-    const resultado = await prisma.$queryRaw<Array<{ calcular_distancia: number }>>`
-      SELECT calcular_distancia(
-        ${lat1}::DOUBLE PRECISION,
-        ${lng1}::DOUBLE PRECISION,
-        ${lat2}::DOUBLE PRECISION,
-        ${lng2}::DOUBLE PRECISION
-      ) as calcular_distancia
-    `;
-    return resultado[0]?.calcular_distancia || 0;
-  } catch (error) {
-    console.error('? Error calculando distancia:', error);
-    return 0;
-  }
-};
-*/
-
-/**
- * Registrar entrada de asistencia
- * ?? CON VALIDACI?N POSTGIS DE ALTA PRECISI?N
- */
-export const registrarEntrada = asyncHandler(async (req: AuthRequest, res: Response): Promise<void> => {
-  const { latitud, longitud, deviceInfo } = req.body;
-  const docenteId = req.usuario?.docenteId;
-
-  if (!docenteId) {
-    throw new ValidationError('Usuario no es un docente v?lido');
-  }
-
-  // 1. Verificar si ya registró entrada hoy
-  const hoy = new Date();
-  hoy.setHours(0, 0, 0, 0);
-  const tomorrow = new Date(hoy);
-  tomorrow.setDate(tomorrow.getDate() + 1);
-
-  const asistenciaExistente = await prisma.asistencias.findFirst({
-    where: {
-      docenteId,
-      fecha: {
-        gte: hoy,
-        lt: tomorrow
-      }
-    }
-  });
-
-  if (asistenciaExistente) {
-    throw new ConflictError('Ya se registr? la entrada para hoy');
-  }
-
-  // 2?? Validar ubicaci?n con PostGIS (alta precisi?n)
-  const lat = parseFloat(latitud.toString());
-  const lng = parseFloat(longitud.toString());
-
-  const ubicacionCercana = await encontrarUbicacionCercana(lat, lng);
-
-  if (!ubicacionCercana) {
-    throw new ValidationError('No hay ubicaciones permitidas configuradas');
-  }
-
-  // 3?? Verificar si est? dentro del radio permitido
-  if (!ubicacionCercana.dentro_radio) {
-    const distanciaKm = (ubicacionCercana.distancia_metros / 1000).toFixed(2);
-    throw new ValidationError(
-      `Ubicaci?n fuera del ?rea permitida. ` +
-      `Distancia a "${ubicacionCercana.nombre}": ${distanciaKm} km`
-    );
-  }
-
-  // 4. Crear registro de asistencia
-  const nuevaAsistencia = await prisma.asistencias.create({
-    data: {
-      docenteId,
-      fecha: new Date(),
-      horaEntrada: new Date(),
-      latitudEntrada: lat,
-      longitudEntrada: lng,
-      ubicacionEntradaId: Number(ubicacionCercana.id),
-      estado: 'presente',
-      observaciones: deviceInfo ? 
-        `${deviceInfo} | Ubicación: ${ubicacionCercana.nombre} (${Math.round(ubicacionCercana.distancia_metros)}m)` 
-        : `Ubicación: ${ubicacionCercana.nombre} (${Math.round(ubicacionCercana.distancia_metros)}m)`
-    }
-  });
-
-  const response = ResponseFormatter.created(
-    {
-      ...nuevaAsistencia,
-      ubicacionInfo: {
-        nombre: ubicacionCercana.nombre,
-        distanciaMetros: Math.round(ubicacionCercana.distancia_metros)
-      }
-    },
-    `Entrada registrada en ${ubicacionCercana.nombre}`
-  );
-
-  res.status(201).json(response);
-});
-
-/**
- * Registrar salida de asistencia
- * ?? CON VALIDACI?N POSTGIS DE ALTA PRECISI?N
- */
-export const registrarSalida = asyncHandler(async (req: AuthRequest, res: Response): Promise<void> => {
-  const { latitud, longitud } = req.body;
-  const docenteId = req.usuario?.docenteId;
-
-  if (!docenteId) {
-    throw new ValidationError('Usuario no es un docente v?lido');
-  }
-
-  // 1. Buscar asistencia de hoy sin salida
-  const hoy = new Date();
-  hoy.setHours(0, 0, 0, 0);
-  const tomorrow = new Date(hoy);
-  tomorrow.setDate(tomorrow.getDate() + 1);
-
-  const asistencia = await prisma.asistencias.findFirst({
-    where: {
-      docenteId,
-      fecha: {
-        gte: hoy,
-        lt: tomorrow
-      },
-      horaSalida: null
-    }
-  });
-
-  if (!asistencia) {
-    throw new NotFoundError('Registro de entrada para hoy');
-  }
-
-  // 2?? Validar ubicaci?n de salida con PostGIS
-  const lat = parseFloat(latitud.toString());
-  const lng = parseFloat(longitud.toString());
-
-  const ubicacionCercana = await encontrarUbicacionCercana(lat, lng);
-
-  if (!ubicacionCercana) {
-    throw new ValidationError('No hay ubicaciones permitidas configuradas');
-  }
-
-  // 3?? Verificar si est? dentro del radio permitido
-  if (!ubicacionCercana.dentro_radio) {
-    const distanciaKm = (ubicacionCercana.distancia_metros / 1000).toFixed(2);
-    throw new ValidationError(
-      `Ubicaci?n fuera del ?rea permitida. ` +
-      `Distancia a "${ubicacionCercana.nombre}": ${distanciaKm} km`
-    );
-  }
-
-  // 4. Actualizar con hora de salida
-  const asistenciaActualizada = await prisma.asistencias.update({
-    where: { id: asistencia.id },
-    data: {
-      horaSalida: new Date(),
-      latitudSalida: lat,
-      longitudSalida: lng,
-      ubicacionSalidaId: Number(ubicacionCercana.id)
-    }
-  });
-
-  const response = ResponseFormatter.updated(
-    {
-      ...asistenciaActualizada,
-      ubicacionInfo: {
-        nombre: ubicacionCercana.nombre,
-        distanciaMetros: Math.round(ubicacionCercana.distancia_metros)
-      }
-    },
-    `Salida registrada en ${ubicacionCercana.nombre}`
-  );
-
-  res.json(response);
-});
-
-/**
- * Obtener asistencias del d?a actual
- */
-export const obtenerAsistenciasHoy = asyncHandler(async (req: AuthRequest, res: Response): Promise<void> => {
-  const docenteId = req.usuario?.docenteId;
-  const isAdmin = req.usuario?.rol === 'ADMIN' || req.usuario?.rol === 'admin';
-
-  // Si no es docente ni admin, error
-  if (!docenteId && !isAdmin) {
-    throw new ValidationError('Usuario no tiene permisos para ver asistencias');
-  }
-
-  const hoy = new Date();
-  hoy.setHours(0, 0, 0, 0);
-  const tomorrow = new Date(hoy);
-  tomorrow.setDate(tomorrow.getDate() + 1);
-
-  let asistencias;
-
-  if (isAdmin) {
-    // Administradores ven todas las asistencias del d?a
-    asistencias = await prisma.asistencias.findMany({
-      where: {
-        fecha: {
-          gte: hoy,
-          lt: tomorrow
-        }
-      },
-      include: {
-        docente: {
-          select: {
-            id: true,
-            codigo_docente: true,
-            usuarios: {
-              select: {
-                nombres: true,
-                apellidos: true,
-                email: true
-              }
-            },
-            areas: {
-              select: {
-                nombre: true
-              }
-            }
-          }
-        }
-      },
-      orderBy: {
-        fecha: 'desc'
-      }
-    });
-  } else {
-    // Docentes ven solo sus asistencias
-    asistencias = await prisma.asistencias.findMany({
-      where: {
-        docenteId: docenteId!,
-        fecha: {
-          gte: hoy,
-          lt: tomorrow
-        }
-      },
-      orderBy: {
-        fecha: 'desc'
-      }
-    });
-  }
-
-  const response = ResponseFormatter.success(
-    asistencias,
-    'Asistencias obtenidas correctamente'
-  );
-
-  res.json(response);
-});
-
-/**
- * Generar reporte de asistencias
- */
-export const generarReporte = asyncHandler(async (req: AuthRequest, res: Response): Promise<void> => {
-  const docenteId = req.usuario?.docenteId;
-  const { fecha_inicio, fecha_fin, page = 1, limit = 10 } = req.query;
-
-  if (!docenteId) {
-    throw new ValidationError('Usuario no es un docente v?lido');
-  }
-
-  const whereCondition: any = { docenteId };
-
-  if (fecha_inicio || fecha_fin) {
-    whereCondition.fecha = {};
-    if (fecha_inicio) {
-      whereCondition.fecha.gte = new Date(fecha_inicio as string);
-    }
-    if (fecha_fin) {
-      whereCondition.fecha.lte = new Date(fecha_fin as string);
-    }
-  }
-
-  const skip = (Number(page) - 1) * Number(limit);
-  const take = Number(limit);
-
-  const [asistencias, total] = await Promise.all([
-    prisma.asistencias.findMany({
-      where: whereCondition,
-      skip,
-      take,
-      orderBy: {
-        fecha: 'desc'
-      }
-    }),
-    prisma.asistencias.count({
-      where: whereCondition
-    })
-  ]);
-
-  const response = ResponseFormatter.paginated(
-    asistencias,
-    {
-      page: Number(page),
-      limit: Number(limit),
-      total
-    },
-    'Reporte generado correctamente'
-  );
-
-  res.json(response);
-});
-
-/**
- * Validar ubicaci?n permitida
- * ?? CON POSTGIS - PRECISI?N DE ?5 METROS
- */
-export const validarUbicacion = asyncHandler(async (req: Request, res: Response): Promise<void> => {
-  const { latitud, longitud } = req.body;
-
-  // Validar que vengan las coordenadas
-  if (!latitud || !longitud) {
-    throw new ValidationError('Latitud y longitud son requeridas');
-  }
-
-  const lat = parseFloat(latitud);
-  const lon = parseFloat(longitud);
-
-  // Validar rango de coordenadas
-  if (lat < -90 || lat > 90 || lon < -180 || lon > 180) {
-    throw new ValidationError('Coordenadas fuera de rango v?lido');
-  }
-
-  // 1?? Obtener ubicaciones permitidas activas
-  const ubicacionesPermitidas = await prisma.ubicaciones_permitidas.findMany({
-    where: { activo: true }
-  });
-
-  if (ubicacionesPermitidas.length === 0) {
-    const response = ResponseFormatter.success(
-      { 
-        valida: true, 
-        mensaje: 'No hay restricciones de ubicaci?n configuradas',
-        ubicacionCercana: null
-      },
-      'Sin restricciones'
-    );
-    res.json(response);
-    return;
-  }
-
-  // 2?? Encontrar ubicaci?n m?s cercana con PostGIS
-  const ubicacionCercana = await encontrarUbicacionCercana(lat, lon);
-
-  if (!ubicacionCercana) {
-    const response = ResponseFormatter.success(
-      { 
-        valida: false, 
-        mensaje: 'No se pudo determinar la ubicaci?n cercana',
-        ubicacionCercana: null
-      },
-      'Error de validaci?n'
-    );
-    res.json(response);
-    return;
-  }
-
-  // 3?? Verificar si est? dentro del radio
-  const dentroDeRadio = ubicacionCercana.dentro_radio;
-  const distanciaMetros = Math.round(ubicacionCercana.distancia_metros);
-  const distanciaKm = (ubicacionCercana.distancia_metros / 1000).toFixed(2);
-
-  if (dentroDeRadio) {
-    const response = ResponseFormatter.success(
-      {
-        valida: true,
-        mensaje: `? Ubicaci?n v?lida - ${ubicacionCercana.nombre}`,
-        distanciaMetros,
-        distanciaKm: parseFloat(distanciaKm),
-        ubicacionCercana: {
-          id: Number(ubicacionCercana.id),
-          nombre: ubicacionCercana.nombre
-        }
-      },
-      'Ubicaci?n validada con PostGIS'
-    );
-    res.json(response);
-  } else {
-    const response = ResponseFormatter.success(
-      {
-        valida: false,
-        mensaje: `? Fuera del ?rea permitida (${distanciaKm} km de "${ubicacionCercana.nombre}")`,
-        distanciaMetros,
-        distanciaKm: parseFloat(distanciaKm),
-        ubicacionCercana: {
-          id: Number(ubicacionCercana.id),
-          nombre: ubicacionCercana.nombre
-        }
-      },
-      'Ubicaci?n fuera de rango'
-    );
-    res.json(response);
-  }
-});
-
-/**
- * Obtener estad?sticas del docente logueado
- */
-export const getEstadisticasDocente = asyncHandler(async (req: AuthRequest, res: Response): Promise<void> => {
-  const docenteId = req.usuario?.docenteId;
-
-  if (!docenteId) {
-    throw new ValidationError('Usuario no es un docente v?lido');
-  }
-
-  // Obtener fechas del mes actual
-  const now = new Date();
-  const primerDiaMes = new Date(now.getFullYear(), now.getMonth(), 1);
-  const ultimoDiaMes = new Date(now.getFullYear(), now.getMonth() + 1, 0);
-
-  // Contar asistencias del mes
-  const asistenciasEsteMes = await prisma.asistencias.count({
-    where: {
-      docenteId: docenteId,
-      fecha: {
-        gte: primerDiaMes,
-        lte: ultimoDiaMes
-      },
-      estado: {
-        in: ['PRESENTE', 'TARDANZA']
-      }
-    }
-  });
-
-  // Calcular d?as laborales del mes (excluyendo s?bados y domingos)
-  let totalDiasLaborales = 0;
-  const fechaActual = new Date(primerDiaMes);
-  
-  while (fechaActual <= ultimoDiaMes && fechaActual <= now) {
-    const dia_semana = fechaActual.getDay();
-    if (dia_semana !== 0 && dia_semana !== 6) { // No domingo (0) ni s?bado (6)
-      totalDiasLaborales++;
-    }
-    fechaActual.setDate(fechaActual.getDate() + 1);
-  }
-
-  // Calcular puntualidad (asistencias a tiempo vs total asistencias)
-  const asistenciasPuntuales = await prisma.asistencias.count({
-    where: {
-      docenteId: docenteId,
-      fecha: {
-        gte: primerDiaMes,
-        lte: ultimoDiaMes
-      },
-      estado: 'PRESENTE'
-    }
-  });
-
-  const puntualidad = asistenciasEsteMes > 0 
-    ? Math.round((asistenciasPuntuales / asistenciasEsteMes) * 100)
-    : 0;
-
-  // Calcular horas laboradas del mes
-  const asistenciasConHoras = await prisma.asistencias.findMany({
-    where: {
-      docenteId: docenteId,
-      fecha: {
-        gte: primerDiaMes,
-        lte: ultimoDiaMes
-      },
-      horaEntrada: { not: null },
-      horaSalida: { not: null }
-    },
-    select: {
-      horaEntrada: true,
-      horaSalida: true
-    }
-  });
-
-  let horasLaboradas = 0;
-  asistenciasConHoras.forEach(asistencia => {
-    if (asistencia.horaEntrada && asistencia.horaSalida) {
-      const entrada = new Date(asistencia.horaEntrada);
-      const salida = new Date(asistencia.horaSalida);
-      const diferencia = salida.getTime() - entrada.getTime();
-      horasLaboradas += diferencia / (1000 * 60 * 60); // Convertir a horas
-    }
-  });
-
-  const estadisticas = {
-    asistenciasEsteMes,
-    totalDiasLaborales,
-    puntualidad,
-    horasLaboradas: Math.round(horasLaboradas)
-  };
-
-  const response = ResponseFormatter.success(
-    estadisticas,
-    'Estad?sticas obtenidas exitosamente'
-  );
-
-  res.status(200).json(response);
-});
-
-/**
- * Obtener todas las asistencias del docente logueado
- */
-export const obtenerMisAsistencias = asyncHandler(async (req: AuthRequest, res: Response): Promise<void> => {
-  const docenteId = req.usuario?.docenteId;
-
-  if (!docenteId) {
-    throw new ValidationError('Usuario no es un docente v?lido');
-  }
-
-  const asistencias = await prisma.asistencias.findMany({
-    where: {
-      docenteId
-    },
-    select: {
-      id: true,
-      fecha: true,
-      horaEntrada: true,
-      horaSalida: true,
-      estado: true,
-      ubicacionEntradaId: true,
-      ubicacionSalidaId: true,
-      observaciones: true,
-      tardanzaMinutos: true,
-      horasTrabajadas: true,
-      justificaciones: {
-        select: {
-          id: true,
-          estado: true,
-          motivo: true,
-          tipo: true
-        }
-      }
-    },
-    orderBy: {
-      fecha: 'desc'
-    }
-  });
-
-  const response = ResponseFormatter.success(
-    asistencias,
-    'Asistencias obtenidas exitosamente'
-  );
-
-  res.status(200).json(response);
-});
-
-
+aiamapaoarata a{a aRaeaqauaeasata,a aRaeasapaoanasaea a}a afaraoama a'aeaxaparaeasasa'a;aa
+aiamapaoarata aparaiasamaaa afaraoama a'a.a.a/auataialasa/adaaataaabaaasaea'a;aa
+aiamapaoarata a{a aaasayanacaHaaanadalaeara a}a afaraoama a'a.a.a/amaiadadalaeawaaaraea/aeararaoara-ahaaanadalaeara'a;aa
+aiamapaoarata a{a aRaeasapaoanasaeaFaoaramaaatataeara a}a afaraoama a'a.a.a/auataialasa/araeasapaoanasaea-afaoaramaaatataeara'a;aa
+aiamapaoarata a{a aNaoataFaoauanadaEararaoara,a aVaaalaiadaaataiaoanaEararaoara,a aCaoanafalaiacataEararaoara a}a afaraoama a'a.a.a/auataialasa/aaapapa-aeararaoara'a;aa
+aa
+atayapaea aAauatahaRaeaqauaeasata a=a aRaeaqauaeasata a&a a{a aa
+a a auasaeara?a:a a{a aa
+a a a a aiada:a asataraianaga;a aa
+a a a a aeamaaaiala:a asataraianaga;a aa
+a a a a araoala:a asataraianaga;a aa
+a a a a araoala_aiada:a anauamabaeara;a aa
+a a a a aiasaDaoacaeanataea:a abaoaoalaeaaana;a aa
+a a a a adaoacaeanataeaIada?a:a asataraianaga;a aa
+a a a}a;a aa
+a a auasauaaaraiaoa?a:a a{a aa
+a a a a aiada:a asataraianaga;a aa
+a a a a aeamaaaiala:a asataraianaga;a aa
+a a a a araoala:a asataraianaga;a aa
+a a a a araoala_aiada:a anauamabaeara;a aa
+a a a a aiasaDaoacaeanataea:a abaoaoalaeaaana;a aa
+a a a a adaoacaeanataeaIada?a:a asataraianaga;a aa
+a a a}a;a aa
+a}a;aa
+aa
+a/a*a*aa
+a a*a a?a?a aFaUaNaCaIaOaNaEaSa aPaOaSaTaGaIaSa aPaAaRaAa aGaPaSa aDaEa aAaLaTaAa aPaRaEaCaIaSaIa?aNaa
+a a*a aUataialaiazaaana aca?alacaualaoasa agaeaoaeasapaaacaiaaalaeasa adaeala asaearavaiadaoara aPaoasatagaraeaSaQaLaa
+a a*a aParaeacaiasaia?ana:a ahaaasataaa a?a5a amaeataraoasa a(avasa a?a1a7akama asaiana aPaoasataGaIaSa)aa
+a a*a/aa
+aa
+a/a*a*aa
+a a*a aVaaalaiadaaara asaia acaoaoaradaeanaaadaaasa aeasata?ana adaeanataraoa adaea auanaaa auabaiacaaacaia?ana apaearamaiataiadaaaa
+a a*a aUasaaa:a aSaTa_aDaWaiatahaiana(a)a adaea aPaoasataGaIaSa apaaaraaa aca?alacaualaoa aparaeacaiasaoa aeana asaearavaiadaoaraa
+a a*a aa
+a a*a a@adaeaparaeacaaataeada a-a aUasaaara aeanacaoanataraaaraUabaiacaaacaiaoanaCaearacaaanaaa(a)a aqauaea aianacalauayaea avaaalaiadaaacaia?anaa
+a a*a/aa
+a/a*aa
+acaoanasata avaaalaiadaaaraUabaiacaaacaiaoanaCaoanaPaoasataGaIaSa a=a aaasayanaca a(aa
+a a alaaataiatauada:a anauamabaeara,aa
+a a alaoanagaiatauada:a anauamabaeara,aa
+a a auabaiacaaacaiaoanaIada:a anauamabaearaa
+a)a:a aParaoamaiasaea<abaoaoalaeaaana>a a=a>a a{aa
+a a ataraya a{aa
+a a a a acaoanasata araeasaualataaadaoa a=a aaawaaaiata aparaiasamaaa.a$aqauaearayaRaaawa<aAararaaaya<a{a avaaalaiadaaara_auabaiacaaacaiaoana_aeana_araaadaiaoa:a abaoaoalaeaaana a}a>a>a`aa
+a a a a a a aSaEaLaEaCaTa avaaalaiadaaara_auabaiacaaacaiaoana_aeana_araaadaiaoa(aa
+a a a a a a a a a$a{alaaataiatauada}a:a:aDaOaUaBaLaEa aPaRaEaCaIaSaIaOaNa,aa
+a a a a a a a a a$a{alaoanagaiatauada}a:a:aDaOaUaBaLaEa aPaRaEaCaIaSaIaOaNa,aa
+a a a a a a a a a$a{auabaiacaaacaiaoanaIada}a:a:aBaIaGaIaNaTaa
+a a a a a a a)a aaasa avaaalaiadaaara_auabaiacaaacaiaoana_aeana_araaadaiaoaa
+a a a a a`a;aa
+a a a a araeatauarana araeasaualataaadaoa[a0a]a?a.avaaalaiadaaara_auabaiacaaacaiaoana_aeana_araaadaiaoa a|a|a afaaalasaea;aa
+a a a}a acaaatacaha a(aeararaoara)a a{aa
+a a a a acaoanasaoalaea.aeararaoara(a'a?a aEararaoara avaaalaiadaaanadaoa auabaiacaaacaia?ana acaoana aPaoasataGaIaSa:a'a,a aeararaoara)a;aa
+a a a a araeatauarana afaaalasaea;aa
+a a a}aa
+a}a;aa
+a*a/aa
+aa
+a/a*a*aa
+a a*a aEanacaoanataraaara alaaa auabaiacaaacaia?ana apaearamaiataiadaaa ama?asa acaearacaaanaaaa
+a a*a aUasaaa:a aSaTa_aDaiasataaanacaea(a)a adaea aPaoasataGaIaSa a+a a?anadaiacaea aGaiaSaTa apaaaraaa aba?asaqauaeadaaa ara?apaiadaaaa
+a a*a/aa
+acaoanasata aeanacaoanataraaaraUabaiacaaacaiaoanaCaearacaaanaaa a=a aaasayanaca a(aa
+a a alaaataiatauada:a anauamabaeara,aa
+a a alaoanagaiatauada:a anauamabaearaa
+a)a:a aParaoamaiasaea<a{aa
+a a aiada:a abaiagaianata;aa
+a a anaoamabaraea:a asataraianaga;aa
+a a adaiasataaanacaiaaa_amaeataraoasa:a anauamabaeara;aa
+a a adaeanataraoa_araaadaiaoa:a abaoaoalaeaaana;aa
+a}a a|a anaualala>a a=a>a a{aa
+a a ataraya a{aa
+a a a a acaoanasata araeasaualataaadaoa a=a aaawaaaiata aparaiasamaaa.a$aqauaearayaRaaawa<aAararaaaya<a{aa
+a a a a a a aiada:a abaiagaianata;aa
+a a a a a a anaoamabaraea:a asataraianaga;aa
+a a a a a a adaiasataaanacaiaaa_amaeataraoasa:a anauamabaeara;aa
+a a a a a a adaeanataraoa_araaadaiaoa:a abaoaoalaeaaana;aa
+a a a a a}a>a>a`aa
+a a a a a a aSaEaLaEaCaTa a*a aFaRaOaMa aeanacaoanataraaara_auabaiacaaacaiaoana_acaearacaaanaaa(aa
+a a a a a a a a a$a{alaaataiatauada}a:a:aDaOaUaBaLaEa aPaRaEaCaIaSaIaOaNa,aa
+a a a a a a a a a$a{alaoanagaiatauada}a:a:aDaOaUaBaLaEa aPaRaEaCaIaSaIaOaNaa
+a a a a a a a)aa
+a a a a a`a;aa
+a a a a araeatauarana araeasaualataaadaoa[a0a]a a|a|a anaualala;aa
+a a a}a acaaatacaha a(aeararaoara)a a{aa
+a a a a acaoanasaoalaea.aeararaoara(a'a?a aEararaoara aeanacaoanataraaanadaoa auabaiacaaacaia?ana acaearacaaanaaa:a'a,a aeararaoara)a;aa
+a a a a araeatauarana anaualala;aa
+a a a}aa
+a}a;aa
+aa
+a/a*a*aa
+a a*a aCaaalacaualaaara adaiasataaanacaiaaa aeaxaaacataaa aeanataraea adaoasa apauanataoasa aGaPaSaa
+a a*a aUasaaa:a aSaTa_aDaiasataaanacaea(a)a adaea aPaoasataGaIaSa a(aparaeacaiasaia?ana agaeaoada?asaiacaaa)aa
+a a*a aa
+a a*a a@adaeaparaeacaaataeada a-a aRaeasaearavaaadaaa apaaaraaa auasaoa afauatauaraoa a(aaana?alaiasaiasa adaea adaiasataaanacaiaaasa)aa
+a a*a/aa
+a/a*aa
+acaoanasata acaaalacaualaaaraDaiasataaanacaiaaaPaoasataGaIaSa a=a aaasayanaca a(aa
+a a alaaata1a:a anauamabaeara,aa
+a a alanaga1a:a anauamabaeara,aa
+a a alaaata2a:a anauamabaeara,aa
+a a alanaga2a:a anauamabaearaa
+a)a:a aParaoamaiasaea<anauamabaeara>a a=a>a a{aa
+a a ataraya a{aa
+a a a a acaoanasata araeasaualataaadaoa a=a aaawaaaiata aparaiasamaaa.a$aqauaearayaRaaawa<aAararaaaya<a{a acaaalacaualaaara_adaiasataaanacaiaaa:a anauamabaeara a}a>a>a`aa
+a a a a a a aSaEaLaEaCaTa acaaalacaualaaara_adaiasataaanacaiaaa(aa
+a a a a a a a a a$a{alaaata1a}a:a:aDaOaUaBaLaEa aPaRaEaCaIaSaIaOaNa,aa
+a a a a a a a a a$a{alanaga1a}a:a:aDaOaUaBaLaEa aPaRaEaCaIaSaIaOaNa,aa
+a a a a a a a a a$a{alaaata2a}a:a:aDaOaUaBaLaEa aPaRaEaCaIaSaIaOaNa,aa
+a a a a a a a a a$a{alanaga2a}a:a:aDaOaUaBaLaEa aPaRaEaCaIaSaIaOaNaa
+a a a a a a a)a aaasa acaaalacaualaaara_adaiasataaanacaiaaaa
+a a a a a`a;aa
+a a a a araeatauarana araeasaualataaadaoa[a0a]a?a.acaaalacaualaaara_adaiasataaanacaiaaa a|a|a a0a;aa
+a a a}a acaaatacaha a(aeararaoara)a a{aa
+a a a a acaoanasaoalaea.aeararaoara(a'a?a aEararaoara acaaalacaualaaanadaoa adaiasataaanacaiaaa:a'a,a aeararaoara)a;aa
+a a a a araeatauarana a0a;aa
+a a a}aa
+a}a;aa
+a*a/aa
+aa
+a/a*a*aa
+a a*a aRaeagaiasataraaara aeanataraaadaaa adaea aaasaiasataeanacaiaaaa
+a a*a a?a?a aCaOaNa aVaAaLaIaDaAaCaIa?aNa aPaOaSaTaGaIaSa aDaEa aAaLaTaAa aPaRaEaCaIaSaIa?aNaa
+a a*a/aa
+aeaxapaoarata acaoanasata araeagaiasataraaaraEanataraaadaaa a=a aaasayanacaHaaanadalaeara(aaasayanaca a(araeaqa:a aAauatahaRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a:a aParaoamaiasaea<avaoaiada>a a=a>a a{aa
+a a acaoanasata a{a alaaataiatauada,a alaoanagaiatauada,a adaeavaiacaeaIanafaoa a}a a=a araeaqa.abaoadaya;aa
+a a acaoanasata adaoacaeanataeaIada a=a araeaqa.auasauaaaraiaoa?a.adaoacaeanataeaIada;aa
+aa
+a a aiafa a(a!adaoacaeanataeaIada)a a{aa
+a a a a ataharaoawa anaeawa aVaaalaiadaaataiaoanaEararaoara(a'aUasauaaaraiaoa anaoa aeasa auana adaoacaeanataea ava?alaiadaoa'a)a;aa
+a a a}aa
+aa
+a a a/a/a a1a.a aVaearaiafaiacaaara asaia ayaaa araeagaiasataraoa aeanataraaadaaa ahaoayaa
+a a acaoanasata ahaoaya a=a anaeawa aDaaataea(a)a;aa
+a a ahaoaya.asaeataHaoauarasa(a0a,a a0a,a a0a,a a0a)a;aa
+a a acaoanasata ataoamaoararaoawa a=a anaeawa aDaaataea(ahaoaya)a;aa
+a a ataoamaoararaoawa.asaeataDaaataea(ataoamaoararaoawa.agaeataDaaataea(a)a a+a a1a)a;aa
+aa
+a a acaoanasata aaasaiasataeanacaiaaaEaxaiasataeanataea a=a aaawaaaiata aparaiasamaaa.aaasaiasataeanacaiaaasa.afaianadaFaiarasata(a{aa
+a a a a awahaearaea:a a{aa
+a a a a a a adaoacaeanataeaIada,aa
+a a a a a a afaeacahaaa:a a{aa
+a a a a a a a a agataea:a ahaoaya,aa
+a a a a a a a a alata:a ataoamaoararaoawaa
+a a a a a a a}aa
+a a a a a}aa
+a a a}a)a;aa
+aa
+a a aiafa a(aaasaiasataeanacaiaaaEaxaiasataeanataea)a a{aa
+a a a a ataharaoawa anaeawa aCaoanafalaiacataEararaoara(a'aYaaa asaea araeagaiasatara?a alaaa aeanataraaadaaa apaaaraaa ahaoaya'a)a;aa
+a a a}aa
+aa
+a a a/a/a a2a?a?a aVaaalaiadaaara auabaiacaaacaia?ana acaoana aPaoasataGaIaSa a(aaalataaa aparaeacaiasaia?ana)aa
+a a acaoanasata alaaata a=a apaaarasaeaFalaoaaata(alaaataiatauada.ataoaSataraianaga(a)a)a;aa
+a a acaoanasata alanaga a=a apaaarasaeaFalaoaaata(alaoanagaiatauada.ataoaSataraianaga(a)a)a;aa
+aa
+a a acaoanasata auabaiacaaacaiaoanaCaearacaaanaaa a=a aaawaaaiata aeanacaoanataraaaraUabaiacaaacaiaoanaCaearacaaanaaa(alaaata,a alanaga)a;aa
+aa
+a a aiafa a(a!auabaiacaaacaiaoanaCaearacaaanaaa)a a{aa
+a a a a ataharaoawa anaeawa aVaaalaiadaaataiaoanaEararaoara(a'aNaoa ahaaaya auabaiacaaacaiaoanaeasa apaearamaiataiadaaasa acaoanafaiagauaraaadaaasa'a)a;aa
+a a a}aa
+aa
+a a a/a/a a3a?a?a aVaearaiafaiacaaara asaia aeasata?a adaeanataraoa adaeala araaadaiaoa apaearamaiataiadaoaa
+a a aiafa a(a!auabaiacaaacaiaoanaCaearacaaanaaa.adaeanataraoa_araaadaiaoa)a a{aa
+a a a a acaoanasata adaiasataaanacaiaaaKama a=a a(auabaiacaaacaiaoanaCaearacaaanaaa.adaiasataaanacaiaaa_amaeataraoasa a/a a1a0a0a0a)a.ataoaFaiaxaeada(a2a)a;aa
+a a a a ataharaoawa anaeawa aVaaalaiadaaataiaoanaEararaoara(aa
+a a a a a a a`aUabaiacaaacaia?ana afauaearaaa adaeala a?araeaaa apaearamaiataiadaaa.a a`a a+aa
+a a a a a a a`aDaiasataaanacaiaaa aaa a"a$a{auabaiacaaacaiaoanaCaearacaaanaaa.anaoamabaraea}a"a:a a$a{adaiasataaanacaiaaaKama}a akama`aa
+a a a a a)a;aa
+a a a}aa
+aa
+a a a/a/a a4a.a aCaraeaaara araeagaiasataraoa adaea aaasaiasataeanacaiaaaa
+a a acaoanasata anauaeavaaaAasaiasataeanacaiaaa a=a aaawaaaiata aparaiasamaaa.aaasaiasataeanacaiaaasa.acaraeaaataea(a{aa
+a a a a adaaataaa:a a{aa
+a a a a a a adaoacaeanataeaIada,aa
+a a a a a a afaeacahaaa:a anaeawa aDaaataea(a)a,aa
+a a a a a a ahaoaraaaEanataraaadaaa:a anaeawa aDaaataea(a)a,aa
+a a a a a a alaaataiatauadaEanataraaadaaa:a alaaata,aa
+a a a a a a alaoanagaiatauadaEanataraaadaaa:a alanaga,aa
+a a a a a a auabaiacaaacaiaoanaEanataraaadaaaIada:a aNauamabaeara(auabaiacaaacaiaoanaCaearacaaanaaa.aiada)a,aa
+a a a a a a aeasataaadaoa:a a'aparaeasaeanataea'a,aa
+a a a a a a aoabasaearavaaacaiaoanaeasa:a adaeavaiacaeaIanafaoa a?a aa
+a a a a a a a a a`a$a{adaeavaiacaeaIanafaoa}a a|a aUabaiacaaacaiaoana:a a$a{auabaiacaaacaiaoanaCaearacaaanaaa.anaoamabaraea}a a(a$a{aMaaataha.araoauanada(auabaiacaaacaiaoanaCaearacaaanaaa.adaiasataaanacaiaaa_amaeataraoasa)a}ama)a`a aa
+a a a a a a a a a:a a`aUabaiacaaacaiaoana:a a$a{auabaiacaaacaiaoanaCaearacaaanaaa.anaoamabaraea}a a(a$a{aMaaataha.araoauanada(auabaiacaaacaiaoanaCaearacaaanaaa.adaiasataaanacaiaaa_amaeataraoasa)a}ama)a`aa
+a a a a a}aa
+a a a}a)a;aa
+aa
+a a acaoanasata araeasapaoanasaea a=a aRaeasapaoanasaeaFaoaramaaatataeara.acaraeaaataeada(aa
+a a a a a{aa
+a a a a a a a.a.a.anauaeavaaaAasaiasataeanacaiaaa,aa
+a a a a a a auabaiacaaacaiaoanaIanafaoa:a a{aa
+a a a a a a a a anaoamabaraea:a auabaiacaaacaiaoanaCaearacaaanaaa.anaoamabaraea,aa
+a a a a a a a a adaiasataaanacaiaaaMaeataraoasa:a aMaaataha.araoauanada(auabaiacaaacaiaoanaCaearacaaanaaa.adaiasataaanacaiaaa_amaeataraoasa)aa
+a a a a a a a}aa
+a a a a a}a,aa
+a a a a a`aEanataraaadaaa araeagaiasataraaadaaa aeana a$a{auabaiacaaacaiaoanaCaearacaaanaaa.anaoamabaraea}a`aa
+a a a)a;aa
+aa
+a a araeasa.asataaatauasa(a2a0a1a)a.ajasaoana(araeasapaoanasaea)a;aa
+a}a)a;aa
+aa
+a/a*a*aa
+a a*a aRaeagaiasataraaara asaaalaiadaaa adaea aaasaiasataeanacaiaaaa
+a a*a a?a?a aCaOaNa aVaAaLaIaDaAaCaIa?aNa aPaOaSaTaGaIaSa aDaEa aAaLaTaAa aPaRaEaCaIaSaIa?aNaa
+a a*a/aa
+aeaxapaoarata acaoanasata araeagaiasataraaaraSaaalaiadaaa a=a aaasayanacaHaaanadalaeara(aaasayanaca a(araeaqa:a aAauatahaRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a:a aParaoamaiasaea<avaoaiada>a a=a>a a{aa
+a a acaoanasata a{a alaaataiatauada,a alaoanagaiatauada a}a a=a araeaqa.abaoadaya;aa
+a a acaoanasata adaoacaeanataeaIada a=a araeaqa.auasauaaaraiaoa?a.adaoacaeanataeaIada;aa
+aa
+a a aiafa a(a!adaoacaeanataeaIada)a a{aa
+a a a a ataharaoawa anaeawa aVaaalaiadaaataiaoanaEararaoara(a'aUasauaaaraiaoa anaoa aeasa auana adaoacaeanataea ava?alaiadaoa'a)a;aa
+a a a}aa
+aa
+a a a/a/a a1a.a aBauasacaaara aaasaiasataeanacaiaaa adaea ahaoaya asaiana asaaalaiadaaaa
+a a acaoanasata ahaoaya a=a anaeawa aDaaataea(a)a;aa
+a a ahaoaya.asaeataHaoauarasa(a0a,a a0a,a a0a,a a0a)a;aa
+a a acaoanasata ataoamaoararaoawa a=a anaeawa aDaaataea(ahaoaya)a;aa
+a a ataoamaoararaoawa.asaeataDaaataea(ataoamaoararaoawa.agaeataDaaataea(a)a a+a a1a)a;aa
+aa
+a a acaoanasata aaasaiasataeanacaiaaa a=a aaawaaaiata aparaiasamaaa.aaasaiasataeanacaiaaasa.afaianadaFaiarasata(a{aa
+a a a a awahaearaea:a a{aa
+a a a a a a adaoacaeanataeaIada,aa
+a a a a a a afaeacahaaa:a a{aa
+a a a a a a a a agataea:a ahaoaya,aa
+a a a a a a a a alata:a ataoamaoararaoawaa
+a a a a a a a}a,aa
+a a a a a a ahaoaraaaSaaalaiadaaa:a anaualalaa
+a a a a a}aa
+a a a}a)a;aa
+aa
+a a aiafa a(a!aaasaiasataeanacaiaaa)a a{aa
+a a a a ataharaoawa anaeawa aNaoataFaoauanadaEararaoara(a'aRaeagaiasataraoa adaea aeanataraaadaaa apaaaraaa ahaoaya'a)a;aa
+a a a}aa
+aa
+a a a/a/a a2a?a?a aVaaalaiadaaara auabaiacaaacaia?ana adaea asaaalaiadaaa acaoana aPaoasataGaIaSaa
+a a acaoanasata alaaata a=a apaaarasaeaFalaoaaata(alaaataiatauada.ataoaSataraianaga(a)a)a;aa
+a a acaoanasata alanaga a=a apaaarasaeaFalaoaaata(alaoanagaiatauada.ataoaSataraianaga(a)a)a;aa
+aa
+a a acaoanasata auabaiacaaacaiaoanaCaearacaaanaaa a=a aaawaaaiata aeanacaoanataraaaraUabaiacaaacaiaoanaCaearacaaanaaa(alaaata,a alanaga)a;aa
+aa
+a a aiafa a(a!auabaiacaaacaiaoanaCaearacaaanaaa)a a{aa
+a a a a ataharaoawa anaeawa aVaaalaiadaaataiaoanaEararaoara(a'aNaoa ahaaaya auabaiacaaacaiaoanaeasa apaearamaiataiadaaasa acaoanafaiagauaraaadaaasa'a)a;aa
+a a a}aa
+aa
+a a a/a/a a3a?a?a aVaearaiafaiacaaara asaia aeasata?a adaeanataraoa adaeala araaadaiaoa apaearamaiataiadaoaa
+a a aiafa a(a!auabaiacaaacaiaoanaCaearacaaanaaa.adaeanataraoa_araaadaiaoa)a a{aa
+a a a a acaoanasata adaiasataaanacaiaaaKama a=a a(auabaiacaaacaiaoanaCaearacaaanaaa.adaiasataaanacaiaaa_amaeataraoasa a/a a1a0a0a0a)a.ataoaFaiaxaeada(a2a)a;aa
+a a a a ataharaoawa anaeawa aVaaalaiadaaataiaoanaEararaoara(aa
+a a a a a a a`aUabaiacaaacaia?ana afauaearaaa adaeala a?araeaaa apaearamaiataiadaaa.a a`a a+aa
+a a a a a a a`aDaiasataaanacaiaaa aaa a"a$a{auabaiacaaacaiaoanaCaearacaaanaaa.anaoamabaraea}a"a:a a$a{adaiasataaanacaiaaaKama}a akama`aa
+a a a a a)a;aa
+a a a}aa
+aa
+a a a/a/a a4a.a aAacatauaaalaiazaaara acaoana ahaoaraaa adaea asaaalaiadaaaa
+a a acaoanasata aaasaiasataeanacaiaaaAacatauaaalaiazaaadaaa a=a aaawaaaiata aparaiasamaaa.aaasaiasataeanacaiaaasa.auapadaaataea(a{aa
+a a a a awahaearaea:a a{a aiada:a aaasaiasataeanacaiaaa.aiada a}a,aa
+a a a a adaaataaa:a a{aa
+a a a a a a ahaoaraaaSaaalaiadaaa:a anaeawa aDaaataea(a)a,aa
+a a a a a a alaaataiatauadaSaaalaiadaaa:a alaaata,aa
+a a a a a a alaoanagaiatauadaSaaalaiadaaa:a alanaga,aa
+a a a a a a auabaiacaaacaiaoanaSaaalaiadaaaIada:a aNauamabaeara(auabaiacaaacaiaoanaCaearacaaanaaa.aiada)aa
+a a a a a}aa
+a a a}a)a;aa
+aa
+a a acaoanasata araeasapaoanasaea a=a aRaeasapaoanasaeaFaoaramaaatataeara.auapadaaataeada(aa
+a a a a a{aa
+a a a a a a a.a.a.aaasaiasataeanacaiaaaAacatauaaalaiazaaadaaa,aa
+a a a a a a auabaiacaaacaiaoanaIanafaoa:a a{aa
+a a a a a a a a anaoamabaraea:a auabaiacaaacaiaoanaCaearacaaanaaa.anaoamabaraea,aa
+a a a a a a a a adaiasataaanacaiaaaMaeataraoasa:a aMaaataha.araoauanada(auabaiacaaacaiaoanaCaearacaaanaaa.adaiasataaanacaiaaa_amaeataraoasa)aa
+a a a a a a a}aa
+a a a a a}a,aa
+a a a a a`aSaaalaiadaaa araeagaiasataraaadaaa aeana a$a{auabaiacaaacaiaoanaCaearacaaanaaa.anaoamabaraea}a`aa
+a a a)a;aa
+aa
+a a araeasa.ajasaoana(araeasapaoanasaea)a;aa
+a}a)a;aa
+aa
+a/a*a*aa
+a a*a aOabataeanaeara aaasaiasataeanacaiaaasa adaeala ada?aaa aaacatauaaalaa
+a a*a/aa
+aeaxapaoarata acaoanasata aoabataeanaearaAasaiasataeanacaiaaasaHaoaya a=a aaasayanacaHaaanadalaeara(aaasayanaca a(araeaqa:a aAauatahaRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a:a aParaoamaiasaea<avaoaiada>a a=a>a a{aa
+a a acaoanasata adaoacaeanataeaIada a=a araeaqa.auasauaaaraiaoa?a.adaoacaeanataeaIada;aa
+a a acaoanasata aiasaAadamaiana a=a araeaqa.auasauaaaraiaoa?a.araoala a=a=a=a a'aAaDaMaIaNa'a a|a|a araeaqa.auasauaaaraiaoa?a.araoala a=a=a=a a'aaadamaiana'a;aa
+aa
+a a a/a/a aSaia anaoa aeasa adaoacaeanataea anaia aaadamaiana,a aeararaoaraa
+a a aiafa a(a!adaoacaeanataeaIada a&a&a a!aiasaAadamaiana)a a{aa
+a a a a ataharaoawa anaeawa aVaaalaiadaaataiaoanaEararaoara(a'aUasauaaaraiaoa anaoa ataiaeanaea apaearamaiasaoasa apaaaraaa avaeara aaasaiasataeanacaiaaasa'a)a;aa
+a a a}aa
+aa
+a a acaoanasata ahaoaya a=a anaeawa aDaaataea(a)a;aa
+a a ahaoaya.asaeataHaoauarasa(a0a,a a0a,a a0a,a a0a)a;aa
+a a acaoanasata ataoamaoararaoawa a=a anaeawa aDaaataea(ahaoaya)a;aa
+a a ataoamaoararaoawa.asaeataDaaataea(ataoamaoararaoawa.agaeataDaaataea(a)a a+a a1a)a;aa
+aa
+a a alaeata aaasaiasataeanacaiaaasa;aa
+aa
+a a aiafa a(aiasaAadamaiana)a a{aa
+a a a a a/a/a aAadamaianaiasataraaadaoaraeasa avaeana ataoadaaasa alaaasa aaasaiasataeanacaiaaasa adaeala ada?aaaa
+a a a a aaasaiasataeanacaiaaasa a=a aaawaaaiata aparaiasamaaa.aaasaiasataeanacaiaaasa.afaianadaMaaanaya(a{aa
+a a a a a a awahaearaea:a a{aa
+a a a a a a a a afaeacahaaa:a a{aa
+a a a a a a a a a a agataea:a ahaoaya,aa
+a a a a a a a a a a alata:a ataoamaoararaoawaa
+a a a a a a a a a}aa
+a a a a a a a}a,aa
+a a a a a a aianacalauadaea:a a{aa
+a a a a a a a a adaoacaeanataea:a a{aa
+a a a a a a a a a a asaealaeacata:a a{aa
+a a a a a a a a a a a a aiada:a atarauaea,aa
+a a a a a a a a a a a a acaoadaiagaoa_adaoacaeanataea:a atarauaea,aa
+a a a a a a a a a a a a auasauaaaraiaoasa:a a{aa
+a a a a a a a a a a a a a a asaealaeacata:a a{aa
+a a a a a a a a a a a a a a a a anaoamabaraeasa:a atarauaea,aa
+a a a a a a a a a a a a a a a a aaapaealalaiadaoasa:a atarauaea,aa
+a a a a a a a a a a a a a a a a aeamaaaiala:a atarauaeaa
+a a a a a a a a a a a a a a a}aa
+a a a a a a a a a a a a a}a,aa
+a a a a a a a a a a a a aaaraeaaasa:a a{aa
+a a a a a a a a a a a a a a asaealaeacata:a a{aa
+a a a a a a a a a a a a a a a a anaoamabaraea:a atarauaeaa
+a a a a a a a a a a a a a a a}aa
+a a a a a a a a a a a a a}aa
+a a a a a a a a a a a}aa
+a a a a a a a a a}aa
+a a a a a a a}a,aa
+a a a a a a aoaradaearaBaya:a a{aa
+a a a a a a a a afaeacahaaa:a a'adaeasaca'aa
+a a a a a a a}aa
+a a a a a}a)a;aa
+a a a}a aealasaea a{aa
+a a a a a/a/a aDaoacaeanataeasa avaeana asaoalaoa asauasa aaasaiasataeanacaiaaasaa
+a a a a aaasaiasataeanacaiaaasa a=a aaawaaaiata aparaiasamaaa.aaasaiasataeanacaiaaasa.afaianadaMaaanaya(a{aa
+a a a a a a awahaearaea:a a{aa
+a a a a a a a a adaoacaeanataeaIada:a adaoacaeanataeaIada!a,aa
+a a a a a a a a afaeacahaaa:a a{aa
+a a a a a a a a a a agataea:a ahaoaya,aa
+a a a a a a a a a a alata:a ataoamaoararaoawaa
+a a a a a a a a a}aa
+a a a a a a a}a,aa
+a a a a a a aoaradaearaBaya:a a{aa
+a a a a a a a a afaeacahaaa:a a'adaeasaca'aa
+a a a a a a a}aa
+a a a a a}a)a;aa
+a a a}aa
+aa
+a a acaoanasata araeasapaoanasaea a=a aRaeasapaoanasaeaFaoaramaaatataeara.asauacacaeasasa(aa
+a a a a aaasaiasataeanacaiaaasa,aa
+a a a a a'aAasaiasataeanacaiaaasa aoabataeanaiadaaasa acaoararaeacataaamaeanataea'aa
+a a a)a;aa
+aa
+a a araeasa.ajasaoana(araeasapaoanasaea)a;aa
+a}a)a;aa
+aa
+a/a*a*aa
+a a*a aGaeanaearaaara araeapaoarataea adaea aaasaiasataeanacaiaaasaa
+a a*a/aa
+aeaxapaoarata acaoanasata agaeanaearaaaraRaeapaoarataea a=a aaasayanacaHaaanadalaeara(aaasayanaca a(araeaqa:a aAauatahaRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a:a aParaoamaiasaea<avaoaiada>a a=a>a a{aa
+a a acaoanasata adaoacaeanataeaIada a=a araeaqa.auasauaaaraiaoa?a.adaoacaeanataeaIada;aa
+a a acaoanasata a{a afaeacahaaa_aianaiacaiaoa,a afaeacahaaa_afaiana,a apaaagaea a=a a1a,a alaiamaiata a=a a1a0a a}a a=a araeaqa.aqauaearaya;aa
+aa
+a a aiafa a(a!adaoacaeanataeaIada)a a{aa
+a a a a ataharaoawa anaeawa aVaaalaiadaaataiaoanaEararaoara(a'aUasauaaaraiaoa anaoa aeasa auana adaoacaeanataea ava?alaiadaoa'a)a;aa
+a a a}aa
+aa
+a a acaoanasata awahaearaeaCaoanadaiataiaoana:a aaanaya a=a a{a adaoacaeanataeaIada a}a;aa
+aa
+a a aiafa a(afaeacahaaa_aianaiacaiaoa a|a|a afaeacahaaa_afaiana)a a{aa
+a a a a awahaearaeaCaoanadaiataiaoana.afaeacahaaa a=a a{a}a;aa
+a a a a aiafa a(afaeacahaaa_aianaiacaiaoa)a a{aa
+a a a a a a awahaearaeaCaoanadaiataiaoana.afaeacahaaa.agataea a=a anaeawa aDaaataea(afaeacahaaa_aianaiacaiaoa aaasa asataraianaga)a;aa
+a a a a a}aa
+a a a a aiafa a(afaeacahaaa_afaiana)a a{aa
+a a a a a a awahaearaeaCaoanadaiataiaoana.afaeacahaaa.alataea a=a anaeawa aDaaataea(afaeacahaaa_afaiana aaasa asataraianaga)a;aa
+a a a a a}aa
+a a a}aa
+aa
+a a acaoanasata asakaiapa a=a a(aNauamabaeara(apaaagaea)a a-a a1a)a a*a aNauamabaeara(alaiamaiata)a;aa
+a a acaoanasata ataaakaea a=a aNauamabaeara(alaiamaiata)a;aa
+aa
+a a acaoanasata a[aaasaiasataeanacaiaaasa,a ataoataaala]a a=a aaawaaaiata aParaoamaiasaea.aaalala(a[aa
+a a a a aparaiasamaaa.aaasaiasataeanacaiaaasa.afaianadaMaaanaya(a{aa
+a a a a a a awahaearaea:a awahaearaeaCaoanadaiataiaoana,aa
+a a a a a a asakaiapa,aa
+a a a a a a ataaakaea,aa
+a a a a a a aoaradaearaBaya:a a{aa
+a a a a a a a a afaeacahaaa:a a'adaeasaca'aa
+a a a a a a a}aa
+a a a a a}a)a,aa
+a a a a aparaiasamaaa.aaasaiasataeanacaiaaasa.acaoauanata(a{aa
+a a a a a a awahaearaea:a awahaearaeaCaoanadaiataiaoanaa
+a a a a a}a)aa
+a a a]a)a;aa
+aa
+a a acaoanasata araeasapaoanasaea a=a aRaeasapaoanasaeaFaoaramaaatataeara.apaaagaianaaataeada(aa
+a a a a aaasaiasataeanacaiaaasa,aa
+a a a a a{aa
+a a a a a a apaaagaea:a aNauamabaeara(apaaagaea)a,aa
+a a a a a a alaiamaiata:a aNauamabaeara(alaiamaiata)a,aa
+a a a a a a ataoataaalaa
+a a a a a}a,aa
+a a a a a'aRaeapaoarataea agaeanaearaaadaoa acaoararaeacataaamaeanataea'aa
+a a a)a;aa
+aa
+a a araeasa.ajasaoana(araeasapaoanasaea)a;aa
+a}a)a;aa
+aa
+a/a*a*aa
+a a*a aVaaalaiadaaara auabaiacaaacaia?ana apaearamaiataiadaaaa
+a a*a a?a?a aCaOaNa aPaOaSaTaGaIaSa a-a aPaRaEaCaIaSaIa?aNa aDaEa a?a5a aMaEaTaRaOaSaa
+a a*a/aa
+aeaxapaoarata acaoanasata avaaalaiadaaaraUabaiacaaacaiaoana a=a aaasayanacaHaaanadalaeara(aaasayanaca a(araeaqa:a aRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a:a aParaoamaiasaea<avaoaiada>a a=a>a a{aa
+a a acaoanasata a{a alaaataiatauada,a alaoanagaiatauada a}a a=a araeaqa.abaoadaya;aa
+aa
+a a a/a/a aVaaalaiadaaara aqauaea avaeanagaaana alaaasa acaoaoaradaeanaaadaaasaa
+a a aiafa a(a!alaaataiatauada a|a|a a!alaoanagaiatauada)a a{aa
+a a a a ataharaoawa anaeawa aVaaalaiadaaataiaoanaEararaoara(a'aLaaataiatauada aya alaoanagaiatauada asaoana araeaqauaearaiadaaasa'a)a;aa
+a a a}aa
+aa
+a a acaoanasata alaaata a=a apaaarasaeaFalaoaaata(alaaataiatauada)a;aa
+a a acaoanasata alaoana a=a apaaarasaeaFalaoaaata(alaoanagaiatauada)a;aa
+aa
+a a a/a/a aVaaalaiadaaara araaanagaoa adaea acaoaoaradaeanaaadaaasaa
+a a aiafa a(alaaata a<a a-a9a0a a|a|a alaaata a>a a9a0a a|a|a alaoana a<a a-a1a8a0a a|a|a alaoana a>a a1a8a0a)a a{aa
+a a a a ataharaoawa anaeawa aVaaalaiadaaataiaoanaEararaoara(a'aCaoaoaradaeanaaadaaasa afauaearaaa adaea araaanagaoa ava?alaiadaoa'a)a;aa
+a a a}aa
+aa
+a a a/a/a a1a?a?a aOabataeanaeara auabaiacaaacaiaoanaeasa apaearamaiataiadaaasa aaacataiavaaasaa
+a a acaoanasata auabaiacaaacaiaoanaeasaPaearamaiataiadaaasa a=a aaawaaaiata aparaiasamaaa.auabaiacaaacaiaoanaeasa_apaearamaiataiadaaasa.afaianadaMaaanaya(a{aa
+a a a a awahaearaea:a a{a aaacataiavaoa:a atarauaea a}aa
+a a a}a)a;aa
+aa
+a a aiafa a(auabaiacaaacaiaoanaeasaPaearamaiataiadaaasa.alaeanagataha a=a=a=a a0a)a a{aa
+a a a a acaoanasata araeasapaoanasaea a=a aRaeasapaoanasaeaFaoaramaaatataeara.asauacacaeasasa(aa
+a a a a a a a{a aa
+a a a a a a a a avaaalaiadaaa:a atarauaea,a aa
+a a a a a a a a amaeanasaaajaea:a a'aNaoa ahaaaya araeasataraiacacaiaoanaeasa adaea auabaiacaaacaia?ana acaoanafaiagauaraaadaaasa'a,aa
+a a a a a a a a auabaiacaaacaiaoanaCaearacaaanaaa:a anaualalaa
+a a a a a a a}a,aa
+a a a a a a a'aSaiana araeasataraiacacaiaoanaeasa'aa
+a a a a a)a;aa
+a a a a araeasa.ajasaoana(araeasapaoanasaea)a;aa
+a a a a araeatauarana;aa
+a a a}aa
+aa
+a a a/a/a a2a?a?a aEanacaoanataraaara auabaiacaaacaia?ana ama?asa acaearacaaanaaa acaoana aPaoasataGaIaSaa
+a a acaoanasata auabaiacaaacaiaoanaCaearacaaanaaa a=a aaawaaaiata aeanacaoanataraaaraUabaiacaaacaiaoanaCaearacaaanaaa(alaaata,a alaoana)a;aa
+aa
+a a aiafa a(a!auabaiacaaacaiaoanaCaearacaaanaaa)a a{aa
+a a a a acaoanasata araeasapaoanasaea a=a aRaeasapaoanasaeaFaoaramaaatataeara.asauacacaeasasa(aa
+a a a a a a a{a aa
+a a a a a a a a avaaalaiadaaa:a afaaalasaea,a aa
+a a a a a a a a amaeanasaaajaea:a a'aNaoa asaea apauadaoa adaeataearamaianaaara alaaa auabaiacaaacaia?ana acaearacaaanaaa'a,aa
+a a a a a a a a auabaiacaaacaiaoanaCaearacaaanaaa:a anaualalaa
+a a a a a a a}a,aa
+a a a a a a a'aEararaoara adaea avaaalaiadaaacaia?ana'aa
+a a a a a)a;aa
+a a a a araeasa.ajasaoana(araeasapaoanasaea)a;aa
+a a a a araeatauarana;aa
+a a a}aa
+aa
+a a a/a/a a3a?a?a aVaearaiafaiacaaara asaia aeasata?a adaeanataraoa adaeala araaadaiaoaa
+a a acaoanasata adaeanataraoaDaeaRaaadaiaoa a=a auabaiacaaacaiaoanaCaearacaaanaaa.adaeanataraoa_araaadaiaoa;aa
+a a acaoanasata adaiasataaanacaiaaaMaeataraoasa a=a aMaaataha.araoauanada(auabaiacaaacaiaoanaCaearacaaanaaa.adaiasataaanacaiaaa_amaeataraoasa)a;aa
+a a acaoanasata adaiasataaanacaiaaaKama a=a a(auabaiacaaacaiaoanaCaearacaaanaaa.adaiasataaanacaiaaa_amaeataraoasa a/a a1a0a0a0a)a.ataoaFaiaxaeada(a2a)a;aa
+aa
+a a aiafa a(adaeanataraoaDaeaRaaadaiaoa)a a{aa
+a a a a acaoanasata araeasapaoanasaea a=a aRaeasapaoanasaeaFaoaramaaatataeara.asauacacaeasasa(aa
+a a a a a a a{aa
+a a a a a a a a avaaalaiadaaa:a atarauaea,aa
+a a a a a a a a amaeanasaaajaea:a a`a?a aUabaiacaaacaia?ana ava?alaiadaaa a-a a$a{auabaiacaaacaiaoanaCaearacaaanaaa.anaoamabaraea}a`a,aa
+a a a a a a a a adaiasataaanacaiaaaMaeataraoasa,aa
+a a a a a a a a adaiasataaanacaiaaaKama:a apaaarasaeaFalaoaaata(adaiasataaanacaiaaaKama)a,aa
+a a a a a a a a auabaiacaaacaiaoanaCaearacaaanaaa:a a{aa
+a a a a a a a a a a aiada:a aNauamabaeara(auabaiacaaacaiaoanaCaearacaaanaaa.aiada)a,aa
+a a a a a a a a a a anaoamabaraea:a auabaiacaaacaiaoanaCaearacaaanaaa.anaoamabaraeaa
+a a a a a a a a a}aa
+a a a a a a a}a,aa
+a a a a a a a'aUabaiacaaacaia?ana avaaalaiadaaadaaa acaoana aPaoasataGaIaSa'aa
+a a a a a)a;aa
+a a a a araeasa.ajasaoana(araeasapaoanasaea)a;aa
+a a a}a aealasaea a{aa
+a a a a acaoanasata araeasapaoanasaea a=a aRaeasapaoanasaeaFaoaramaaatataeara.asauacacaeasasa(aa
+a a a a a a a{aa
+a a a a a a a a avaaalaiadaaa:a afaaalasaea,aa
+a a a a a a a a amaeanasaaajaea:a a`a?a aFauaearaaa adaeala a?araeaaa apaearamaiataiadaaa a(a$a{adaiasataaanacaiaaaKama}a akama adaea a"a$a{auabaiacaaacaiaoanaCaearacaaanaaa.anaoamabaraea}a"a)a`a,aa
+a a a a a a a a adaiasataaanacaiaaaMaeataraoasa,aa
+a a a a a a a a adaiasataaanacaiaaaKama:a apaaarasaeaFalaoaaata(adaiasataaanacaiaaaKama)a,aa
+a a a a a a a a auabaiacaaacaiaoanaCaearacaaanaaa:a a{aa
+a a a a a a a a a a aiada:a aNauamabaeara(auabaiacaaacaiaoanaCaearacaaanaaa.aiada)a,aa
+a a a a a a a a a a anaoamabaraea:a auabaiacaaacaiaoanaCaearacaaanaaa.anaoamabaraeaa
+a a a a a a a a a}aa
+a a a a a a a}a,aa
+a a a a a a a'aUabaiacaaacaia?ana afauaearaaa adaea araaanagaoa'aa
+a a a a a)a;aa
+a a a a araeasa.ajasaoana(araeasapaoanasaea)a;aa
+a a a}aa
+a}a)a;aa
+aa
+a/a*a*aa
+a a*a aOabataeanaeara aeasataaada?asataiacaaasa adaeala adaoacaeanataea alaoagauaeaaadaoaa
+a a*a/aa
+aeaxapaoarata acaoanasata agaeataEasataaadaiasataiacaaasaDaoacaeanataea a=a aaasayanacaHaaanadalaeara(aaasayanaca a(araeaqa:a aAauatahaRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a:a aParaoamaiasaea<avaoaiada>a a=a>a a{aa
+a a acaoanasata adaoacaeanataeaIada a=a araeaqa.auasauaaaraiaoa?a.adaoacaeanataeaIada;aa
+aa
+a a aiafa a(a!adaoacaeanataeaIada)a a{aa
+a a a a ataharaoawa anaeawa aVaaalaiadaaataiaoanaEararaoara(a'aUasauaaaraiaoa anaoa aeasa auana adaoacaeanataea ava?alaiadaoa'a)a;aa
+a a a}aa
+aa
+a a a/a/a aOabataeanaeara afaeacahaaasa adaeala amaeasa aaacatauaaalaa
+a a acaoanasata anaoawa a=a anaeawa aDaaataea(a)a;aa
+a a acaoanasata aparaiamaearaDaiaaaMaeasa a=a anaeawa aDaaataea(anaoawa.agaeataFaualalaYaeaaara(a)a,a anaoawa.agaeataMaoanataha(a)a,a a1a)a;aa
+a a acaoanasata aualataiamaoaDaiaaaMaeasa a=a anaeawa aDaaataea(anaoawa.agaeataFaualalaYaeaaara(a)a,a anaoawa.agaeataMaoanataha(a)a a+a a1a,a a0a)a;aa
+aa
+a a a/a/a aCaoanataaara aaasaiasataeanacaiaaasa adaeala amaeasaa
+a a acaoanasata aaasaiasataeanacaiaaasaEasataeaMaeasa a=a aaawaaaiata aparaiasamaaa.aaasaiasataeanacaiaaasa.acaoauanata(a{aa
+a a a a awahaearaea:a a{aa
+a a a a a a adaoacaeanataeaIada:a adaoacaeanataeaIada,aa
+a a a a a a afaeacahaaa:a a{aa
+a a a a a a a a agataea:a aparaiamaearaDaiaaaMaeasa,aa
+a a a a a a a a alataea:a aualataiamaoaDaiaaaMaeasaa
+a a a a a a a}a,aa
+a a a a a a aeasataaadaoa:a a{aa
+a a a a a a a a aiana:a a[a'aPaRaEaSaEaNaTaEa'a,a a'aTaAaRaDaAaNaZaAa'a]aa
+a a a a a a a}aa
+a a a a a}aa
+a a a}a)a;aa
+aa
+a a a/a/a aCaaalacaualaaara ada?aaasa alaaabaoaraaalaeasa adaeala amaeasa a(aeaxacalauayaeanadaoa asa?abaaadaoasa aya adaoamaianagaoasa)aa
+a a alaeata ataoataaalaDaiaaasaLaaabaoaraaalaeasa a=a a0a;aa
+a a acaoanasata afaeacahaaaAacatauaaala a=a anaeawa aDaaataea(aparaiamaearaDaiaaaMaeasa)a;aa
+a a aa
+a a awahaialaea a(afaeacahaaaAacatauaaala a<a=a aualataiamaoaDaiaaaMaeasa a&a&a afaeacahaaaAacatauaaala a<a=a anaoawa)a a{aa
+a a a a acaoanasata adaiaaa_asaeamaaanaaa a=a afaeacahaaaAacatauaaala.agaeataDaaaya(a)a;aa
+a a a a aiafa a(adaiaaa_asaeamaaanaaa a!a=a=a a0a a&a&a adaiaaa_asaeamaaanaaa a!a=a=a a6a)a a{a a/a/a aNaoa adaoamaianagaoa a(a0a)a anaia asa?abaaadaoa a(a6a)aa
+a a a a a a ataoataaalaDaiaaasaLaaabaoaraaalaeasa+a+a;aa
+a a a a a}aa
+a a a a afaeacahaaaAacatauaaala.asaeataDaaataea(afaeacahaaaAacatauaaala.agaeataDaaataea(a)a a+a a1a)a;aa
+a a a}aa
+aa
+a a a/a/a aCaaalacaualaaara apauanatauaaalaiadaaada a(aaasaiasataeanacaiaaasa aaa ataiaeamapaoa avasa ataoataaala aaasaiasataeanacaiaaasa)aa
+a a acaoanasata aaasaiasataeanacaiaaasaPauanatauaaalaeasa a=a aaawaaaiata aparaiasamaaa.aaasaiasataeanacaiaaasa.acaoauanata(a{aa
+a a a a awahaearaea:a a{aa
+a a a a a a adaoacaeanataeaIada:a adaoacaeanataeaIada,aa
+a a a a a a afaeacahaaa:a a{aa
+a a a a a a a a agataea:a aparaiamaearaDaiaaaMaeasa,aa
+a a a a a a a a alataea:a aualataiamaoaDaiaaaMaeasaa
+a a a a a a a}a,aa
+a a a a a a aeasataaadaoa:a a'aPaRaEaSaEaNaTaEa'aa
+a a a a a}aa
+a a a}a)a;aa
+aa
+a a acaoanasata apauanatauaaalaiadaaada a=a aaasaiasataeanacaiaaasaEasataeaMaeasa a>a a0a aa
+a a a a a?a aMaaataha.araoauanada(a(aaasaiasataeanacaiaaasaPauanatauaaalaeasa a/a aaasaiasataeanacaiaaasaEasataeaMaeasa)a a*a a1a0a0a)aa
+a a a a a:a a0a;aa
+aa
+a a a/a/a aCaaalacaualaaara ahaoaraaasa alaaabaoaraaadaaasa adaeala amaeasaa
+a a acaoanasata aaasaiasataeanacaiaaasaCaoanaHaoaraaasa a=a aaawaaaiata aparaiasamaaa.aaasaiasataeanacaiaaasa.afaianadaMaaanaya(a{aa
+a a a a awahaearaea:a a{aa
+a a a a a a adaoacaeanataeaIada:a adaoacaeanataeaIada,aa
+a a a a a a afaeacahaaa:a a{aa
+a a a a a a a a agataea:a aparaiamaearaDaiaaaMaeasa,aa
+a a a a a a a a alataea:a aualataiamaoaDaiaaaMaeasaa
+a a a a a a a}a,aa
+a a a a a a ahaoaraaaEanataraaadaaa:a a{a anaoata:a anaualala a}a,aa
+a a a a a a ahaoaraaaSaaalaiadaaa:a a{a anaoata:a anaualala a}aa
+a a a a a}a,aa
+a a a a asaealaeacata:a a{aa
+a a a a a a ahaoaraaaEanataraaadaaa:a atarauaea,aa
+a a a a a a ahaoaraaaSaaalaiadaaa:a atarauaeaa
+a a a a a}aa
+a a a}a)a;aa
+aa
+a a alaeata ahaoaraaasaLaaabaoaraaadaaasa a=a a0a;aa
+a a aaasaiasataeanacaiaaasaCaoanaHaoaraaasa.afaoaraEaaacaha(aaasaiasataeanacaiaaa a=a>a a{aa
+a a a a aiafa a(aaasaiasataeanacaiaaa.ahaoaraaaEanataraaadaaa a&a&a aaasaiasataeanacaiaaa.ahaoaraaaSaaalaiadaaa)a a{aa
+a a a a a a acaoanasata aeanataraaadaaa a=a anaeawa aDaaataea(aaasaiasataeanacaiaaa.ahaoaraaaEanataraaadaaa)a;aa
+a a a a a a acaoanasata asaaalaiadaaa a=a anaeawa aDaaataea(aaasaiasataeanacaiaaa.ahaoaraaaSaaalaiadaaa)a;aa
+a a a a a a acaoanasata adaiafaearaeanacaiaaa a=a asaaalaiadaaa.agaeataTaiamaea(a)a a-a aeanataraaadaaa.agaeataTaiamaea(a)a;aa
+a a a a a a ahaoaraaasaLaaabaoaraaadaaasa a+a=a adaiafaearaeanacaiaaa a/a a(a1a0a0a0a a*a a6a0a a*a a6a0a)a;a a/a/a aCaoanavaearataiara aaa ahaoaraaasaa
+a a a a a}aa
+a a a}a)a;aa
+aa
+a a acaoanasata aeasataaadaiasataiacaaasa a=a a{aa
+a a a a aaasaiasataeanacaiaaasaEasataeaMaeasa,aa
+a a a a ataoataaalaDaiaaasaLaaabaoaraaalaeasa,aa
+a a a a apauanatauaaalaiadaaada,aa
+a a a a ahaoaraaasaLaaabaoaraaadaaasa:a aMaaataha.araoauanada(ahaoaraaasaLaaabaoaraaadaaasa)aa
+a a a}a;aa
+aa
+a a acaoanasata araeasapaoanasaea a=a aRaeasapaoanasaeaFaoaramaaatataeara.asauacacaeasasa(aa
+a a a a aeasataaadaiasataiacaaasa,aa
+a a a a a'aEasataaada?asataiacaaasa aoabataeanaiadaaasa aeaxaiataoasaaamaeanataea'aa
+a a a)a;aa
+aa
+a a araeasa.asataaatauasa(a2a0a0a)a.ajasaoana(araeasapaoanasaea)a;aa
+a}a)a;aa
+aa
+a/a*a*aa
+a a*a aOabataeanaeara ataoadaaasa alaaasa aaasaiasataeanacaiaaasa adaeala adaoacaeanataea alaoagauaeaaadaoaa
+a a*a/aa
+aeaxapaoarata acaoanasata aoabataeanaearaMaiasaAasaiasataeanacaiaaasa a=a aaasayanacaHaaanadalaeara(aaasayanaca a(araeaqa:a aAauatahaRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a:a aParaoamaiasaea<avaoaiada>a a=a>a a{aa
+a a acaoanasata adaoacaeanataeaIada a=a araeaqa.auasauaaaraiaoa?a.adaoacaeanataeaIada;aa
+aa
+a a aiafa a(a!adaoacaeanataeaIada)a a{aa
+a a a a ataharaoawa anaeawa aVaaalaiadaaataiaoanaEararaoara(a'aUasauaaaraiaoa anaoa aeasa auana adaoacaeanataea ava?alaiadaoa'a)a;aa
+a a a}aa
+aa
+a a acaoanasata aaasaiasataeanacaiaaasa a=a aaawaaaiata aparaiasamaaa.aaasaiasataeanacaiaaasa.afaianadaMaaanaya(a{aa
+a a a a awahaearaea:a a{aa
+a a a a a a adaoacaeanataeaIadaa
+a a a a a}a,aa
+a a a a asaealaeacata:a a{aa
+a a a a a a aiada:a atarauaea,aa
+a a a a a a afaeacahaaa:a atarauaea,aa
+a a a a a a ahaoaraaaEanataraaadaaa:a atarauaea,aa
+a a a a a a ahaoaraaaSaaalaiadaaa:a atarauaea,aa
+a a a a a a aeasataaadaoa:a atarauaea,aa
+a a a a a a auabaiacaaacaiaoanaEanataraaadaaaIada:a atarauaea,aa
+a a a a a a auabaiacaaacaiaoanaSaaalaiadaaaIada:a atarauaea,aa
+a a a a a a aoabasaearavaaacaiaoanaeasa:a atarauaea,aa
+a a a a a a ataaaradaaanazaaaMaianauataoasa:a atarauaea,aa
+a a a a a a ahaoaraaasaTaraaabaaajaaadaaasa:a atarauaea,aa
+a a a a a a ajauasataiafaiacaaacaiaoanaeasa:a a{aa
+a a a a a a a a asaealaeacata:a a{aa
+a a a a a a a a a a aiada:a atarauaea,aa
+a a a a a a a a a a aeasataaadaoa:a atarauaea,aa
+a a a a a a a a a a amaoataiavaoa:a atarauaea,aa
+a a a a a a a a a a ataiapaoa:a atarauaeaa
+a a a a a a a a a}aa
+a a a a a a a}aa
+a a a a a}a,aa
+a a a a aoaradaearaBaya:a a{aa
+a a a a a a afaeacahaaa:a a'adaeasaca'aa
+a a a a a}aa
+a a a}a)a;aa
+aa
+a a acaoanasata araeasapaoanasaea a=a aRaeasapaoanasaeaFaoaramaaatataeara.asauacacaeasasa(aa
+a a a a aaasaiasataeanacaiaaasa,aa
+a a a a a'aAasaiasataeanacaiaaasa aoabataeanaiadaaasa aeaxaiataoasaaamaeanataea'aa
+a a a)a;aa
+aa
+a a araeasa.asataaatauasa(a2a0a0a)a.ajasaoana(araeasapaoanasaea)a;aa
+a}a)a;aa
+aa
+aa
+a

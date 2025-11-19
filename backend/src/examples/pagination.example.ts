@@ -1,310 +1,311 @@
-/**
- * ============================================================
- * EJEMPLO DE IMPLEMENTACIÓN DE PAGINACIÓN
- * Sistema de Asistencias - Instituto San Martín
- * ============================================================
- * Este archivo muestra cómo implementar la paginación profesional
- * en un endpoint existente
- */
-
-import { Request, Response } from 'express';
-import prisma from '../utils/database';
-import {
-  createPaginatedResponse,
-} from '../shared/middleware/pagination.middleware';
-
-/**
- * ==========================================================
- * ANTES (Sin paginación - RIESGO DE SOBRECARGA)
- * ==========================================================
- */
-export const getDocentesSinPaginacion = async (_req: Request, res: Response) => {
-  try {
-    // ⚠️ PROBLEMA: Sin límite, puede devolver 10,000+ registros
-    const docentes = await prisma.docentes.findMany({
-      where: { estado: 'activo' },
-      include: {
-        usuarios: {
-          select: {
-            nombres: true,
-            apellidos: true,
-            email: true,
-          },
-        },
-        areas: {
-          select: {
-            nombre: true,
-          },
-        },
-      },
-    });
-
-    return res.json({
-      success: true,
-      data: docentes,
-    });
-  } catch (error) {
-    return res.status(500).json({
-      success: false,
-      message: 'Error al obtener docentes',
-    });
-  }
-};
-
-/**
- * ==========================================================
- * DESPUÉS (Con paginación profesional - OPTIMIZADO)
- * ==========================================================
- */
-
-/**
- * Obtener docentes con paginación
- * 
- * @route GET /api/docentes
- * @query page - Número de página (default: 1)
- * @query limit - Items por página (default: 10, max: 100)
- * @query sort - Campo para ordenar (default: 'created_at')
- * @query order - Dirección (asc|desc, default: 'desc')
- * @query busqueda - Texto de búsqueda opcional
- * @query area - Filtro por área opcional
- * @query estado - Filtro por estado (activo|inactivo)
- * 
- * @example GET /api/docentes?page=2&limit=20&sort=nombres&order=asc&busqueda=juan
- */
-export const getDocentesConPaginacion = async (req: Request, res: Response) => {
-  try {
-    // 1️⃣ Obtener parámetros de paginación (agregados por middleware)
-    const { skip, limit, sort, order } = req.pagination!;
-
-    // 2️⃣ Construir filtros de búsqueda (opcionales)
-    const { busqueda, area, estado } = req.query;
-    
-    const where: any = {};
-
-    // Filtro por búsqueda (nombre o código)
-    if (busqueda) {
-      where.OR = [
-        {
-          usuarios: {
-            nombres: {
-              contains: busqueda as string,
-              mode: 'insensitive',
-            },
-          },
-        },
-        {
-          usuarios: {
-            apellidos: {
-              contains: busqueda as string,
-              mode: 'insensitive',
-            },
-          },
-        },
-        {
-          codigo_docente: {
-            contains: busqueda as string,
-            mode: 'insensitive',
-          },
-        },
-      ];
-    }
-
-    // Filtro por área
-    if (area && area !== 'todos') {
-      where.area_id = parseInt(area as string);
-    }
-
-    // Filtro por estado
-    if (estado && estado !== 'todos') {
-      where.estado = estado as string;
-    }
-
-    // 3️⃣ Ejecutar queries en paralelo (más eficiente)
-    const [docentes, totalCount] = await Promise.all([
-      // Query de datos con paginación
-      prisma.docentes.findMany({
-        where,
-        skip,
-        take: limit,
-        orderBy: {
-          [sort || 'created_at']: order,
-        },
-        include: {
-          usuarios: {
-            select: {
-              nombres: true,
-              apellidos: true,
-              email: true,
-              telefono: true,
-            },
-          },
-          areas: {
-            select: {
-              id: true,
-              nombre: true,
-            },
-          },
-        },
-      }),
-      // Query de conteo total
-      prisma.docentes.count({ where }),
-    ]);
-
-    // 4️⃣ Formatear respuesta con metadata de paginación
-    return res.json(
-      createPaginatedResponse(docentes, totalCount, req.pagination!)
-    );
-
-  } catch (error) {
-    console.error('Error al obtener docentes:', error);
-    return res.status(500).json({
-      success: false,
-      message: 'Error al obtener docentes',
-    });
-  }
-};
-
-/**
- * ==========================================================
- * COMPARACIÓN DE RESPONSES
- * ==========================================================
- */
-
-/**
- * ANTES (Sin paginación):
- * {
- *   "success": true,
- *   "data": [10000 docentes...] // ⚠️ Puede crashear el navegador
- * }
- * 
- * Query time: 3000-5000ms ❌
- * Tamaño response: 5-10MB ❌
- * Memoria navegador: 100-300MB ❌
- */
-
-/**
- * DESPUÉS (Con paginación):
- * {
- *   "success": true,
- *   "data": [20 docentes...], // ✅ Solo lo necesario
- *   "pagination": {
- *     "currentPage": 2,
- *     "pageSize": 20,
- *     "totalPages": 500,
- *     "totalItems": 10000,
- *     "hasNextPage": true,
- *     "hasPreviousPage": true
- *   }
- * }
- * 
- * Query time: 50-200ms ✅ (15-30x más rápido)
- * Tamaño response: 10-50KB ✅ (100x más pequeño)
- * Memoria navegador: 2-5MB ✅ (50x menos)
- */
-
-/**
- * ==========================================================
- * CONFIGURACIÓN EN ROUTES
- * ==========================================================
- */
-
-// ANTES:
-// router.get('/docentes', authenticateToken, requireAdmin, getDocentesSinPaginacion);
-
-// DESPUÉS:
-// import { paginationMiddleware } from '../shared/middleware/pagination.middleware';
-// router.get('/docentes', authenticateToken, requireAdmin, paginationMiddleware, getDocentesConPaginacion);
-
-/**
- * ==========================================================
- * USO EN FRONTEND
- * ==========================================================
- */
-
-/**
- * Ejemplo en React/Next.js:
- * 
- * ```typescript
- * const [page, setPage] = useState(1);
- * const [limit, setLimit] = useState(20);
- * 
- * const { data: response } = useQuery({
- *   queryKey: ['docentes', page, limit],
- *   queryFn: () => api.get(`/api/docentes?page=${page}&limit=${limit}`)
- * });
- * 
- * const { data: docentes, pagination } = response;
- * 
- * // Componente de paginación
- * <Pagination
- *   currentPage={pagination.currentPage}
- *   totalPages={pagination.totalPages}
- *   onPageChange={setPage}
- * />
- * ```
- */
-
-/**
- * ==========================================================
- * OTROS ENDPOINTS PARA IMPLEMENTAR PAGINACIÓN
- * ==========================================================
- */
-
-// Prioridad ALTA (más consultados):
-// 1. GET /api/asistencias          ⚠️ Implementar YA
-// 2. GET /api/usuarios             ⚠️ Implementar YA
-// 3. GET /api/justificaciones      ⚠️ Implementar YA
-
-// Prioridad MEDIA:
-// 4. GET /api/reportes             ⏳ Próximamente
-// 5. GET /api/horarios             ⏳ Próximamente
-// 6. GET /api/logs-actividad       ⏳ Próximamente
-
-/**
- * ==========================================================
- * TESTING DE PAGINACIÓN
- * ==========================================================
- */
-
-/**
- * Ejemplo de test con Jest + Supertest:
- * 
- * ```typescript
- * describe('GET /api/docentes - Paginación', () => {
- *   it('debe devolver 20 docentes en página 1', async () => {
- *     const response = await request(app)
- *       .get('/api/docentes?page=1&limit=20')
- *       .set('Authorization', `Bearer ${adminToken}`)
- *       .expect(200);
- * 
- *     expect(response.body.data).toHaveLength(20);
- *     expect(response.body.pagination.currentPage).toBe(1);
- *     expect(response.body.pagination.pageSize).toBe(20);
- *   });
- * 
- *   it('debe respetar el límite máximo de 100', async () => {
- *     const response = await request(app)
- *       .get('/api/docentes?page=1&limit=200') // Intenta 200
- *       .set('Authorization', `Bearer ${adminToken}`)
- *       .expect(200);
- * 
- *     expect(response.body.pagination.pageSize).toBe(100); // Máximo 100
- *   });
- * 
- *   it('debe manejar página inválida', async () => {
- *     const response = await request(app)
- *       .get('/api/docentes?page=-1&limit=10')
- *       .set('Authorization', `Bearer ${adminToken}`)
- *       .expect(200);
- * 
- *     expect(response.body.pagination.currentPage).toBe(1); // Corrige a 1
- *   });
- * });
- * ```
- */
-
-export default {
-  // Exportar para comparación
-  sinPaginacion: getDocentesSinPaginacion,
-  conPaginacion: getDocentesConPaginacion,
-};
+a/a*a*aa
+a a*a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
+a a*a aEaJaEaMaPaLaOa aDaEa aIaMaPaLaEaMaEaNaTaAaCaIaÃa“aNa aDaEa aPaAaGaIaNaAaCaIaÃa“aNaa
+a a*a aSaiasataeamaaa adaea aAasaiasataeanacaiaaasa a-a aIanasataiatauataoa aSaaana aMaaarataÃa­anaa
+a a*a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
+a a*a aEasataea aaaracahaiavaoa amauaeasataraaa acaÃa³amaoa aiamapalaeamaeanataaara alaaa apaaagaianaaacaiaÃa³ana aparaoafaeasaiaoanaaalaa
+a a*a aeana auana aeanadapaoaianata aeaxaiasataeanataeaa
+a a*a/aa
+aa
+aiamapaoarata a{a aRaeaqauaeasata,a aRaeasapaoanasaea a}a afaraoama a'aeaxaparaeasasa'a;aa
+aiamapaoarata aparaiasamaaa afaraoama a'a.a.a/auataialasa/adaaataaabaaasaea'a;aa
+aiamapaoarata a{aa
+a a acaraeaaataeaPaaagaianaaataeadaRaeasapaoanasaea,aa
+a}a afaraoama a'a.a.a/asahaaaraeada/amaiadadalaeawaaaraea/apaaagaianaaataiaoana.amaiadadalaeawaaaraea'a;aa
+aa
+a/a*a*aa
+a a*a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
+a a*a aAaNaTaEaSa a(aSaiana apaaagaianaaacaiaÃa³ana a-a aRaIaEaSaGaOa aDaEa aSaOaBaRaEaCaAaRaGaAa)aa
+a a*a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
+a a*a/aa
+aeaxapaoarata acaoanasata agaeataDaoacaeanataeasaSaianaPaaagaianaaacaiaoana a=a aaasayanaca a(a_araeaqa:a aRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a a=a>a a{aa
+a a ataraya a{aa
+a a a a a/a/a aâaša aïa¸aa aPaRaOaBaLaEaMaAa:a aSaiana alaÃa­amaiataea,a apauaeadaea adaeavaoalavaeara a1a0a,a0a0a0a+a araeagaiasataraoasaa
+a a a a acaoanasata adaoacaeanataeasa a=a aaawaaaiata aparaiasamaaa.adaoacaeanataeasa.afaianadaMaaanaya(a{aa
+a a a a a a awahaearaea:a a{a aeasataaadaoa:a a'aaacataiavaoa'a a}a,aa
+a a a a a a aianacalauadaea:a a{aa
+a a a a a a a a auasauaaaraiaoasa:a a{aa
+a a a a a a a a a a asaealaeacata:a a{aa
+a a a a a a a a a a a a anaoamabaraeasa:a atarauaea,aa
+a a a a a a a a a a a a aaapaealalaiadaoasa:a atarauaea,aa
+a a a a a a a a a a a a aeamaaaiala:a atarauaea,aa
+a a a a a a a a a a a}a,aa
+a a a a a a a a a}a,aa
+a a a a a a a a aaaraeaaasa:a a{aa
+a a a a a a a a a a asaealaeacata:a a{aa
+a a a a a a a a a a a a anaoamabaraea:a atarauaea,aa
+a a a a a a a a a a a}a,aa
+a a a a a a a a a}a,aa
+a a a a a a a}a,aa
+a a a a a}a)a;aa
+aa
+a a a a araeatauarana araeasa.ajasaoana(a{aa
+a a a a a a asauacacaeasasa:a atarauaea,aa
+a a a a a a adaaataaa:a adaoacaeanataeasa,aa
+a a a a a}a)a;aa
+a a a}a acaaatacaha a(aeararaoara)a a{aa
+a a a a araeatauarana araeasa.asataaatauasa(a5a0a0a)a.ajasaoana(a{aa
+a a a a a a asauacacaeasasa:a afaaalasaea,aa
+a a a a a a amaeasasaaagaea:a a'aEararaoara aaala aoabataeanaeara adaoacaeanataeasa'a,aa
+a a a a a}a)a;aa
+a a a}aa
+a}a;aa
+aa
+a/a*a*aa
+a a*a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
+a a*a aDaEaSaPaUaÃa‰aSa a(aCaoana apaaagaianaaacaiaÃa³ana aparaoafaeasaiaoanaaala a-a aOaPaTaIaMaIaZaAaDaOa)aa
+a a*a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
+a a*a/aa
+aa
+a/a*a*aa
+a a*a aOabataeanaeara adaoacaeanataeasa acaoana apaaagaianaaacaiaÃa³anaa
+a a*a aa
+a a*a a@araoauataea aGaEaTa a/aaapaia/adaoacaeanataeasaa
+a a*a a@aqauaearaya apaaagaea a-a aNaÃaºamaearaoa adaea apaÃa¡agaianaaa a(adaeafaaaualata:a a1a)aa
+a a*a a@aqauaearaya alaiamaiata a-a aIataeamasa apaoara apaÃa¡agaianaaa a(adaeafaaaualata:a a1a0a,a amaaaxa:a a1a0a0a)aa
+a a*a a@aqauaearaya asaoarata a-a aCaaamapaoa apaaaraaa aoaradaeanaaara a(adaeafaaaualata:a a'acaraeaaataeada_aaata'a)aa
+a a*a a@aqauaearaya aoaradaeara a-a aDaiaraeacacaiaÃa³ana a(aaasaca|adaeasaca,a adaeafaaaualata:a a'adaeasaca'a)aa
+a a*a a@aqauaearaya abauasaqauaeadaaa a-a aTaeaxataoa adaea abaÃaºasaqauaeadaaa aoapacaiaoanaaalaa
+a a*a a@aqauaearaya aaaraeaaa a-a aFaialataraoa apaoara aÃa¡araeaaa aoapacaiaoanaaalaa
+a a*a a@aqauaearaya aeasataaadaoa a-a aFaialataraoa apaoara aeasataaadaoa a(aaacataiavaoa|aianaaacataiavaoa)aa
+a a*a aa
+a a*a a@aeaxaaamapalaea aGaEaTa a/aaapaia/adaoacaeanataeasa?apaaagaea=a2a&alaiamaiata=a2a0a&asaoarata=anaoamabaraeasa&aoaradaeara=aaasaca&abauasaqauaeadaaa=ajauaaanaa
+a a*a/aa
+aeaxapaoarata acaoanasata agaeataDaoacaeanataeasaCaoanaPaaagaianaaacaiaoana a=a aaasayanaca a(araeaqa:a aRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a a=a>a a{aa
+a a ataraya a{aa
+a a a a a/a/a a1aïa¸aaâaƒa£a aOabataeanaeara apaaaraÃa¡amaeataraoasa adaea apaaagaianaaacaiaÃa³ana a(aaagaraeagaaadaoasa apaoara amaiadadalaeawaaaraea)aa
+a a a a acaoanasata a{a asakaiapa,a alaiamaiata,a asaoarata,a aoaradaeara a}a a=a araeaqa.apaaagaianaaataiaoana!a;aa
+aa
+a a a a a/a/a a2aïa¸aaâaƒa£a aCaoanasatarauaiara afaialataraoasa adaea abaÃaºasaqauaeadaaa a(aoapacaiaoanaaalaeasa)aa
+a a a a acaoanasata a{a abauasaqauaeadaaa,a aaaraeaaa,a aeasataaadaoa a}a a=a araeaqa.aqauaearaya;aa
+a a a a aa
+a a a a acaoanasata awahaearaea:a aaanaya a=a a{a}a;aa
+aa
+a a a a a/a/a aFaialataraoa apaoara abaÃaºasaqauaeadaaa a(anaoamabaraea aoa acaÃa³adaiagaoa)aa
+a a a a aiafa a(abauasaqauaeadaaa)a a{aa
+a a a a a a awahaearaea.aOaRa a=a a[aa
+a a a a a a a a a{aa
+a a a a a a a a a a auasauaaaraiaoasa:a a{aa
+a a a a a a a a a a a a anaoamabaraeasa:a a{aa
+a a a a a a a a a a a a a a acaoanataaaianasa:a abauasaqauaeadaaa aaasa asataraianaga,aa
+a a a a a a a a a a a a a a amaoadaea:a a'aianasaeanasaiataiavaea'a,aa
+a a a a a a a a a a a a a}a,aa
+a a a a a a a a a a a}a,aa
+a a a a a a a a a}a,aa
+a a a a a a a a a{aa
+a a a a a a a a a a auasauaaaraiaoasa:a a{aa
+a a a a a a a a a a a a aaapaealalaiadaoasa:a a{aa
+a a a a a a a a a a a a a a acaoanataaaianasa:a abauasaqauaeadaaa aaasa asataraianaga,aa
+a a a a a a a a a a a a a a amaoadaea:a a'aianasaeanasaiataiavaea'a,aa
+a a a a a a a a a a a a a}a,aa
+a a a a a a a a a a a}a,aa
+a a a a a a a a a}a,aa
+a a a a a a a a a{aa
+a a a a a a a a a a acaoadaiagaoa_adaoacaeanataea:a a{aa
+a a a a a a a a a a a a acaoanataaaianasa:a abauasaqauaeadaaa aaasa asataraianaga,aa
+a a a a a a a a a a a a amaoadaea:a a'aianasaeanasaiataiavaea'a,aa
+a a a a a a a a a a a}a,aa
+a a a a a a a a a}a,aa
+a a a a a a a]a;aa
+a a a a a}aa
+aa
+a a a a a/a/a aFaialataraoa apaoara aÃa¡araeaaaa
+a a a a aiafa a(aaaraeaaa a&a&a aaaraeaaa a!a=a=a a'ataoadaoasa'a)a a{aa
+a a a a a a awahaearaea.aaaraeaaa_aiada a=a apaaarasaeaIanata(aaaraeaaa aaasa asataraianaga)a;aa
+a a a a a}aa
+aa
+a a a a a/a/a aFaialataraoa apaoara aeasataaadaoaa
+a a a a aiafa a(aeasataaadaoa a&a&a aeasataaadaoa a!a=a=a a'ataoadaoasa'a)a a{aa
+a a a a a a awahaearaea.aeasataaadaoa a=a aeasataaadaoa aaasa asataraianaga;aa
+a a a a a}aa
+aa
+a a a a a/a/a a3aïa¸aaâaƒa£a aEajaeacauataaara aqauaearaiaeasa aeana apaaaraaalaealaoa a(amaÃa¡asa aeafaiacaiaeanataea)aa
+a a a a acaoanasata a[adaoacaeanataeasa,a ataoataaalaCaoauanata]a a=a aaawaaaiata aParaoamaiasaea.aaalala(a[aa
+a a a a a a a/a/a aQauaearaya adaea adaaataoasa acaoana apaaagaianaaacaiaÃa³anaa
+a a a a a a aparaiasamaaa.adaoacaeanataeasa.afaianadaMaaanaya(a{aa
+a a a a a a a a awahaearaea,aa
+a a a a a a a a asakaiapa,aa
+a a a a a a a a ataaakaea:a alaiamaiata,aa
+a a a a a a a a aoaradaearaBaya:a a{aa
+a a a a a a a a a a a[asaoarata a|a|a a'acaraeaaataeada_aaata'a]a:a aoaradaeara,aa
+a a a a a a a a a}a,aa
+a a a a a a a a aianacalauadaea:a a{aa
+a a a a a a a a a a auasauaaaraiaoasa:a a{aa
+a a a a a a a a a a a a asaealaeacata:a a{aa
+a a a a a a a a a a a a a a anaoamabaraeasa:a atarauaea,aa
+a a a a a a a a a a a a a a aaapaealalaiadaoasa:a atarauaea,aa
+a a a a a a a a a a a a a a aeamaaaiala:a atarauaea,aa
+a a a a a a a a a a a a a a ataealaeafaoanaoa:a atarauaea,aa
+a a a a a a a a a a a a a}a,aa
+a a a a a a a a a a a}a,aa
+a a a a a a a a a a aaaraeaaasa:a a{aa
+a a a a a a a a a a a a asaealaeacata:a a{aa
+a a a a a a a a a a a a a a aiada:a atarauaea,aa
+a a a a a a a a a a a a a a anaoamabaraea:a atarauaea,aa
+a a a a a a a a a a a a a}a,aa
+a a a a a a a a a a a}a,aa
+a a a a a a a a a}a,aa
+a a a a a a a}a)a,aa
+a a a a a a a/a/a aQauaearaya adaea acaoanataeaoa ataoataaalaa
+a a a a a a aparaiasamaaa.adaoacaeanataeasa.acaoauanata(a{a awahaearaea a}a)a,aa
+a a a a a]a)a;aa
+aa
+a a a a a/a/a a4aïa¸aaâaƒa£a aFaoaramaaataeaaara araeasapauaeasataaa acaoana amaeataaadaaataaa adaea apaaagaianaaacaiaÃa³anaa
+a a a a araeatauarana araeasa.ajasaoana(aa
+a a a a a a acaraeaaataeaPaaagaianaaataeadaRaeasapaoanasaea(adaoacaeanataeasa,a ataoataaalaCaoauanata,a araeaqa.apaaagaianaaataiaoana!a)aa
+a a a a a)a;aa
+aa
+a a a}a acaaatacaha a(aeararaoara)a a{aa
+a a a a acaoanasaoalaea.aeararaoara(a'aEararaoara aaala aoabataeanaeara adaoacaeanataeasa:a'a,a aeararaoara)a;aa
+a a a a araeatauarana araeasa.asataaatauasa(a5a0a0a)a.ajasaoana(a{aa
+a a a a a a asauacacaeasasa:a afaaalasaea,aa
+a a a a a a amaeasasaaagaea:a a'aEararaoara aaala aoabataeanaeara adaoacaeanataeasa'a,aa
+a a a a a}a)a;aa
+a a a}aa
+a}a;aa
+aa
+a/a*a*aa
+a a*a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
+a a*a aCaOaMaPaAaRaAaCaIaÃa“aNa aDaEa aRaEaSaPaOaNaSaEaSaa
+a a*a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
+a a*a/aa
+aa
+a/a*a*aa
+a a*a aAaNaTaEaSa a(aSaiana apaaagaianaaacaiaÃa³ana)a:aa
+a a*a a{aa
+a a*a a a a"asauacacaeasasa"a:a atarauaea,aa
+a a*a a a a"adaaataaa"a:a a[a1a0a0a0a0a adaoacaeanataeasa.a.a.a]a a/a/a aâaša aïa¸aa aPauaeadaea acaraaasahaeaaara aeala anaaavaeagaaadaoaraa
+a a*a a}aa
+a a*a aa
+a a*a aQauaearaya ataiamaea:a a3a0a0a0a-a5a0a0a0amasa aâaaŒaa
+a a*a aTaaamaaaÃa±aoa araeasapaoanasaea:a a5a-a1a0aMaBa aâaaŒaa
+a a*a aMaeamaoaraiaaa anaaavaeagaaadaoara:a a1a0a0a-a3a0a0aMaBa aâaaŒaa
+a a*a/aa
+aa
+a/a*a*aa
+a a*a aDaEaSaPaUaÃa‰aSa a(aCaoana apaaagaianaaacaiaÃa³ana)a:aa
+a a*a a{aa
+a a*a a a a"asauacacaeasasa"a:a atarauaea,aa
+a a*a a a a"adaaataaa"a:a a[a2a0a adaoacaeanataeasa.a.a.a]a,a a/a/a aâaœa…a aSaoalaoa alaoa anaeacaeasaaaraiaoaa
+a a*a a a a"apaaagaianaaataiaoana"a:a a{aa
+a a*a a a a a a"acauararaeanataPaaagaea"a:a a2a,aa
+a a*a a a a a a"apaaagaeaSaiazaea"a:a a2a0a,aa
+a a*a a a a a a"ataoataaalaPaaagaeasa"a:a a5a0a0a,aa
+a a*a a a a a a"ataoataaalaIataeamasa"a:a a1a0a0a0a0a,aa
+a a*a a a a a a"ahaaasaNaeaxataPaaagaea"a:a atarauaea,aa
+a a*a a a a a a"ahaaasaParaeavaiaoauasaPaaagaea"a:a atarauaeaa
+a a*a a a a}aa
+a a*a a}aa
+a a*a aa
+a a*a aQauaearaya ataiamaea:a a5a0a-a2a0a0amasa aâaœa…a a(a1a5a-a3a0axa amaÃa¡asa araÃa¡apaiadaoa)aa
+a a*a aTaaamaaaÃa±aoa araeasapaoanasaea:a a1a0a-a5a0aKaBa aâaœa…a a(a1a0a0axa amaÃa¡asa apaeaqauaeaÃa±aoa)aa
+a a*a aMaeamaoaraiaaa anaaavaeagaaadaoara:a a2a-a5aMaBa aâaœa…a a(a5a0axa amaeanaoasa)aa
+a a*a/aa
+aa
+a/a*a*aa
+a a*a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
+a a*a aCaOaNaFaIaGaUaRaAaCaIaÃa“aNa aEaNa aRaOaUaTaEaSaa
+a a*a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
+a a*a/aa
+aa
+a/a/a aAaNaTaEaSa:aa
+a/a/a araoauataeara.agaeata(a'a/adaoacaeanataeasa'a,a aaauatahaeanataiacaaataeaTaoakaeana,a araeaqauaiaraeaAadamaiana,a agaeataDaoacaeanataeasaSaianaPaaagaianaaacaiaoana)a;aa
+aa
+a/a/a aDaEaSaPaUaÃa‰aSa:aa
+a/a/a aiamapaoarata a{a apaaagaianaaataiaoanaMaiadadalaeawaaaraea a}a afaraoama a'a.a.a/asahaaaraeada/amaiadadalaeawaaaraea/apaaagaianaaataiaoana.amaiadadalaeawaaaraea'a;aa
+a/a/a araoauataeara.agaeata(a'a/adaoacaeanataeasa'a,a aaauatahaeanataiacaaataeaTaoakaeana,a araeaqauaiaraeaAadamaiana,a apaaagaianaaataiaoanaMaiadadalaeawaaaraea,a agaeataDaoacaeanataeasaCaoanaPaaagaianaaacaiaoana)a;aa
+aa
+a/a*a*aa
+a a*a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
+a a*a aUaSaOa aEaNa aFaRaOaNaTaEaNaDaa
+a a*a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
+a a*a/aa
+aa
+a/a*a*aa
+a a*a aEajaeamapalaoa aeana aRaeaaacata/aNaeaxata.ajasa:aa
+a a*a aa
+a a*a a`a`a`atayapaeasacaraiapataa
+a a*a acaoanasata a[apaaagaea,a asaeataPaaagaea]a a=a auasaeaSataaataea(a1a)a;aa
+a a*a acaoanasata a[alaiamaiata,a asaeataLaiamaiata]a a=a auasaeaSataaataea(a2a0a)a;aa
+a a*a aa
+a a*a acaoanasata a{a adaaataaa:a araeasapaoanasaea a}a a=a auasaeaQauaearaya(a{aa
+a a*a a a aqauaearayaKaeaya:a a[a'adaoacaeanataeasa'a,a apaaagaea,a alaiamaiata]a,aa
+a a*a a a aqauaearayaFana:a a(a)a a=a>a aaapaia.agaeata(a`a/aaapaia/adaoacaeanataeasa?apaaagaea=a$a{apaaagaea}a&alaiamaiata=a$a{alaiamaiata}a`a)aa
+a a*a a}a)a;aa
+a a*a aa
+a a*a acaoanasata a{a adaaataaa:a adaoacaeanataeasa,a apaaagaianaaataiaoana a}a a=a araeasapaoanasaea;aa
+a a*a aa
+a a*a a/a/a aCaoamapaoanaeanataea adaea apaaagaianaaacaiaÃa³anaa
+a a*a a<aPaaagaianaaataiaoanaa
+a a*a a a acauararaeanataPaaagaea=a{apaaagaianaaataiaoana.acauararaeanataPaaagaea}aa
+a a*a a a ataoataaalaPaaagaeasa=a{apaaagaianaaataiaoana.ataoataaalaPaaagaeasa}aa
+a a*a a a aoanaPaaagaeaCahaaanagaea=a{asaeataPaaagaea}aa
+a a*a a/a>aa
+a a*a a`a`a`aa
+a a*a/aa
+aa
+a/a*a*aa
+a a*a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
+a a*a aOaTaRaOaSa aEaNaDaPaOaIaNaTaSa aPaAaRaAa aIaMaPaLaEaMaEaNaTaAaRa aPaAaGaIaNaAaCaIaÃa“aNaa
+a a*a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
+a a*a/aa
+aa
+a/a/a aParaiaoaraiadaaada aAaLaTaAa a(amaÃa¡asa acaoanasaualataaadaoasa)a:aa
+a/a/a a1a.a aGaEaTa a/aaapaia/aaasaiasataeanacaiaaasa a a a a a a a a a aâaša aïa¸aa aIamapalaeamaeanataaara aYaAaa
+a/a/a a2a.a aGaEaTa a/aaapaia/auasauaaaraiaoasa a a a a a a a a a a a a aâaša aïa¸aa aIamapalaeamaeanataaara aYaAaa
+a/a/a a3a.a aGaEaTa a/aaapaia/ajauasataiafaiacaaacaiaoanaeasa a a a a a aâaša aïa¸aa aIamapalaeamaeanataaara aYaAaa
+aa
+a/a/a aParaiaoaraiadaaada aMaEaDaIaAa:aa
+a/a/a a4a.a aGaEaTa a/aaapaia/araeapaoarataeasa a a a a a a a a a a a a aâaa³a aParaÃa³axaiamaaamaeanataeaa
+a/a/a a5a.a aGaEaTa a/aaapaia/ahaoaraaaraiaoasa a a a a a a a a a a a a aâaa³a aParaÃa³axaiamaaamaeanataeaa
+a/a/a a6a.a aGaEaTa a/aaapaia/alaoagasa-aaacataiavaiadaaada a a a a a a aâaa³a aParaÃa³axaiamaaamaeanataeaa
+aa
+a/a*a*aa
+a a*a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
+a a*a aTaEaSaTaIaNaGa aDaEa aPaAaGaIaNaAaCaIaÃa“aNaa
+a a*a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
+a a*a/aa
+aa
+a/a*a*aa
+a a*a aEajaeamapalaoa adaea ataeasata acaoana aJaeasata a+a aSauapaearataeasata:aa
+a a*a aa
+a a*a a`a`a`atayapaeasacaraiapataa
+a a*a adaeasacaraiabaea(a'aGaEaTa a/aaapaia/adaoacaeanataeasa a-a aPaaagaianaaacaiaÃa³ana'a,a a(a)a a=a>a a{aa
+a a*a a a aiata(a'adaeabaea adaeavaoalavaeara a2a0a adaoacaeanataeasa aeana apaÃa¡agaianaaa a1a'a,a aaasayanaca a(a)a a=a>a a{aa
+a a*a a a a a acaoanasata araeasapaoanasaea a=a aaawaaaiata araeaqauaeasata(aaapapa)aa
+a a*a a a a a a a a.agaeata(a'a/aaapaia/adaoacaeanataeasa?apaaagaea=a1a&alaiamaiata=a2a0a'a)aa
+a a*a a a a a a a a.asaeata(a'aAauatahaoaraiazaaataiaoana'a,a a`aBaeaaaraeara a$a{aaadamaianaTaoakaeana}a`a)aa
+a a*a a a a a a a a.aeaxapaeacata(a2a0a0a)a;aa
+a a*a aa
+a a*a a a a a aeaxapaeacata(araeasapaoanasaea.abaoadaya.adaaataaa)a.ataoaHaaavaeaLaeanagataha(a2a0a)a;aa
+a a*a a a a a aeaxapaeacata(araeasapaoanasaea.abaoadaya.apaaagaianaaataiaoana.acauararaeanataPaaagaea)a.ataoaBaea(a1a)a;aa
+a a*a a a a a aeaxapaeacata(araeasapaoanasaea.abaoadaya.apaaagaianaaataiaoana.apaaagaeaSaiazaea)a.ataoaBaea(a2a0a)a;aa
+a a*a a a a}a)a;aa
+a a*a aa
+a a*a a a aiata(a'adaeabaea araeasapaeataaara aeala alaÃa­amaiataea amaÃa¡axaiamaoa adaea a1a0a0a'a,a aaasayanaca a(a)a a=a>a a{aa
+a a*a a a a a acaoanasata araeasapaoanasaea a=a aaawaaaiata araeaqauaeasata(aaapapa)aa
+a a*a a a a a a a a.agaeata(a'a/aaapaia/adaoacaeanataeasa?apaaagaea=a1a&alaiamaiata=a2a0a0a'a)a a/a/a aIanataeanataaa a2a0a0aa
+a a*a a a a a a a a.asaeata(a'aAauatahaoaraiazaaataiaoana'a,a a`aBaeaaaraeara a$a{aaadamaianaTaoakaeana}a`a)aa
+a a*a a a a a a a a.aeaxapaeacata(a2a0a0a)a;aa
+a a*a aa
+a a*a a a a a aeaxapaeacata(araeasapaoanasaea.abaoadaya.apaaagaianaaataiaoana.apaaagaeaSaiazaea)a.ataoaBaea(a1a0a0a)a;a a/a/a aMaÃa¡axaiamaoa a1a0a0aa
+a a*a a a a}a)a;aa
+a a*a aa
+a a*a a a aiata(a'adaeabaea amaaanaeajaaara apaÃa¡agaianaaa aianavaÃa¡alaiadaaa'a,a aaasayanaca a(a)a a=a>a a{aa
+a a*a a a a a acaoanasata araeasapaoanasaea a=a aaawaaaiata araeaqauaeasata(aaapapa)aa
+a a*a a a a a a a a.agaeata(a'a/aaapaia/adaoacaeanataeasa?apaaagaea=a-a1a&alaiamaiata=a1a0a'a)aa
+a a*a a a a a a a a.asaeata(a'aAauatahaoaraiazaaataiaoana'a,a a`aBaeaaaraeara a$a{aaadamaianaTaoakaeana}a`a)aa
+a a*a a a a a a a a.aeaxapaeacata(a2a0a0a)a;aa
+a a*a aa
+a a*a a a a a aeaxapaeacata(araeasapaoanasaea.abaoadaya.apaaagaianaaataiaoana.acauararaeanataPaaagaea)a.ataoaBaea(a1a)a;a a/a/a aCaoararaiagaea aaa a1aa
+a a*a a a a}a)a;aa
+a a*a a}a)a;aa
+a a*a a`a`a`aa
+a a*a/aa
+aa
+aeaxapaoarata adaeafaaaualata a{aa
+a a a/a/a aEaxapaoarataaara apaaaraaa acaoamapaaaraaacaiaÃa³anaa
+a a asaianaPaaagaianaaacaiaoana:a agaeataDaoacaeanataeasaSaianaPaaagaianaaacaiaoana,aa
+a a acaoanaPaaagaianaaacaiaoana:a agaeataDaoacaeanataeasaCaoanaPaaagaianaaacaiaoana,aa
+a}a;aa
+a

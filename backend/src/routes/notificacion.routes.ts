@@ -1,113 +1,114 @@
-/**
- * Rutas de Notificaciones
- * Endpoints para gestión de notificaciones de usuarios
- */
-
-import { Router } from 'express';
-import { authenticateToken } from '../middleware/auth';
-import { sanitizeInput } from '../middleware/validation';
-import {
-  obtenerMisNotificaciones,
-  marcarComoLeida,
-  marcarTodasComoLeidas,
-  eliminarNotificacion,
-  contadorNoLeidas,
-  limpiarNotificacionesAntiguas,
-  crearNotificacion,
-  crearNotificacionMasiva,
-} from '../controllers/notificacion.controller';
-
-const router = Router();
-
-/**
- * Rutas para docentes y usuarios
- */
-
-/**
- * GET /api/notificaciones
- * Obtener notificaciones del usuario autenticado
- * Query params opcionales: tipo, leido, importante
- */
-router.get(
-  '/',
-  authenticateToken,
-  obtenerMisNotificaciones
-);
-
-/**
- * GET /api/notificaciones/contador-no-leidas
- * Obtener contador de notificaciones no leídas
- */
-router.get(
-  '/contador-no-leidas',
-  authenticateToken,
-  contadorNoLeidas
-);
-
-/**
- * PATCH /api/notificaciones/marcar-todas-leidas
- * Marcar todas las notificaciones como leídas
- */
-router.patch(
-  '/marcar-todas-leidas',
-  authenticateToken,
-  marcarTodasComoLeidas
-);
-
-/**
- * PATCH /api/notificaciones/:id/marcar-leida
- * Marcar una notificación como leída
- */
-router.patch(
-  '/:id/marcar-leida',
-  authenticateToken,
-  marcarComoLeida
-);
-
-/**
- * DELETE /api/notificaciones/limpiar-antiguas
- * Eliminar notificaciones antiguas (más de 30 días y leídas)
- */
-router.delete(
-  '/limpiar-antiguas',
-  authenticateToken,
-  limpiarNotificacionesAntiguas
-);
-
-/**
- * DELETE /api/notificaciones/:id
- * Eliminar una notificación
- */
-router.delete(
-  '/:id',
-  authenticateToken,
-  eliminarNotificacion
-);
-
-/**
- * Rutas solo para administradores
- */
-
-/**
- * POST /api/notificaciones
- * Crear una notificación (solo admin)
- */
-router.post(
-  '/',
-  authenticateToken,
-  sanitizeInput,
-  crearNotificacion
-);
-
-/**
- * POST /api/notificaciones/masiva
- * Crear notificaciones masivas (solo admin)
- */
-router.post(
-  '/masiva',
-  authenticateToken,
-  sanitizeInput,
-  crearNotificacionMasiva
-);
-
-export default router;
+a/a*a*aa
+a a*a aRauataaasa adaea aNaoataiafaiacaaacaiaoanaeasaa
+a a*a aEanadapaoaianatasa apaaaraaa agaeasataiaÃa³ana adaea anaoataiafaiacaaacaiaoanaeasa adaea auasauaaaraiaoasaa
+a a*a/aa
+aa
+aiamapaoarata a{a aRaoauataeara a}a afaraoama a'aeaxaparaeasasa'a;aa
+aiamapaoarata a{a aaauatahaeanataiacaaataeaTaoakaeana a}a afaraoama a'a.a.a/amaiadadalaeawaaaraea/aaauataha'a;aa
+aiamapaoarata a{a asaaanaiataiazaeaIanapauata a}a afaraoama a'a.a.a/amaiadadalaeawaaaraea/avaaalaiadaaataiaoana'a;aa
+aiamapaoarata a{aa
+a a aoabataeanaearaMaiasaNaoataiafaiacaaacaiaoanaeasa,aa
+a a amaaaracaaaraCaoamaoaLaeaiadaaa,aa
+a a amaaaracaaaraTaoadaaasaCaoamaoaLaeaiadaaasa,aa
+a a aealaiamaianaaaraNaoataiafaiacaaacaiaoana,aa
+a a acaoanataaadaoaraNaoaLaeaiadaaasa,aa
+a a alaiamapaiaaaraNaoataiafaiacaaacaiaoanaeasaAanataiagauaaasa,aa
+a a acaraeaaaraNaoataiafaiacaaacaiaoana,aa
+a a acaraeaaaraNaoataiafaiacaaacaiaoanaMaaasaiavaaa,aa
+a}a afaraoama a'a.a.a/acaoanataraoalalaearasa/anaoataiafaiacaaacaiaoana.acaoanataraoalalaeara'a;aa
+aa
+acaoanasata araoauataeara a=a aRaoauataeara(a)a;aa
+aa
+a/a*a*aa
+a a*a aRauataaasa apaaaraaa adaoacaeanataeasa aya auasauaaaraiaoasaa
+a a*a/aa
+aa
+a/a*a*aa
+a a*a aGaEaTa a/aaapaia/anaoataiafaiacaaacaiaoanaeasaa
+a a*a aOabataeanaeara anaoataiafaiacaaacaiaoanaeasa adaeala auasauaaaraiaoa aaauataeanataiacaaadaoaa
+a a*a aQauaearaya apaaaraaamasa aoapacaiaoanaaalaeasa:a ataiapaoa,a alaeaiadaoa,a aiamapaoarataaanataeaa
+a a*a/aa
+araoauataeara.agaeata(aa
+a a a'a/a'a,aa
+a a aaauatahaeanataiacaaataeaTaoakaeana,aa
+a a aoabataeanaearaMaiasaNaoataiafaiacaaacaiaoanaeasaa
+a)a;aa
+aa
+a/a*a*aa
+a a*a aGaEaTa a/aaapaia/anaoataiafaiacaaacaiaoanaeasa/acaoanataaadaoara-anaoa-alaeaiadaaasaa
+a a*a aOabataeanaeara acaoanataaadaoara adaea anaoataiafaiacaaacaiaoanaeasa anaoa alaeaÃa­adaaasaa
+a a*a/aa
+araoauataeara.agaeata(aa
+a a a'a/acaoanataaadaoara-anaoa-alaeaiadaaasa'a,aa
+a a aaauatahaeanataiacaaataeaTaoakaeana,aa
+a a acaoanataaadaoaraNaoaLaeaiadaaasaa
+a)a;aa
+aa
+a/a*a*aa
+a a*a aPaAaTaCaHa a/aaapaia/anaoataiafaiacaaacaiaoanaeasa/amaaaracaaara-ataoadaaasa-alaeaiadaaasaa
+a a*a aMaaaracaaara ataoadaaasa alaaasa anaoataiafaiacaaacaiaoanaeasa acaoamaoa alaeaÃa­adaaasaa
+a a*a/aa
+araoauataeara.apaaatacaha(aa
+a a a'a/amaaaracaaara-ataoadaaasa-alaeaiadaaasa'a,aa
+a a aaauatahaeanataiacaaataeaTaoakaeana,aa
+a a amaaaracaaaraTaoadaaasaCaoamaoaLaeaiadaaasaa
+a)a;aa
+aa
+a/a*a*aa
+a a*a aPaAaTaCaHa a/aaapaia/anaoataiafaiacaaacaiaoanaeasa/a:aiada/amaaaracaaara-alaeaiadaaaa
+a a*a aMaaaracaaara auanaaa anaoataiafaiacaaacaiaÃa³ana acaoamaoa alaeaÃa­adaaaa
+a a*a/aa
+araoauataeara.apaaatacaha(aa
+a a a'a/a:aiada/amaaaracaaara-alaeaiadaaa'a,aa
+a a aaauatahaeanataiacaaataeaTaoakaeana,aa
+a a amaaaracaaaraCaoamaoaLaeaiadaaaa
+a)a;aa
+aa
+a/a*a*aa
+a a*a aDaEaLaEaTaEa a/aaapaia/anaoataiafaiacaaacaiaoanaeasa/alaiamapaiaaara-aaanataiagauaaasaa
+a a*a aEalaiamaianaaara anaoataiafaiacaaacaiaoanaeasa aaanataiagauaaasa a(amaÃa¡asa adaea a3a0a adaÃa­aaasa aya alaeaÃa­adaaasa)aa
+a a*a/aa
+araoauataeara.adaealaeataea(aa
+a a a'a/alaiamapaiaaara-aaanataiagauaaasa'a,aa
+a a aaauatahaeanataiacaaataeaTaoakaeana,aa
+a a alaiamapaiaaaraNaoataiafaiacaaacaiaoanaeasaAanataiagauaaasaa
+a)a;aa
+aa
+a/a*a*aa
+a a*a aDaEaLaEaTaEa a/aaapaia/anaoataiafaiacaaacaiaoanaeasa/a:aiadaa
+a a*a aEalaiamaianaaara auanaaa anaoataiafaiacaaacaiaÃa³anaa
+a a*a/aa
+araoauataeara.adaealaeataea(aa
+a a a'a/a:aiada'a,aa
+a a aaauatahaeanataiacaaataeaTaoakaeana,aa
+a a aealaiamaianaaaraNaoataiafaiacaaacaiaoanaa
+a)a;aa
+aa
+a/a*a*aa
+a a*a aRauataaasa asaoalaoa apaaaraaa aaadamaianaiasataraaadaoaraeasaa
+a a*a/aa
+aa
+a/a*a*aa
+a a*a aPaOaSaTa a/aaapaia/anaoataiafaiacaaacaiaoanaeasaa
+a a*a aCaraeaaara auanaaa anaoataiafaiacaaacaiaÃa³ana a(asaoalaoa aaadamaiana)aa
+a a*a/aa
+araoauataeara.apaoasata(aa
+a a a'a/a'a,aa
+a a aaauatahaeanataiacaaataeaTaoakaeana,aa
+a a asaaanaiataiazaeaIanapauata,aa
+a a acaraeaaaraNaoataiafaiacaaacaiaoanaa
+a)a;aa
+aa
+a/a*a*aa
+a a*a aPaOaSaTa a/aaapaia/anaoataiafaiacaaacaiaoanaeasa/amaaasaiavaaaa
+a a*a aCaraeaaara anaoataiafaiacaaacaiaoanaeasa amaaasaiavaaasa a(asaoalaoa aaadamaiana)aa
+a a*a/aa
+araoauataeara.apaoasata(aa
+a a a'a/amaaasaiavaaa'a,aa
+a a aaauatahaeanataiacaaataeaTaoakaeana,aa
+a a asaaanaiataiazaeaIanapauata,aa
+a a acaraeaaaraNaoataiafaiacaaacaiaoanaMaaasaiavaaaa
+a)a;aa
+aa
+aeaxapaoarata adaeafaaaualata araoauataeara;aa
+a
