@@ -1,643 +1,642 @@
-a/a*a*aa
-a a*a aSaearavaiacaiaoa adaea aPalaaanaialalaaasa apaaaraaa aAadamaianaiasataraaadaoaraeasaa
-a a*a aLaÃa³agaiacaaa adaea anaeagaoacaiaoa apaaaraaa agaeasataiaÃa³ana acaoamapalaeataaa adaea apalaaanaialalaaasaa
-a a*a/aa
-aa
-aiamapaoarata aparaiasamaaa afaraoama a'a.a.a/auataialasa/adaaataaabaaasaea'a;aa
-aiamapaoarata a{a aVaaalaiadaaataiaoanaEararaoara,a aNaoataFaoauanadaEararaoara a}a afaraoama a'a.a.a/auataialasa/aaapapa-aeararaoara'a;aa
-aa
-aeaxapaoarata aianataearafaaacaea aFaialataraoasaPalaaanaialalaaasa a{aa
-a a aaanaiaoa?a:a anauamabaeara;aa
-a a amaeasa?a:a anauamabaeara;aa
-a a aeasataaadaoa?a:a asataraianaga;aa
-a a adaoacaeanataeaIada?a:a asataraianaga;aa
-a a apaaagaea?a:a anauamabaeara;aa
-a a alaiamaiata?a:a anauamabaeara;aa
-a}aa
-aa
-aeaxapaoarata aianataearafaaacaea aGaeanaearaaaraPalaaanaialalaaaDataoa a{aa
-a a adaoacaeanataeaIada:a asataraianaga;aa
-a a amaeasa:a anauamabaeara;aa
-a a aaanaiaoa:a anauamabaeara;aa
-a a acaraeaaataeadaBaya:a asataraianaga;aa
-a}aa
-aa
-aeaxapaoarata acalaaasasa aAadamaianaPalaaanaialalaaaSaearavaiacaea a{aa
-a a a/a*a*aa
-a a a a*a aOabataeanaeara ataoadaaasa alaaasa apalaaanaialalaaasa acaoana afaialataraoasa aya apaaagaianaaacaiaÃa³anaa
-a a a a*a/aa
-a a aaasayanaca aoabataeanaearaTaoadaaasaPalaaanaialalaaasa(afaialataearasa:a aFaialataraoasaPalaaanaialalaaasa)a a{aa
-a a a a ataraya a{aa
-a a a a a a acaoanasata apaaagaea a=a afaialataearasa.apaaagaea a|a|a a1a;aa
-a a a a a a acaoanasata alaiamaiata a=a afaialataearasa.alaiamaiata a|a|a a2a0a;aa
-a a a a a a acaoanasata asakaiapa a=a a(apaaagaea a-a a1a)a a*a alaiamaiata;aa
-aa
-a a a a a a acaoanasata awahaearaeaCaoanadaiataiaoanasa:a aaanaya a=a a{a}a;aa
-aa
-a a a a a a aiafa a(afaialataearasa.aaanaiaoa)a a{aa
-a a a a a a a a awahaearaeaCaoanadaiataiaoanasa.aaanaiaoa a=a afaialataearasa.aaanaiaoa;aa
-a a a a a a a}aa
-aa
-a a a a a a aiafa a(afaialataearasa.amaeasa)a a{aa
-a a a a a a a a awahaearaeaCaoanadaiataiaoanasa.amaeasa a=a afaialataearasa.amaeasa;aa
-a a a a a a a}aa
-aa
-a a a a a a aiafa a(afaialataearasa.aeasataaadaoa a&a&a afaialataearasa.aeasataaadaoa a!a=a=a a'aTaOaDaOaSa'a)a a{aa
-a a a a a a a a awahaearaeaCaoanadaiataiaoanasa.aeasataaadaoa a=a afaialataearasa.aeasataaadaoa;aa
-a a a a a a a}aa
-aa
-a a a a a a aiafa a(afaialataearasa.adaoacaeanataeaIada)a a{aa
-a a a a a a a a awahaearaeaCaoanadaiataiaoanasa.auasauaaaraiaoa_aiada a=a afaialataearasa.adaoacaeanataeaIada;aa
-a a a a a a a}aa
-aa
-a a a a a a acaoanasata a[apalaaanaialalaaasa,a ataoataaala]a a=a aaawaaaiata aParaoamaiasaea.aaalala(a[aa
-a a a a a a a a aparaiasamaaa.apalaaanaialalaaasa.afaianadaMaaanaya(a{aa
-a a a a a a a a a a awahaearaea:a awahaearaeaCaoanadaiataiaoanasa,aa
-a a a a a a a a a a aianacalauadaea:a a{aa
-a a a a a a a a a a a a auasauaaaraiaoasa_apalaaanaialalaaasa_auasauaaaraiaoa_aiadaTaoauasauaaaraiaoasa:a a{aa
-a a a a a a a a a a a a a a asaealaeacata:a a{aa
-a a a a a a a a a a a a a a a a aiada:a atarauaea,aa
-a a a a a a a a a a a a a a a a anaoamabaraeasa:a atarauaea,aa
-a a a a a a a a a a a a a a a a aaapaealalaiadaoasa:a atarauaea,aa
-a a a a a a a a a a a a a a a a adanaia:a atarauaea,aa
-a a a a a a a a a a a a a a a a aeamaaaiala:a atarauaea,aa
-a a a a a a a a a a a a a a a a adaoacaeanataeasa:a a{aa
-a a a a a a a a a a a a a a a a a a asaealaeacata:a a{aa
-a a a a a a a a a a a a a a a a a a a a aaaraeaaasa:a a{aa
-a a a a a a a a a a a a a a a a a a a a a a asaealaeacata:a a{aa
-a a a a a a a a a a a a a a a a a a a a a a a a anaoamabaraea:a atarauaeaa
-a a a a a a a a a a a a a a a a a a a a a a a}aa
-a a a a a a a a a a a a a a a a a a a a a}aa
-a a a a a a a a a a a a a a a a a a a}aa
-a a a a a a a a a a a a a a a a a}aa
-a a a a a a a a a a a a a a a}aa
-a a a a a a a a a a a a a}aa
-a a a a a a a a a a a}a,aa
-a a a a a a a a a a aoaradaearaBaya:a a[aa
-a a a a a a a a a a a a a{a aaanaiaoa:a a'adaeasaca'a a}a,aa
-a a a a a a a a a a a a a{a amaeasa:a a'adaeasaca'a a}a,aa
-a a a a a a a a a a a a a{a acaraeaaataeada_aaata:a a'adaeasaca'a a}aa
-a a a a a a a a a a a]a,aa
-a a a a a a a a a a asakaiapa,aa
-a a a a a a a a a a ataaakaea:a alaiamaiataa
-a a a a a a a a a}a)a,aa
-a a a a a a a a aparaiasamaaa.apalaaanaialalaaasa.acaoauanata(a{a awahaearaea:a awahaearaeaCaoanadaiataiaoanasa a}a)aa
-a a a a a a a]a)a;aa
-aa
-a a a a a a acaoanasata apalaaanaialalaaasaFaoaramaaataeaaadaaasa a=a apalaaanaialalaaasa.amaaapa(apalaaanaialalaaa a=a>a a(a{aa
-a a a a a a a a aiada:a apalaaanaialalaaa.aiada,aa
-a a a a a a a a amaeasa:a apalaaanaialalaaa.amaeasa,aa
-a a a a a a a a aaanaiaoa:a apalaaanaialalaaa.aaanaiaoa,aa
-a a a a a a a a apaearaiaoadaoa:a a`a$a{atahaiasa.agaeataNaoamabaraeaMaeasa(apalaaanaialalaaa.amaeasa)a}a a$a{apalaaanaialalaaa.aaanaiaoa}a`a,aa
-a a a a a a a a aeasataaadaoa:a apalaaanaialalaaa.aeasataaadaoa,aa
-a a a a a a a a ahaoaraaasaRaeagaualaaaraeasa:a aNauamabaeara(apalaaanaialalaaa.ahaoaraaasa_araeagaualaaaraeasa)a,aa
-a a a a a a a a ahaoaraaasaEaxataraaasa:a aNauamabaeara(apalaaanaialalaaa.ahaoaraaasa_aeaxataraaasa)a,aa
-a a a a a a a a ataoataaalaHaoaraaasa:a aNauamabaeara(apalaaanaialalaaa.ahaoaraaasa_araeagaualaaaraeasa)a a+a aNauamabaeara(apalaaanaialalaaa.ahaoaraaasa_aeaxataraaasa)a,aa
-a a a a a a a a amaoanataoaBaaasaea:a aNauamabaeara(apalaaanaialalaaa.amaoanataoa_abaaasaea)a,aa
-a a a a a a a a abaoanaiafaiacaaacaiaoanaeasa:a aNauamabaeara(apalaaanaialalaaa.abaoanaiafaiacaaacaiaoanaeasa)a,aa
-a a a a a a a a adaeasacauaeanataoasa:a aNauamabaeara(apalaaanaialalaaa.adaeasacauaeanataoasa)a,aa
-a a a a a a a a ataoataaalaNaeataoa:a aNauamabaeara(apalaaanaialalaaa.ataoataaala_anaeataoa)a,aa
-a a a a a a a a afaeacahaaaEamaiasaiaoana:a apalaaanaialalaaa.afaeacahaaa_aeamaiasaiaoana?a.ataoaIaSaOaSataraianaga(a)a a|a|a anaualala,aa
-a a a a a a a a afaeacahaaaPaaagaoa:a apalaaanaialalaaa.afaeacahaaa_apaaagaoa?a.ataoaIaSaOaSataraianaga(a)a a|a|a anaualala,aa
-a a a a a a a a aoabasaearavaaacaiaoanaeasa:a apalaaanaialalaaa.aoabasaearavaaacaiaoanaeasa,aa
-a a a a a a a a adaoacaeanataea:a a{aa
-a a a a a a a a a a aiada:a apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_auasauaaaraiaoa_aiadaTaoauasauaaaraiaoasa.aiada,aa
-a a a a a a a a a a anaoamabaraeasa:a apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_auasauaaaraiaoa_aiadaTaoauasauaaaraiaoasa.anaoamabaraeasa,aa
-a a a a a a a a a a aaapaealalaiadaoasa:a apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_auasauaaaraiaoa_aiadaTaoauasauaaaraiaoasa.aaapaealalaiadaoasa,aa
-a a a a a a a a a a anaoamabaraeaCaoamapalaeataoa:a a`a$a{apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_auasauaaaraiaoa_aiadaTaoauasauaaaraiaoasa.anaoamabaraeasa}a a$a{apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_auasauaaaraiaoa_aiadaTaoauasauaaaraiaoasa.aaapaealalaiadaoasa}a`a,aa
-a a a a a a a a a a adanaia:a apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_auasauaaaraiaoa_aiadaTaoauasauaaaraiaoasa.adanaia,aa
-a a a a a a a a a a aeamaaaiala:a apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_auasauaaaraiaoa_aiadaTaoauasauaaaraiaoasa.aeamaaaiala,aa
-a a a a a a a a a a aaaraeaaa:a apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_auasauaaaraiaoa_aiadaTaoauasauaaaraiaoasa.adaoacaeanataeasa?a.a[a0a]a?a.aaaraeaaasa?a.anaoamabaraea a|a|a a'aNa/aAa'aa
-a a a a a a a a a}a,aa
-a a a a a a a a acaraeaaataeadaAata:a apalaaanaialalaaa.acaraeaaataeada_aaata?a.ataoaIaSaOaSataraianaga(a)a,aa
-a a a a a a a a auapadaaataeadaAata:a apalaaanaialalaaa.auapadaaataeada_aaata?a.ataoaIaSaOaSataraianaga(a)aa
-a a a a a a a}a)a)a;aa
-aa
-a a a a a a araeatauarana a{aa
-a a a a a a a a apalaaanaialalaaasa:a apalaaanaialalaaasaFaoaramaaataeaaadaaasa,aa
-a a a a a a a a apaaagaianaaataiaoana:a a{aa
-a a a a a a a a a a apaaagaea,aa
-a a a a a a a a a a alaiamaiata,aa
-a a a a a a a a a a ataoataaala,aa
-a a a a a a a a a a ataoataaalaPaaagaeasa:a aMaaataha.acaeaiala(ataoataaala a/a alaiamaiata)aa
-a a a a a a a a a}aa
-a a a a a a a}a;aa
-a a a a a}a acaaatacaha a(aeararaoara)a a{aa
-a a a a a a acaoanasaoalaea.aeararaoara(a'aEararaoara aaala aoabataeanaeara apalaaanaialalaaasa:a'a,a aeararaoara)a;aa
-a a a a a a ataharaoawa anaeawa aVaaalaiadaaataiaoanaEararaoara(a'aEararaoara aaala aoabataeanaeara apalaaanaialalaaasa'a)a;aa
-a a a a a}aa
-a a a}aa
-aa
-a a a/a*a*aa
-a a a a*a aOabataeanaeara adaeataaalalaea acaoamapalaeataoa adaea auanaaa apalaaanaialalaaaa
-a a a a*a/aa
-a a aaasayanaca aoabataeanaearaDaeataaalalaeaPalaaanaialalaaa(apalaaanaialalaaaIada:a asataraianaga)a a{aa
-a a a a ataraya a{aa
-a a a a a a acaoanasata apalaaanaialalaaa a=a aaawaaaiata aparaiasamaaa.apalaaanaialalaaasa.afaianadaUanaiaqauaea(a{aa
-a a a a a a a a awahaearaea:a a{a aiada:a apalaaanaialalaaaIada a}a,aa
-a a a a a a a a aianacalauadaea:a a{aa
-a a a a a a a a a a auasauaaaraiaoasa_apalaaanaialalaaasa_auasauaaaraiaoa_aiadaTaoauasauaaaraiaoasa:a a{aa
-a a a a a a a a a a a a asaealaeacata:a a{aa
-a a a a a a a a a a a a a a aiada:a atarauaea,aa
-a a a a a a a a a a a a a a anaoamabaraeasa:a atarauaea,aa
-a a a a a a a a a a a a a a aaapaealalaiadaoasa:a atarauaea,aa
-a a a a a a a a a a a a a a adanaia:a atarauaea,aa
-a a a a a a a a a a a a a a aeamaaaiala:a atarauaea,aa
-a a a a a a a a a a a a a a adaoacaeanataeasa:a a{aa
-a a a a a a a a a a a a a a a a asaealaeacata:a a{aa
-a a a a a a a a a a a a a a a a a a acaoadaiagaoa_adaoacaeanataea:a atarauaea,aa
-a a a a a a a a a a a a a a a a a a afaeacahaaa_aianagaraeasaoa:a atarauaea,aa
-a a a a a a a a a a a a a a a a a a asauaealadaoa:a atarauaea,aa
-a a a a a a a a a a a a a a a a a a aeasataaadaoa:a atarauaea,aa
-a a a a a a a a a a a a a a a a a a aaaraeaaasa:a a{aa
-a a a a a a a a a a a a a a a a a a a a asaealaeacata:a a{aa
-a a a a a a a a a a a a a a a a a a a a a a anaoamabaraea:a atarauaea,aa
-a a a a a a a a a a a a a a a a a a a a a a adaeasacaraiapacaiaoana:a atarauaeaa
-a a a a a a a a a a a a a a a a a a a a a}aa
-a a a a a a a a a a a a a a a a a a a}aa
-a a a a a a a a a a a a a a a a a}aa
-a a a a a a a a a a a a a a a}aa
-a a a a a a a a a a a a a}aa
-a a a a a a a a a a a}a,aa
-a a a a a a a a a a adaeataaalalaea_apalaaanaialalaaasa:a a{aa
-a a a a a a a a a a a a aianacalauadaea:a a{aa
-a a a a a a a a a a a a a a aaasaiasataeanacaiaaasa:a a{aa
-a a a a a a a a a a a a a a a a asaealaeacata:a a{aa
-a a a a a a a a a a a a a a a a a a afaeacahaaa:a atarauaea,aa
-a a a a a a a a a a a a a a a a a a ahaoaraaaEanataraaadaaa:a atarauaea,aa
-a a a a a a a a a a a a a a a a a a ahaoaraaaSaaalaiadaaa:a atarauaea,aa
-a a a a a a a a a a a a a a a a a a aeasataaadaoa:a atarauaea,aa
-a a a a a a a a a a a a a a a a a a ataaaradaaanazaaaMaianauataoasa:a atarauaea,aa
-a a a a a a a a a a a a a a a a a a ahaoaraaasaTaraaabaaajaaadaaasa:a atarauaeaa
-a a a a a a a a a a a a a a a a a}aa
-a a a a a a a a a a a a a a a}aa
-a a a a a a a a a a a a a}a,aa
-a a a a a a a a a a a a aoaradaearaBaya:a a{aa
-a a a a a a a a a a a a a a afaeacahaaa:a a'aaasaca'aa
-a a a a a a a a a a a a a}aa
-a a a a a a a a a a a}a,aa
-a a a a a a a a a a auasauaaaraiaoasa_apalaaanaialalaaasa_acaraeaaataeada_abayaTaoauasauaaaraiaoasa:a a{aa
-a a a a a a a a a a a a asaealaeacata:a a{aa
-a a a a a a a a a a a a a a anaoamabaraeasa:a atarauaea,aa
-a a a a a a a a a a a a a a aaapaealalaiadaoasa:a atarauaeaa
-a a a a a a a a a a a a a}aa
-a a a a a a a a a a a}a,aa
-a a a a a a a a a a auasauaaaraiaoasa_apalaaanaialalaaasa_auapadaaataeada_abayaTaoauasauaaaraiaoasa:a a{aa
-a a a a a a a a a a a a asaealaeacata:a a{aa
-a a a a a a a a a a a a a a anaoamabaraeasa:a atarauaea,aa
-a a a a a a a a a a a a a a aaapaealalaiadaoasa:a atarauaeaa
-a a a a a a a a a a a a a}aa
-a a a a a a a a a a a}aa
-a a a a a a a a a}aa
-a a a a a a a}a)a;aa
-aa
-a a a a a a aiafa a(a!apalaaanaialalaaa)a a{aa
-a a a a a a a a ataharaoawa anaeawa aNaoataFaoauanadaEararaoara(a'aPalaaanaialalaaa anaoa aeanacaoanataraaadaaa'a)a;aa
-a a a a a a a}aa
-aa
-a a a a a a acaoanasata adaoacaeanataea a=a apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_auasauaaaraiaoa_aiadaTaoauasauaaaraiaoasa.adaoacaeanataeasa?a.a[a0a]a;aa
-aa
-a a a a a a araeatauarana a{aa
-a a a a a a a a aiada:a apalaaanaialalaaa.aiada,aa
-a a a a a a a a amaeasa:a apalaaanaialalaaa.amaeasa,aa
-a a a a a a a a aaanaiaoa:a apalaaanaialalaaa.aaanaiaoa,aa
-a a a a a a a a apaearaiaoadaoa:a a`a$a{atahaiasa.agaeataNaoamabaraeaMaeasa(apalaaanaialalaaa.amaeasa)a}a a$a{apalaaanaialalaaa.aaanaiaoa}a`a,aa
-a a a a a a a a aeasataaadaoa:a apalaaanaialalaaa.aeasataaadaoa,aa
-a a a a a a a a adaoacaeanataea:a a{aa
-a a a a a a a a a a aiada:a apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_auasauaaaraiaoa_aiadaTaoauasauaaaraiaoasa.aiada,aa
-a a a a a a a a a a anaoamabaraeasa:a apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_auasauaaaraiaoa_aiadaTaoauasauaaaraiaoasa.anaoamabaraeasa,aa
-a a a a a a a a a a aaapaealalaiadaoasa:a apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_auasauaaaraiaoa_aiadaTaoauasauaaaraiaoasa.aaapaealalaiadaoasa,aa
-a a a a a a a a a a anaoamabaraeaCaoamapalaeataoa:a a`a$a{apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_auasauaaaraiaoa_aiadaTaoauasauaaaraiaoasa.anaoamabaraeasa}a a$a{apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_auasauaaaraiaoa_aiadaTaoauasauaaaraiaoasa.aaapaealalaiadaoasa}a`a,aa
-a a a a a a a a a a adanaia:a apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_auasauaaaraiaoa_aiadaTaoauasauaaaraiaoasa.adanaia,aa
-a a a a a a a a a a aeamaaaiala:a apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_auasauaaaraiaoa_aiadaTaoauasauaaaraiaoasa.aeamaaaiala,aa
-a a a a a a a a a a acaoadaiagaoaDaoacaeanataea:a adaoacaeanataea?a.acaoadaiagaoa_adaoacaeanataea a|a|a a'aNa/aAa'a,aa
-a a a a a a a a a a afaeacahaaaIanagaraeasaoa:a adaoacaeanataea?a.afaeacahaaa_aianagaraeasaoa a|a|a anaualala,aa
-a a a a a a a a a a asauaealadaoa:a adaoacaeanataea?a.asauaealadaoa a?a aNauamabaeara(adaoacaeanataea.asauaealadaoa)a a:a a0a,aa
-a a a a a a a a a a aeasataaadaoa:a adaoacaeanataea?a.aeasataaadaoa a|a|a a'aNa/aAa'a,aa
-a a a a a a a a a a aaaraeaaa:a adaoacaeanataea?a.aaaraeaaasa?a.anaoamabaraea a|a|a a'aNa/aAa'aa
-a a a a a a a a a}a,aa
-a a a a a a a a ahaoaraaasa:a a{aa
-a a a a a a a a a a araeagaualaaaraeasa:a aNauamabaeara(apalaaanaialalaaa.ahaoaraaasa_araeagaualaaaraeasa)a,aa
-a a a a a a a a a a aeaxataraaasa:a aNauamabaeara(apalaaanaialalaaa.ahaoaraaasa_aeaxataraaasa)a,aa
-a a a a a a a a a a ataoataaala:a aNauamabaeara(apalaaanaialalaaa.ahaoaraaasa_araeagaualaaaraeasa)a a+a aNauamabaeara(apalaaanaialalaaa.ahaoaraaasa_aeaxataraaasa)aa
-a a a a a a a a a}a,aa
-a a a a a a a a amaoanataoasa:a a{aa
-a a a a a a a a a a abaaasaea:a aNauamabaeara(apalaaanaialalaaa.amaoanataoa_abaaasaea)a,aa
-a a a a a a a a a a abaoanaiafaiacaaacaiaoanaeasa:a aNauamabaeara(apalaaanaialalaaa.abaoanaiafaiacaaacaiaoanaeasa)a,aa
-a a a a a a a a a a adaeasacauaeanataoasa:a aNauamabaeara(apalaaanaialalaaa.adaeasacauaeanataoasa)a,aa
-a a a a a a a a a a ataoataaalaNaeataoa:a aNauamabaeara(apalaaanaialalaaa.ataoataaala_anaeataoa)aa
-a a a a a a a a a}a,aa
-a a a a a a a a adaeataaalalaea:a apalaaanaialalaaa.adaeataaalalaea_apalaaanaialalaaasa.amaaapa(a(adaeataaalalaea:a aaanaya)a a=a>a a(a{aa
-a a a a a a a a a a afaeacahaaa:a adaeataaalalaea.afaeacahaaa.ataoaIaSaOaSataraianaga(a)a.asapalaiata(a'aTa'a)a[a0a]a,aa
-a a a a a a a a a a ahaoaraaasaTaraaabaaajaaadaaasa:a aNauamabaeara(adaeataaalalaea.ahaoaraaasa_ataraaabaaajaaadaaasa)a,aa
-a a a a a a a a a a ahaoaraaasaEaxataraaasa:a aNauamabaeara(adaeataaalalaea.ahaoaraaasa_aeaxataraaasa)a,aa
-a a a a a a a a a a ataaaradaaanazaaaMaianauataoasa:a adaeataaalalaea.aaasaiasataeanacaiaaasa?a.ataaaradaaanazaaaMaianauataoasa a|a|a a0a,aa
-a a a a a a a a a a aoabasaearavaaacaiaoanaeasa:a adaeataaalalaea.aoabasaearavaaacaiaoanaeasa,aa
-a a a a a a a a a a aaasaiasataeanacaiaaa:a adaeataaalalaea.aaasaiasataeanacaiaaasa a?a a{aa
-a a a a a a a a a a a a ahaoaraaaEanataraaadaaa:a adaeataaalalaea.aaasaiasataeanacaiaaasa.ahaoaraaaEanataraaadaaa?a.ataoaIaSaOaSataraianaga(a)a,aa
-a a a a a a a a a a a a ahaoaraaaSaaalaiadaaa:a adaeataaalalaea.aaasaiasataeanacaiaaasa.ahaoaraaaSaaalaiadaaa?a.ataoaIaSaOaSataraianaga(a)a,aa
-a a a a a a a a a a a a aeasataaadaoa:a adaeataaalalaea.aaasaiasataeanacaiaaasa.aeasataaadaoaa
-a a a a a a a a a a a}a a:a anaualalaa
-a a a a a a a a a}a)a)a,aa
-a a a a a a a a afaeacahaaaEamaiasaiaoana:a apalaaanaialalaaa.afaeacahaaa_aeamaiasaiaoana?a.ataoaIaSaOaSataraianaga(a)a a|a|a anaualala,aa
-a a a a a a a a afaeacahaaaPaaagaoa:a apalaaanaialalaaa.afaeacahaaa_apaaagaoa?a.ataoaIaSaOaSataraianaga(a)a a|a|a anaualala,aa
-a a a a a a a a aoabasaearavaaacaiaoanaeasa:a apalaaanaialalaaa.aoabasaearavaaacaiaoanaeasa,aa
-a a a a a a a a aaauadaiataoaraiaaa:a a{aa
-a a a a a a a a a a acaraeaaadaoaPaoara:a apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_acaraeaaataeada_abayaTaoauasauaaaraiaoasa a?a aa
-a a a a a a a a a a a a a`a$a{apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_acaraeaaataeada_abayaTaoauasauaaaraiaoasa.anaoamabaraeasa}a a$a{apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_acaraeaaataeada_abayaTaoauasauaaaraiaoasa.aaapaealalaiadaoasa}a`a a:a aa
-a a a a a a a a a a a a a'aSaiasataeamaaa'a,aa
-a a a a a a a a a a aaacatauaaalaiazaaadaoaPaoara:a apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_auapadaaataeada_abayaTaoauasauaaaraiaoasa a?a aa
-a a a a a a a a a a a a a`a$a{apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_auapadaaataeada_abayaTaoauasauaaaraiaoasa.anaoamabaraeasa}a a$a{apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_auapadaaataeada_abayaTaoauasauaaaraiaoasa.aaapaealalaiadaoasa}a`a a:a aa
-a a a a a a a a a a a a anaualala,aa
-a a a a a a a a a a acaraeaaataeadaAata:a apalaaanaialalaaa.acaraeaaataeada_aaata?a.ataoaIaSaOaSataraianaga(a)a,aa
-a a a a a a a a a a auapadaaataeadaAata:a apalaaanaialalaaa.auapadaaataeada_aaata?a.ataoaIaSaOaSataraianaga(a)aa
-a a a a a a a a a}aa
-a a a a a a a}a;aa
-a a a a a}a acaaatacaha a(aeararaoara)a a{aa
-a a a a a a aiafa a(aeararaoara aianasataaanacaeaoafa aNaoataFaoauanadaEararaoara)a ataharaoawa aeararaoara;aa
-a a a a a a acaoanasaoalaea.aeararaoara(a'aEararaoara aaala aoabataeanaeara adaeataaalalaea adaea apalaaanaialalaaa:a'a,a aeararaoara)a;aa
-a a a a a a ataharaoawa anaeawa aVaaalaiadaaataiaoanaEararaoara(a'aEararaoara aaala aoabataeanaeara adaeataaalalaea adaea apalaaanaialalaaa'a)a;aa
-a a a a a}aa
-a a a}aa
-aa
-a a a/a*a*aa
-a a a a*a aGaeanaearaaara apalaaanaialalaaa apaaaraaa auana adaoacaeanataea aeana auana apaearaÃa­aoadaoaa
-a a a a*a/aa
-a a aaasayanaca agaeanaearaaaraPalaaanaialalaaa(adaaataaa:a aGaeanaearaaaraPalaaanaialalaaaDataoa)a a{aa
-a a a a ataraya a{aa
-a a a a a a a/a/a aVaearaiafaiacaaara asaia ayaaa aeaxaiasataea apalaaanaialalaaa apaaaraaa aeasaea apaearaÃa­aoadaoaa
-a a a a a a acaoanasata aeaxaiasataeanataea a=a aaawaaaiata aparaiasamaaa.apalaaanaialalaaasa.afaianadaFaiarasata(a{aa
-a a a a a a a a awahaearaea:a a{aa
-a a a a a a a a a a auasauaaaraiaoa_aiada:a adaaataaa.adaoacaeanataeaIada,aa
-a a a a a a a a a a amaeasa:a adaaataaa.amaeasa,aa
-a a a a a a a a a a aaanaiaoa:a adaaataaa.aaanaiaoaa
-a a a a a a a a a}aa
-a a a a a a a}a)a;aa
-aa
-a a a a a a aiafa a(aeaxaiasataeanataea)a a{aa
-a a a a a a a a ataharaoawa anaeawa aVaaalaiadaaataiaoanaEararaoara(a'aYaaa aeaxaiasataea auanaaa apalaaanaialalaaa apaaaraaa aeasataea apaearaÃa­aoadaoa'a)a;aa
-a a a a a a a}aa
-aa
-a a a a a a a/a/a aVaearaiafaiacaaara aqauaea aeala auasauaaaraiaoa asaeaaa adaoacaeanataeaa
-a a a a a a acaoanasata adaoacaeanataea a=a aaawaaaiata aparaiasamaaa.adaoacaeanataeasa.afaianadaFaiarasata(a{aa
-a a a a a a a a awahaearaea:a a{a auasauaaaraiaoa_aiada:a adaaataaa.adaoacaeanataeaIada a}aa
-a a a a a a a}a)a;aa
-aa
-a a a a a a aiafa a(a!adaoacaeanataea)a a{aa
-a a a a a a a a ataharaoawa anaeawa aVaaalaiadaaataiaoanaEararaoara(a'aEala auasauaaaraiaoa anaoa aeasa auana adaoacaeanataea'a)a;aa
-a a a a a a a}aa
-aa
-a a a a a a a/a/a aCaaalacaualaaara afaeacahaaasa adaeala apaearaÃa­aoadaoaa
-a a a a a a acaoanasata afaeacahaaaIanaiacaiaoa a=a anaeawa aDaaataea(adaaataaa.aaanaiaoa,a adaaataaa.amaeasa a-a a1a,a a1a)a;aa
-a a a a a a acaoanasata afaeacahaaaFaiana a=a anaeawa aDaaataea(adaaataaa.aaanaiaoa,a adaaataaa.amaeasa,a a0a,a a2a3a,a a5a9a,a a5a9a)a;aa
-aa
-a a a a a a a/a/a aOabataeanaeara aaasaiasataeanacaiaaasa adaeala apaearaÃa­aoadaoaa
-a a a a a a acaoanasata aaasaiasataeanacaiaaasa a=a aaawaaaiata aparaiasamaaa.aaasaiasataeanacaiaaasa.afaianadaMaaanaya(a{aa
-a a a a a a a a awahaearaea:a a{aa
-a a a a a a a a a a adaoacaeanataeaIada:a adaaataaa.adaoacaeanataeaIada,aa
-a a a a a a a a a a afaeacahaaa:a a{aa
-a a a a a a a a a a a a agataea:a afaeacahaaaIanaiacaiaoa,aa
-a a a a a a a a a a a a alataea:a afaeacahaaaFaianaa
-a a a a a a a a a a a}aa
-a a a a a a a a a}aa
-a a a a a a a}a)a;aa
-aa
-a a a a a a a/a/a aCaaalacaualaaara ataoataaalaeasaa
-a a a a a a alaeata ahaoaraaasaRaeagaualaaaraeasa a=a a0a;aa
-a a a a a a alaeata ahaoaraaasaEaxataraaasa a=a a0a;aa
-a a a a a a alaeata ataaaradaaanazaaasaTaoataaalaeasa a=a a0a;aa
-aa
-a a a a a a aaasaiasataeanacaiaaasa.afaoaraEaaacaha(aaasaiasataeanacaiaaa a=a>a a{aa
-a a a a a a a a acaoanasata ahaoaraaasa a=a aNauamabaeara(aaasaiasataeanacaiaaa.ahaoaraaasaTaraaabaaajaaadaaasa a|a|a a0a)a;aa
-a a a a a a a a acaoanasata ahaoaraaasaNaoaramaaalaeasa a=a aMaaataha.amaiana(ahaoaraaasa,a a8a)a;a a/a/a aMaÃa¡axaiamaoa a8a ahaoaraaasa araeagaualaaaraeasaa
-a a a a a a a a acaoanasata aeaxataraaasa a=a aMaaataha.amaaaxa(ahaoaraaasa a-a a8a,a a0a)a;aa
-aa
-a a a a a a a a ahaoaraaasaRaeagaualaaaraeasa a+a=a ahaoaraaasaNaoaramaaalaeasa;aa
-a a a a a a a a ahaoaraaasaEaxataraaasa a+a=a aeaxataraaasa;aa
-a a a a a a a a ataaaradaaanazaaasaTaoataaalaeasa a+a=a aaasaiasataeanacaiaaa.ataaaradaaanazaaaMaianauataoasa a|a|a a0a;aa
-a a a a a a a}a)a;aa
-aa
-a a a a a a a/a/a aCaaalacaualaaara amaoanataoasa a(avaaalaoaraeasa adaea aeajaeamapalaoa,a aaajauasataaara asaeagaÃaºana alaÃa³agaiacaaa adaea anaeagaoacaiaoa)aa
-a a a a a a acaoanasata ataaaraiafaaaHaoaraaa a=a a2a5a;a a/a/a aSa/a apaoara ahaoaraaa a(adaeabaea avaeanaiara adaea acaoanataraaataoa adaeala adaoacaeanataea)aa
-a a a a a a acaoanasata amaoanataoaBaaasaea a=a ahaoaraaasaRaeagaualaaaraeasa a*a ataaaraiafaaaHaoaraaa;aa
-a a a a a a acaoanasata amaoanataoaEaxataraaasa a=a ahaoaraaasaEaxataraaasa a*a ataaaraiafaaaHaoaraaa a*a a1a.a5a;aa
-a a a a a a acaoanasata adaeasacauaeanataoaTaaaradaaanazaaasa a=a a(ataaaradaaanazaaasaTaoataaalaeasa a/a a6a0a)a a*a ataaaraiafaaaHaoaraaa a*a a0a.a5a;aa
-aa
-a a a a a a acaoanasata ataoataaalaNaeataoa a=a amaoanataoaBaaasaea a+a amaoanataoaEaxataraaasa a-a adaeasacauaeanataoaTaaaradaaanazaaasa;aa
-aa
-a a a a a a a/a/a aCaraeaaara apalaaanaialalaaaa
-a a a a a a acaoanasata apalaaanaialalaaa a=a aaawaaaiata aparaiasamaaa.apalaaanaialalaaasa.acaraeaaataea(a{aa
-a a a a a a a a adaaataaa:a a{aa
-a a a a a a a a a a auasauaaaraiaoa_aiada:a adaaataaa.adaoacaeanataeaIada,aa
-a a a a a a a a a a amaeasa:a adaaataaa.amaeasa,aa
-a a a a a a a a a a aaanaiaoa:a adaaataaa.aaanaiaoa,aa
-a a a a a a a a a a aeasataaadaoa:a a'aPaEaNaDaIaEaNaTaEa'a,aa
-a a a a a a a a a a ahaoaraaasa_araeagaualaaaraeasa:a ahaoaraaasaRaeagaualaaaraeasa,aa
-a a a a a a a a a a ahaoaraaasa_aeaxataraaasa:a ahaoaraaasaEaxataraaasa,aa
-a a a a a a a a a a amaoanataoa_abaaasaea:a amaoanataoaBaaasaea,aa
-a a a a a a a a a a abaoanaiafaiacaaacaiaoanaeasa:a amaoanataoaEaxataraaasa,aa
-a a a a a a a a a a adaeasacauaeanataoasa:a adaeasacauaeanataoaTaaaradaaanazaaasa,aa
-a a a a a a a a a a ataoataaala_anaeataoa:a ataoataaalaNaeataoa,aa
-a a a a a a a a a a afaeacahaaa_aeamaiasaiaoana:a anaeawa aDaaataea(a)a,aa
-a a a a a a a a a a acaraeaaataeada_abaya:a adaaataaa.acaraeaaataeadaBayaa
-a a a a a a a a a}a,aa
-a a a a a a a a aianacalauadaea:a a{aa
-a a a a a a a a a a auasauaaaraiaoasa_apalaaanaialalaaasa_auasauaaaraiaoa_aiadaTaoauasauaaaraiaoasa:a a{aa
-a a a a a a a a a a a a asaealaeacata:a a{aa
-a a a a a a a a a a a a a a anaoamabaraeasa:a atarauaea,aa
-a a a a a a a a a a a a a a aaapaealalaiadaoasa:a atarauaea,aa
-a a a a a a a a a a a a a a adanaia:a atarauaeaa
-a a a a a a a a a a a a a}aa
-a a a a a a a a a a a}aa
-a a a a a a a a a}aa
-a a a a a a a}a)a;aa
-aa
-a a a a a a a/a/a aCaraeaaara adaeataaalalaeasa adaea apalaaanaialalaaa apaoara acaaadaaa adaÃa­aaa acaoana aaasaiasataeanacaiaaaa
-a a a a a a acaoanasata adaeataaalalaeasaDaaataaa a=a aaasaiasataeanacaiaaasa.amaaapa(aaasaiasataeanacaiaaa a=a>a a(a{aa
-a a a a a a a a apalaaanaialalaaa_aiada:a apalaaanaialalaaa.aiada,aa
-a a a a a a a a aaasaiasataeanacaiaaa_aiada:a aaasaiasataeanacaiaaa.aiada,aa
-a a a a a a a a afaeacahaaa:a aaasaiasataeanacaiaaa.afaeacahaaa,aa
-a a a a a a a a ahaoaraaasa_ataraaabaaajaaadaaasa:a aNauamabaeara(aaasaiasataeanacaiaaa.ahaoaraaasaTaraaabaaajaaadaaasa a|a|a a0a)a,aa
-a a a a a a a a ahaoaraaasa_aeaxataraaasa:a aMaaataha.amaaaxa(aNauamabaeara(aaasaiasataeanacaiaaa.ahaoaraaasaTaraaabaaajaaadaaasa a|a|a a0a)a a-a a8a,a a0a)a,aa
-a a a a a a a a ataaaradaaanazaaa_amaianauataoasa:a aaasaiasataeanacaiaaa.ataaaradaaanazaaaMaianauataoasa a|a|a a0a,aa
-a a a a a a a a aoabasaearavaaacaiaoanaeasa:a aaasaiasataeanacaiaaa.aoabasaearavaaacaiaoanaeasaa
-a a a a a a a}a)a)a;aa
-aa
-a a a a a a aiafa a(adaeataaalalaeasaDaaataaa.alaeanagataha a>a a0a)a a{aa
-a a a a a a a a aaawaaaiata aparaiasamaaa.adaeataaalalaea_apalaaanaialalaaasa.acaraeaaataeaMaaanaya(a{aa
-a a a a a a a a a a adaaataaa:a adaeataaalalaeasaDaaataaaa
-a a a a a a a a a}a)a;aa
-a a a a a a a}aa
-aa
-a a a a a a araeatauarana a{aa
-a a a a a a a a aiada:a apalaaanaialalaaa.aiada,aa
-a a a a a a a a amaeasa:a apalaaanaialalaaa.amaeasa,aa
-a a a a a a a a aaanaiaoa:a apalaaanaialalaaa.aaanaiaoa,aa
-a a a a a a a a apaearaiaoadaoa:a a`a$a{atahaiasa.agaeataNaoamabaraeaMaeasa(apalaaanaialalaaa.amaeasa)a}a a$a{apalaaanaialalaaa.aaanaiaoa}a`a,aa
-a a a a a a a a aeasataaadaoa:a apalaaanaialalaaa.aeasataaadaoa,aa
-a a a a a a a a ataoataaalaNaeataoa:a aNauamabaeara(apalaaanaialalaaa.ataoataaala_anaeataoa)a,aa
-a a a a a a a a adaoacaeanataea:a a{aa
-a a a a a a a a a a anaoamabaraeasa:a apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_auasauaaaraiaoa_aiadaTaoauasauaaaraiaoasa.anaoamabaraeasa,aa
-a a a a a a a a a a aaapaealalaiadaoasa:a apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_auasauaaaraiaoa_aiadaTaoauasauaaaraiaoasa.aaapaealalaiadaoasa,aa
-a a a a a a a a a a adanaia:a apalaaanaialalaaa.auasauaaaraiaoasa_apalaaanaialalaaasa_auasauaaaraiaoa_aiadaTaoauasauaaaraiaoasa.adanaiaa
-a a a a a a a a a}aa
-a a a a a a a}a;aa
-a a a a a}a acaaatacaha a(aeararaoara)a a{aa
-a a a a a a aiafa a(aeararaoara aianasataaanacaeaoafa aVaaalaiadaaataiaoanaEararaoara)a ataharaoawa aeararaoara;aa
-a a a a a a acaoanasaoalaea.aeararaoara(a'aEararaoara aaala agaeanaearaaara apalaaanaialalaaa:a'a,a aeararaoara)a;aa
-a a a a a a ataharaoawa anaeawa aVaaalaiadaaataiaoanaEararaoara(a'aEararaoara aaala agaeanaearaaara apalaaanaialalaaa'a)a;aa
-a a a a a}aa
-a a a}aa
-aa
-a a a/a*a*aa
-a a a a*a aAacatauaaalaiazaaara aeasataaadaoa adaea apalaaanaialalaaaa
-a a a a*a/aa
-a a aaasayanaca aaacatauaaalaiazaaaraEasataaadaoa(apalaaanaialalaaaIada:a asataraianaga,a aeasataaadaoa:a asataraianaga,a aaadamaianaIada:a asataraianaga,a aoabasaearavaaacaiaoanaeasa?a:a asataraianaga)a a{aa
-a a a a ataraya a{aa
-a a a a a a acaoanasata aeasataaadaoasaVaaalaiadaoasa a=a a[a'aPaEaNaDaIaEaNaTaEa'a,a a'aEaNa_aPaRaOaCaEaSaOa'a,a a'aPaAaGaAaDaOa'a,a a'aAaNaUaLaAaDaOa'a]a;aa
-a a a a a a aiafa a(a!aeasataaadaoasaVaaalaiadaoasa.aianacalauadaeasa(aeasataaadaoa)a)a a{aa
-a a a a a a a a ataharaoawa anaeawa aVaaalaiadaaataiaoanaEararaoara(a'aEasataaadaoa aianavaÃa¡alaiadaoa'a)a;aa
-a a a a a a a}aa
-aa
-a a a a a a acaoanasata auapadaaataeaDaaataaa:a aaanaya a=a a{aa
-a a a a a a a a aeasataaadaoa,aa
-a a a a a a a a auapadaaataeada_abaya:a aaadamaianaIada,aa
-a a a a a a a a auapadaaataeada_aaata:a anaeawa aDaaataea(a)aa
-a a a a a a a}a;aa
-aa
-a a a a a a aiafa a(aoabasaearavaaacaiaoanaeasa)a a{aa
-a a a a a a a a auapadaaataeaDaaataaa.aoabasaearavaaacaiaoanaeasa a=a aoabasaearavaaacaiaoanaeasa;aa
-a a a a a a a}aa
-aa
-a a a a a a aiafa a(aeasataaadaoa a=a=a=a a'aPaAaGaAaDaOa'a)a a{aa
-a a a a a a a a auapadaaataeaDaaataaa.afaeacahaaa_apaaagaoa a=a anaeawa aDaaataea(a)a;aa
-a a a a a a a}aa
-aa
-a a a a a a acaoanasata apalaaanaialalaaa a=a aaawaaaiata aparaiasamaaa.apalaaanaialalaaasa.auapadaaataea(a{aa
-a a a a a a a a awahaearaea:a a{a aiada:a apalaaanaialalaaaIada a}a,aa
-a a a a a a a a adaaataaa:a auapadaaataeaDaaataaaa
-a a a a a a a}a)a;aa
-aa
-a a a a a a araeatauarana a{aa
-a a a a a a a a aiada:a apalaaanaialalaaa.aiada,aa
-a a a a a a a a aeasataaadaoa:a apalaaanaialalaaa.aeasataaadaoa,aa
-a a a a a a a a afaeacahaaaPaaagaoa:a apalaaanaialalaaa.afaeacahaaa_apaaagaoa?a.ataoaIaSaOaSataraianaga(a)aa
-a a a a a a a}a;aa
-a a a a a}a acaaatacaha a(aeararaoara)a a{aa
-a a a a a a acaoanasaoalaea.aeararaoara(a'aEararaoara aaala aaacatauaaalaiazaaara aeasataaadaoa:a'a,a aeararaoara)a;aa
-a a a a a a ataharaoawa anaeawa aVaaalaiadaaataiaoanaEararaoara(a'aEararaoara aaala aaacatauaaalaiazaaara aeasataaadaoa adaea apalaaanaialalaaa'a)a;aa
-a a a a a}aa
-a a a}aa
-aa
-a a a/a*a*aa
-a a a a*a aAacatauaaalaiazaaara adaaataoasa adaea apalaaanaialalaaaa
-a a a a*a/aa
-a a aaasayanaca aaacatauaaalaiazaaaraPalaaanaialalaaa(apalaaanaialalaaaIada:a asataraianaga,a adaaataaa:a aaanaya,a aaadamaianaIada:a asataraianaga)a a{aa
-a a a a ataraya a{aa
-a a a a a a acaoanasata auapadaaataeaDaaataaa:a aaanaya a=a a{aa
-a a a a a a a a auapadaaataeada_abaya:a aaadamaianaIada,aa
-a a a a a a a a auapadaaataeada_aaata:a anaeawa aDaaataea(a)aa
-a a a a a a a}a;aa
-aa
-a a a a a a aiafa a(adaaataaa.amaoanataoaBaaasaea a!a=a=a auanadaeafaianaeada)a auapadaaataeaDaaataaa.amaoanataoa_abaaasaea a=a adaaataaa.amaoanataoaBaaasaea;aa
-a a a a a a aiafa a(adaaataaa.abaoanaiafaiacaaacaiaoanaeasa a!a=a=a auanadaeafaianaeada)a auapadaaataeaDaaataaa.abaoanaiafaiacaaacaiaoanaeasa a=a adaaataaa.abaoanaiafaiacaaacaiaoanaeasa;aa
-a a a a a a aiafa a(adaaataaa.adaeasacauaeanataoasa a!a=a=a auanadaeafaianaeada)a auapadaaataeaDaaataaa.adaeasacauaeanataoasa a=a adaaataaa.adaeasacauaeanataoasa;aa
-a a a a a a aiafa a(adaaataaa.aoabasaearavaaacaiaoanaeasa a!a=a=a auanadaeafaianaeada)a auapadaaataeaDaaataaa.aoabasaearavaaacaiaoanaeasa a=a adaaataaa.aoabasaearavaaacaiaoanaeasa;aa
-aa
-a a a a a a a/a/a aRaeacaaalacaualaaara ataoataaala anaeataoaa
-a a a a a a aiafa a(adaaataaa.amaoanataoaBaaasaea a!a=a=a auanadaeafaianaeada a|a|a adaaataaa.abaoanaiafaiacaaacaiaoanaeasa a!a=a=a auanadaeafaianaeada a|a|a adaaataaa.adaeasacauaeanataoasa a!a=a=a auanadaeafaianaeada)a a{aa
-a a a a a a a a acaoanasata apalaaanaialalaaaAacatauaaala a=a aaawaaaiata aparaiasamaaa.apalaaanaialalaaasa.afaianadaUanaiaqauaea(a{aa
-a a a a a a a a a a awahaearaea:a a{a aiada:a apalaaanaialalaaaIada a}aa
-a a a a a a a a a}a)a;aa
-aa
-a a a a a a a a aiafa a(apalaaanaialalaaaAacatauaaala)a a{aa
-a a a a a a a a a a acaoanasata abaaasaea a=a adaaataaa.amaoanataoaBaaasaea a!a=a=a auanadaeafaianaeada a?a adaaataaa.amaoanataoaBaaasaea a:a aNauamabaeara(apalaaanaialalaaaAacatauaaala.amaoanataoa_abaaasaea)a;aa
-a a a a a a a a a a acaoanasata abaoanaiafa a=a adaaataaa.abaoanaiafaiacaaacaiaoanaeasa a!a=a=a auanadaeafaianaeada a?a adaaataaa.abaoanaiafaiacaaacaiaoanaeasa a:a aNauamabaeara(apalaaanaialalaaaAacatauaaala.abaoanaiafaiacaaacaiaoanaeasa)a;aa
-a a a a a a a a a a acaoanasata adaeasaca a=a adaaataaa.adaeasacauaeanataoasa a!a=a=a auanadaeafaianaeada a?a adaaataaa.adaeasacauaeanataoasa a:a aNauamabaeara(apalaaanaialalaaaAacatauaaala.adaeasacauaeanataoasa)a;aa
-a a a a a a a a a a aa
-a a a a a a a a a a auapadaaataeaDaaataaa.ataoataaala_anaeataoa a=a abaaasaea a+a abaoanaiafa a-a adaeasaca;aa
-a a a a a a a a a}aa
-a a a a a a a}aa
-aa
-a a a a a a acaoanasata apalaaanaialalaaa a=a aaawaaaiata aparaiasamaaa.apalaaanaialalaaasa.auapadaaataea(a{aa
-a a a a a a a a awahaearaea:a a{a aiada:a apalaaanaialalaaaIada a}a,aa
-a a a a a a a a adaaataaa:a auapadaaataeaDaaataaaa
-a a a a a a a}a)a;aa
-aa
-a a a a a a araeatauarana a{aa
-a a a a a a a a aiada:a apalaaanaialalaaa.aiada,aa
-a a a a a a a a ataoataaalaNaeataoa:a aNauamabaeara(apalaaanaialalaaa.ataoataaala_anaeataoa)aa
-a a a a a a a}a;aa
-a a a a a}a acaaatacaha a(aeararaoara)a a{aa
-a a a a a a acaoanasaoalaea.aeararaoara(a'aEararaoara aaala aaacatauaaalaiazaaara apalaaanaialalaaa:a'a,a aeararaoara)a;aa
-a a a a a a ataharaoawa anaeawa aVaaalaiadaaataiaoanaEararaoara(a'aEararaoara aaala aaacatauaaalaiazaaara apalaaanaialalaaa'a)a;aa
-a a a a a}aa
-a a a}aa
-aa
-a a a/a*a*aa
-a a a a*a aEalaiamaianaaara/aaanaualaaara apalaaanaialalaaaa
-a a a a*a/aa
-a a aaasayanaca aealaiamaianaaaraPalaaanaialalaaa(apalaaanaialalaaaIada:a asataraianaga,a aaadamaianaIada:a asataraianaga)a a{aa
-a a a a ataraya a{aa
-a a a a a a a/a/a aMaaaracaaara acaoamaoa aaanaualaaadaaa aeana alauagaaara adaea aealaiamaianaaara afaÃa­asaiacaaamaeanataeaa
-a a a a a a aaawaaaiata aparaiasamaaa.apalaaanaialalaaasa.auapadaaataea(a{aa
-a a a a a a a a awahaearaea:a a{a aiada:a apalaaanaialalaaaIada a}a,aa
-a a a a a a a a adaaataaa:a a{aa
-a a a a a a a a a a aeasataaadaoa:a a'aAaNaUaLaAaDaOa'a,aa
-a a a a a a a a a a auapadaaataeada_abaya:a aaadamaianaIada,aa
-a a a a a a a a a a auapadaaataeada_aaata:a anaeawa aDaaataea(a)aa
-a a a a a a a a a}aa
-a a a a a a a}a)a;aa
-aa
-a a a a a a araeatauarana atarauaea;aa
-a a a a a}a acaaatacaha a(aeararaoara)a a{aa
-a a a a a a acaoanasaoalaea.aeararaoara(a'aEararaoara aaala aaanaualaaara apalaaanaialalaaa:a'a,a aeararaoara)a;aa
-a a a a a a ataharaoawa anaeawa aVaaalaiadaaataiaoanaEararaoara(a'aEararaoara aaala aaanaualaaara apalaaanaialalaaa'a)a;aa
-a a a a a}aa
-a a a}aa
-aa
-a a a/a*a*aa
-a a a a*a aOabataeanaeara aeasataaadaÃa­asataiacaaasa agaeanaearaaalaeasaa
-a a a a*a/aa
-a a aaasayanaca aoabataeanaearaEasataaadaiasataiacaaasaGaeanaearaaalaeasa(afaialataraoasa:a a{a aaanaiaoa?a:a anauamabaeara;a amaeasa?a:a anauamabaeara a}a)a a{aa
-a a a a ataraya a{aa
-a a a a a a acaoanasata awahaearaeaCaoanadaiataiaoanasa:a aaanaya a=a a{a}a;aa
-a a a a a a aa
-a a a a a a aiafa a(afaialataraoasa.aaanaiaoa)a awahaearaeaCaoanadaiataiaoanasa.aaanaiaoa a=a afaialataraoasa.aaanaiaoa;aa
-a a a a a a aiafa a(afaialataraoasa.amaeasa)a awahaearaeaCaoanadaiataiaoanasa.amaeasa a=a afaialataraoasa.amaeasa;aa
-aa
-a a a a a a acaoanasata a[ataoataaala,a apaeanadaiaeanataeasa,a aeanaParaoacaeasaoa,a apaaagaaadaaasa,a aaanaualaaadaaasa,a asauamaaaTaoataaalaeasa]a a=a aaawaaaiata aParaoamaiasaea.aaalala(a[aa
-a a a a a a a a aparaiasamaaa.apalaaanaialalaaasa.acaoauanata(a{a awahaearaea:a awahaearaeaCaoanadaiataiaoanasa a}a)a,aa
-a a a a a a a a aparaiasamaaa.apalaaanaialalaaasa.acaoauanata(a{a awahaearaea:a a{a a.a.a.awahaearaeaCaoanadaiataiaoanasa,a aeasataaadaoa:a a'aPaEaNaDaIaEaNaTaEa'a a}a a}a)a,aa
-a a a a a a a a aparaiasamaaa.apalaaanaialalaaasa.acaoauanata(a{a awahaearaea:a a{a a.a.a.awahaearaeaCaoanadaiataiaoanasa,a aeasataaadaoa:a a'aEaNa_aPaRaOaCaEaSaOa'a a}a a}a)a,aa
-a a a a a a a a aparaiasamaaa.apalaaanaialalaaasa.acaoauanata(a{a awahaearaea:a a{a a.a.a.awahaearaeaCaoanadaiataiaoanasa,a aeasataaadaoa:a a'aPaAaGaAaDaOa'a a}a a}a)a,aa
-a a a a a a a a aparaiasamaaa.apalaaanaialalaaasa.acaoauanata(a{a awahaearaea:a a{a a.a.a.awahaearaeaCaoanadaiataiaoanasa,a aeasataaadaoa:a a'aAaNaUaLaAaDaOa'a a}a a}a)a,aa
-a a a a a a a a aparaiasamaaa.apalaaanaialalaaasa.aaagagaraeagaaataea(a{aa
-a a a a a a a a a a awahaearaea:a a{a a.a.a.awahaearaeaCaoanadaiataiaoanasa,a aeasataaadaoa:a a{a anaoata:a a'aAaNaUaLaAaDaOa'a a}a a}a,aa
-a a a a a a a a a a a_asauama:a a{aa
-a a a a a a a a a a a a ataoataaala_anaeataoa:a atarauaea,aa
-a a a a a a a a a a a a ahaoaraaasa_araeagaualaaaraeasa:a atarauaea,aa
-a a a a a a a a a a a a ahaoaraaasa_aeaxataraaasa:a atarauaeaa
-a a a a a a a a a a a}aa
-a a a a a a a a a}a)aa
-a a a a a a a]a)a;aa
-aa
-a a a a a a araeatauarana a{aa
-a a a a a a a a ataoataaala,aa
-a a a a a a a a apaoaraEasataaadaoa:a a{aa
-a a a a a a a a a a apaeanadaiaeanataeasa,aa
-a a a a a a a a a a aeanaParaoacaeasaoa,aa
-a a a a a a a a a a apaaagaaadaaasa,aa
-a a a a a a a a a a aaanaualaaadaaasaa
-a a a a a a a a a}a,aa
-a a a a a a a a ataoataaalaeasa:a a{aa
-a a a a a a a a a a amaoanataoaTaoataaala:a aNauamabaeara(asauamaaaTaoataaalaeasa.a_asauama.ataoataaala_anaeataoa a|a|a a0a)a,aa
-a a a a a a a a a a ahaoaraaasaRaeagaualaaaraeasa:a aNauamabaeara(asauamaaaTaoataaalaeasa.a_asauama.ahaoaraaasa_araeagaualaaaraeasa a|a|a a0a)a,aa
-a a a a a a a a a a ahaoaraaasaEaxataraaasa:a aNauamabaeara(asauamaaaTaoataaalaeasa.a_asauama.ahaoaraaasa_aeaxataraaasa a|a|a a0a)aa
-a a a a a a a a a}aa
-a a a a a a a}a;aa
-a a a a a}a acaaatacaha a(aeararaoara)a a{aa
-a a a a a a acaoanasaoalaea.aeararaoara(a'aEararaoara aaala aoabataeanaeara aeasataaadaÃa­asataiacaaasa:a'a,a aeararaoara)a;aa
-a a a a a a ataharaoawa anaeawa aVaaalaiadaaataiaoanaEararaoara(a'aEararaoara aaala aoabataeanaeara aeasataaadaÃa­asataiacaaasa'a)a;aa
-a a a a a}aa
-a a a}aa
-aa
-a a a/a*a*aa
-a a a a*a aOabataeanaeara alaiasataaa adaea adaoacaeanataeasa acaoana apalaaanaialalaaasaa
-a a a a*a/aa
-a a aaasayanaca aoabataeanaearaDaoacaeanataeasaCaoanaPalaaanaialalaaasa(a)a a{aa
-a a a a ataraya a{aa
-a a a a a a acaoanasata adaoacaeanataeasa a=a aaawaaaiata aparaiasamaaa.auasauaaaraiaoasa.afaianadaMaaanaya(a{aa
-a a a a a a a a awahaearaea:a a{aa
-a a a a a a a a a a adaoacaeanataeasa:a a{aa
-a a a a a a a a a a a a asaoamaea:a a{a}aa
-a a a a a a a a a a a}aa
-a a a a a a a a a}a,aa
-a a a a a a a a asaealaeacata:a a{aa
-a a a a a a a a a a aiada:a atarauaea,aa
-a a a a a a a a a a anaoamabaraeasa:a atarauaea,aa
-a a a a a a a a a a aaapaealalaiadaoasa:a atarauaea,aa
-a a a a a a a a a a adanaia:a atarauaea,aa
-a a a a a a a a a a aeamaaaiala:a atarauaea,aa
-a a a a a a a a a a adaoacaeanataeasa:a a{aa
-a a a a a a a a a a a a asaealaeacata:a a{aa
-a a a a a a a a a a a a a a acaoadaiagaoa_adaoacaeanataea:a atarauaea,aa
-a a a a a a a a a a a a a a aaaraeaaasa:a a{aa
-a a a a a a a a a a a a a a a a asaealaeacata:a a{aa
-a a a a a a a a a a a a a a a a a a anaoamabaraea:a atarauaeaa
-a a a a a a a a a a a a a a a a a}aa
-a a a a a a a a a a a a a a a}aa
-a a a a a a a a a a a a a}aa
-a a a a a a a a a a a}a,aa
-a a a a a a a a a a a_acaoauanata:a a{aa
-a a a a a a a a a a a a asaealaeacata:a a{aa
-a a a a a a a a a a a a a a apalaaanaialalaaasa_apalaaanaialalaaasa_auasauaaaraiaoa_aiadaTaoauasauaaaraiaoasa:a atarauaeaa
-a a a a a a a a a a a a a}aa
-a a a a a a a a a a a}aa
-a a a a a a a a a}a,aa
-a a a a a a a a aoaradaearaBaya:a a{aa
-a a a a a a a a a a aaapaealalaiadaoasa:a a'aaasaca'aa
-a a a a a a a a a}aa
-a a a a a a a}a)a;aa
-aa
-a a a a a a araeatauarana adaoacaeanataeasa.amaaapa(adaoaca a=a>a a(a{aa
-a a a a a a a a aiada:a adaoaca.aiada,aa
-a a a a a a a a anaoamabaraeaCaoamapalaeataoa:a a`a$a{adaoaca.anaoamabaraeasa}a a$a{adaoaca.aaapaealalaiadaoasa}a`a,aa
-a a a a a a a a adanaia:a adaoaca.adanaia,aa
-a a a a a a a a aeamaaaiala:a adaoaca.aeamaaaiala,aa
-a a a a a a a a acaoadaiagaoaDaoacaeanataea:a adaoaca.adaoacaeanataeasa[a0a]a?a.acaoadaiagaoa_adaoacaeanataea a|a|a a'aNa/aAa'a,aa
-a a a a a a a a aaaraeaaa:a adaoaca.adaoacaeanataeasa[a0a]a?a.aaaraeaaasa?a.anaoamabaraea a|a|a a'aNa/aAa'a,aa
-a a a a a a a a ataoataaalaPalaaanaialalaaasa:a adaoaca.a_acaoauanata.apalaaanaialalaaasa_apalaaanaialalaaasa_auasauaaaraiaoa_aiadaTaoauasauaaaraiaoasaa
-a a a a a a a}a)a)a;aa
-a a a a a}a acaaatacaha a(aeararaoara)a a{aa
-a a a a a a acaoanasaoalaea.aeararaoara(a'aEararaoara aaala aoabataeanaeara adaoacaeanataeasa:a'a,a aeararaoara)a;aa
-a a a a a a ataharaoawa anaeawa aVaaalaiadaaataiaoanaEararaoara(a'aEararaoara aaala aoabataeanaeara adaoacaeanataeasa'a)a;aa
-a a a a a}aa
-a a a}aa
-aa
-a a a/a*a*aa
-a a a a*a aGaeanaearaaara apalaaanaialalaaasa amaaasaiavaaasaa
-a a a a*a/aa
-a a aaasayanaca agaeanaearaaaraPalaaanaialalaaasaMaaasaiavaoa(adaaataaa:a a{a amaeasa:a anauamabaeara;a aaanaiaoa:a anauamabaeara;a adaoacaeanataeaIadasa:a asataraianaga[a]a;a acaraeaaataeadaBaya:a asataraianaga a}a)a a{aa
-a a a a ataraya a{aa
-a a a a a a acaoanasata araeasaualataaadaoasa a=a a{aa
-a a a a a a a a aeaxaiataoasaoasa:a a[a]a aaasa aaanaya[a]a,aa
-a a a a a a a a aeararaoaraeasa:a a[a]a aaasa aaanaya[a]aa
-a a a a a a a}a;aa
-aa
-a a a a a a afaoara a(acaoanasata adaoacaeanataeaIada aoafa adaaataaa.adaoacaeanataeaIadasa)a a{aa
-a a a a a a a a ataraya a{aa
-a a a a a a a a a a acaoanasata apalaaanaialalaaa a=a aaawaaaiata atahaiasa.agaeanaearaaaraPalaaanaialalaaa(a{aa
-a a a a a a a a a a a a adaoacaeanataeaIada,aa
-a a a a a a a a a a a a amaeasa:a adaaataaa.amaeasa,aa
-a a a a a a a a a a a a aaanaiaoa:a adaaataaa.aaanaiaoa,aa
-a a a a a a a a a a a a acaraeaaataeadaBaya:a adaaataaa.acaraeaaataeadaBayaa
-a a a a a a a a a a a}a)a;aa
-a a a a a a a a a a araeasaualataaadaoasa.aeaxaiataoasaoasa.apauasaha(apalaaanaialalaaa)a;aa
-a a a a a a a a a}a acaaatacaha a(aeararaoara:a aaanaya)a a{aa
-a a a a a a a a a a araeasaualataaadaoasa.aeararaoaraeasa.apauasaha(a{aa
-a a a a a a a a a a a a adaoacaeanataeaIada,aa
-a a a a a a a a a a a a aeararaoara:a aeararaoara.amaeasasaaagaeaa
-a a a a a a a a a a a}a)a;aa
-a a a a a a a a a}aa
-a a a a a a a}aa
-aa
-a a a a a a araeatauarana araeasaualataaadaoasa;aa
-a a a a a}a acaaatacaha a(aeararaoara)a a{aa
-a a a a a a acaoanasaoalaea.aeararaoara(a'aEararaoara aeana agaeanaearaaacaiaÃa³ana amaaasaiavaaa:a'a,a aeararaoara)a;aa
-a a a a a a ataharaoawa anaeawa aVaaalaiadaaataiaoanaEararaoara(a'aEararaoara aaala agaeanaearaaara apalaaanaialalaaasa amaaasaiavaaasa'a)a;aa
-a a a a a}aa
-a a a}aa
-aa
-a a a/a*a*aa
-a a a a*a aUataialaiadaaada:a aOabataeanaeara anaoamabaraea adaeala amaeasaa
-a a a a*a/aa
-a a aparaiavaaataea agaeataNaoamabaraeaMaeasa(amaeasa:a anauamabaeara)a:a asataraianaga a{aa
-a a a a acaoanasata amaeasaeasa a=a a[aa
-a a a a a a a'aEanaearaoa'a,a a'aFaeabaraearaoa'a,a a'aMaaarazaoa'a,a a'aAabaraiala'a,a a'aMaaayaoa'a,a a'aJauanaiaoa'a,aa
-a a a a a a a'aJaualaiaoa'a,a a'aAagaoasataoa'a,a a'aSaeapataiaeamabaraea'a,a a'aOacatauabaraea'a,a a'aNaoavaiaeamabaraea'a,a a'aDaiacaiaeamabaraea'aa
-a a a a a]a;aa
-a a a a araeatauarana amaeasaeasa[amaeasa a-a a1a]a a|a|a a'aDaeasacaoanaoacaiadaoa'a;aa
-a a a}aa
-a}aa
-a
+/**
+ * Servicio de Planillas para Administradores
+ * Lógica de negocio para gestión completa de planillas
+ */
+
+import prisma from '../utils/database';
+import { ValidationError, NotFoundError } from '../utils/app-error';
+
+export interface FiltrosPlanillas {
+  anio?: number;
+  mes?: number;
+  estado?: string;
+  docenteId?: string;
+  page?: number;
+  limit?: number;
+}
+
+export interface GenerarPlanillaDto {
+  docenteId: string;
+  mes: number;
+  anio: number;
+  createdBy: string;
+}
+
+export class AdminPlanillaService {
+  /**
+   * Obtener todas las planillas con filtros y paginación
+   */
+  async obtenerTodasPlanillas(filters: FiltrosPlanillas) {
+    try {
+      const page = filters.page || 1;
+      const limit = filters.limit || 20;
+      const skip = (page - 1) * limit;
+
+      const whereConditions: any = {};
+
+      if (filters.anio) {
+        whereConditions.anio = filters.anio;
+      }
+
+      if (filters.mes) {
+        whereConditions.mes = filters.mes;
+      }
+
+      if (filters.estado && filters.estado !== 'TODOS') {
+        whereConditions.estado = filters.estado;
+      }
+
+      if (filters.docenteId) {
+        whereConditions.usuario_id = filters.docenteId;
+      }
+
+      const [planillas, total] = await Promise.all([
+        prisma.planillas.findMany({
+          where: whereConditions,
+          include: {
+            usuarios_planillas_usuario_idTousuarios: {
+              select: {
+                id: true,
+                nombres: true,
+                apellidos: true,
+                dni: true,
+                email: true,
+                docentes: {
+                  select: {
+                    areas: {
+                      select: {
+                        nombre: true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          orderBy: [
+            { anio: 'desc' },
+            { mes: 'desc' },
+            { created_at: 'desc' }
+          ],
+          skip,
+          take: limit
+        }),
+        prisma.planillas.count({ where: whereConditions })
+      ]);
+
+      const planillasFormateadas = planillas.map(planilla => ({
+        id: planilla.id,
+        mes: planilla.mes,
+        anio: planilla.anio,
+        periodo: `${this.getNombreMes(planilla.mes)} ${planilla.anio}`,
+        estado: planilla.estado,
+        horasRegulares: Number(planilla.horas_regulares),
+        horasExtras: Number(planilla.horas_extras),
+        totalHoras: Number(planilla.horas_regulares) + Number(planilla.horas_extras),
+        montoBase: Number(planilla.monto_base),
+        bonificaciones: Number(planilla.bonificaciones),
+        descuentos: Number(planilla.descuentos),
+        totalNeto: Number(planilla.total_neto),
+        fechaEmision: planilla.fecha_emision?.toISOString() || null,
+        fechaPago: planilla.fecha_pago?.toISOString() || null,
+        observaciones: planilla.observaciones,
+        docente: {
+          id: planilla.usuarios_planillas_usuario_idTousuarios.id,
+          nombres: planilla.usuarios_planillas_usuario_idTousuarios.nombres,
+          apellidos: planilla.usuarios_planillas_usuario_idTousuarios.apellidos,
+          nombreCompleto: `${planilla.usuarios_planillas_usuario_idTousuarios.nombres} ${planilla.usuarios_planillas_usuario_idTousuarios.apellidos}`,
+          dni: planilla.usuarios_planillas_usuario_idTousuarios.dni,
+          email: planilla.usuarios_planillas_usuario_idTousuarios.email,
+          area: planilla.usuarios_planillas_usuario_idTousuarios.docentes?.[0]?.areas?.nombre || 'N/A'
+        },
+        createdAt: planilla.created_at?.toISOString(),
+        updatedAt: planilla.updated_at?.toISOString()
+      }));
+
+      return {
+        planillas: planillasFormateadas,
+        pagination: {
+          page,
+          limit,
+          total,
+          totalPages: Math.ceil(total / limit)
+        }
+      };
+    } catch (error) {
+      console.error('Error al obtener planillas:', error);
+      throw new ValidationError('Error al obtener planillas');
+    }
+  }
+
+  /**
+   * Obtener detalle completo de una planilla
+   */
+  async obtenerDetallePlanilla(planillaId: string) {
+    try {
+      const planilla = await prisma.planillas.findUnique({
+        where: { id: planillaId },
+        include: {
+          usuarios_planillas_usuario_idTousuarios: {
+            select: {
+              id: true,
+              nombres: true,
+              apellidos: true,
+              dni: true,
+              email: true,
+              docentes: {
+                select: {
+                  codigo_docente: true,
+                  fecha_ingreso: true,
+                  sueldo: true,
+                  estado: true,
+                  areas: {
+                    select: {
+                      nombre: true,
+                      descripcion: true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          detalle_planillas: {
+            include: {
+              asistencias: {
+                select: {
+                  fecha: true,
+                  horaEntrada: true,
+                  horaSalida: true,
+                  estado: true,
+                  tardanzaMinutos: true,
+                  horasTrabajadas: true
+                }
+              }
+            },
+            orderBy: {
+              fecha: 'asc'
+            }
+          },
+          usuarios_planillas_created_byTousuarios: {
+            select: {
+              nombres: true,
+              apellidos: true
+            }
+          },
+          usuarios_planillas_updated_byTousuarios: {
+            select: {
+              nombres: true,
+              apellidos: true
+            }
+          }
+        }
+      });
+
+      if (!planilla) {
+        throw new NotFoundError('Planilla no encontrada');
+      }
+
+      const docente = planilla.usuarios_planillas_usuario_idTousuarios.docentes?.[0];
+
+      return {
+        id: planilla.id,
+        mes: planilla.mes,
+        anio: planilla.anio,
+        periodo: `${this.getNombreMes(planilla.mes)} ${planilla.anio}`,
+        estado: planilla.estado,
+        docente: {
+          id: planilla.usuarios_planillas_usuario_idTousuarios.id,
+          nombres: planilla.usuarios_planillas_usuario_idTousuarios.nombres,
+          apellidos: planilla.usuarios_planillas_usuario_idTousuarios.apellidos,
+          nombreCompleto: `${planilla.usuarios_planillas_usuario_idTousuarios.nombres} ${planilla.usuarios_planillas_usuario_idTousuarios.apellidos}`,
+          dni: planilla.usuarios_planillas_usuario_idTousuarios.dni,
+          email: planilla.usuarios_planillas_usuario_idTousuarios.email,
+          codigoDocente: docente?.codigo_docente || 'N/A',
+          fechaIngreso: docente?.fecha_ingreso || null,
+          sueldo: docente?.sueldo ? Number(docente.sueldo) : 0,
+          estado: docente?.estado || 'N/A',
+          area: docente?.areas?.nombre || 'N/A'
+        },
+        horas: {
+          regulares: Number(planilla.horas_regulares),
+          extras: Number(planilla.horas_extras),
+          total: Number(planilla.horas_regulares) + Number(planilla.horas_extras)
+        },
+        montos: {
+          base: Number(planilla.monto_base),
+          bonificaciones: Number(planilla.bonificaciones),
+          descuentos: Number(planilla.descuentos),
+          totalNeto: Number(planilla.total_neto)
+        },
+        detalle: planilla.detalle_planillas.map((detalle: any) => ({
+          fecha: detalle.fecha.toISOString().split('T')[0],
+          horasTrabajadas: Number(detalle.horas_trabajadas),
+          horasExtras: Number(detalle.horas_extras),
+          tardanzaMinutos: detalle.asistencias?.tardanzaMinutos || 0,
+          observaciones: detalle.observaciones,
+          asistencia: detalle.asistencias ? {
+            horaEntrada: detalle.asistencias.horaEntrada?.toISOString(),
+            horaSalida: detalle.asistencias.horaSalida?.toISOString(),
+            estado: detalle.asistencias.estado
+          } : null
+        })),
+        fechaEmision: planilla.fecha_emision?.toISOString() || null,
+        fechaPago: planilla.fecha_pago?.toISOString() || null,
+        observaciones: planilla.observaciones,
+        auditoria: {
+          creadoPor: planilla.usuarios_planillas_created_byTousuarios ? 
+            `${planilla.usuarios_planillas_created_byTousuarios.nombres} ${planilla.usuarios_planillas_created_byTousuarios.apellidos}` : 
+            'Sistema',
+          actualizadoPor: planilla.usuarios_planillas_updated_byTousuarios ? 
+            `${planilla.usuarios_planillas_updated_byTousuarios.nombres} ${planilla.usuarios_planillas_updated_byTousuarios.apellidos}` : 
+            null,
+          createdAt: planilla.created_at?.toISOString(),
+          updatedAt: planilla.updated_at?.toISOString()
+        }
+      };
+    } catch (error) {
+      if (error instanceof NotFoundError) throw error;
+      console.error('Error al obtener detalle de planilla:', error);
+      throw new ValidationError('Error al obtener detalle de planilla');
+    }
+  }
+
+  /**
+   * Generar planilla para un docente en un período
+   */
+  async generarPlanilla(data: GenerarPlanillaDto) {
+    try {
+      // Verificar si ya existe planilla para ese período
+      const existente = await prisma.planillas.findFirst({
+        where: {
+          usuario_id: data.docenteId,
+          mes: data.mes,
+          anio: data.anio
+        }
+      });
+
+      if (existente) {
+        throw new ValidationError('Ya existe una planilla para este período');
+      }
+
+      // Verificar que el usuario sea docente
+      const docente = await prisma.docentes.findFirst({
+        where: { usuario_id: data.docenteId }
+      });
+
+      if (!docente) {
+        throw new ValidationError('El usuario no es un docente');
+      }
+
+      // Calcular fechas del período
+      const fechaInicio = new Date(data.anio, data.mes - 1, 1);
+      const fechaFin = new Date(data.anio, data.mes, 0, 23, 59, 59);
+
+      // Obtener asistencias del período
+      const asistencias = await prisma.asistencias.findMany({
+        where: {
+          docenteId: data.docenteId,
+          fecha: {
+            gte: fechaInicio,
+            lte: fechaFin
+          }
+        }
+      });
+
+      // Calcular totales
+      let horasRegulares = 0;
+      let horasExtras = 0;
+      let tardanzasTotales = 0;
+
+      asistencias.forEach(asistencia => {
+        const horas = Number(asistencia.horasTrabajadas || 0);
+        const horasNormales = Math.min(horas, 8); // Máximo 8 horas regulares
+        const extras = Math.max(horas - 8, 0);
+
+        horasRegulares += horasNormales;
+        horasExtras += extras;
+        tardanzasTotales += asistencia.tardanzaMinutos || 0;
+      });
+
+      // Calcular montos (valores de ejemplo, ajustar según lógica de negocio)
+      const tarifaHora = 25; // S/ por hora (debe venir de contrato del docente)
+      const montoBase = horasRegulares * tarifaHora;
+      const montoExtras = horasExtras * tarifaHora * 1.5;
+      const descuentoTardanzas = (tardanzasTotales / 60) * tarifaHora * 0.5;
+
+      const totalNeto = montoBase + montoExtras - descuentoTardanzas;
+
+      // Crear planilla
+      const planilla = await prisma.planillas.create({
+        data: {
+          usuario_id: data.docenteId,
+          mes: data.mes,
+          anio: data.anio,
+          estado: 'PENDIENTE',
+          horas_regulares: horasRegulares,
+          horas_extras: horasExtras,
+          monto_base: montoBase,
+          bonificaciones: montoExtras,
+          descuentos: descuentoTardanzas,
+          total_neto: totalNeto,
+          fecha_emision: new Date(),
+          created_by: data.createdBy
+        },
+        include: {
+          usuarios_planillas_usuario_idTousuarios: {
+            select: {
+              nombres: true,
+              apellidos: true,
+              dni: true
+            }
+          }
+        }
+      });
+
+      // Crear detalles de planilla por cada día con asistencia
+      const detallesData = asistencias.map(asistencia => ({
+        planilla_id: planilla.id,
+        asistencia_id: asistencia.id,
+        fecha: asistencia.fecha,
+        horas_trabajadas: Number(asistencia.horasTrabajadas || 0),
+        horas_extras: Math.max(Number(asistencia.horasTrabajadas || 0) - 8, 0),
+        tardanza_minutos: asistencia.tardanzaMinutos || 0,
+        observaciones: asistencia.observaciones
+      }));
+
+      if (detallesData.length > 0) {
+        await prisma.detalle_planillas.createMany({
+          data: detallesData
+        });
+      }
+
+      return {
+        id: planilla.id,
+        mes: planilla.mes,
+        anio: planilla.anio,
+        periodo: `${this.getNombreMes(planilla.mes)} ${planilla.anio}`,
+        estado: planilla.estado,
+        totalNeto: Number(planilla.total_neto),
+        docente: {
+          nombres: planilla.usuarios_planillas_usuario_idTousuarios.nombres,
+          apellidos: planilla.usuarios_planillas_usuario_idTousuarios.apellidos,
+          dni: planilla.usuarios_planillas_usuario_idTousuarios.dni
+        }
+      };
+    } catch (error) {
+      if (error instanceof ValidationError) throw error;
+      console.error('Error al generar planilla:', error);
+      throw new ValidationError('Error al generar planilla');
+    }
+  }
+
+  /**
+   * Actualizar estado de planilla
+   */
+  async actualizarEstado(planillaId: string, estado: string, adminId: string, observaciones?: string) {
+    try {
+      const estadosValidos = ['PENDIENTE', 'EN_PROCESO', 'PAGADO', 'ANULADO'];
+      if (!estadosValidos.includes(estado)) {
+        throw new ValidationError('Estado inválido');
+      }
+
+      const updateData: any = {
+        estado,
+        updated_by: adminId,
+        updated_at: new Date()
+      };
+
+      if (observaciones) {
+        updateData.observaciones = observaciones;
+      }
+
+      if (estado === 'PAGADO') {
+        updateData.fecha_pago = new Date();
+      }
+
+      const planilla = await prisma.planillas.update({
+        where: { id: planillaId },
+        data: updateData
+      });
+
+      return {
+        id: planilla.id,
+        estado: planilla.estado,
+        fechaPago: planilla.fecha_pago?.toISOString()
+      };
+    } catch (error) {
+      console.error('Error al actualizar estado:', error);
+      throw new ValidationError('Error al actualizar estado de planilla');
+    }
+  }
+
+  /**
+   * Actualizar datos de planilla
+   */
+  async actualizarPlanilla(planillaId: string, data: any, adminId: string) {
+    try {
+      const updateData: any = {
+        updated_by: adminId,
+        updated_at: new Date()
+      };
+
+      if (data.montoBase !== undefined) updateData.monto_base = data.montoBase;
+      if (data.bonificaciones !== undefined) updateData.bonificaciones = data.bonificaciones;
+      if (data.descuentos !== undefined) updateData.descuentos = data.descuentos;
+      if (data.observaciones !== undefined) updateData.observaciones = data.observaciones;
+
+      // Recalcular total neto
+      if (data.montoBase !== undefined || data.bonificaciones !== undefined || data.descuentos !== undefined) {
+        const planillaActual = await prisma.planillas.findUnique({
+          where: { id: planillaId }
+        });
+
+        if (planillaActual) {
+          const base = data.montoBase !== undefined ? data.montoBase : Number(planillaActual.monto_base);
+          const bonif = data.bonificaciones !== undefined ? data.bonificaciones : Number(planillaActual.bonificaciones);
+          const desc = data.descuentos !== undefined ? data.descuentos : Number(planillaActual.descuentos);
+          
+          updateData.total_neto = base + bonif - desc;
+        }
+      }
+
+      const planilla = await prisma.planillas.update({
+        where: { id: planillaId },
+        data: updateData
+      });
+
+      return {
+        id: planilla.id,
+        totalNeto: Number(planilla.total_neto)
+      };
+    } catch (error) {
+      console.error('Error al actualizar planilla:', error);
+      throw new ValidationError('Error al actualizar planilla');
+    }
+  }
+
+  /**
+   * Eliminar/anular planilla
+   */
+  async eliminarPlanilla(planillaId: string, adminId: string) {
+    try {
+      // Marcar como anulada en lugar de eliminar físicamente
+      await prisma.planillas.update({
+        where: { id: planillaId },
+        data: {
+          estado: 'ANULADO',
+          updated_by: adminId,
+          updated_at: new Date()
+        }
+      });
+
+      return true;
+    } catch (error) {
+      console.error('Error al anular planilla:', error);
+      throw new ValidationError('Error al anular planilla');
+    }
+  }
+
+  /**
+   * Obtener estadísticas generales
+   */
+  async obtenerEstadisticasGenerales(filtros: { anio?: number; mes?: number }) {
+    try {
+      const whereConditions: any = {};
+      
+      if (filtros.anio) whereConditions.anio = filtros.anio;
+      if (filtros.mes) whereConditions.mes = filtros.mes;
+
+      const [total, pendientes, enProceso, pagadas, anuladas, sumaTotales] = await Promise.all([
+        prisma.planillas.count({ where: whereConditions }),
+        prisma.planillas.count({ where: { ...whereConditions, estado: 'PENDIENTE' } }),
+        prisma.planillas.count({ where: { ...whereConditions, estado: 'EN_PROCESO' } }),
+        prisma.planillas.count({ where: { ...whereConditions, estado: 'PAGADO' } }),
+        prisma.planillas.count({ where: { ...whereConditions, estado: 'ANULADO' } }),
+        prisma.planillas.aggregate({
+          where: { ...whereConditions, estado: { not: 'ANULADO' } },
+          _sum: {
+            total_neto: true,
+            horas_regulares: true,
+            horas_extras: true
+          }
+        })
+      ]);
+
+      return {
+        total,
+        porEstado: {
+          pendientes,
+          enProceso,
+          pagadas,
+          anuladas
+        },
+        totales: {
+          montoTotal: Number(sumaTotales._sum.total_neto || 0),
+          horasRegulares: Number(sumaTotales._sum.horas_regulares || 0),
+          horasExtras: Number(sumaTotales._sum.horas_extras || 0)
+        }
+      };
+    } catch (error) {
+      console.error('Error al obtener estadísticas:', error);
+      throw new ValidationError('Error al obtener estadísticas');
+    }
+  }
+
+  /**
+   * Obtener lista de docentes con planillas
+   */
+  async obtenerDocentesConPlanillas() {
+    try {
+      const docentes = await prisma.usuarios.findMany({
+        where: {
+          docentes: {
+            some: {}
+          }
+        },
+        select: {
+          id: true,
+          nombres: true,
+          apellidos: true,
+          dni: true,
+          email: true,
+          docentes: {
+            select: {
+              codigo_docente: true,
+              areas: {
+                select: {
+                  nombre: true
+                }
+              }
+            }
+          },
+          _count: {
+            select: {
+              planillas_planillas_usuario_idTousuarios: true
+            }
+          }
+        },
+        orderBy: {
+          apellidos: 'asc'
+        }
+      });
+
+      return docentes.map(doc => ({
+        id: doc.id,
+        nombreCompleto: `${doc.nombres} ${doc.apellidos}`,
+        dni: doc.dni,
+        email: doc.email,
+        codigoDocente: doc.docentes[0]?.codigo_docente || 'N/A',
+        area: doc.docentes[0]?.areas?.nombre || 'N/A',
+        totalPlanillas: doc._count.planillas_planillas_usuario_idTousuarios
+      }));
+    } catch (error) {
+      console.error('Error al obtener docentes:', error);
+      throw new ValidationError('Error al obtener docentes');
+    }
+  }
+
+  /**
+   * Generar planillas masivas
+   */
+  async generarPlanillasMasivo(data: { mes: number; anio: number; docenteIds: string[]; createdBy: string }) {
+    try {
+      const resultados = {
+        exitosos: [] as any[],
+        errores: [] as any[]
+      };
+
+      for (const docenteId of data.docenteIds) {
+        try {
+          const planilla = await this.generarPlanilla({
+            docenteId,
+            mes: data.mes,
+            anio: data.anio,
+            createdBy: data.createdBy
+          });
+          resultados.exitosos.push(planilla);
+        } catch (error: any) {
+          resultados.errores.push({
+            docenteId,
+            error: error.message
+          });
+        }
+      }
+
+      return resultados;
+    } catch (error) {
+      console.error('Error en generación masiva:', error);
+      throw new ValidationError('Error al generar planillas masivas');
+    }
+  }
+
+  /**
+   * Utilidad: Obtener nombre del mes
+   */
+  private getNombreMes(mes: number): string {
+    const meses = [
+      'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+      'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+    ];
+    return meses[mes - 1] || 'Desconocido';
+  }
+}

@@ -1,250 +1,249 @@
-a/a*a*aa
-a a*a aðaŸaŽa¯a aCaOaNaTaRaOaLaLaEaRa:a aJaUaSaTaIaFaIaCaAaCaIaOaNaEaSa aDaOaCaEaNaTaEaa
-a a*a aa
-a a*a aEanadapaoaianatasa apaaaraaa aaauataoa-agaeasataiaÃa³ana adaea ajauasataiafaiacaaacaiaoanaeasa apaoara aeala adaoacaeanataeaa
-a a*a aa
-a a*a aRauataaasa:aa
-a a*a a-a aPaOaSaTa a a a/aaapaia/adaoacaeanataea/ajauasataiafaiacaaacaiaoanaeasa a a a a a a a a a a a a a a-a aCaraeaaara ajauasataiafaiacaaacaiaÃa³anaa
-a a*a a-a aGaEaTa a a a a/aaapaia/adaoacaeanataea/ajauasataiafaiacaaacaiaoanaeasa a a a a a a a a a a a a a a-a aLaiasataaara amaiasa ajauasataiafaiacaaacaiaoanaeasaa
-a a*a a-a aGaEaTa a a a a/aaapaia/adaoacaeanataea/ajauasataiafaiacaaacaiaoanaeasa/a:aiada a a a a a a a a a a-a aOabataeanaeara auanaaa ajauasataiafaiacaaacaiaÃa³anaa
-a a*a a-a aPaUaTa a a a a/aaapaia/adaoacaeanataea/ajauasataiafaiacaaacaiaoanaeasa/a:aiada a a a a a a a a a a-a aAacatauaaalaiazaaara ajauasataiafaiacaaacaiaÃa³ana a(asaoalaoa aPaEaNaDaIaEaNaTaEa)aa
-a a*a a-a aDaEaLaEaTaEa a/aaapaia/adaoacaeanataea/ajauasataiafaiacaaacaiaoanaeasa/a:aiada a a a a a a a a a a-a aEalaiamaianaaara ajauasataiafaiacaaacaiaÃa³ana a(asaoalaoa aPaEaNaDaIaEaNaTaEa)aa
-a a*a a-a aGaEaTa a a a a/aaapaia/adaoacaeanataea/ajauasataiafaiacaaacaiaoanaeasa/aeasataaadaiasataiacaaasa a-a aEasataaadaÃa­asataiacaaasa adaea ajauasataiafaiacaaacaiaoanaeasaa
-a a*a aa
-a a*a a@amaoadaualaea aDaoacaeanataeaJauasataiafaiacaaacaiaoanaCaoanataraoalalaearaa
-a a*a/aa
-aa
-aiamapaoarata a{a aRaeasapaoanasaea a}a afaraoama a'aeaxaparaeasasa'a;aa
-aiamapaoarata a{a aaasayanacaHaaanadalaeara a}a afaraoama a'a.a.a/a.a.a/a.a.a/asahaaaraeada/amaiadadalaeawaaaraea/aeararaoara-ahaaanadalaeara'a;aa
-aiamapaoarata a{a aRaeasapaoanasaeaFaoaramaaatataeara a}a afaraoama a'a.a.a/a.a.a/a.a.a/asahaaaraeada/auataialasa/araeasapaoanasaea-afaoaramaaatataeara'a;aa
-aiamapaoarata ajauasataiafaiacaaacaiaoanaSaearavaiacaea afaraoama a'a.a.a/asaearavaiacaeasa/ajauasataiafaiacaaacaiaoana.asaearavaiacaea'a;aa
-aiamapaoarata a{a aAauatahaRaeaqauaeasata a}a afaraoama a'a.a.a/a.a.a/a.a.a/asahaaaraeada/atayapaeasa/aaauataha.atayapaeasa'a;aa
-aiamapaoarata a{a aa
-a a aCaraeaaaraJauasataiafaiacaaacaiaoanaDaTaOa,a aa
-a a aAacatauaaalaiazaaaraJauasataiafaiacaaacaiaoanaDaTaOa,a aa
-a a aFaialataraoasaJauasataiafaiacaaacaiaoanaDaTaOa aa
-a}a afaraoama a'a.a.a/adataoasa/ajauasataiafaiacaaacaiaoana.adataoa'a;aa
-aa
-a/a*a*aa
-a a*a aPaOaSaTa a/aaapaia/adaoacaeanataea/ajauasataiafaiacaaacaiaoanaeasaa
-a a*a aCaraeaaara auanaaa anauaeavaaa ajauasataiafaiacaaacaiaÃa³anaa
-a a*a aa
-a a*a aBaoadaya:a aCaraeaaaraJauasataiafaiacaaacaiaoanaDaTaOaa
-a a*a aRaeatauaranasa:a aJauasataiafaiacaaacaiaÃa³ana acaraeaaadaaaa
-a a*a/aa
-aeaxapaoarata acaoanasata acaraeaaaraJauasataiafaiacaaacaiaoana a=a aaasayanacaHaaanadalaeara(aa
-a a aaasayanaca a(araeaqa:a aAauatahaRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a a=a>a a{aa
-a a a a acaoanasata adaoacaeanataeaIada a=a araeaqa.auasauaaaraiaoa?a.adaoacaeanataeaIada;aa
-a a a a acaoanasata adataoa a=a araeaqa.abaoadaya aaasa aCaraeaaaraJauasataiafaiacaaacaiaoanaDaTaOa;aa
-aa
-a a a a aiafa a(a!adaoacaeanataeaIada)a a{aa
-a a a a a a araeatauarana araeasa.asataaatauasa(a4a0a3a)a.ajasaoana(aa
-a a a a a a a a aRaeasapaoanasaeaFaoaramaaatataeara.aeararaoara(a'aFaOaRaBaIaDaDaEaNa'a,a a'aUasauaaaraiaoa anaoa aiadaeanataiafaiacaaadaoa acaoamaoa adaoacaeanataea'a)aa
-a a a a a a a)a;aa
-a a a a a}aa
-aa
-a a a a a/a/a aCaoanasatarauaiara aianapauata asaoalaoa acaoana aparaoapaiaeadaaadaeasa adaeafaianaiadaaasaa
-a a a a acaoanasata aianapauata:a aaanaya a=a a{aa
-a a a a a a afaeacahaaaIanaiacaiaoa:a adataoa.afaeacahaaaIanaiacaiaoa,aa
-a a a a a a afaeacahaaaFaiana:a adataoa.afaeacahaaaFaiana,aa
-a a a a a a ataiapaoa:a adataoa.ataiapaoa,aa
-a a a a a a amaoataiavaoa:a adataoa.amaoataiavaoa,aa
-a a a a a a aaafaeacataaaPaaagaoa:a adataoa.aaafaeacataaaPaaagaoa a?a?a afaaalasaeaa
-a a a a a}a;aa
-a a a a aa
-a a a a a/a/a aSaoalaoa aaagaraeagaaara aoapacaiaoanaaalaeasa asaia aeasataÃa¡ana aparaeasaeanataeasaa
-a a a a aiafa a(adataoa.aaasaiasataeanacaiaaaIada)a a{aa
-a a a a a a aianapauata.aaasaiasataeanacaiaaaIada a=a adataoa.aaasaiasataeanacaiaaaIada;aa
-a a a a a}aa
-a a a a aiafa a(adataoa.aeavaiadaeanacaiaaaUarala)a a{aa
-a a a a a a aianapauata.aeavaiadaeanacaiaaaUarala a=a adataoa.aeavaiadaeanacaiaaaUarala;aa
-a a a a a}aa
-aa
-a a a a acaoanasata ajauasataiafaiacaaacaiaoana a=a aaawaaaiata ajauasataiafaiacaaacaiaoanaSaearavaiacaea.acaraeaaaraJauasataiafaiacaaacaiaoana(adaoacaeanataeaIada,a aianapauata)a;aa
-aa
-a a a a araeatauarana araeasa.asataaatauasa(a2a0a1a)a.ajasaoana(aa
-a a a a a a aRaeasapaoanasaeaFaoaramaaatataeara.asauacacaeasasa(aa
-a a a a a a a a ajauasataiafaiacaaacaiaoana,aa
-a a a a a a a a a'aJauasataiafaiacaaacaiaÃa³ana acaraeaaadaaa aeaxaiataoasaaamaeanataea.a aSaearaÃa¡a araeavaiasaaadaaa apaoara auana aaadamaianaiasataraaadaoara.a'aa
-a a a a a a a)aa
-a a a a a)a;aa
-a a a}aa
-a)a;aa
-aa
-a/a*a*aa
-a a*a aGaEaTa a/aaapaia/adaoacaeanataea/ajauasataiafaiacaaacaiaoanaeasaa
-a a*a aLaiasataaara amaiasa ajauasataiafaiacaaacaiaoanaeasa acaoana afaialataraoasa aoapacaiaoanaaalaeasaa
-a a*a aa
-a a*a aQauaearaya apaaaraaamasa:a aFaialataraoasaJauasataiafaiacaaacaiaoanaDaTaOaa
-a a*a aRaeatauaranasa:a aLaiasataaa apaaagaianaaadaaa adaea ajauasataiafaiacaaacaiaoanaeasaa
-a a*a/aa
-aeaxapaoarata acaoanasata alaiasataaaraMaiasaJauasataiafaiacaaacaiaoanaeasa a=a aaasayanacaHaaanadalaeara(aa
-a a aaasayanaca a(araeaqa:a aAauatahaRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a a=a>a a{aa
-a a a a acaoanasata adaoacaeanataeaIada a=a araeaqa.auasauaaaraiaoa?a.adaoacaeanataeaIada;aa
-aa
-a a a a aiafa a(a!adaoacaeanataeaIada)a a{aa
-a a a a a a araeatauarana araeasa.asataaatauasa(a4a0a3a)a.ajasaoana(aa
-a a a a a a a a aRaeasapaoanasaeaFaoaramaaatataeara.aeararaoara(a'aFaOaRaBaIaDaDaEaNa'a,a a'aUasauaaaraiaoa anaoa aiadaeanataiafaiacaaadaoa acaoamaoa adaoacaeanataea'a)aa
-a a a a a a a)a;aa
-a a a a a}aa
-aa
-a a a a acaoanasata afaialataraoasa:a aFaialataraoasaJauasataiafaiacaaacaiaoanaDaTaOa a=a a{aa
-a a a a a a aeasataaadaoa:a araeaqa.aqauaearaya.aeasataaadaoa aaasa aaanaya,aa
-a a a a a a ataiapaoa:a araeaqa.aqauaearaya.ataiapaoa aaasa aaanaya,aa
-a a a a a a afaeacahaaaDaeasadaea:a araeaqa.aqauaearaya.afaeacahaaaDaeasadaea aaasa asataraianaga,aa
-a a a a a a afaeacahaaaHaaasataaa:a araeaqa.aqauaearaya.afaeacahaaaHaaasataaa aaasa asataraianaga,aa
-a a a a a a apaaagaea:a araeaqa.aqauaearaya.apaaagaea a?a apaaarasaeaIanata(araeaqa.aqauaearaya.apaaagaea aaasa asataraianaga)a a:a a1a,aa
-a a a a a a alaiamaiata:a araeaqa.aqauaearaya.alaiamaiata a?a apaaarasaeaIanata(araeaqa.aqauaearaya.alaiamaiata aaasa asataraianaga)a a:a a5a0aa
-a a a a a}a;aa
-aa
-a a a a acaoanasata araeasaualataaadaoa a=a aaawaaaiata ajauasataiafaiacaaacaiaoanaSaearavaiacaea.aoabataeanaearaMaiasaJauasataiafaiacaaacaiaoanaeasa(adaoacaeanataeaIada,a afaialataraoasa)a;aa
-aa
-a a a a araeatauarana araeasa.ajasaoana(aa
-a a a a a a aRaeasapaoanasaeaFaoaramaaatataeara.asauacacaeasasa(aa
-a a a a a a a a araeasaualataaadaoa,aa
-a a a a a a a a a'aJauasataiafaiacaaacaiaoanaeasa aoabataeanaiadaaasa aeaxaiataoasaaamaeanataea'aa
-a a a a a a a)aa
-a a a a a)a;aa
-a a a}aa
-a)a;aa
-aa
-a/a*a*aa
-a a*a aGaEaTa a/aaapaia/adaoacaeanataea/ajauasataiafaiacaaacaiaoanaeasa/a:aiadaa
-a a*a aOabataeanaeara adaeataaalalaea adaea auanaaa ajauasataiafaiacaaacaiaÃa³anaa
-a a*a aa
-a a*a aPaaaraaamasa:a aiada a(aUaUaIaDa)aa
-a a*a aRaeatauaranasa:a aJauasataiafaiacaaacaiaÃa³ana acaoamapalaeataaaa
-a a*a/aa
-aeaxapaoarata acaoanasata aoabataeanaearaJauasataiafaiacaaacaiaoana a=a aaasayanacaHaaanadalaeara(aa
-a a aaasayanaca a(araeaqa:a aAauatahaRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a a=a>a a{aa
-a a a a acaoanasata adaoacaeanataeaIada a=a araeaqa.auasauaaaraiaoa?a.adaoacaeanataeaIada;aa
-a a a a acaoanasata a{a aiada a}a a=a araeaqa.apaaaraaamasa;aa
-aa
-a a a a aiafa a(a!adaoacaeanataeaIada)a a{aa
-a a a a a a araeatauarana araeasa.asataaatauasa(a4a0a3a)a.ajasaoana(aa
-a a a a a a a a aRaeasapaoanasaeaFaoaramaaatataeara.aeararaoara(a'aFaOaRaBaIaDaDaEaNa'a,a a'aUasauaaaraiaoa anaoa aiadaeanataiafaiacaaadaoa acaoamaoa adaoacaeanataea'a)aa
-a a a a a a a)a;aa
-a a a a a}aa
-aa
-a a a a aiafa a(a!aiada)a a{aa
-a a a a a a araeatauarana araeasa.asataaatauasa(a4a0a0a)a.ajasaoana(aa
-a a a a a a a a aRaeasapaoanasaeaFaoaramaaatataeara.aeararaoara(a'aBaAaDa_aRaEaQaUaEaSaTa'a,a a'aIaDa adaea ajauasataiafaiacaaacaiaÃa³ana araeaqauaearaiadaoa'a)aa
-a a a a a a a)a;aa
-a a a a a}aa
-aa
-a a a a acaoanasata ajauasataiafaiacaaacaiaoana a=a aaawaaaiata ajauasataiafaiacaaacaiaoanaSaearavaiacaea.aoabataeanaearaJauasataiafaiacaaacaiaoanaPaoaraIada(aiada,a adaoacaeanataeaIada)a;aa
-aa
-a a a a araeatauarana araeasa.ajasaoana(aa
-a a a a a a aRaeasapaoanasaeaFaoaramaaatataeara.asauacacaeasasa(aa
-a a a a a a a a ajauasataiafaiacaaacaiaoana,aa
-a a a a a a a a a'aJauasataiafaiacaaacaiaÃa³ana aoabataeanaiadaaa aeaxaiataoasaaamaeanataea'aa
-a a a a a a a)aa
-a a a a a)a;aa
-a a a}aa
-a)a;aa
-aa
-a/a*a*aa
-a a*a aPaUaTa a/aaapaia/adaoacaeanataea/ajauasataiafaiacaaacaiaoanaeasa/a:aiadaa
-a a*a aAacatauaaalaiazaaara auanaaa ajauasataiafaiacaaacaiaÃa³ana a(asaoalaoa asaia aeasataÃa¡a aPaEaNaDaIaEaNaTaEa)aa
-a a*a aa
-a a*a aPaaaraaamasa:a aiada a(aUaUaIaDa)aa
-a a*a aBaoadaya:a aAacatauaaalaiazaaaraJauasataiafaiacaaacaiaoanaDaTaOaa
-a a*a aRaeatauaranasa:a aJauasataiafaiacaaacaiaÃa³ana aaacatauaaalaiazaaadaaaa
-a a*a/aa
-aeaxapaoarata acaoanasata aaacatauaaalaiazaaaraJauasataiafaiacaaacaiaoana a=a aaasayanacaHaaanadalaeara(aa
-a a aaasayanaca a(araeaqa:a aAauatahaRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a a=a>a a{aa
-a a a a acaoanasata adaoacaeanataeaIada a=a araeaqa.auasauaaaraiaoa?a.adaoacaeanataeaIada;aa
-a a a a acaoanasata a{a aiada a}a a=a araeaqa.apaaaraaamasa;aa
-a a a a acaoanasata adataoa a=a araeaqa.abaoadaya aaasa aAacatauaaalaiazaaaraJauasataiafaiacaaacaiaoanaDaTaOa;aa
-aa
-a a a a aiafa a(a!adaoacaeanataeaIada)a a{aa
-a a a a a a araeatauarana araeasa.asataaatauasa(a4a0a3a)a.ajasaoana(aa
-a a a a a a a a aRaeasapaoanasaeaFaoaramaaatataeara.aeararaoara(a'aFaOaRaBaIaDaDaEaNa'a,a a'aUasauaaaraiaoa anaoa aiadaeanataiafaiacaaadaoa acaoamaoa adaoacaeanataea'a)aa
-a a a a a a a)a;aa
-a a a a a}aa
-aa
-a a a a aiafa a(a!aiada)a a{aa
-a a a a a a araeatauarana araeasa.asataaatauasa(a4a0a0a)a.ajasaoana(aa
-a a a a a a a a aRaeasapaoanasaeaFaoaramaaatataeara.aeararaoara(a'aBaAaDa_aRaEaQaUaEaSaTa'a,a a'aIaDa adaea ajauasataiafaiacaaacaiaÃa³ana araeaqauaearaiadaoa'a)aa
-a a a a a a a)a;aa
-a a a a a}aa
-aa
-a a a a a/a/a aCaoanasatarauaiara aianapauata asaoalaoa acaoana aparaoapaiaeadaaadaeasa adaeafaianaiadaaasaa
-a a a a acaoanasata aianapauata:a aaanaya a=a a{a}a;aa
-a a a a aiafa a(adataoa.ataiapaoa)a aianapauata.ataiapaoa a=a adataoa.ataiapaoa;aa
-a a a a aiafa a(adataoa.amaoataiavaoa)a aianapauata.amaoataiavaoa a=a adataoa.amaoataiavaoa;aa
-a a a a aiafa a(adataoa.aeavaiadaeanacaiaaaUarala)a aianapauata.aeavaiadaeanacaiaaaUarala a=a adataoa.aeavaiadaeanacaiaaaUarala;aa
-aa
-a a a a acaoanasata ajauasataiafaiacaaacaiaoana a=a aaawaaaiata ajauasataiafaiacaaacaiaoanaSaearavaiacaea.aaacatauaaalaiazaaaraJauasataiafaiacaaacaiaoana(aiada,a adaoacaeanataeaIada,a aianapauata)a;aa
-aa
-a a a a araeatauarana araeasa.ajasaoana(aa
-a a a a a a aRaeasapaoanasaeaFaoaramaaatataeara.asauacacaeasasa(aa
-a a a a a a a a ajauasataiafaiacaaacaiaoana,aa
-a a a a a a a a a'aJauasataiafaiacaaacaiaÃa³ana aaacatauaaalaiazaaadaaa aeaxaiataoasaaamaeanataea'aa
-a a a a a a a)aa
-a a a a a)a;aa
-a a a}aa
-a)a;aa
-aa
-a/a*a*aa
-a a*a aDaEaLaEaTaEa a/aaapaia/adaoacaeanataea/ajauasataiafaiacaaacaiaoanaeasa/a:aiadaa
-a a*a aEalaiamaianaaara auanaaa ajauasataiafaiacaaacaiaÃa³ana a(asaoalaoa asaia aeasataÃa¡a aPaEaNaDaIaEaNaTaEa)aa
-a a*a aa
-a a*a aPaaaraaamasa:a aiada a(aUaUaIaDa)aa
-a a*a aRaeatauaranasa:a aCaoanafaiaramaaacaiaÃa³ana adaea aealaiamaianaaacaiaÃa³anaa
-a a*a/aa
-aeaxapaoarata acaoanasata aealaiamaianaaaraJauasataiafaiacaaacaiaoana a=a aaasayanacaHaaanadalaeara(aa
-a a aaasayanaca a(araeaqa:a aAauatahaRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a a=a>a a{aa
-a a a a acaoanasata adaoacaeanataeaIada a=a araeaqa.auasauaaaraiaoa?a.adaoacaeanataeaIada;aa
-a a a a acaoanasata a{a aiada a}a a=a araeaqa.apaaaraaamasa;aa
-aa
-a a a a aiafa a(a!adaoacaeanataeaIada)a a{aa
-a a a a a a araeatauarana araeasa.asataaatauasa(a4a0a3a)a.ajasaoana(aa
-a a a a a a a a aRaeasapaoanasaeaFaoaramaaatataeara.aeararaoara(a'aFaOaRaBaIaDaDaEaNa'a,a a'aUasauaaaraiaoa anaoa aiadaeanataiafaiacaaadaoa acaoamaoa adaoacaeanataea'a)aa
-a a a a a a a)a;aa
-a a a a a}aa
-aa
-a a a a aiafa a(a!aiada)a a{aa
-a a a a a a araeatauarana araeasa.asataaatauasa(a4a0a0a)a.ajasaoana(aa
-a a a a a a a a aRaeasapaoanasaeaFaoaramaaatataeara.aeararaoara(a'aBaAaDa_aRaEaQaUaEaSaTa'a,a a'aIaDa adaea ajauasataiafaiacaaacaiaÃa³ana araeaqauaearaiadaoa'a)aa
-a a a a a a a)a;aa
-a a a a a}aa
-aa
-a a a a acaoanasata araeasaualataaadaoa a=a aaawaaaiata ajauasataiafaiacaaacaiaoanaSaearavaiacaea.aealaiamaianaaaraJauasataiafaiacaaacaiaoana(aiada,a adaoacaeanataeaIada)a;aa
-aa
-a a a a araeatauarana araeasa.ajasaoana(aa
-a a a a a a aRaeasapaoanasaeaFaoaramaaatataeara.asauacacaeasasa(aa
-a a a a a a a a araeasaualataaadaoa,aa
-a a a a a a a a a'aJauasataiafaiacaaacaiaÃa³ana aealaiamaianaaadaaa aeaxaiataoasaaamaeanataea'aa
-a a a a a a a)aa
-a a a a a)a;aa
-a a a}aa
-a)a;aa
-aa
-a/a*a*aa
-a a*a aGaEaTa a/aaapaia/adaoacaeanataea/ajauasataiafaiacaaacaiaoanaeasa/aeasataaadaiasataiacaaasaa
-a a*a aOabataeanaeara aeasataaadaÃa­asataiacaaasa adaea amaiasa ajauasataiafaiacaaacaiaoanaeasaa
-a a*a aa
-a a*a aRaeatauaranasa:a aRaeasauamaeana a(ataoataaala,a apaeanadaiaeanataeasa,a aaaparaoabaaadaaasa,a araeacahaaazaaadaaasa,a ataaasaaa)aa
-a a*a/aa
-aeaxapaoarata acaoanasata aoabataeanaearaEasataaadaiasataiacaaasa a=a aaasayanacaHaaanadalaeara(aa
-a a aaasayanaca a(araeaqa:a aAauatahaRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a a=a>a a{aa
-a a a a acaoanasata adaoacaeanataeaIada a=a araeaqa.auasauaaaraiaoa?a.adaoacaeanataeaIada;aa
-aa
-a a a a aiafa a(a!adaoacaeanataeaIada)a a{aa
-a a a a a a araeatauarana araeasa.asataaatauasa(a4a0a3a)a.ajasaoana(aa
-a a a a a a a a aRaeasapaoanasaeaFaoaramaaatataeara.aeararaoara(a'aFaOaRaBaIaDaDaEaNa'a,a a'aUasauaaaraiaoa anaoa aiadaeanataiafaiacaaadaoa acaoamaoa adaoacaeanataea'a)aa
-a a a a a a a)a;aa
-a a a a a}aa
-aa
-a a a a acaoanasata aeasataaadaiasataiacaaasa a=a aaawaaaiata ajauasataiafaiacaaacaiaoanaSaearavaiacaea.aoabataeanaearaEasataaadaiasataiacaaasa(adaoacaeanataeaIada)a;aa
-aa
-a a a a araeatauarana araeasa.ajasaoana(aa
-a a a a a a aRaeasapaoanasaeaFaoaramaaatataeara.asauacacaeasasa(aa
-a a a a a a a a aeasataaadaiasataiacaaasa,aa
-a a a a a a a a a'aEasataaadaÃa­asataiacaaasa aoabataeanaiadaaasa aeaxaiataoasaaamaeanataea'aa
-a a a a a a a)aa
-a a a a a)a;aa
-a a a}aa
-a)a;aa
-a
+/**
+ * 🎯 CONTROLLER: JUSTIFICACIONES DOCENTE
+ * 
+ * Endpoints para auto-gestión de justificaciones por el docente
+ * 
+ * Rutas:
+ * - POST   /api/docente/justificaciones              - Crear justificación
+ * - GET    /api/docente/justificaciones              - Listar mis justificaciones
+ * - GET    /api/docente/justificaciones/:id          - Obtener una justificación
+ * - PUT    /api/docente/justificaciones/:id          - Actualizar justificación (solo PENDIENTE)
+ * - DELETE /api/docente/justificaciones/:id          - Eliminar justificación (solo PENDIENTE)
+ * - GET    /api/docente/justificaciones/estadisticas - Estadísticas de justificaciones
+ * 
+ * @module DocenteJustificacionController
+ */
+
+import { Response } from 'express';
+import { asyncHandler } from '../../../shared/middleware/error-handler';
+import { ResponseFormatter } from '../../../shared/utils/response-formatter';
+import justificacionService from '../services/justificacion.service';
+import { AuthRequest } from '../../../shared/types/auth.types';
+import { 
+  CrearJustificacionDTO, 
+  ActualizarJustificacionDTO, 
+  FiltrosJustificacionDTO 
+} from '../dtos/justificacion.dto';
+
+/**
+ * POST /api/docente/justificaciones
+ * Crear una nueva justificación
+ * 
+ * Body: CrearJustificacionDTO
+ * Returns: Justificación creada
+ */
+export const crearJustificacion = asyncHandler(
+  async (req: AuthRequest, res: Response) => {
+    const docenteId = req.usuario?.docenteId;
+    const dto = req.body as CrearJustificacionDTO;
+
+    if (!docenteId) {
+      return res.status(403).json(
+        ResponseFormatter.error('FORBIDDEN', 'Usuario no identificado como docente')
+      );
+    }
+
+    // Construir input solo con propiedades definidas
+    const input: any = {
+      fechaInicio: dto.fechaInicio,
+      fechaFin: dto.fechaFin,
+      tipo: dto.tipo,
+      motivo: dto.motivo,
+      afectaPago: dto.afectaPago ?? false
+    };
+    
+    // Solo agregar opcionales si están presentes
+    if (dto.asistenciaId) {
+      input.asistenciaId = dto.asistenciaId;
+    }
+    if (dto.evidenciaUrl) {
+      input.evidenciaUrl = dto.evidenciaUrl;
+    }
+
+    const justificacion = await justificacionService.crearJustificacion(docenteId, input);
+
+    return res.status(201).json(
+      ResponseFormatter.success(
+        justificacion,
+        'Justificación creada exitosamente. Será revisada por un administrador.'
+      )
+    );
+  }
+);
+
+/**
+ * GET /api/docente/justificaciones
+ * Listar mis justificaciones con filtros opcionales
+ * 
+ * Query params: FiltrosJustificacionDTO
+ * Returns: Lista paginada de justificaciones
+ */
+export const listarMisJustificaciones = asyncHandler(
+  async (req: AuthRequest, res: Response) => {
+    const docenteId = req.usuario?.docenteId;
+
+    if (!docenteId) {
+      return res.status(403).json(
+        ResponseFormatter.error('FORBIDDEN', 'Usuario no identificado como docente')
+      );
+    }
+
+    const filtros: FiltrosJustificacionDTO = {
+      estado: req.query.estado as any,
+      tipo: req.query.tipo as any,
+      fechaDesde: req.query.fechaDesde as string,
+      fechaHasta: req.query.fechaHasta as string,
+      page: req.query.page ? parseInt(req.query.page as string) : 1,
+      limit: req.query.limit ? parseInt(req.query.limit as string) : 50
+    };
+
+    const resultado = await justificacionService.obtenerMisJustificaciones(docenteId, filtros);
+
+    return res.json(
+      ResponseFormatter.success(
+        resultado,
+        'Justificaciones obtenidas exitosamente'
+      )
+    );
+  }
+);
+
+/**
+ * GET /api/docente/justificaciones/:id
+ * Obtener detalle de una justificación
+ * 
+ * Params: id (UUID)
+ * Returns: Justificación completa
+ */
+export const obtenerJustificacion = asyncHandler(
+  async (req: AuthRequest, res: Response) => {
+    const docenteId = req.usuario?.docenteId;
+    const { id } = req.params;
+
+    if (!docenteId) {
+      return res.status(403).json(
+        ResponseFormatter.error('FORBIDDEN', 'Usuario no identificado como docente')
+      );
+    }
+
+    if (!id) {
+      return res.status(400).json(
+        ResponseFormatter.error('BAD_REQUEST', 'ID de justificación requerido')
+      );
+    }
+
+    const justificacion = await justificacionService.obtenerJustificacionPorId(id, docenteId);
+
+    return res.json(
+      ResponseFormatter.success(
+        justificacion,
+        'Justificación obtenida exitosamente'
+      )
+    );
+  }
+);
+
+/**
+ * PUT /api/docente/justificaciones/:id
+ * Actualizar una justificación (solo si está PENDIENTE)
+ * 
+ * Params: id (UUID)
+ * Body: ActualizarJustificacionDTO
+ * Returns: Justificación actualizada
+ */
+export const actualizarJustificacion = asyncHandler(
+  async (req: AuthRequest, res: Response) => {
+    const docenteId = req.usuario?.docenteId;
+    const { id } = req.params;
+    const dto = req.body as ActualizarJustificacionDTO;
+
+    if (!docenteId) {
+      return res.status(403).json(
+        ResponseFormatter.error('FORBIDDEN', 'Usuario no identificado como docente')
+      );
+    }
+
+    if (!id) {
+      return res.status(400).json(
+        ResponseFormatter.error('BAD_REQUEST', 'ID de justificación requerido')
+      );
+    }
+
+    // Construir input solo con propiedades definidas
+    const input: any = {};
+    if (dto.tipo) input.tipo = dto.tipo;
+    if (dto.motivo) input.motivo = dto.motivo;
+    if (dto.evidenciaUrl) input.evidenciaUrl = dto.evidenciaUrl;
+
+    const justificacion = await justificacionService.actualizarJustificacion(id, docenteId, input);
+
+    return res.json(
+      ResponseFormatter.success(
+        justificacion,
+        'Justificación actualizada exitosamente'
+      )
+    );
+  }
+);
+
+/**
+ * DELETE /api/docente/justificaciones/:id
+ * Eliminar una justificación (solo si está PENDIENTE)
+ * 
+ * Params: id (UUID)
+ * Returns: Confirmación de eliminación
+ */
+export const eliminarJustificacion = asyncHandler(
+  async (req: AuthRequest, res: Response) => {
+    const docenteId = req.usuario?.docenteId;
+    const { id } = req.params;
+
+    if (!docenteId) {
+      return res.status(403).json(
+        ResponseFormatter.error('FORBIDDEN', 'Usuario no identificado como docente')
+      );
+    }
+
+    if (!id) {
+      return res.status(400).json(
+        ResponseFormatter.error('BAD_REQUEST', 'ID de justificación requerido')
+      );
+    }
+
+    const resultado = await justificacionService.eliminarJustificacion(id, docenteId);
+
+    return res.json(
+      ResponseFormatter.success(
+        resultado,
+        'Justificación eliminada exitosamente'
+      )
+    );
+  }
+);
+
+/**
+ * GET /api/docente/justificaciones/estadisticas
+ * Obtener estadísticas de mis justificaciones
+ * 
+ * Returns: Resumen (total, pendientes, aprobadas, rechazadas, tasa)
+ */
+export const obtenerEstadisticas = asyncHandler(
+  async (req: AuthRequest, res: Response) => {
+    const docenteId = req.usuario?.docenteId;
+
+    if (!docenteId) {
+      return res.status(403).json(
+        ResponseFormatter.error('FORBIDDEN', 'Usuario no identificado como docente')
+      );
+    }
+
+    const estadisticas = await justificacionService.obtenerEstadisticas(docenteId);
+
+    return res.json(
+      ResponseFormatter.success(
+        estadisticas,
+        'Estadísticas obtenidas exitosamente'
+      )
+    );
+  }
+);

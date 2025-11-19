@@ -1,345 +1,344 @@
-aiamapaoarata a{a aRaeaqauaeasata,a aRaeasapaoanasaea a}a afaraoama a'aeaxaparaeasasa'a;aa
-aiamapaoarata a{a aParaiasamaaaCalaiaeanata a}a afaraoama a'a@aparaiasamaaa/acalaiaeanata'a;aa
-aa
-acaoanasata aparaiasamaaa a=a anaeawa aParaiasamaaaCalaiaeanata(a)a;aa
-aa
-a/a/a aIanataearafaaacaea apaaaraaa adaaataoasa adaea auabaiacaaacaiaÃa³ana aGaPaSaa
-aeaxapaoarata aianataearafaaacaea aDaaataoasaUabaiacaaacaiaoana a{aa
-a a anaoamabaraea:a asataraianaga;aa
-a a adaeasacaraiapacaiaoana?a:a asataraianaga;aa
-a a alaaataiatauada:a anauamabaeara;aa
-a a alaoanagaiatauada:a anauamabaeara;aa
-a a araaadaiaoa_amaeataraoasa:a anauamabaeara;aa
-a a aaacataiavaoa?a:a abaoaoalaeaaana;aa
-a}aa
-aa
-a/a/a aIanataearafaaacaea apaaaraaa afaialataraoasa adaea auabaiacaaacaiaoanaeasaa
-aeaxapaoarata aianataearafaaacaea aFaialataraoasaUabaiacaaacaiaoana a{aa
-a a aaacataiavaoa?a:a abaoaoalaeaaana;aa
-a a abauasaqauaeadaaa?a:a asataraianaga;aa
-a}aa
-aa
-a/a/a aIanataearafaaacaea apaaaraaa aeasataaadaÃa­asataiacaaasa adaea auabaiacaaacaiaoanaeasaa
-aeaxapaoarata aianataearafaaacaea aEasataaadaiasataiacaaasaUabaiacaaacaiaoana a{aa
-a a ataoataaala:a anauamabaeara;aa
-a a aaacataiavaaasa:a anauamabaeara;aa
-a a aianaaacataiavaaasa:a anauamabaeara;aa
-a a aparaoamaeadaiaoaRaaadaiauasa:a anauamabaeara;aa
-a}aa
-aa
-a/a*a*aa
-a a*a aOabataeanaeara ataoadaaasa alaaasa auabaiacaaacaiaoanaeasa aGaPaSa acaoana aeasataaadaÃa­asataiacaaasaa
-a a*a/aa
-aeaxapaoarata acaoanasata aoabataeanaearaUabaiacaaacaiaoanaeasa a=a aaasayanaca a(araeaqa:a aRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a a=a>a a{aa
-a a ataraya a{aa
-a a a a acaoanasata a{a aaacataiavaoa,a abauasaqauaeadaaa a}a a=a araeaqa.aqauaearaya;aa
-a a a a aa
-a a a a a/a/a aCaoanasatarauaiara afaialataraoasaa
-a a a a acaoanasata awahaearaeaCalaaauasaea:a aaanaya a=a a{a}a;aa
-a a a a aa
-a a a a aiafa a(aaacataiavaoa a!a=a=a auanadaeafaianaeada)a a{aa
-a a a a a a awahaearaeaCalaaauasaea.aaacataiavaoa a=a aaacataiavaoa a=a=a=a a'atarauaea'a;aa
-a a a a a}aa
-a a a a aa
-a a a a aiafa a(abauasaqauaeadaaa)a a{aa
-a a a a a a awahaearaeaCalaaauasaea.aOaRa a=a a[aa
-a a a a a a a a a{a anaoamabaraea:a a{a acaoanataaaianasa:a abauasaqauaeadaaa aaasa asataraianaga,a amaoadaea:a a'aianasaeanasaiataiavaea'a a}a a}a,aa
-a a a a a a a a a{a adaeasacaraiapacaiaoana:a a{a acaoanataaaianasa:a abauasaqauaeadaaa aaasa asataraianaga,a amaoadaea:a a'aianasaeanasaiataiavaea'a a}a a}aa
-a a a a a a a]a;aa
-a a a a a}aa
-aa
-a a a a a/a/a aOabataeanaeara auabaiacaaacaiaoanaeasaa
-a a a a acaoanasata auabaiacaaacaiaoanaeasa a=a aaawaaaiata aparaiasamaaa.auabaiacaaacaiaoanaeasa_apaearamaiataiadaaasa.afaianadaMaaanaya(a{aa
-a a a a a a awahaearaea:a awahaearaeaCalaaauasaea,aa
-a a a a a a aoaradaearaBaya:a a{a acaraeaaataeada_aaata:a a'adaeasaca'a a}aa
-a a a a a}a)a;aa
-aa
-a a a a a/a/a aCaaalacaualaaara aeasataaadaÃa­asataiacaaasaa
-a a a a acaoanasata ataoataaalaUabaiacaaacaiaoanaeasa a=a auabaiacaaacaiaoanaeasa.alaeanagataha;aa
-a a a a acaoanasata auabaiacaaacaiaoanaeasaAacataiavaaasa a=a auabaiacaaacaiaoanaeasa.afaialataeara(a(aua:a aaanaya)a a=a>a aua.aaacataiavaoa)a.alaeanagataha;aa
-a a a a acaoanasata auabaiacaaacaiaoanaeasaIanaaacataiavaaasa a=a ataoataaalaUabaiacaaacaiaoanaeasa a-a auabaiacaaacaiaoanaeasaAacataiavaaasa;aa
-a a a a acaoanasata aparaoamaeadaiaoaRaaadaiauasa a=a ataoataaalaUabaiacaaacaiaoanaeasa a>a a0a aa
-a a a a a a a?a auabaiacaaacaiaoanaeasa.araeadauacaea(a(asauama:a anauamabaeara,a aua:a aaanaya)a a=a>a asauama a+a aua.araaadaiaoa_amaeataraoasa,a a0a)a a/a ataoataaalaUabaiacaaacaiaoanaeasa aa
-a a a a a a a:a a0a;aa
-aa
-a a a a acaoanasata aeasataaadaiasataiacaaasa:a aEasataaadaiasataiacaaasaUabaiacaaacaiaoana a=a a{aa
-a a a a a a ataoataaala:a ataoataaalaUabaiacaaacaiaoanaeasa,aa
-a a a a a a aaacataiavaaasa:a auabaiacaaacaiaoanaeasaAacataiavaaasa,aa
-a a a a a a aianaaacataiavaaasa:a auabaiacaaacaiaoanaeasaIanaaacataiavaaasa,aa
-a a a a a a aparaoamaeadaiaoaRaaadaiauasa:a aMaaataha.araoauanada(aparaoamaeadaiaoaRaaadaiauasa)aa
-a a a a a}a;aa
-aa
-a a a a araeatauarana araeasa.asataaatauasa(a2a0a0a)a.ajasaoana(a{aa
-a a a a a a asauacacaeasasa:a atarauaea,aa
-a a a a a a amaeasasaaagaea:a a'aUabaiacaaacaiaoanaeasa aoabataeanaiadaaasa acaoararaeacataaamaeanataea'a,aa
-a a a a a a adaaataaa:a a{aa
-a a a a a a a a auabaiacaaacaiaoanaeasa,aa
-a a a a a a a a aeasataaadaiasataiacaaasaa
-a a a a a a a}aa
-a a a a a}a)a;aa
-aa
-a a a}a acaaatacaha a(aeararaoara)a a{aa
-a a a a acaoanasaoalaea.aeararaoara(a'aEararaoara aoabataeanaiaeanadaoa auabaiacaaacaiaoanaeasa:a'a,a aeararaoara)a;aa
-a a a a araeatauarana araeasa.asataaatauasa(a5a0a0a)a.ajasaoana(a{aa
-a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a amaeasasaaagaea:a a'aEararaoara aianataearanaoa adaeala asaearavaiadaoara'a,aa
-a a a a a a aeararaoara:a aparaoacaeasasa.aeanava.aNaOaDaEa_aEaNaVa a=a=a=a a'adaeavaealaoapamaeanata'a a?a aeararaoara a:a auanadaeafaianaeadaa
-a a a a a}a)a;aa
-a a a}aa
-a}a;aa
-aa
-a/a*a*aa
-a a*a aCaraeaaara anauaeavaaa auabaiacaaacaiaÃa³ana aGaPaSaa
-a a*a aðaŸaŽa¯a aEala ataraiagagaeara adaea aPaoasataGaIaSa aaacatauaaalaiazaaaraÃa¡a aaauataoamaÃa¡ataiacaaamaeanataea apauanataoa_agaeaoaa
-a a*a/aa
-aeaxapaoarata acaoanasata acaraeaaaraUabaiacaaacaiaoana a=a aaasayanaca a(araeaqa:a aRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a a=a>a a{aa
-a a ataraya a{aa
-a a a a acaoanasata a{a anaoamabaraea,a adaeasacaraiapacaiaoana,a alaaataiatauada,a alaoanagaiatauada,a araaadaiaoa_amaeataraoasa,a aaacataiavaoa a=a atarauaea a}a:a aDaaataoasaUabaiacaaacaiaoana a=a araeaqa.abaoadaya;aa
-aa
-a a a a a/a/a aVaaalaiadaaacaiaoanaeasaa
-a a a a aiafa a(a!anaoamabaraea a|a|a anaoamabaraea.ataraiama(a)a.alaeanagataha a=a=a=a a0a)a a{aa
-a a a a a a araeatauarana araeasa.asataaatauasa(a4a0a0a)a.ajasaoana(a{aa
-a a a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a a a amaeasasaaagaea:a a'aEala anaoamabaraea aeasa araeaqauaearaiadaoa'aa
-a a a a a a a}a)a;aa
-a a a a a}aa
-aa
-a a a a aiafa a(alaaataiatauada a=a=a=a auanadaeafaianaeada a|a|a alaoanagaiatauada a=a=a=a auanadaeafaianaeada)a a{aa
-a a a a a a araeatauarana araeasa.asataaatauasa(a4a0a0a)a.ajasaoana(a{aa
-a a a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a a a amaeasasaaagaea:a a'aLaaataiatauada aya alaoanagaiatauada asaoana araeaqauaearaiadaaasa'aa
-a a a a a a a}a)a;aa
-a a a a a}aa
-aa
-a a a a aiafa a(araaadaiaoa_amaeataraoasa a=a=a=a auanadaeafaianaeada a|a|a araaadaiaoa_amaeataraoasa a<a=a a0a)a a{aa
-a a a a a a araeatauarana araeasa.asataaatauasa(a4a0a0a)a.ajasaoana(a{aa
-a a a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a a a amaeasasaaagaea:a a'aRaaadaiaoa adaeabaea asaeara amaaayaoara aaa a0a'aa
-a a a a a a a}a)a;aa
-a a a a a}aa
-aa
-a a a a a/a/a aVaaalaiadaaara araaanagaoa adaea acaoaoaradaeanaaadaaasaa
-a a a a aiafa a(alaaataiatauada a<a a-a9a0a a|a|a alaaataiatauada a>a a9a0a)a a{aa
-a a a a a a araeatauarana araeasa.asataaatauasa(a4a0a0a)a.ajasaoana(a{aa
-a a a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a a a amaeasasaaagaea:a a'aLaaataiatauada adaeabaea aeasataaara aeanataraea a-a9a0a aya a9a0a'aa
-a a a a a a a}a)a;aa
-a a a a a}aa
-aa
-a a a a aiafa a(alaoanagaiatauada a<a a-a1a8a0a a|a|a alaoanagaiatauada a>a a1a8a0a)a a{aa
-a a a a a a araeatauarana araeasa.asataaatauasa(a4a0a0a)a.ajasaoana(a{aa
-a a a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a a a amaeasasaaagaea:a a'aLaoanagaiatauada adaeabaea aeasataaara aeanataraea a-a1a8a0a aya a1a8a0a'aa
-a a a a a a a}a)a;aa
-a a a a a}aa
-aa
-a a a a a/a/a aVaearaiafaiacaaara asaia ayaaa aeaxaiasataea auanaaa auabaiacaaacaiaÃa³ana acaoana aeala amaiasamaoa anaoamabaraeaa
-a a a a acaoanasata auabaiacaaacaiaoanaEaxaiasataeanataea a=a aaawaaaiata aparaiasamaaa.auabaiacaaacaiaoanaeasa_apaearamaiataiadaaasa.afaianadaFaiarasata(a{aa
-a a a a a a awahaearaea:a a{a anaoamabaraea:a a{a aeaqauaaalasa:a anaoamabaraea.ataraiama(a)a,a amaoadaea:a a'aianasaeanasaiataiavaea'a a}a a}aa
-a a a a a}a)a;aa
-aa
-a a a a aiafa a(auabaiacaaacaiaoanaEaxaiasataeanataea)a a{aa
-a a a a a a araeatauarana araeasa.asataaatauasa(a4a0a9a)a.ajasaoana(a{aa
-a a a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a a a amaeasasaaagaea:a a'aYaaa aeaxaiasataea auanaaa auabaiacaaacaiaÃa³ana acaoana aeasaea anaoamabaraea'aa
-a a a a a a a}a)a;aa
-a a a a a}aa
-aa
-a a a a a/a/a aCaraeaaara alaaa auabaiacaaacaiaÃa³ana a(ataraiagagaeara aaacatauaaalaiazaaa apauanataoa_agaeaoa aaauataoamaÃa¡ataiacaaamaeanataea)aa
-a a a a acaoanasata anauaeavaaaUabaiacaaacaiaoana a=a aaawaaaiata aparaiasamaaa.auabaiacaaacaiaoanaeasa_apaearamaiataiadaaasa.acaraeaaataea(a{aa
-a a a a a a adaaataaa:a a{aa
-a a a a a a a a anaoamabaraea:a anaoamabaraea.ataraiama(a)a,aa
-a a a a a a a a adaeasacaraiapacaiaoana:a adaeasacaraiapacaiaoana?a.ataraiama(a)a a|a|a anaualala,aa
-a a a a a a a a alaaataiatauada:a apaaarasaeaFalaoaaata(alaaataiatauada.ataoaSataraianaga(a)a)a,aa
-a a a a a a a a alaoanagaiatauada:a apaaarasaeaFalaoaaata(alaoanagaiatauada.ataoaSataraianaga(a)a)a,aa
-a a a a a a a a araaadaiaoa_amaeataraoasa:a apaaarasaeaIanata(araaadaiaoa_amaeataraoasa.ataoaSataraianaga(a)a)a,aa
-a a a a a a a a aaacataiavaoa:a aBaoaoalaeaaana(aaacataiavaoa)aa
-a a a a a a a}aa
-a a a a a}a)a;aa
-aa
-a a a a acaoanasaoalaea.alaoaga(a'aâaœa…a aUabaiacaaacaiaÃa³ana acaraeaaadaaa a-a aPaoasataGaIaSa aaacatauaaalaiazaÃa³a apauanataoa_agaeaoa aaauataoamaÃa¡ataiacaaamaeanataea'a)a;aa
-aa
-a a a a araeatauarana araeasa.asataaatauasa(a2a0a1a)a.ajasaoana(a{aa
-a a a a a a asauacacaeasasa:a atarauaea,aa
-a a a a a a amaeasasaaagaea:a a'aUabaiacaaacaiaÃa³ana aGaPaSa acaraeaaadaaa acaoararaeacataaamaeanataea acaoana aPaoasataGaIaSa'a,aa
-a a a a a a adaaataaa:a a{a auabaiacaaacaiaoana:a anauaeavaaaUabaiacaaacaiaoana a}aa
-a a a a a}a)a;aa
-aa
-a a a}a acaaatacaha a(aeararaoara)a a{aa
-a a a a acaoanasaoalaea.aeararaoara(a'aEararaoara acaraeaaanadaoa auabaiacaaacaiaÃa³ana:a'a,a aeararaoara)a;aa
-a a a a araeatauarana araeasa.asataaatauasa(a5a0a0a)a.ajasaoana(a{aa
-a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a amaeasasaaagaea:a a'aEararaoara aianataearanaoa adaeala asaearavaiadaoara'a,aa
-a a a a a a aeararaoara:a aparaoacaeasasa.aeanava.aNaOaDaEa_aEaNaVa a=a=a=a a'adaeavaealaoapamaeanata'a a?a aeararaoara a:a auanadaeafaianaeadaa
-a a a a a}a)a;aa
-a a a}aa
-a}a;aa
-aa
-a/a*a*aa
-a a*a aAacatauaaalaiazaaara auabaiacaaacaiaÃa³ana aGaPaSa aeaxaiasataeanataeaa
-a a*a aðaŸaŽa¯a aEala ataraiagagaeara adaea aPaoasataGaIaSa aaacatauaaalaiazaaaraÃa¡a aaauataoamaÃa¡ataiacaaamaeanataea apauanataoa_agaeaoaa
-a a*a/aa
-aeaxapaoarata acaoanasata aaacatauaaalaiazaaaraUabaiacaaacaiaoana a=a aaasayanaca a(araeaqa:a aRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a a=a>a a{aa
-a a ataraya a{aa
-a a a a acaoanasata a{a aiada a}a a=a araeaqa.apaaaraaamasa;aa
-a a a a acaoanasata a{a anaoamabaraea,a adaeasacaraiapacaiaoana,a alaaataiatauada,a alaoanagaiatauada,a araaadaiaoa_amaeataraoasa,a aaacataiavaoa a}a:a aDaaataoasaUabaiacaaacaiaoana a=a araeaqa.abaoadaya;aa
-aa
-a a a a aiafa a(a!aiada a|a|a aiasaNaaaNa(apaaarasaeaIanata(aiada)a)a)a a{aa
-a a a a a a araeatauarana araeasa.asataaatauasa(a4a0a0a)a.ajasaoana(a{aa
-a a a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a a a amaeasasaaagaea:a a'aIaDa adaea auabaiacaaacaiaÃa³ana aianavaÃa¡alaiadaoa'aa
-a a a a a a a}a)a;aa
-a a a a a}aa
-aa
-a a a a a/a/a aVaearaiafaiacaaara aqauaea alaaa auabaiacaaacaiaÃa³ana aeaxaiasataeaa
-a a a a acaoanasata auabaiacaaacaiaoanaEaxaiasataeanataea a=a aaawaaaiata aparaiasamaaa.auabaiacaaacaiaoanaeasa_apaearamaiataiadaaasa.afaianadaUanaiaqauaea(a{aa
-a a a a a a awahaearaea:a a{a aiada:a apaaarasaeaIanata(aiada)a a}aa
-a a a a a}a)a;aa
-aa
-a a a a aiafa a(a!auabaiacaaacaiaoanaEaxaiasataeanataea)a a{aa
-a a a a a a araeatauarana araeasa.asataaatauasa(a4a0a4a)a.ajasaoana(a{aa
-a a a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a a a amaeasasaaagaea:a a'aUabaiacaaacaiaÃa³ana anaoa aeanacaoanataraaadaaa'aa
-a a a a a a a}a)a;aa
-a a a a a}aa
-aa
-a a a a a/a/a aParaeapaaaraaara adaaataoasa apaaaraaa aaacatauaaalaiazaaacaiaÃa³anaa
-a a a a acaoanasata adaaataoasaAacatauaaalaiazaaacaiaoana:a aaanaya a=a a{aa
-a a a a a a auapadaaataeada_aaata:a anaeawa aDaaataea(a)aa
-a a a a a}a;aa
-aa
-a a a a aiafa a(anaoamabaraea a!a=a=a auanadaeafaianaeada)a adaaataoasaAacatauaaalaiazaaacaiaoana.anaoamabaraea a=a anaoamabaraea.ataraiama(a)a;aa
-a a a a aiafa a(adaeasacaraiapacaiaoana a!a=a=a auanadaeafaianaeada)a adaaataoasaAacatauaaalaiazaaacaiaoana.adaeasacaraiapacaiaoana a=a adaeasacaraiapacaiaoana?a.ataraiama(a)a a|a|a anaualala;aa
-a a a a aiafa a(alaaataiatauada a!a=a=a auanadaeafaianaeada)a adaaataoasaAacatauaaalaiazaaacaiaoana.alaaataiatauada a=a apaaarasaeaFalaoaaata(alaaataiatauada.ataoaSataraianaga(a)a)a;aa
-a a a a aiafa a(alaoanagaiatauada a!a=a=a auanadaeafaianaeada)a adaaataoasaAacatauaaalaiazaaacaiaoana.alaoanagaiatauada a=a apaaarasaeaFalaoaaata(alaoanagaiatauada.ataoaSataraianaga(a)a)a;aa
-a a a a aiafa a(araaadaiaoa_amaeataraoasa a!a=a=a auanadaeafaianaeada)a adaaataoasaAacatauaaalaiazaaacaiaoana.araaadaiaoa_amaeataraoasa a=a apaaarasaeaIanata(araaadaiaoa_amaeataraoasa.ataoaSataraianaga(a)a)a;aa
-a a a a aiafa a(aaacataiavaoa a!a=a=a auanadaeafaianaeada)a adaaataoasaAacatauaaalaiazaaacaiaoana.aaacataiavaoa a=a aBaoaoalaeaaana(aaacataiavaoa)a;aa
-aa
-a a a a a/a/a aAacatauaaalaiazaaara alaaa auabaiacaaacaiaÃa³ana a(ataraiagagaeara aaacatauaaalaiazaaa apauanataoa_agaeaoa aaauataoamaÃa¡ataiacaaamaeanataea)aa
-a a a a acaoanasata auabaiacaaacaiaoanaAacatauaaalaiazaaadaaa a=a aaawaaaiata aparaiasamaaa.auabaiacaaacaiaoanaeasa_apaearamaiataiadaaasa.auapadaaataea(a{aa
-a a a a a a awahaearaea:a a{a aiada:a apaaarasaeaIanata(aiada)a a}a,aa
-a a a a a a adaaataaa:a adaaataoasaAacatauaaalaiazaaacaiaoanaa
-a a a a a}a)a;aa
-aa
-a a a a acaoanasaoalaea.alaoaga(a'aâaœa…a aUabaiacaaacaiaÃa³ana aaacatauaaalaiazaaadaaa a-a aPaoasataGaIaSa aaacatauaaalaiazaÃa³a apauanataoa_agaeaoa aaauataoamaÃa¡ataiacaaamaeanataea'a)a;aa
-aa
-a a a a araeatauarana araeasa.asataaatauasa(a2a0a0a)a.ajasaoana(a{aa
-a a a a a a asauacacaeasasa:a atarauaea,aa
-a a a a a a amaeasasaaagaea:a a'aUabaiacaaacaiaÃa³ana aaacatauaaalaiazaaadaaa acaoararaeacataaamaeanataea acaoana aPaoasataGaIaSa'a,aa
-a a a a a a adaaataaa:a a{a auabaiacaaacaiaoana:a auabaiacaaacaiaoanaAacatauaaalaiazaaadaaa a}aa
-a a a a a}a)a;aa
-aa
-a a a}a acaaatacaha a(aeararaoara)a a{aa
-a a a a acaoanasaoalaea.aeararaoara(a'aEararaoara aaacatauaaalaiazaaanadaoa auabaiacaaacaiaÃa³ana:a'a,a aeararaoara)a;aa
-a a a a araeatauarana araeasa.asataaatauasa(a5a0a0a)a.ajasaoana(a{aa
-a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a amaeasasaaagaea:a a'aEararaoara aianataearanaoa adaeala asaearavaiadaoara'a,aa
-a a a a a a aeararaoara:a aparaoacaeasasa.aeanava.aNaOaDaEa_aEaNaVa a=a=a=a a'adaeavaealaoapamaeanata'a a?a aeararaoara a:a auanadaeafaianaeadaa
-a a a a a}a)a;aa
-a a a}aa
-a}a;aa
-aa
-a/a*a*aa
-a a*a aEalaiamaianaaara auabaiacaaacaiaÃa³ana aGaPaSaa
-a a*a/aa
-aeaxapaoarata acaoanasata aealaiamaianaaaraUabaiacaaacaiaoana a=a aaasayanaca a(araeaqa:a aRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a a=a>a a{aa
-a a ataraya a{aa
-a a a a acaoanasata a{a aiada a}a a=a araeaqa.apaaaraaamasa;aa
-aa
-a a a a aiafa a(a!aiada a|a|a aiasaNaaaNa(apaaarasaeaIanata(aiada)a)a)a a{aa
-a a a a a a araeatauarana araeasa.asataaatauasa(a4a0a0a)a.ajasaoana(a{aa
-a a a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a a a amaeasasaaagaea:a a'aIaDa adaea auabaiacaaacaiaÃa³ana aianavaÃa¡alaiadaoa'aa
-a a a a a a a}a)a;aa
-a a a a a}aa
-aa
-a a a a a/a/a aVaearaiafaiacaaara aqauaea alaaa auabaiacaaacaiaÃa³ana aeaxaiasataeaa
-a a a a acaoanasata auabaiacaaacaiaoanaEaxaiasataeanataea a=a aaawaaaiata aparaiasamaaa.auabaiacaaacaiaoanaeasa_apaearamaiataiadaaasa.afaianadaUanaiaqauaea(a{aa
-a a a a a a awahaearaea:a a{a aiada:a apaaarasaeaIanata(aiada)a a}aa
-a a a a a}a)a;aa
-aa
-a a a a aiafa a(a!auabaiacaaacaiaoanaEaxaiasataeanataea)a a{aa
-a a a a a a araeatauarana araeasa.asataaatauasa(a4a0a4a)a.ajasaoana(a{aa
-a a a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a a a amaeasasaaagaea:a a'aUabaiacaaacaiaÃa³ana anaoa aeanacaoanataraaadaaa'aa
-a a a a a a a}a)a;aa
-a a a a a}aa
-aa
-a a a a a/a/a aVaearaiafaiacaaara asaia alaaa auabaiacaaacaiaÃa³ana aeasataÃa¡a asaiaeanadaoa auasaaadaaa aeana aaasaiasataeanacaiaaasaa
-a a a a acaoanasata aaasaiasataeanacaiaaasaCaoanaUabaiacaaacaiaoana a=a aaawaaaiata aparaiasamaaa.aaasaiasataeanacaiaaasa.afaianadaFaiarasata(a{aa
-a a a a a a awahaearaea:a a{a aa
-a a a a a a a a aOaRa:a a[aa
-a a a a a a a a a a a{a auabaiacaaacaiaoanaEanataraaadaaaIada:a apaaarasaeaIanata(aiada)a a}a,aa
-a a a a a a a a a a a{a auabaiacaaacaiaoanaSaaalaiadaaaIada:a apaaarasaeaIanata(aiada)a a}aa
-a a a a a a a a a]aa
-a a a a a a a}aa
-a a a a a}a)a;aa
-aa
-a a a a aiafa a(aaasaiasataeanacaiaaasaCaoanaUabaiacaaacaiaoana)a a{aa
-a a a a a a araeatauarana araeasa.asataaatauasa(a4a0a9a)a.ajasaoana(a{aa
-a a a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a a a amaeasasaaagaea:a a'aNaoa asaea apauaeadaea aealaiamaianaaara alaaa auabaiacaaacaiaÃa³ana apaoaraqauaea ataiaeanaea aaasaiasataeanacaiaaasa araeagaiasataraaadaaasa'aa
-a a a a a a a}a)a;aa
-a a a a a}aa
-aa
-a a a a a/a/a aEalaiamaianaaara alaaa auabaiacaaacaiaÃa³anaa
-a a a a aaawaaaiata aparaiasamaaa.auabaiacaaacaiaoanaeasa_apaearamaiataiadaaasa.adaealaeataea(a{aa
-a a a a a a awahaearaea:a a{a aiada:a apaaarasaeaIanata(aiada)a a}aa
-a a a a a}a)a;aa
-aa
-a a a a araeatauarana araeasa.asataaatauasa(a2a0a0a)a.ajasaoana(a{aa
-a a a a a a asauacacaeasasa:a atarauaea,aa
-a a a a a a amaeasasaaagaea:a a'aUabaiacaaacaiaÃa³ana aealaiamaianaaadaaa acaoararaeacataaamaeanataea'aa
-a a a a a}a)a;aa
-aa
-a a a}a acaaatacaha a(aeararaoara)a a{aa
-a a a a acaoanasaoalaea.aeararaoara(a'aEararaoara aealaiamaianaaanadaoa auabaiacaaacaiaÃa³ana:a'a,a aeararaoara)a;aa
-a a a a araeatauarana araeasa.asataaatauasa(a5a0a0a)a.ajasaoana(a{aa
-a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a amaeasasaaagaea:a a'aEararaoara aianataearanaoa adaeala asaearavaiadaoara'a,aa
-a a a a a a aeararaoara:a aparaoacaeasasa.aeanava.aNaOaDaEa_aEaNaVa a=a=a=a a'adaeavaealaoapamaeanata'a a?a aeararaoara a:a auanadaeafaianaeadaa
-a a a a a}a)a;aa
-a a a}aa
-a}a;aa
-aa
-a/a*a*aa
-a a*a aOabataeanaeara auabaiacaaacaiaÃa³ana aGaPaSa apaoara aIaDaa
-a a*a/aa
-aeaxapaoarata acaoanasata aoabataeanaearaUabaiacaaacaiaoanaPaoaraIada a=a aaasayanaca a(araeaqa:a aRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea)a a=a>a a{aa
-a a ataraya a{aa
-a a a a acaoanasata a{a aiada a}a a=a araeaqa.apaaaraaamasa;aa
-aa
-a a a a aiafa a(a!aiada a|a|a aiasaNaaaNa(apaaarasaeaIanata(aiada)a)a)a a{aa
-a a a a a a araeatauarana araeasa.asataaatauasa(a4a0a0a)a.ajasaoana(a{aa
-a a a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a a a amaeasasaaagaea:a a'aIaDa adaea auabaiacaaacaiaÃa³ana aianavaÃa¡alaiadaoa'aa
-a a a a a a a}a)a;aa
-a a a a a}aa
-aa
-a a a a acaoanasata auabaiacaaacaiaoana a=a aaawaaaiata aparaiasamaaa.auabaiacaaacaiaoanaeasa_apaearamaiataiadaaasa.afaianadaUanaiaqauaea(a{aa
-a a a a a a awahaearaea:a a{a aiada:a apaaarasaeaIanata(aiada)a a}aa
-a a a a a}a)a;aa
-aa
-a a a a aiafa a(a!auabaiacaaacaiaoana)a a{aa
-a a a a a a araeatauarana araeasa.asataaatauasa(a4a0a4a)a.ajasaoana(a{aa
-a a a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a a a amaeasasaaagaea:a a'aUabaiacaaacaiaÃa³ana anaoa aeanacaoanataraaadaaa'aa
-a a a a a a a}a)a;aa
-a a a a a}aa
-aa
-a a a a araeatauarana araeasa.asataaatauasa(a2a0a0a)a.ajasaoana(a{aa
-a a a a a a asauacacaeasasa:a atarauaea,aa
-a a a a a a amaeasasaaagaea:a a'aUabaiacaaacaiaÃa³ana aoabataeanaiadaaa acaoararaeacataaamaeanataea'a,aa
-a a a a a a adaaataaa:a a{a auabaiacaaacaiaoana a}aa
-a a a a a}a)a;aa
-aa
-a a a}a acaaatacaha a(aeararaoara)a a{aa
-a a a a acaoanasaoalaea.aeararaoara(a'aEararaoara aoabataeanaiaeanadaoa auabaiacaaacaiaÃa³ana:a'a,a aeararaoara)a;aa
-a a a a araeatauarana araeasa.asataaatauasa(a5a0a0a)a.ajasaoana(a{aa
-a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a amaeasasaaagaea:a a'aEararaoara aianataearanaoa adaeala asaearavaiadaoara'a,aa
-a a a a a a aeararaoara:a aparaoacaeasasa.aeanava.aNaOaDaEa_aEaNaVa a=a=a=a a'adaeavaealaoapamaeanata'a a?a aeararaoara a:a auanadaeafaianaeadaa
-a a a a a}a)a;aa
-a a a}aa
-a}a;aa
-a
+import { Request, Response } from 'express';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
+
+// Interface para datos de ubicación GPS
+export interface DatosUbicacion {
+  nombre: string;
+  descripcion?: string;
+  latitud: number;
+  longitud: number;
+  radio_metros: number;
+  activo?: boolean;
+}
+
+// Interface para filtros de ubicaciones
+export interface FiltrosUbicacion {
+  activo?: boolean;
+  busqueda?: string;
+}
+
+// Interface para estadísticas de ubicaciones
+export interface EstadisticasUbicacion {
+  total: number;
+  activas: number;
+  inactivas: number;
+  promedioRadius: number;
+}
+
+/**
+ * Obtener todas las ubicaciones GPS con estadísticas
+ */
+export const obtenerUbicaciones = async (req: Request, res: Response) => {
+  try {
+    const { activo, busqueda } = req.query;
+    
+    // Construir filtros
+    const whereClause: any = {};
+    
+    if (activo !== undefined) {
+      whereClause.activo = activo === 'true';
+    }
+    
+    if (busqueda) {
+      whereClause.OR = [
+        { nombre: { contains: busqueda as string, mode: 'insensitive' } },
+        { descripcion: { contains: busqueda as string, mode: 'insensitive' } }
+      ];
+    }
+
+    // Obtener ubicaciones
+    const ubicaciones = await prisma.ubicaciones_permitidas.findMany({
+      where: whereClause,
+      orderBy: { created_at: 'desc' }
+    });
+
+    // Calcular estadísticas
+    const totalUbicaciones = ubicaciones.length;
+    const ubicacionesActivas = ubicaciones.filter((u: any) => u.activo).length;
+    const ubicacionesInactivas = totalUbicaciones - ubicacionesActivas;
+    const promedioRadius = totalUbicaciones > 0 
+      ? ubicaciones.reduce((sum: number, u: any) => sum + u.radio_metros, 0) / totalUbicaciones 
+      : 0;
+
+    const estadisticas: EstadisticasUbicacion = {
+      total: totalUbicaciones,
+      activas: ubicacionesActivas,
+      inactivas: ubicacionesInactivas,
+      promedioRadius: Math.round(promedioRadius)
+    };
+
+    return res.status(200).json({
+      success: true,
+      message: 'Ubicaciones obtenidas correctamente',
+      data: {
+        ubicaciones,
+        estadisticas
+      }
+    });
+
+  } catch (error) {
+    console.error('Error obteniendo ubicaciones:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Error interno del servidor',
+      error: process.env.NODE_ENV === 'development' ? error : undefined
+    });
+  }
+};
+
+/**
+ * Crear nueva ubicación GPS
+ * 🎯 El trigger de PostGIS actualizará automáticamente punto_geo
+ */
+export const crearUbicacion = async (req: Request, res: Response) => {
+  try {
+    const { nombre, descripcion, latitud, longitud, radio_metros, activo = true }: DatosUbicacion = req.body;
+
+    // Validaciones
+    if (!nombre || nombre.trim().length === 0) {
+      return res.status(400).json({
+        success: false,
+        message: 'El nombre es requerido'
+      });
+    }
+
+    if (latitud === undefined || longitud === undefined) {
+      return res.status(400).json({
+        success: false,
+        message: 'Latitud y longitud son requeridas'
+      });
+    }
+
+    if (radio_metros === undefined || radio_metros <= 0) {
+      return res.status(400).json({
+        success: false,
+        message: 'Radio debe ser mayor a 0'
+      });
+    }
+
+    // Validar rango de coordenadas
+    if (latitud < -90 || latitud > 90) {
+      return res.status(400).json({
+        success: false,
+        message: 'Latitud debe estar entre -90 y 90'
+      });
+    }
+
+    if (longitud < -180 || longitud > 180) {
+      return res.status(400).json({
+        success: false,
+        message: 'Longitud debe estar entre -180 y 180'
+      });
+    }
+
+    // Verificar si ya existe una ubicación con el mismo nombre
+    const ubicacionExistente = await prisma.ubicaciones_permitidas.findFirst({
+      where: { nombre: { equals: nombre.trim(), mode: 'insensitive' } }
+    });
+
+    if (ubicacionExistente) {
+      return res.status(409).json({
+        success: false,
+        message: 'Ya existe una ubicación con ese nombre'
+      });
+    }
+
+    // Crear la ubicación (trigger actualiza punto_geo automáticamente)
+    const nuevaUbicacion = await prisma.ubicaciones_permitidas.create({
+      data: {
+        nombre: nombre.trim(),
+        descripcion: descripcion?.trim() || null,
+        latitud: parseFloat(latitud.toString()),
+        longitud: parseFloat(longitud.toString()),
+        radio_metros: parseInt(radio_metros.toString()),
+        activo: Boolean(activo)
+      }
+    });
+
+    console.log('✅ Ubicación creada - PostGIS actualizó punto_geo automáticamente');
+
+    return res.status(201).json({
+      success: true,
+      message: 'Ubicación GPS creada correctamente con PostGIS',
+      data: { ubicacion: nuevaUbicacion }
+    });
+
+  } catch (error) {
+    console.error('Error creando ubicación:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Error interno del servidor',
+      error: process.env.NODE_ENV === 'development' ? error : undefined
+    });
+  }
+};
+
+/**
+ * Actualizar ubicación GPS existente
+ * 🎯 El trigger de PostGIS actualizará automáticamente punto_geo
+ */
+export const actualizarUbicacion = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const { nombre, descripcion, latitud, longitud, radio_metros, activo }: DatosUbicacion = req.body;
+
+    if (!id || isNaN(parseInt(id))) {
+      return res.status(400).json({
+        success: false,
+        message: 'ID de ubicación inválido'
+      });
+    }
+
+    // Verificar que la ubicación existe
+    const ubicacionExistente = await prisma.ubicaciones_permitidas.findUnique({
+      where: { id: parseInt(id) }
+    });
+
+    if (!ubicacionExistente) {
+      return res.status(404).json({
+        success: false,
+        message: 'Ubicación no encontrada'
+      });
+    }
+
+    // Preparar datos para actualización
+    const datosActualizacion: any = {
+      updated_at: new Date()
+    };
+
+    if (nombre !== undefined) datosActualizacion.nombre = nombre.trim();
+    if (descripcion !== undefined) datosActualizacion.descripcion = descripcion?.trim() || null;
+    if (latitud !== undefined) datosActualizacion.latitud = parseFloat(latitud.toString());
+    if (longitud !== undefined) datosActualizacion.longitud = parseFloat(longitud.toString());
+    if (radio_metros !== undefined) datosActualizacion.radio_metros = parseInt(radio_metros.toString());
+    if (activo !== undefined) datosActualizacion.activo = Boolean(activo);
+
+    // Actualizar la ubicación (trigger actualiza punto_geo automáticamente)
+    const ubicacionActualizada = await prisma.ubicaciones_permitidas.update({
+      where: { id: parseInt(id) },
+      data: datosActualizacion
+    });
+
+    console.log('✅ Ubicación actualizada - PostGIS actualizó punto_geo automáticamente');
+
+    return res.status(200).json({
+      success: true,
+      message: 'Ubicación actualizada correctamente con PostGIS',
+      data: { ubicacion: ubicacionActualizada }
+    });
+
+  } catch (error) {
+    console.error('Error actualizando ubicación:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Error interno del servidor',
+      error: process.env.NODE_ENV === 'development' ? error : undefined
+    });
+  }
+};
+
+/**
+ * Eliminar ubicación GPS
+ */
+export const eliminarUbicacion = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+
+    if (!id || isNaN(parseInt(id))) {
+      return res.status(400).json({
+        success: false,
+        message: 'ID de ubicación inválido'
+      });
+    }
+
+    // Verificar que la ubicación existe
+    const ubicacionExistente = await prisma.ubicaciones_permitidas.findUnique({
+      where: { id: parseInt(id) }
+    });
+
+    if (!ubicacionExistente) {
+      return res.status(404).json({
+        success: false,
+        message: 'Ubicación no encontrada'
+      });
+    }
+
+    // Verificar si la ubicación está siendo usada en asistencias
+    const asistenciasConUbicacion = await prisma.asistencias.findFirst({
+      where: { 
+        OR: [
+          { ubicacionEntradaId: parseInt(id) },
+          { ubicacionSalidaId: parseInt(id) }
+        ]
+      }
+    });
+
+    if (asistenciasConUbicacion) {
+      return res.status(409).json({
+        success: false,
+        message: 'No se puede eliminar la ubicación porque tiene asistencias registradas'
+      });
+    }
+
+    // Eliminar la ubicación
+    await prisma.ubicaciones_permitidas.delete({
+      where: { id: parseInt(id) }
+    });
+
+    return res.status(200).json({
+      success: true,
+      message: 'Ubicación eliminada correctamente'
+    });
+
+  } catch (error) {
+    console.error('Error eliminando ubicación:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Error interno del servidor',
+      error: process.env.NODE_ENV === 'development' ? error : undefined
+    });
+  }
+};
+
+/**
+ * Obtener ubicación GPS por ID
+ */
+export const obtenerUbicacionPorId = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+
+    if (!id || isNaN(parseInt(id))) {
+      return res.status(400).json({
+        success: false,
+        message: 'ID de ubicación inválido'
+      });
+    }
+
+    const ubicacion = await prisma.ubicaciones_permitidas.findUnique({
+      where: { id: parseInt(id) }
+    });
+
+    if (!ubicacion) {
+      return res.status(404).json({
+        success: false,
+        message: 'Ubicación no encontrada'
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: 'Ubicación obtenida correctamente',
+      data: { ubicacion }
+    });
+
+  } catch (error) {
+    console.error('Error obteniendo ubicación:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Error interno del servidor',
+      error: process.env.NODE_ENV === 'development' ? error : undefined
+    });
+  }
+};

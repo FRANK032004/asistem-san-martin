@@ -1,88 +1,87 @@
-a/a*a*aa
-a a*a aRauataaasa adaea aPalaaanaialalaaasa apaaaraaa aDaoacaeanataeasaa
-a a*a aEanadapaoaianatasa apaaaraaa acaoanasaualataaara apalaaanaialalaaasa aya abaoalaeataaasa adaea apaaagaoaa
-a a*a/aa
-aa
-aiamapaoarata aeaxaparaeasasa afaraoama a'aeaxaparaeasasa'a;aa
-aiamapaoarata apalaaanaialalaaaDaoacaeanataeaCaoanataraoalalaeara afaraoama a'a.a.a/acaoanataraoalalaearasa/apalaaanaialalaaa-adaoacaeanataea.acaoanataraoalalaeara'a;aa
-aiamapaoarata a{a aaauatahaeanataiacaaataeaTaoakaeana,a araeaqauaiaraeaDaoacaeanataea a}a afaraoama a'a.a.a/amaiadadalaeawaaaraea/aaauataha'a;aa
-aiamapaoarata a{a aqauaearaya a}a afaraoama a'aeaxaparaeasasa-avaaalaiadaaataoara'a;aa
-aa
-acaoanasata araoauataeara a=a aeaxaparaeasasa.aRaoauataeara(a)a;aa
-aa
-a/a/a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
-a/a/a aRaUaTaAaSa aPaAaRaAa aDaOaCaEaNaTaEaSaa
-a/a/a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
-aa
-a/a*a*aa
-a a*a aGaEaTa a/aaapaia/adaoacaeanataea/apalaaanaialalaaasa/aeasataaadaiasataiacaaasaa
-a a*a aOabataeanaeara aeasataaadaÃa­asataiacaaasa agaeanaearaaalaeasa adaea apalaaanaialalaaasaa
-a a*a aAacacaeasaoa:a aSaoalaoa aDaoacaeanataeasaa
-a a*a aNaoataaa:a aEasataaa arauataaa aDaEaBaEa aeasataaara aaanataeasa adaea a/aaapaia/adaoacaeanataea/apalaaanaialalaaasa/a:aiadaa
-a a*a/aa
-araoauataeara.agaeata(a'a/aeasataaadaiasataiacaaasa'a,a aa
-a a aaauatahaeanataiacaaataeaTaoakaeana,a aa
-a a araeaqauaiaraeaDaoacaeanataea,aa
-a a apalaaanaialalaaaDaoacaeanataeaCaoanataraoalalaeara.aoabataeanaearaEasataaadaiasataiacaaasaa
-a)a;aa
-aa
-a/a*a*aa
-a a*a aGaEaTa a/aaapaia/adaoacaeanataea/apalaaanaialalaaasa/aaanaiaoasaa
-a a*a aOabataeanaeara aaaÃa±aoasa adaiasapaoanaiabalaeasa acaoana apalaaanaialalaaasaa
-a a*a aAacacaeasaoa:a aSaoalaoa aDaoacaeanataeasaa
-a a*a/aa
-araoauataeara.agaeata(a'a/aaanaiaoasa'a,a aa
-a a aaauatahaeanataiacaaataeaTaoakaeana,a aa
-a a araeaqauaiaraeaDaoacaeanataea,aa
-a a apalaaanaialalaaaDaoacaeanataeaCaoanataraoalalaeara.aoabataeanaearaAanaiaoasaDaiasapaoanaiabalaeasaa
-a)a;aa
-aa
-a/a*a*aa
-a a*a aGaEaTa a/aaapaia/adaoacaeanataea/apalaaanaialalaaasaa
-a a*a aOabataeanaeara alaiasataaa adaea apalaaanaialalaaasa adaeala adaoacaeanataea acaoana afaialataraoasa aoapacaiaoanaaalaeasaa
-a a*a aQauaearaya apaaaraaamasa:aa
-a a*a a a a-a aaanaiaoa?a:a anauamabaeara a(a2a0a2a0a-a2a1a0a0a)aa
-a a*a a a a-a amaeasa?a:a anauamabaeara a(a1a-a1a2a)aa
-a a*a a a a-a aeasataaadaoa?a:a asataraianaga a(aPaEaNaDaIaEaNaTaEa a|a aEaNa_aPaRaOaCaEaSaOa a|a aPaAaGaAaDaOa a|a aAaNaUaLaAaDaOa a|a aTaOaDaOaSa)aa
-a a*a aAacacaeasaoa:a aSaoalaoa aDaoacaeanataeasaa
-a a*a/aa
-araoauataeara.agaeata(a'a/a'a,a aa
-a a aaauatahaeanataiacaaataeaTaoakaeana,a aa
-a a araeaqauaiaraeaDaoacaeanataea,aa
-a a a[aa
-a a a a aqauaearaya(a'aaanaiaoa'a)a.aoapataiaoanaaala(a)a.aiasaIanata(a{a amaiana:a a2a0a2a0a,a amaaaxa:a a2a1a0a0a a}a)a.ataoaIanata(a)a,aa
-a a a a aqauaearaya(a'amaeasa'a)a.aoapataiaoanaaala(a)a.aiasaIanata(a{a amaiana:a a1a,a amaaaxa:a a1a2a a}a)a.ataoaIanata(a)a,aa
-a a a a aqauaearaya(a'aeasataaadaoa'a)a.aoapataiaoanaaala(a)a.aiasaIana(a[a'aPaEaNaDaIaEaNaTaEa'a,a a'aEaNa_aPaRaOaCaEaSaOa'a,a a'aPaAaGaAaDaOa'a,a a'aAaNaUaLaAaDaOa'a,a a'aTaOaDaOaSa'a]a)aa
-a a a]a,aa
-a a apalaaanaialalaaaDaoacaeanataeaCaoanataraoalalaeara.aoabataeanaearaMaiasaPalaaanaialalaaasaa
-a)a;aa
-aa
-a/a*a*aa
-a a*a aGaEaTa a/aaapaia/adaoacaeanataea/apalaaanaialalaaasa/a:aiadaa
-a a*a aOabataeanaeara adaeataaalalaea acaoamapalaeataoa adaea auanaaa apalaaanaialalaaa aeasapaeacaÃa­afaiacaaaa
-a a*a aPaaaraaamasa:aa
-a a*a a a a-a aiada:a asataraianaga a(aUaUaIaDa adaea alaaa apalaaanaialalaaa)aa
-a a*a aAacacaeasaoa:a aSaoalaoa aDaoacaeanataeasa a(aparaoapaiaeataaaraiaoa)aa
-a a*a/aa
-araoauataeara.agaeata(a'a/a:aiada'a,a aa
-a a aaauatahaeanataiacaaataeaTaoakaeana,a aa
-a a araeaqauaiaraeaDaoacaeanataea,aa
-a a apalaaanaialalaaaDaoacaeanataeaCaoanataraoalalaeara.aoabataeanaearaDaeataaalalaeaPalaaanaialalaaaa
-a)a;aa
-aa
-a/a*a*aa
-a a*a aGaEaTa a/aaapaia/adaoacaeanataea/apalaaanaialalaaasa/a:aiada/apadafaa
-a a*a aDaeasacaaaragaaara abaoalaeataaa adaea apalaaanaialalaaa aeana aPaDaFaa
-a a*a aPaaaraaamasa:aa
-a a*a a a a-a aiada:a asataraianaga a(aUaUaIaDa adaea alaaa apalaaanaialalaaa)aa
-a a*a aAacacaeasaoa:a aSaoalaoa aDaoacaeanataeasa a(aparaoapaiaeataaaraiaoa)aa
-a a*a aEasataaadaoa:a aEana adaeasaaararaoalalaoaa
-a a*a/aa
-araoauataeara.agaeata(a'a/a:aiada/apadafa'a,a aa
-a a aaauatahaeanataiacaaataeaTaoakaeana,a aa
-a a araeaqauaiaraeaDaoacaeanataea,aa
-a a apalaaanaialalaaaDaoacaeanataeaCaoanataraoalalaeara.adaeasacaaaragaaaraBaoalaeataaaPaDaFaa
-a)a;aa
-aa
-aeaxapaoarata adaeafaaaualata araoauataeara;aa
-a
+/**
+ * Rutas de Planillas para Docentes
+ * Endpoints para consultar planillas y boletas de pago
+ */
+
+import express from 'express';
+import planillaDocenteController from '../controllers/planilla-docente.controller';
+import { authenticateToken, requireDocente } from '../middleware/auth';
+import { query } from 'express-validator';
+
+const router = express.Router();
+
+// ========================================
+// RUTAS PARA DOCENTES
+// ========================================
+
+/**
+ * GET /api/docente/planillas/estadisticas
+ * Obtener estadísticas generales de planillas
+ * Acceso: Solo Docentes
+ * Nota: Esta ruta DEBE estar antes de /api/docente/planillas/:id
+ */
+router.get('/estadisticas', 
+  authenticateToken, 
+  requireDocente,
+  planillaDocenteController.obtenerEstadisticas
+);
+
+/**
+ * GET /api/docente/planillas/anios
+ * Obtener años disponibles con planillas
+ * Acceso: Solo Docentes
+ */
+router.get('/anios', 
+  authenticateToken, 
+  requireDocente,
+  planillaDocenteController.obtenerAniosDisponibles
+);
+
+/**
+ * GET /api/docente/planillas
+ * Obtener lista de planillas del docente con filtros opcionales
+ * Query params:
+ *   - anio?: number (2020-2100)
+ *   - mes?: number (1-12)
+ *   - estado?: string (PENDIENTE | EN_PROCESO | PAGADO | ANULADO | TODOS)
+ * Acceso: Solo Docentes
+ */
+router.get('/', 
+  authenticateToken, 
+  requireDocente,
+  [
+    query('anio').optional().isInt({ min: 2020, max: 2100 }).toInt(),
+    query('mes').optional().isInt({ min: 1, max: 12 }).toInt(),
+    query('estado').optional().isIn(['PENDIENTE', 'EN_PROCESO', 'PAGADO', 'ANULADO', 'TODOS'])
+  ],
+  planillaDocenteController.obtenerMisPlanillas
+);
+
+/**
+ * GET /api/docente/planillas/:id
+ * Obtener detalle completo de una planilla específica
+ * Params:
+ *   - id: string (UUID de la planilla)
+ * Acceso: Solo Docentes (propietario)
+ */
+router.get('/:id', 
+  authenticateToken, 
+  requireDocente,
+  planillaDocenteController.obtenerDetallePlanilla
+);
+
+/**
+ * GET /api/docente/planillas/:id/pdf
+ * Descargar boleta de planilla en PDF
+ * Params:
+ *   - id: string (UUID de la planilla)
+ * Acceso: Solo Docentes (propietario)
+ * Estado: En desarrollo
+ */
+router.get('/:id/pdf', 
+  authenticateToken, 
+  requireDocente,
+  planillaDocenteController.descargarBoletaPDF
+);
+
+export default router;

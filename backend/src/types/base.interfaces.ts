@@ -1,65 +1,65 @@
-a/a*a*aa
-a a*a aIaNaTaEaRaFaAaCaEaSa aBaAaSaEa aPaAaRaAa aLaAa aAaRaQaUaIaTaEaCaTaUaRaAaa
-a a*a aDaeafaianaiacaiaoanaeasa acaoamauanaeasa apaaaraaa aRaeapaoasaiataoaraya aya aSaearavaiacaea apaaatataearanasaa
-a a*a/aa
-aa
-aeaxapaoarata aianataearafaaacaea aBaaasaeaEanataiataya a{aa
-a a aiada?a:a asataraianaga a|a anauamabaeara;aa
-a a acaraeaaataeada_aaata?a:a aDaaataea a|a anaualala;aa
-a a auapadaaataeada_aaata?a:a aDaaataea a|a anaualala;aa
-a}aa
-aa
-aeaxapaoarata aianataearafaaacaea aPaaagaianaaataiaoanaPaaaraaamasa a{aa
-a a apaaagaea:a anauamabaeara;aa
-a a alaiamaiata:a anauamabaeara;aa
-a a asaoarataBaya?a:a asataraianaga;aa
-a a asaoarataOaradaeara?a:a a'aaasaca'a a|a a'adaeasaca'a;aa
-a}aa
-aa
-aeaxapaoarata aianataearafaaacaea aPaaagaianaaataiaoanaRaeasaualata<aTa>a a{aa
-a a adaaataaa:a aTa[a]a;aa
-a a amaeataaa:a a{aa
-a a a a ataoataaala:a anauamabaeara;aa
-a a a a apaaagaea:a anauamabaeara;aa
-a a a a alaiamaiata:a anauamabaeara;aa
-a a a a ataoataaalaPaaagaeasa:a anauamabaeara;aa
-a a a a ahaaasaNaeaxata:a abaoaoalaeaaana;aa
-a a a a ahaaasaParaeava:a abaoaoalaeaaana;aa
-a a a}a;aa
-a}aa
-aa
-aeaxapaoarata aianataearafaaacaea aFaialataearaPaaaraaamasa a{aa
-a a a[akaeaya:a asataraianaga]a:a aaanaya;aa
-a}aa
-aa
-a/a*a*aa
-a a*a aRaeapaoasaiataoaraya aBaaasaea aIanataearafaaacaeaa
-a a*a/aa
-aeaxapaoarata aianataearafaaacaea aIaBaaasaeaRaeapaoasaiataoaraya<aTa aeaxataeanadasa aBaaasaeaEanataiataya>a a{aa
-a a a/a/a aCaRaUaDa abaÃa¡asaiacaoaa
-a a acaraeaaataea(adaaataaa:a aOamaiata<aTa,a a'aiada'a a|a a'acaraeaaataeada_aaata'a a|a a'auapadaaataeada_aaata'a>a)a:a aParaoamaiasaea<aTa>a;aa
-a a afaianadaBayaIada(aiada:a asataraianaga a|a anauamabaeara)a:a aParaoamaiasaea<aTa a|a anaualala>a;aa
-a a afaianadaAalala(apaaaraaamasa?a:a aPaaagaianaaataiaoanaPaaaraaamasa a&a aFaialataearaPaaaraaamasa)a:a aParaoamaiasaea<aPaaagaianaaataiaoanaRaeasaualata<aTa>a>a;aa
-a a auapadaaataea(aiada:a asataraianaga a|a anauamabaeara,a adaaataaa:a aPaaarataiaaala<aOamaiata<aTa,a a'aiada'a a|a a'acaraeaaataeada_aaata'a a|a a'auapadaaataeada_aaata'a>a>a)a:a aParaoamaiasaea<aTa a|a anaualala>a;aa
-a a adaealaeataea(aiada:a asataraianaga a|a anauamabaeara)a:a aParaoamaiasaea<abaoaoalaeaaana>a;aa
-a a aa
-a a a/a/a aUataialaiadaaadaeasaa
-a a aeaxaiasatasa(aiada:a asataraianaga a|a anauamabaeara)a:a aParaoamaiasaea<abaoaoalaeaaana>a;aa
-a a acaoauanata(afaialataeara?a:a aFaialataearaPaaaraaamasa)a:a aParaoamaiasaea<anauamabaeara>a;aa
-a}aa
-aa
-a/a*a*aa
-a a*a aSaearavaiacaea aBaaasaea aIanataearafaaacaeaa
-a a*a/aa
-aeaxapaoarata aianataearafaaacaea aIaBaaasaeaSaearavaiacaea<aTa aeaxataeanadasa aBaaasaeaEanataiataya>a a{aa
-a a a/a/a aOapaearaaacaiaoanaeasa aparaianacaiapaaalaeasaa
-a a acaraeaaataea(adaaataaa:a aOamaiata<aTa,a a'aiada'a a|a a'acaraeaaataeada_aaata'a a|a a'auapadaaataeada_aaata'a>a)a:a aParaoamaiasaea<aTa>a;aa
-a a agaeataBayaIada(aiada:a asataraianaga a|a anauamabaeara)a:a aParaoamaiasaea<aTa a|a anaualala>a;aa
-a a agaeataAalala(apaaaraaamasa?a:a aPaaagaianaaataiaoanaPaaaraaamasa a&a aFaialataearaPaaaraaamasa)a:a aParaoamaiasaea<aPaaagaianaaataiaoanaRaeasaualata<aTa>a>a;aa
-a a auapadaaataea(aiada:a asataraianaga a|a anauamabaeara,a adaaataaa:a aPaaarataiaaala<aOamaiata<aTa,a a'aiada'a a|a a'acaraeaaataeada_aaata'a a|a a'auapadaaataeada_aaata'a>a>a)a:a aParaoamaiasaea<aTa a|a anaualala>a;aa
-a a adaealaeataea(aiada:a asataraianaga a|a anauamabaeara)a:a aParaoamaiasaea<abaoaoalaeaaana>a;aa
-a a aa
-a a a/a/a aVaaalaiadaaacaiaÃa³anaa
-a a avaaalaiadaaataeaDaaataaa(adaaataaa:a aPaaarataiaaala<aTa>a)a:a aParaoamaiasaea<avaoaiada>a;aa
-a a aeaxaiasatasa(aiada:a asataraianaga a|a anauamabaeara)a:a aParaoamaiasaea<abaoaoalaeaaana>a;aa
-a}a
+/**
+ * INTERFACES BASE PARA LA ARQUITECTURA
+ * Definiciones comunes para Repository y Service patterns
+ */
+
+export interface BaseEntity {
+  id?: string | number;
+  created_at?: Date | null;
+  updated_at?: Date | null;
+}
+
+export interface PaginationParams {
+  page: number;
+  limit: number;
+  sortBy?: string;
+  sortOrder?: 'asc' | 'desc';
+}
+
+export interface PaginationResult<T> {
+  data: T[];
+  meta: {
+    total: number;
+    page: number;
+    limit: number;
+    totalPages: number;
+    hasNext: boolean;
+    hasPrev: boolean;
+  };
+}
+
+export interface FilterParams {
+  [key: string]: any;
+}
+
+/**
+ * Repository Base Interface
+ */
+export interface IBaseRepository<T extends BaseEntity> {
+  // CRUD básico
+  create(data: Omit<T, 'id' | 'created_at' | 'updated_at'>): Promise<T>;
+  findById(id: string | number): Promise<T | null>;
+  findAll(params?: PaginationParams & FilterParams): Promise<PaginationResult<T>>;
+  update(id: string | number, data: Partial<Omit<T, 'id' | 'created_at' | 'updated_at'>>): Promise<T | null>;
+  delete(id: string | number): Promise<boolean>;
+  
+  // Utilidades
+  exists(id: string | number): Promise<boolean>;
+  count(filter?: FilterParams): Promise<number>;
+}
+
+/**
+ * Service Base Interface
+ */
+export interface IBaseService<T extends BaseEntity> {
+  // Operaciones principales
+  create(data: Omit<T, 'id' | 'created_at' | 'updated_at'>): Promise<T>;
+  getById(id: string | number): Promise<T | null>;
+  getAll(params?: PaginationParams & FilterParams): Promise<PaginationResult<T>>;
+  update(id: string | number, data: Partial<Omit<T, 'id' | 'created_at' | 'updated_at'>>): Promise<T | null>;
+  delete(id: string | number): Promise<boolean>;
+  
+  // Validación
+  validateData(data: Partial<T>): Promise<void>;
+  exists(id: string | number): Promise<boolean>;
+}

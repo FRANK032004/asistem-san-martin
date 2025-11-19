@@ -1,112 +1,111 @@
-a/a*a*aa
-a a*a aDaTaOasa apaaaraaa aAauataeanataiacaaacaiaÃa³anaa
-a a*a aVaaalaiadaaacaiaoanaeasa aaauataoamaÃa¡ataiacaaasa acaoana acalaaasasa-avaaalaiadaaataoaraa
-a a*a/aa
-aa
-aiamapaoarata a{a aIasaEamaaaiala,a aIasaNaoataEamapataya,a aIasaSataraianaga,a aMaianaLaeanagataha,a aMaaaxaLaeanagataha,a aMaaatacahaeasa,a aIasaOapataiaoanaaala a}a afaraoama a'acalaaasasa-avaaalaiadaaataoara'a;aa
-aa
-a/a*a*aa
-a a*a aDaTaOa apaaaraaa aLaoagaianaa
-a a*a/aa
-aeaxapaoarata acalaaasasa aLaoagaianaDaTaOa a{aa
-a a a@aIasaEamaaaiala(a{a}a,a a{a amaeasasaaagaea:a a'aEamaaaiala adaeabaea asaeara avaÃa¡alaiadaoa'a a}a)aa
-a a a@aIasaNaoataEamapataya(a{a amaeasasaaagaea:a a'aEamaaaiala aeasa araeaqauaearaiadaoa'a a}a)aa
-a a aeamaaaiala!a:a asataraianaga;aa
-aa
-a a a@aIasaSataraianaga(a{a amaeasasaaagaea:a a'aPaaasasawaoarada adaeabaea asaeara auana asataraianaga'a a}a)aa
-a a a@aIasaNaoataEamapataya(a{a amaeasasaaagaea:a a'aPaaasasawaoarada aeasa araeaqauaearaiadaoa'a a}a)aa
-a a a@aMaianaLaeanagataha(a6a,a a{a amaeasasaaagaea:a a'aPaaasasawaoarada adaeabaea ataeanaeara aaala amaeanaoasa a6a acaaaraaacataearaeasa'a a}a)aa
-a a apaaasasawaoarada!a:a asataraianaga;aa
-a}aa
-aa
-a/a*a*aa
-a a*a aDaTaOa apaaaraaa aRaeagaiasataraoa adaea aUasauaaaraiaoaa
-a a*a/aa
-aeaxapaoarata acalaaasasa aRaeagaiasataearaDaTaOa a{aa
-a a a@aIasaEamaaaiala(a{a}a,a a{a amaeasasaaagaea:a a'aEamaaaiala adaeabaea asaeara avaÃa¡alaiadaoa'a a}a)aa
-a a a@aIasaNaoataEamapataya(a{a amaeasasaaagaea:a a'aEamaaaiala aeasa araeaqauaearaiadaoa'a a}a)aa
-a a aeamaaaiala!a:a asataraianaga;aa
-aa
-a a a@aIasaSataraianaga(a{a amaeasasaaagaea:a a'aPaaasasawaoarada adaeabaea asaeara auana asataraianaga'a a}a)aa
-a a a@aIasaNaoataEamapataya(a{a amaeasasaaagaea:a a'aPaaasasawaoarada aeasa araeaqauaearaiadaoa'a a}a)aa
-a a a@aMaianaLaeanagataha(a6a,a a{a amaeasasaaagaea:a a'aPaaasasawaoarada adaeabaea ataeanaeara aaala amaeanaoasa a6a acaaaraaacataearaeasa'a a}a)aa
-a a a@aMaaaxaLaeanagataha(a5a0a,a a{a amaeasasaaagaea:a a'aPaaasasawaoarada anaoa apauaeadaea aeaxacaeadaeara a5a0a acaaaraaacataearaeasa'a a}a)aa
-a a a@aMaaatacahaeasa(aa
-a a a a a/a^a(a?a=a.a*a[aaa-aza]a)a(a?a=a.a*a[aAa-aZa]a)a(a?a=a.a*a\ada)a[aaa-azaAa-aZa\ada@a$a!a%a*a?a&a]a{a6a,a}a$a/a,aa
-a a a a a{a amaeasasaaagaea:a a'aPaaasasawaoarada adaeabaea acaoanataeanaeara aaala amaeanaoasa auanaaa amaaayaÃaºasacaualaaa,a auanaaa amaianaÃaºasacaualaaa aya auana anaÃaºamaearaoa'a a}aa
-a a a)aa
-a a apaaasasawaoarada!a:a asataraianaga;aa
-aa
-a a a@aIasaSataraianaga(a{a amaeasasaaagaea:a a'aNaoamabaraeasa adaeabaea asaeara auana asataraianaga'a a}a)aa
-a a a@aIasaNaoataEamapataya(a{a amaeasasaaagaea:a a'aNaoamabaraeasa asaoana araeaqauaearaiadaoasa'a a}a)aa
-a a a@aMaianaLaeanagataha(a2a,a a{a amaeasasaaagaea:a a'aNaoamabaraeasa adaeabaea ataeanaeara aaala amaeanaoasa a2a acaaaraaacataearaeasa'a a}a)aa
-a a a@aMaaaxaLaeanagataha(a1a0a0a,a a{a amaeasasaaagaea:a a'aNaoamabaraeasa anaoa apauaeadaea aeaxacaeadaeara a1a0a0a acaaaraaacataearaeasa'a a}a)aa
-a a anaoamabaraeasa!a:a asataraianaga;aa
-aa
-a a a@aIasaSataraianaga(a{a amaeasasaaagaea:a a'aAapaealalaiadaoasa adaeabaea asaeara auana asataraianaga'a a}a)aa
-a a a@aIasaNaoataEamapataya(a{a amaeasasaaagaea:a a'aAapaealalaiadaoasa asaoana araeaqauaearaiadaoasa'a a}a)aa
-a a a@aMaianaLaeanagataha(a2a,a a{a amaeasasaaagaea:a a'aAapaealalaiadaoasa adaeabaea ataeanaeara aaala amaeanaoasa a2a acaaaraaacataearaeasa'a a}a)aa
-a a a@aMaaaxaLaeanagataha(a1a0a0a,a a{a amaeasasaaagaea:a a'aAapaealalaiadaoasa anaoa apauaeadaea aeaxacaeadaeara a1a0a0a acaaaraaacataearaeasa'a a}a)aa
-a a aaapaealalaiadaoasa!a:a asataraianaga;aa
-aa
-a a a@aIasaSataraianaga(a{a amaeasasaaagaea:a a'aRaoala adaeabaea asaeara auana asataraianaga'a a}a)aa
-a a a@aIasaNaoataEamapataya(a{a amaeasasaaagaea:a a'aRaoala aeasa araeaqauaearaiadaoa'a a}a)aa
-a a a@aMaaatacahaeasa(a/a^a(aAaDaMaIaNa|aDaOaCaEaNaTaEa)a$a/a,a a{a amaeasasaaagaea:a a'aRaoala adaeabaea asaeara aAaDaMaIaNa aoa aDaOaCaEaNaTaEa'a a}a)aa
-a a araoala!a:a asataraianaga;aa
-aa
-a a a@aIasaSataraianaga(a{a amaeasasaaagaea:a a'aTaealaÃa©afaoanaoa adaeabaea asaeara auana asataraianaga'a a}a)aa
-a a a@aIasaOapataiaoanaaala(a)aa
-a a a@aMaaatacahaeasa(a/a^a\ada{a9a}a$a/a,a a{a amaeasasaaagaea:a a'aTaealaÃa©afaoanaoa adaeabaea ataeanaeara a9a adaÃa­agaiataoasa'a a}a)aa
-a a ataealaeafaoanaoa?a:a asataraianaga;aa
-aa
-a a a@aIasaSataraianaga(a{a amaeasasaaagaea:a a'aDaNaIa adaeabaea asaeara auana asataraianaga'a a}a)aa
-a a a@aIasaOapataiaoanaaala(a)aa
-a a a@aMaaatacahaeasa(a/a^a\ada{a8a}a$a/a,a a{a amaeasasaaagaea:a a'aDaNaIa adaeabaea ataeanaeara a8a adaÃa­agaiataoasa'a a}a)aa
-a a adanaia?a:a asataraianaga;aa
-a}aa
-aa
-a/a*a*aa
-a a*a aDaTaOa apaaaraaa aaacatauaaalaiazaaara apaearafaialaa
-a a*a/aa
-aeaxapaoarata acalaaasasa aUapadaaataeaParaoafaialaeaDaTaOa a{aa
-a a a@aIasaSataraianaga(a{a amaeasasaaagaea:a a'aNaoamabaraeasa adaeabaea asaeara auana asataraianaga'a a}a)aa
-a a a@aIasaOapataiaoanaaala(a)aa
-a a a@aMaianaLaeanagataha(a2a,a a{a amaeasasaaagaea:a a'aNaoamabaraeasa adaeabaea ataeanaeara aaala amaeanaoasa a2a acaaaraaacataearaeasa'a a}a)aa
-a a a@aMaaaxaLaeanagataha(a1a0a0a,a a{a amaeasasaaagaea:a a'aNaoamabaraeasa anaoa apauaeadaea aeaxacaeadaeara a1a0a0a acaaaraaacataearaeasa'a a}a)aa
-a a anaoamabaraeasa?a:a asataraianaga;aa
-aa
-a a a@aIasaSataraianaga(a{a amaeasasaaagaea:a a'aAapaealalaiadaoasa adaeabaea asaeara auana asataraianaga'a a}a)aa
-a a a@aIasaOapataiaoanaaala(a)aa
-a a a@aMaianaLaeanagataha(a2a,a a{a amaeasasaaagaea:a a'aAapaealalaiadaoasa adaeabaea ataeanaeara aaala amaeanaoasa a2a acaaaraaacataearaeasa'a a}a)aa
-a a a@aMaaaxaLaeanagataha(a1a0a0a,a a{a amaeasasaaagaea:a a'aAapaealalaiadaoasa anaoa apauaeadaea aeaxacaeadaeara a1a0a0a acaaaraaacataearaeasa'a a}a)aa
-a a aaapaealalaiadaoasa?a:a asataraianaga;aa
-aa
-a a a@aIasaSataraianaga(a{a amaeasasaaagaea:a a'aTaealaÃa©afaoanaoa adaeabaea asaeara auana asataraianaga'a a}a)aa
-a a a@aIasaOapataiaoanaaala(a)aa
-a a a@aMaaatacahaeasa(a/a^a\ada{a9a}a$a/a,a a{a amaeasasaaagaea:a a'aTaealaÃa©afaoanaoa adaeabaea ataeanaeara a9a adaÃa­agaiataoasa'a a}a)aa
-a a ataealaeafaoanaoa?a:a asataraianaga;aa
-aa
-a a a@aIasaEamaaaiala(a{a}a,a a{a amaeasasaaagaea:a a'aEamaaaiala adaeabaea asaeara avaÃa¡alaiadaoa'a a}a)aa
-a a a@aIasaOapataiaoanaaala(a)aa
-a a aeamaaaiala?a:a asataraianaga;aa
-a}aa
-aa
-a/a*a*aa
-a a*a aDaTaOa apaaaraaa acaaamabaiaoa adaea acaoanataraaasaeaÃa±aaaa
-a a*a/aa
-aeaxapaoarata acalaaasasa aCahaaanagaeaPaaasasawaoaradaDaTaOa a{aa
-a a a@aIasaSataraianaga(a{a amaeasasaaagaea:a a'aPaaasasawaoarada aaacatauaaala adaeabaea asaeara auana asataraianaga'a a}a)aa
-a a a@aIasaNaoataEamapataya(a{a amaeasasaaagaea:a a'aPaaasasawaoarada aaacatauaaala aeasa araeaqauaearaiadaoa'a a}a)aa
-a a acauararaeanataPaaasasawaoarada!a:a asataraianaga;aa
-aa
-a a a@aIasaSataraianaga(a{a amaeasasaaagaea:a a'aNauaeavaoa apaaasasawaoarada adaeabaea asaeara auana asataraianaga'a a}a)aa
-a a a@aIasaNaoataEamapataya(a{a amaeasasaaagaea:a a'aNauaeavaoa apaaasasawaoarada aeasa araeaqauaearaiadaoa'a a}a)aa
-a a a@aMaianaLaeanagataha(a6a,a a{a amaeasasaaagaea:a a'aNauaeavaoa apaaasasawaoarada adaeabaea ataeanaeara aaala amaeanaoasa a6a acaaaraaacataearaeasa'a a}a)aa
-a a a@aMaaaxaLaeanagataha(a5a0a,a a{a amaeasasaaagaea:a a'aNauaeavaoa apaaasasawaoarada anaoa apauaeadaea aeaxacaeadaeara a5a0a acaaaraaacataearaeasa'a a}a)aa
-a a a@aMaaatacahaeasa(aa
-a a a a a/a^a(a?a=a.a*a[aaa-aza]a)a(a?a=a.a*a[aAa-aZa]a)a(a?a=a.a*a\ada)a[aaa-azaAa-aZa\ada@a$a!a%a*a?a&a]a{a6a,a}a$a/a,aa
-a a a a a{a amaeasasaaagaea:a a'aNauaeavaoa apaaasasawaoarada adaeabaea acaoanataeanaeara aaala amaeanaoasa auanaaa amaaayaÃaºasacaualaaa,a auanaaa amaianaÃaºasacaualaaa aya auana anaÃaºamaearaoa'a a}aa
-a a a)aa
-a a anaeawaPaaasasawaoarada!a:a asataraianaga;aa
-a}aa
-a
+/**
+ * DTOs para Autenticación
+ * Validaciones automáticas con class-validator
+ */
+
+import { IsEmail, IsNotEmpty, IsString, MinLength, MaxLength, Matches, IsOptional } from 'class-validator';
+
+/**
+ * DTO para Login
+ */
+export class LoginDTO {
+  @IsEmail({}, { message: 'Email debe ser válido' })
+  @IsNotEmpty({ message: 'Email es requerido' })
+  email!: string;
+
+  @IsString({ message: 'Password debe ser un string' })
+  @IsNotEmpty({ message: 'Password es requerido' })
+  @MinLength(6, { message: 'Password debe tener al menos 6 caracteres' })
+  password!: string;
+}
+
+/**
+ * DTO para Registro de Usuario
+ */
+export class RegisterDTO {
+  @IsEmail({}, { message: 'Email debe ser válido' })
+  @IsNotEmpty({ message: 'Email es requerido' })
+  email!: string;
+
+  @IsString({ message: 'Password debe ser un string' })
+  @IsNotEmpty({ message: 'Password es requerido' })
+  @MinLength(6, { message: 'Password debe tener al menos 6 caracteres' })
+  @MaxLength(50, { message: 'Password no puede exceder 50 caracteres' })
+  @Matches(
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$!%*?&]{6,}$/,
+    { message: 'Password debe contener al menos una mayúscula, una minúscula y un número' }
+  )
+  password!: string;
+
+  @IsString({ message: 'Nombres debe ser un string' })
+  @IsNotEmpty({ message: 'Nombres son requeridos' })
+  @MinLength(2, { message: 'Nombres debe tener al menos 2 caracteres' })
+  @MaxLength(100, { message: 'Nombres no puede exceder 100 caracteres' })
+  nombres!: string;
+
+  @IsString({ message: 'Apellidos debe ser un string' })
+  @IsNotEmpty({ message: 'Apellidos son requeridos' })
+  @MinLength(2, { message: 'Apellidos debe tener al menos 2 caracteres' })
+  @MaxLength(100, { message: 'Apellidos no puede exceder 100 caracteres' })
+  apellidos!: string;
+
+  @IsString({ message: 'Rol debe ser un string' })
+  @IsNotEmpty({ message: 'Rol es requerido' })
+  @Matches(/^(ADMIN|DOCENTE)$/, { message: 'Rol debe ser ADMIN o DOCENTE' })
+  rol!: string;
+
+  @IsString({ message: 'Teléfono debe ser un string' })
+  @IsOptional()
+  @Matches(/^\d{9}$/, { message: 'Teléfono debe tener 9 dígitos' })
+  telefono?: string;
+
+  @IsString({ message: 'DNI debe ser un string' })
+  @IsOptional()
+  @Matches(/^\d{8}$/, { message: 'DNI debe tener 8 dígitos' })
+  dni?: string;
+}
+
+/**
+ * DTO para actualizar perfil
+ */
+export class UpdateProfileDTO {
+  @IsString({ message: 'Nombres debe ser un string' })
+  @IsOptional()
+  @MinLength(2, { message: 'Nombres debe tener al menos 2 caracteres' })
+  @MaxLength(100, { message: 'Nombres no puede exceder 100 caracteres' })
+  nombres?: string;
+
+  @IsString({ message: 'Apellidos debe ser un string' })
+  @IsOptional()
+  @MinLength(2, { message: 'Apellidos debe tener al menos 2 caracteres' })
+  @MaxLength(100, { message: 'Apellidos no puede exceder 100 caracteres' })
+  apellidos?: string;
+
+  @IsString({ message: 'Teléfono debe ser un string' })
+  @IsOptional()
+  @Matches(/^\d{9}$/, { message: 'Teléfono debe tener 9 dígitos' })
+  telefono?: string;
+
+  @IsEmail({}, { message: 'Email debe ser válido' })
+  @IsOptional()
+  email?: string;
+}
+
+/**
+ * DTO para cambio de contraseña
+ */
+export class ChangePasswordDTO {
+  @IsString({ message: 'Password actual debe ser un string' })
+  @IsNotEmpty({ message: 'Password actual es requerido' })
+  currentPassword!: string;
+
+  @IsString({ message: 'Nuevo password debe ser un string' })
+  @IsNotEmpty({ message: 'Nuevo password es requerido' })
+  @MinLength(6, { message: 'Nuevo password debe tener al menos 6 caracteres' })
+  @MaxLength(50, { message: 'Nuevo password no puede exceder 50 caracteres' })
+  @Matches(
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$!%*?&]{6,}$/,
+    { message: 'Nuevo password debe contener al menos una mayúscula, una minúscula y un número' }
+  )
+  newPassword!: string;
+}

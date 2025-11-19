@@ -1,148 +1,147 @@
-a/a*a*aa
-a a*a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
-a a*a aTaEaSaTaSa aUaNaIaTaAaRaIaOaSa a-a aAaUaTaEaNaTaIaCaAaCaIaÃa“aNaa
-a a*a aSaiasataeamaaa adaea aAasaiasataeanacaiaaasa a-a aIanasataiatauataoa aSaaana aMaaarataÃa­anaa
-a a*a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
-a a*a aTaeasatasa acaraÃa­ataiacaoasa adaeala asaiasataeamaaa adaea aaauataeanataiacaaacaiaÃa³anaa
-a a*a/aa
-aa
-a/a/a/a a<araeafaearaeanacaea atayapaeasa=a"ajaeasata"a a/a>aa
-aa
-aiamapaoarata a{a ahaaasahaPaaasasawaoarada,a acaoamapaaaraeaPaaasasawaoarada,a agaeanaearaaataeaTaoakaeana,a avaearaiafayaTaoakaeana a}a afaraoama a'a.a.a/a.a.a/auataialasa/aaauataha'a;aa
-aiamapaoarata a{a aBaCaRaYaPaTa_aCaOaNaFaIaGa a}a afaraoama a'a.a.a/a.a.a/asahaaaraeada/acaoanasataaanatasa/asaeacauaraiataya.acaoanasataaanatasa'a;aa
-aa
-adaeasacaraiabaea(a'aAauataha aUataialasa a-a aUanaiata aTaeasatasa'a,a a(a)a a=a>a a{aa
-a a aa
-a a adaeasacaraiabaea(a'ahaaasahaPaaasasawaoarada'a,a a(a)a a=a>a a{aa
-a a a a aiata(a'adaeabaea agaeanaearaaara auana ahaaasaha avaÃa¡alaiadaoa adaea abacarayapata'a,a aaasayanaca a(a)a a=a>a a{aa
-a a a a a a acaoanasata apaaasasawaoarada a=a a'aTaeasataPaaasasawaoarada1a2a3a!a'a;aa
-a a a a a a acaoanasata ahaaasaha a=a aaawaaaiata ahaaasahaPaaasasawaoarada(apaaasasawaoarada)a;aa
-a a a a a a aa
-a a a a a a aeaxapaeacata(ahaaasaha)a.ataoaBaeaDaeafaianaeada(a)a;aa
-a a a a a a aeaxapaeacata(atayapaeaoafa ahaaasaha)a.ataoaBaea(a'asataraianaga'a)a;aa
-a a a a a a aeaxapaeacata(ahaaasaha.alaeanagataha)a.ataoaBaeaGaraeaaataearaTahaaana(a5a0a)a;aa
-a a a a a a aeaxapaeacata(ahaaasaha)a.ataoaMaaatacaha(a/a^a\a$a2a[aaayaba]a\a$a/a)a;a a/a/a aFaoaramaaataoa abacarayapataa
-a a a a a}a)a;aa
-aa
-a a a a aiata(a'adaeabaea agaeanaearaaara ahaaasahaeasa adaiafaearaeanataeasa apaaaraaa alaaa amaiasamaaa acaoanataraaasaeaÃa±aaa'a,a aaasayanaca a(a)a a=a>a a{aa
-a a a a a a acaoanasata apaaasasawaoarada a=a a'aTaeasataPaaasasawaoarada1a2a3a!a'a;aa
-a a a a a a acaoanasata ahaaasaha1a a=a aaawaaaiata ahaaasahaPaaasasawaoarada(apaaasasawaoarada)a;aa
-a a a a a a acaoanasata ahaaasaha2a a=a aaawaaaiata ahaaasahaPaaasasawaoarada(apaaasasawaoarada)a;aa
-a a a a a a aa
-a a a a a a aeaxapaeacata(ahaaasaha1a)a.anaoata.ataoaBaea(ahaaasaha2a)a;a a/a/a aSaaalata adaiafaearaeanataeaa
-a a a a a}a)a;aa
-aa
-a a a a aiata(a'adaeabaea auasaaara aeala anaÃaºamaearaoa acaoararaeacataoa adaea araoauanadasa'a,a aaasayanaca a(a)a a=a>a a{aa
-a a a a a a acaoanasata apaaasasawaoarada a=a a'aTaeasataPaaasasawaoarada1a2a3a!a'a;aa
-a a a a a a acaoanasata ahaaasaha a=a aaawaaaiata ahaaasahaPaaasasawaoarada(apaaasasawaoarada)a;aa
-a a a a a a aa
-a a a a a a a/a/a aEaxataraaaeara araoauanadasa adaeala ahaaasaha a(afaoaramaaataoa:a a$a2aba$araoauanadasa$a.a.a.a)aa
-a a a a a a acaoanasata araoauanadasaSatara a=a ahaaasaha.asapalaiata(a'a$a'a)a[a2a]a;aa
-a a a a a a acaoanasata araoauanadasa a=a araoauanadasaSatara a?a apaaarasaeaIanata(araoauanadasaSatara)a a:a a0a;aa
-a a a a a a aeaxapaeacata(araoauanadasa)a.ataoaBaea(aBaCaRaYaPaTa_aCaOaNaFaIaGa.aSaAaLaTa_aRaOaUaNaDaSa)a;aa
-a a a a a}a)a;aa
-a a a}a)a;aa
-aa
-a a adaeasacaraiabaea(a'acaoamapaaaraeaPaaasasawaoarada'a,a a(a)a a=a>a a{aa
-a a a a aiata(a'adaeabaea avaearaiafaiacaaara acaoararaeacataaamaeanataea auanaaa acaoanataraaasaeaÃa±aaa avaÃa¡alaiadaaa'a,a aaasayanaca a(a)a a=a>a a{aa
-a a a a a a acaoanasata apaaasasawaoarada a=a a'aTaeasataPaaasasawaoarada1a2a3a!a'a;aa
-a a a a a a acaoanasata ahaaasaha a=a aaawaaaiata ahaaasahaPaaasasawaoarada(apaaasasawaoarada)a;aa
-a a a a a a aa
-a a a a a a acaoanasata aiasaVaaalaiada a=a aaawaaaiata acaoamapaaaraeaPaaasasawaoarada(apaaasasawaoarada,a ahaaasaha)a;aa
-a a a a a a aeaxapaeacata(aiasaVaaalaiada)a.ataoaBaea(atarauaea)a;aa
-a a a a a}a)a;aa
-aa
-a a a a aiata(a'adaeabaea araeacahaaazaaara auanaaa acaoanataraaasaeaÃa±aaa aianavaÃa¡alaiadaaa'a,a aaasayanaca a(a)a a=a>a a{aa
-a a a a a a acaoanasata apaaasasawaoarada a=a a'aTaeasataPaaasasawaoarada1a2a3a!a'a;aa
-a a a a a a acaoanasata awaraoanagaPaaasasawaoarada a=a a'aWaraoanagaPaaasasawaoarada4a5a6a!a'a;aa
-a a a a a a acaoanasata ahaaasaha a=a aaawaaaiata ahaaasahaPaaasasawaoarada(apaaasasawaoarada)a;aa
-a a a a a a aa
-a a a a a a acaoanasata aiasaVaaalaiada a=a aaawaaaiata acaoamapaaaraeaPaaasasawaoarada(awaraoanagaPaaasasawaoarada,a ahaaasaha)a;aa
-a a a a a a aeaxapaeacata(aiasaVaaalaiada)a.ataoaBaea(afaaalasaea)a;aa
-a a a a a}a)a;aa
-aa
-a a a a aiata(a'adaeabaea asaeara acaaasaea-asaeanasaiataiavaea'a,a aaasayanaca a(a)a a=a>a a{aa
-a a a a a a acaoanasata apaaasasawaoarada a=a a'aTaeasataPaaasasawaoarada1a2a3a!a'a;aa
-a a a a a a acaoanasata ahaaasaha a=a aaawaaaiata ahaaasahaPaaasasawaoarada(apaaasasawaoarada)a;aa
-a a a a a a aa
-a a a a a a acaoanasata aiasaVaaalaiada a=a aaawaaaiata acaoamapaaaraeaPaaasasawaoarada(a'ataeasatapaaasasawaoarada1a2a3a!a'a,a ahaaasaha)a;aa
-a a a a a a aeaxapaeacata(aiasaVaaalaiada)a.ataoaBaea(afaaalasaea)a;aa
-a a a a a}a)a;aa
-a a a}a)a;aa
-aa
-a a adaeasacaraiabaea(a'agaeanaearaaataeaTaoakaeana'a,a a(a)a a=a>a a{aa
-a a a a acaoanasata ataeasataPaaayalaoaaada a=a a{aa
-a a a a a a auasaearaIada:a a'ataeasata-auauaiada-a1a2a3a'a,aa
-a a a a a a aeamaaaiala:a a'ataeasata@aeaxaaamapalaea.acaoama'a,aa
-a a a a a a araoala:a a'adaoacaeanataea'a,aa
-a a a a a a araoala_aiada:a a2a,a a/a/a aIaDa anauamaÃa©araiacaoa adaeala araoala adaoacaeanataeaa
-a a a a a a aiasaDaoacaeanataea:a atarauaea,aa
-a a a a a}a;aa
-aa
-a a a a aiata(a'adaeabaea agaeanaearaaara auana aJaWaTa avaÃa¡alaiadaoa'a,a a(a)a a=a>a a{aa
-a a a a a a acaoanasata ataoakaeana a=a agaeanaearaaataeaTaoakaeana(ataeasataPaaayalaoaaada)a;aa
-a a a a a a aa
-a a a a a a aeaxapaeacata(ataoakaeana)a.ataoaBaeaDaeafaianaeada(a)a;aa
-a a a a a a aeaxapaeacata(atayapaeaoafa ataoakaeana)a.ataoaBaea(a'asataraianaga'a)a;aa
-a a a a a a aeaxapaeacata(ataoakaeana.asapalaiata(a'a.a'a)a)a.ataoaHaaavaeaLaeanagataha(a3a)a;a a/a/a ahaeaaadaeara.apaaayalaoaaada.asaiaganaaatauaraeaa
-a a a a a}a)a;aa
-aa
-a a a a aiata(a'adaeabaea aianacalauaiara aeala apaaayalaoaaada aeana aeala ataoakaeana'a,a a(a)a a=a>a a{aa
-a a a a a a acaoanasata ataoakaeana a=a agaeanaearaaataeaTaoakaeana(ataeasataPaaayalaoaaada)a;aa
-a a a a a a acaoanasata adaeacaoadaeada a=a avaearaiafayaTaoakaeana(ataoakaeana)a;aa
-a a a a a a aa
-a a a a a a aeaxapaeacata(adaeacaoadaeada.auasaearaIada)a.ataoaBaea(ataeasataPaaayalaoaaada.auasaearaIada)a;aa
-a a a a a a aeaxapaeacata(adaeacaoadaeada.aeamaaaiala)a.ataoaBaea(ataeasataPaaayalaoaaada.aeamaaaiala)a;aa
-a a a a a a aeaxapaeacata(adaeacaoadaeada.araoala)a.ataoaBaea(ataeasataPaaayalaoaaada.araoala)a;aa
-a a a a a}a)a;aa
-a a a}a)a;aa
-aa
-a a adaeasacaraiabaea(a'avaearaiafayaTaoakaeana'a,a a(a)a a=a>a a{aa
-a a a a acaoanasata ataeasataPaaayalaoaaada a=a a{aa
-a a a a a a auasaearaIada:a a'ataeasata-auauaiada-a1a2a3a'a,aa
-a a a a a a aeamaaaiala:a a'ataeasata@aeaxaaamapalaea.acaoama'a,aa
-a a a a a a araoala:a a'adaoacaeanataea'a,aa
-a a a a a a araoala_aiada:a a2a,a a/a/a aIaDa anauamaÃa©araiacaoa adaeala araoala adaoacaeanataeaa
-a a a a a a aiasaDaoacaeanataea:a atarauaea,aa
-a a a a a}a;aa
-aa
-a a a a aiata(a'adaeabaea avaearaiafaiacaaara acaoararaeacataaamaeanataea auana ataoakaeana avaÃa¡alaiadaoa'a,a a(a)a a=a>a a{aa
-a a a a a a acaoanasata ataoakaeana a=a agaeanaearaaataeaTaoakaeana(ataeasataPaaayalaoaaada)a;aa
-a a a a a a acaoanasata adaeacaoadaeada a=a avaearaiafayaTaoakaeana(ataoakaeana)a;aa
-a a a a a a aa
-a a a a a a aeaxapaeacata(adaeacaoadaeada)a.ataoaBaeaDaeafaianaeada(a)a;aa
-a a a a a a aeaxapaeacata(adaeacaoadaeada.auasaearaIada)a.ataoaBaea(ataeasataPaaayalaoaaada.auasaearaIada)a;aa
-a a a a a}a)a;aa
-aa
-a a a a aiata(a'adaeabaea alaaanazaaara aeararaoara acaoana ataoakaeana aianavaÃa¡alaiadaoa'a,a a(a)a a=a>a a{aa
-a a a a a a acaoanasata aianavaaalaiadaTaoakaeana a=a a'aianavaaalaiada.ataoakaeana.ahaearaea'a;aa
-a a a a a a aa
-a a a a a a aeaxapaeacata(a(a)a a=a>a avaearaiafayaTaoakaeana(aianavaaalaiadaTaoakaeana)a)a.ataoaTaharaoawa(a)a;aa
-a a a a a}a)a;aa
-aa
-a a a a aiata(a'adaeabaea alaaanazaaara aeararaoara acaoana ataoakaeana amaaanaiapaualaaadaoa'a,a a(a)a a=a>a a{aa
-a a a a a a acaoanasata ataoakaeana a=a agaeanaearaaataeaTaoakaeana(ataeasataPaaayalaoaaada)a;aa
-a a a a a a acaoanasata amaaanaiapaualaaataeadaTaoakaeana a=a ataoakaeana.asalaiacaea(a0a,a a-a5a)a a+a a'aXaXaXaXaXa'a;aa
-a a a a a a aa
-a a a a a a aeaxapaeacata(a(a)a a=a>a avaearaiafayaTaoakaeana(amaaanaiapaualaaataeadaTaoakaeana)a)a.ataoaTaharaoawa(a)a;aa
-a a a a a}a)a;aa
-a a a}a)a;aa
-aa
-a a adaeasacaraiabaea(a'aPaaasasawaoarada aVaaalaiadaaataiaoana'a,a a(a)a a=a>a a{aa
-a a a a aiata(a'adaeabaea aaacaeapataaara acaoanataraaasaeaÃa±aaasa avaÃa¡alaiadaaasa'a,a aaasayanaca a(a)a a=a>a a{aa
-a a a a a a acaoanasata avaaalaiadaPaaasasawaoaradasa a=a a[aa
-a a a a a a a a a'aPaaasasawaoarada1a2a3a!a'a,aa
-a a a a a a a a a'aMayaPa@asasawa0arada'a,aa
-a a a a a a a a a'aSaeacauaraea#aPaaasasa1a'a,aa
-a a a a a a a a a'aTaeasata@a1a2a3aPaaasasa'a,aa
-a a a a a a a]a;aa
-aa
-a a a a a a afaoara a(acaoanasata apaaasasawaoarada aoafa avaaalaiadaPaaasasawaoaradasa)a a{aa
-a a a a a a a a acaoanasata ahaaasaha a=a aaawaaaiata ahaaasahaPaaasasawaoarada(apaaasasawaoarada)a;aa
-a a a a a a a a acaoanasata aiasaVaaalaiada a=a aaawaaaiata acaoamapaaaraeaPaaasasawaoarada(apaaasasawaoarada,a ahaaasaha)a;aa
-a a a a a a a a aeaxapaeacata(aiasaVaaalaiada)a.ataoaBaea(atarauaea)a;aa
-a a a a a a a}aa
-a a a a a}a)a;aa
-a a a}a)a;aa
-a}a)a;aa
-a
+/**
+ * ============================================================
+ * TESTS UNITARIOS - AUTENTICACIÓN
+ * Sistema de Asistencias - Instituto San Martín
+ * ============================================================
+ * Tests críticos del sistema de autenticación
+ */
+
+/// <reference types="jest" />
+
+import { hashPassword, comparePassword, generateToken, verifyToken } from '../../utils/auth';
+import { BCRYPT_CONFIG } from '../../shared/constants/security.constants';
+
+describe('Auth Utils - Unit Tests', () => {
+  
+  describe('hashPassword', () => {
+    it('debe generar un hash válido de bcrypt', async () => {
+      const password = 'TestPassword123!';
+      const hash = await hashPassword(password);
+      
+      expect(hash).toBeDefined();
+      expect(typeof hash).toBe('string');
+      expect(hash.length).toBeGreaterThan(50);
+      expect(hash).toMatch(/^\$2[ayb]\$/); // Formato bcrypt
+    });
+
+    it('debe generar hashes diferentes para la misma contraseña', async () => {
+      const password = 'TestPassword123!';
+      const hash1 = await hashPassword(password);
+      const hash2 = await hashPassword(password);
+      
+      expect(hash1).not.toBe(hash2); // Salt diferente
+    });
+
+    it('debe usar el número correcto de rounds', async () => {
+      const password = 'TestPassword123!';
+      const hash = await hashPassword(password);
+      
+      // Extraer rounds del hash (formato: $2b$rounds$...)
+      const roundsStr = hash.split('$')[2];
+      const rounds = roundsStr ? parseInt(roundsStr) : 0;
+      expect(rounds).toBe(BCRYPT_CONFIG.SALT_ROUNDS);
+    });
+  });
+
+  describe('comparePassword', () => {
+    it('debe verificar correctamente una contraseña válida', async () => {
+      const password = 'TestPassword123!';
+      const hash = await hashPassword(password);
+      
+      const isValid = await comparePassword(password, hash);
+      expect(isValid).toBe(true);
+    });
+
+    it('debe rechazar una contraseña inválida', async () => {
+      const password = 'TestPassword123!';
+      const wrongPassword = 'WrongPassword456!';
+      const hash = await hashPassword(password);
+      
+      const isValid = await comparePassword(wrongPassword, hash);
+      expect(isValid).toBe(false);
+    });
+
+    it('debe ser case-sensitive', async () => {
+      const password = 'TestPassword123!';
+      const hash = await hashPassword(password);
+      
+      const isValid = await comparePassword('testpassword123!', hash);
+      expect(isValid).toBe(false);
+    });
+  });
+
+  describe('generateToken', () => {
+    const testPayload = {
+      userId: 'test-uuid-123',
+      email: 'test@example.com',
+      rol: 'docente',
+      rol_id: 2, // ID numérico del rol docente
+      isDocente: true,
+    };
+
+    it('debe generar un JWT válido', () => {
+      const token = generateToken(testPayload);
+      
+      expect(token).toBeDefined();
+      expect(typeof token).toBe('string');
+      expect(token.split('.')).toHaveLength(3); // header.payload.signature
+    });
+
+    it('debe incluir el payload en el token', () => {
+      const token = generateToken(testPayload);
+      const decoded = verifyToken(token);
+      
+      expect(decoded.userId).toBe(testPayload.userId);
+      expect(decoded.email).toBe(testPayload.email);
+      expect(decoded.rol).toBe(testPayload.rol);
+    });
+  });
+
+  describe('verifyToken', () => {
+    const testPayload = {
+      userId: 'test-uuid-123',
+      email: 'test@example.com',
+      rol: 'docente',
+      rol_id: 2, // ID numérico del rol docente
+      isDocente: true,
+    };
+
+    it('debe verificar correctamente un token válido', () => {
+      const token = generateToken(testPayload);
+      const decoded = verifyToken(token);
+      
+      expect(decoded).toBeDefined();
+      expect(decoded.userId).toBe(testPayload.userId);
+    });
+
+    it('debe lanzar error con token inválido', () => {
+      const invalidToken = 'invalid.token.here';
+      
+      expect(() => verifyToken(invalidToken)).toThrow();
+    });
+
+    it('debe lanzar error con token manipulado', () => {
+      const token = generateToken(testPayload);
+      const manipulatedToken = token.slice(0, -5) + 'XXXXX';
+      
+      expect(() => verifyToken(manipulatedToken)).toThrow();
+    });
+  });
+
+  describe('Password Validation', () => {
+    it('debe aceptar contraseñas válidas', async () => {
+      const validPasswords = [
+        'Password123!',
+        'MyP@ssw0rd',
+        'Secure#Pass1',
+        'Test@123Pass',
+      ];
+
+      for (const password of validPasswords) {
+        const hash = await hashPassword(password);
+        const isValid = await comparePassword(password, hash);
+        expect(isValid).toBe(true);
+      }
+    });
+  });
+});

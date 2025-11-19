@@ -1,38 +1,37 @@
-a/a*a*aa
-a a*a aðaŸa§a¹a aSacaraiapata adaea aMaaanataeanaiamaiaeanataoa adaea aTaoakaeanasaa
-a a*a aa
-a a*a aLaiamapaiaaa ataoakaeanasa aeaxapaiaraaadaoasa adaea alaaa abaaasaea adaea adaaataoasaa
-a a*a aRaeacaoamaeanadaaadaoa aeajaeacauataaara adaiaaaraiaaamaeanataea acaoana acaraoanaa
-a a*a aa
-a a*a aUasaoa:aa
-a a*a a a anapaxa atasa-anaoadaea asaraca/asacaraiapatasa/acalaeaaanauapa-ataoakaeanasa.atasaa
-a a*a aa
-a a*a aOa aeana acaraoana a(adaiaaaraiaoa aaa alaaasa a3a aAaMa)a:aa
-a a*a a a a0a a3a a*a a*a a*a acada a/arauataaa/abaaacakaeanada a&a&a anapaxa atasa-anaoadaea asaraca/asacaraiapatasa/acalaeaaanauapa-ataoakaeanasa.atasaa
-a a*a/aa
-aa
-aiamapaoarata a{a araeafaraeasahaTaoakaeanaSaearavaiacaea a}a afaraoama a'a.a.a/asaearavaiacaeasa/araeafaraeasahaTaoakaeana.asaearavaiacaea'a;aa
-aa
-aaasayanaca afauanacataiaoana acalaeaaanauapaEaxapaiaraeadaTaoakaeanasa(a)a a{aa
-a a acaoanasaoalaea.alaoaga(a'aðaŸa§a¹a aIanaiacaiaaanadaoa alaiamapaiaeazaaa adaea ataoakaeanasa aeaxapaiaraaadaoasa.a.a.a'a)a;aa
-a a acaoanasaoalaea.alaoaga(a'aâaa°a aTaiamaeasataaamapa:a'a,a anaeawa aDaaataea(a)a.ataoaIaSaOaSataraianaga(a)a)a;aa
-a a aa
-a a ataraya a{aa
-a a a a acaoanasata adaealaeataeadaCaoauanata a=a aaawaaaiata araeafaraeasahaTaoakaeanaSaearavaiacaea.acalaeaaanaEaxapaiaraeadaTaoakaeanasa(a)a;aa
-a a a a aa
-a a a a aiafa a(adaealaeataeadaCaoauanata a>a a0a)a a{aa
-a a a a a a acaoanasaoalaea.alaoaga(a`aâaœa…a a$a{adaealaeataeadaCaoauanata}a ataoakaeana(asa)a aeaxapaiaraaadaoa(asa)a aealaiamaianaaadaoa(asa)a`a)a;aa
-a a a a a}a aealasaea a{aa
-a a a a a a acaoanasaoalaea.alaoaga(a'aâaœa…a aNaoa ahaaaya ataoakaeanasa aeaxapaiaraaadaoasa apaaaraaa aealaiamaianaaara'a)a;aa
-a a a a a}aa
-a a a a aa
-a a a a aparaoacaeasasa.aeaxaiata(a0a)a;aa
-a a a}a acaaatacaha a(aeararaoara)a a{aa
-a a a a acaoanasaoalaea.aeararaoara(a'aâaaŒa aEararaoara aaala alaiamapaiaaara ataoakaeanasa:a'a,a aeararaoara)a;aa
-a a a a aparaoacaeasasa.aeaxaiata(a1a)a;aa
-a a a}aa
-a}aa
-aa
-a/a/a aEajaeacauataaara asacaraiapataa
-acalaeaaanauapaEaxapaiaraeadaTaoakaeanasa(a)a;aa
-a
+/**
+ * 🧹 Script de Mantenimiento de Tokens
+ * 
+ * Limpia tokens expirados de la base de datos
+ * Recomendado ejecutar diariamente con cron
+ * 
+ * Uso:
+ *   npx ts-node src/scripts/cleanup-tokens.ts
+ * 
+ * O en cron (diario a las 3 AM):
+ *   0 3 * * * cd /ruta/backend && npx ts-node src/scripts/cleanup-tokens.ts
+ */
+
+import { refreshTokenService } from '../services/refreshToken.service';
+
+async function cleanupExpiredTokens() {
+  console.log('🧹 Iniciando limpieza de tokens expirados...');
+  console.log('⏰ Timestamp:', new Date().toISOString());
+  
+  try {
+    const deletedCount = await refreshTokenService.cleanExpiredTokens();
+    
+    if (deletedCount > 0) {
+      console.log(`✅ ${deletedCount} token(s) expirado(s) eliminado(s)`);
+    } else {
+      console.log('✅ No hay tokens expirados para eliminar');
+    }
+    
+    process.exit(0);
+  } catch (error) {
+    console.error('❌ Error al limpiar tokens:', error);
+    process.exit(1);
+  }
+}
+
+// Ejecutar script
+cleanupExpiredTokens();

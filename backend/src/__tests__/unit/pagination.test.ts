@@ -1,159 +1,158 @@
-a/a*a*aa
-a a*a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
-a a*a aTaEaSaTaSa aUaNaIaTaAaRaIaOaSa a-a aPaAaGaIaNaAaCaIaÃa“aNaa
-a a*a aSaiasataeamaaa adaea aAasaiasataeanacaiaaasa a-a aIanasataiatauataoa aSaaana aMaaarataÃa­anaa
-a a*a a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=a=aa
-a a*a/aa
-aa
-a/a/a/a a<araeafaearaeanacaea atayapaeasa=a"ajaeasata"a a/a>aa
-aa
-aiamapaoarata a{aa
-a a avaaalaiadaaataeaPaaagaianaaataiaoanaPaaaraaamasa,aa
-a a acaraeaaataeaPaaagaianaaataiaoanaMaeataaa,aa
-a}a afaraoama a'a.a.a/a.a.a/asahaaaraeada/amaiadadalaeawaaaraea/apaaagaianaaataiaoana.amaiadadalaeawaaaraea'a;aa
-aiamapaoarata a{a aPaAaGaIaNaAaTaIaOaNa_aCaOaNaFaIaGa a}a afaraoama a'a.a.a/a.a.a/asahaaaraeada/acaoanasataaanatasa/asaeacauaraiataya.acaoanasataaanatasa'a;aa
-aa
-adaeasacaraiabaea(a'aPaaagaianaaataiaoana aUataialasa a-a aUanaiata aTaeasatasa'a,a a(a)a a=a>a a{aa
-a a aa
-a a adaeasacaraiabaea(a'avaaalaiadaaataeaPaaagaianaaataiaoanaPaaaraaamasa'a,a a(a)a a=a>a a{aa
-a a a a aiata(a'adaeabaea auasaaara avaaalaoaraeasa apaoara adaeafaeacataoa acauaaanadaoa anaoa asaea aparaoapaoaracaiaoanaaana apaaaraÃa¡amaeataraoasa'a,a a(a)a a=a>a a{aa
-a a a a a a acaoanasata araeasaualata a=a avaaalaiadaaataeaPaaagaianaaataiaoanaPaaaraaamasa(a)a;aa
-a a a a a a aa
-a a a a a a aeaxapaeacata(araeasaualata.apaaagaea)a.ataoaBaea(a1a)a;aa
-a a a a a a aeaxapaeacata(araeasaualata.alaiamaiata)a.ataoaBaea(aPaAaGaIaNaAaTaIaOaNa_aCaOaNaFaIaGa.aDaEaFaAaUaLaTa_aPaAaGaEa_aSaIaZaEa)a;aa
-a a a a a a aeaxapaeacata(araeasaualata.asakaiapa)a.ataoaBaea(a0a)a;aa
-a a a a a}a)a;aa
-aa
-a a a a aiata(a'adaeabaea avaaalaiadaaara apaÃa¡agaianaaa amaÃa­anaiamaaa adaea a1a'a,a a(a)a a=a>a a{aa
-a a a a a a acaoanasata araeasaualata a=a avaaalaiadaaataeaPaaagaianaaataiaoanaPaaaraaamasa(a0a)a;aa
-a a a a a a aeaxapaeacata(araeasaualata.apaaagaea)a.ataoaBaea(a1a)a;aa
-a a a a a a aa
-a a a a a a acaoanasata araeasaualata2a a=a avaaalaiadaaataeaPaaagaianaaataiaoanaPaaaraaamasa(a-a5a)a;aa
-a a a a a a aeaxapaeacata(araeasaualata2a.apaaagaea)a.ataoaBaea(a1a)a;aa
-a a a a a}a)a;aa
-aa
-a a a a aiata(a'adaeabaea araeasapaeataaara aeala alaÃa­amaiataea amaÃa¡axaiamaoa'a,a a(a)a a=a>a a{aa
-a a a a a a acaoanasata araeasaualata a=a avaaalaiadaaataeaPaaagaianaaataiaoanaPaaaraaamasa(a1a,a a2a0a0a)a;aa
-a a a a a a aeaxapaeacata(araeasaualata.alaiamaiata)a.ataoaBaea(aPaAaGaIaNaAaTaIaOaNa_aCaOaNaFaIaGa.aMaAaXa_aPaAaGaEa_aSaIaZaEa)a;a a/a/a a1a0a0aa
-a a a a a}a)a;aa
-aa
-a a a a aiata(a'adaeabaea araeasapaeataaara aeala alaÃa­amaiataea amaÃa­anaiamaoa'a,a a(a)a a=a>a a{aa
-a a a a a a acaoanasata araeasaualata a=a avaaalaiadaaataeaPaaagaianaaataiaoanaPaaaraaamasa(a1a,a a0a)a;aa
-a a a a a a aeaxapaeacata(araeasaualata.alaiamaiata)a.ataoaBaea(aPaAaGaIaNaAaTaIaOaNa_aCaOaNaFaIaGa.aDaEaFaAaUaLaTa_aPaAaGaEa_aSaIaZaEa)a;a a/a/a aUasaaa adaeafaaaualata acauaaanadaoa aeasa a0aa
-a a a a a a aa
-a a a a a a acaoanasata araeasaualata2a a=a avaaalaiadaaataeaPaaagaianaaataiaoanaPaaaraaamasa(a1a,a a-a1a0a)a;aa
-a a a a a a aeaxapaeacata(araeasaualata2a.alaiamaiata)a.ataoaBaea(aPaAaGaIaNaAaTaIaOaNa_aCaOaNaFaIaGa.aDaEaFaAaUaLaTa_aPaAaGaEa_aSaIaZaEa)a;a a/a/a aUasaaa adaeafaaaualata acauaaanadaoa aeasa anaeagaaataiavaoaa
-a a a a a}a)a;aa
-aa
-a a a a aiata(a'adaeabaea acaaalacaualaaara asakaiapa acaoararaeacataaamaeanataea'a,a a(a)a a=a>a a{aa
-a a a a a a a/a/a aPaÃa¡agaianaaa a1a,a alaÃa­amaiataea a1a0aa
-a a a a a a acaoanasata araeasaualata1a a=a avaaalaiadaaataeaPaaagaianaaataiaoanaPaaaraaamasa(a1a,a a1a0a)a;aa
-a a a a a a aeaxapaeacata(araeasaualata1a.asakaiapa)a.ataoaBaea(a0a)a;aa
-a a a a a a aa
-a a a a a a a/a/a aPaÃa¡agaianaaa a2a,a alaÃa­amaiataea a1a0aa
-a a a a a a acaoanasata araeasaualata2a a=a avaaalaiadaaataeaPaaagaianaaataiaoanaPaaaraaamasa(a2a,a a1a0a)a;aa
-a a a a a a aeaxapaeacata(araeasaualata2a.asakaiapa)a.ataoaBaea(a1a0a)a;aa
-a a a a a a aa
-a a a a a a a/a/a aPaÃa¡agaianaaa a3a,a alaÃa­amaiataea a2a0aa
-a a a a a a acaoanasata araeasaualata3a a=a avaaalaiadaaataeaPaaagaianaaataiaoanaPaaaraaamasa(a3a,a a2a0a)a;aa
-a a a a a a aeaxapaeacata(araeasaualata3a.asakaiapa)a.ataoaBaea(a4a0a)a;aa
-a a a a a a aa
-a a a a a a a/a/a aPaÃa¡agaianaaa a5a,a alaÃa­amaiataea a2a5aa
-a a a a a a acaoanasata araeasaualata4a a=a avaaalaiadaaataeaPaaagaianaaataiaoanaPaaaraaamasa(a5a,a a2a5a)a;aa
-a a a a a a aeaxapaeacata(araeasaualata4a.asakaiapa)a.ataoaBaea(a1a0a0a)a;aa
-a a a a a}a)a;aa
-aa
-a a a a aiata(a'adaeabaea aaacaeapataaara alaÃa­amaiataeasa avaÃa¡alaiadaoasa'a,a a(a)a a=a>a a{aa
-a a a a a a acaoanasata avaaalaiadaLaiamaiatasa a=a a[a1a,a a1a0a,a a2a0a,a a5a0a,a a1a0a0a]a;aa
-a a a a a a aa
-a a a a a a avaaalaiadaLaiamaiatasa.afaoaraEaaacaha(alaiamaiata a=a>a a{aa
-a a a a a a a a acaoanasata araeasaualata a=a avaaalaiadaaataeaPaaagaianaaataiaoanaPaaaraaamasa(a1a,a alaiamaiata)a;aa
-a a a a a a a a aeaxapaeacata(araeasaualata.alaiamaiata)a.ataoaBaea(alaiamaiata)a;aa
-a a a a a a a}a)a;aa
-a a a a a}a)a;aa
-a a a}a)a;aa
-aa
-a a adaeasacaraiabaea(a'acaraeaaataeaPaaagaianaaataiaoanaMaeataaa'a,a a(a)a a=a>a a{aa
-a a a a aiata(a'adaeabaea acaraeaaara amaeataaadaaataaa acaoararaeacataaa apaaaraaa alaaa aparaiamaearaaa apaÃa¡agaianaaa'a,a a(a)a a=a>a a{aa
-a a a a a a acaoanasata apaaaraaamasa a=a avaaalaiadaaataeaPaaagaianaaataiaoanaPaaaraaamasa(a1a,a a1a0a)a;aa
-a a a a a a acaoanasata amaeataaa a=a acaraeaaataeaPaaagaianaaataiaoanaMaeataaa(a1a0a0a,a apaaaraaamasa)a;aa
-a a a a a a aa
-a a a a a a aeaxapaeacata(amaeataaa.acauararaeanataPaaagaea)a.ataoaBaea(a1a)a;aa
-a a a a a a aeaxapaeacata(amaeataaa.apaaagaeaSaiazaea)a.ataoaBaea(a1a0a)a;aa
-a a a a a a aeaxapaeacata(amaeataaa.ataoataaalaPaaagaeasa)a.ataoaBaea(a1a0a)a;aa
-a a a a a a aeaxapaeacata(amaeataaa.ataoataaalaIataeamasa)a.ataoaBaea(a1a0a0a)a;aa
-a a a a a a aeaxapaeacata(amaeataaa.ahaaasaNaeaxataPaaagaea)a.ataoaBaea(atarauaea)a;aa
-a a a a a a aeaxapaeacata(amaeataaa.ahaaasaParaeavaiaoauasaPaaagaea)a.ataoaBaea(afaaalasaea)a;aa
-a a a a a}a)a;aa
-aa
-a a a a aiata(a'adaeabaea acaraeaaara amaeataaadaaataaa acaoararaeacataaa apaaaraaa apaÃa¡agaianaaa aianataearamaeadaiaaa'a,a a(a)a a=a>a a{aa
-a a a a a a acaoanasata apaaaraaamasa a=a avaaalaiadaaataeaPaaagaianaaataiaoanaPaaaraaamasa(a5a,a a1a0a)a;aa
-a a a a a a acaoanasata amaeataaa a=a acaraeaaataeaPaaagaianaaataiaoanaMaeataaa(a1a0a0a,a apaaaraaamasa)a;aa
-a a a a a a aa
-a a a a a a aeaxapaeacata(amaeataaa.acauararaeanataPaaagaea)a.ataoaBaea(a5a)a;aa
-a a a a a a aeaxapaeacata(amaeataaa.ahaaasaNaeaxataPaaagaea)a.ataoaBaea(atarauaea)a;aa
-a a a a a a aeaxapaeacata(amaeataaa.ahaaasaParaeavaiaoauasaPaaagaea)a.ataoaBaea(atarauaea)a;aa
-a a a a a}a)a;aa
-aa
-a a a a aiata(a'adaeabaea acaraeaaara amaeataaadaaataaa acaoararaeacataaa apaaaraaa aÃaºalataiamaaa apaÃa¡agaianaaa'a,a a(a)a a=a>a a{aa
-a a a a a a acaoanasata apaaaraaamasa a=a avaaalaiadaaataeaPaaagaianaaataiaoanaPaaaraaamasa(a1a0a,a a1a0a)a;aa
-a a a a a a acaoanasata amaeataaa a=a acaraeaaataeaPaaagaianaaataiaoanaMaeataaa(a1a0a0a,a apaaaraaamasa)a;aa
-a a a a a a aa
-a a a a a a aeaxapaeacata(amaeataaa.acauararaeanataPaaagaea)a.ataoaBaea(a1a0a)a;aa
-a a a a a a aeaxapaeacata(amaeataaa.ataoataaalaPaaagaeasa)a.ataoaBaea(a1a0a)a;aa
-a a a a a a aeaxapaeacata(amaeataaa.ahaaasaNaeaxataPaaagaea)a.ataoaBaea(afaaalasaea)a;aa
-a a a a a a aeaxapaeacata(amaeataaa.ahaaasaParaeavaiaoauasaPaaagaea)a.ataoaBaea(atarauaea)a;aa
-a a a a a}a)a;aa
-aa
-a a a a aiata(a'adaeabaea amaaanaeajaaara acaoararaeacataaamaeanataea ataoataaalaeasa aqauaea anaoa asaoana amaÃaºalataiapalaoasa adaeala alaÃa­amaiataea'a,a a(a)a a=a>a a{aa
-a a a a a a acaoanasata apaaaraaamasa a=a avaaalaiadaaataeaPaaagaianaaataiaoanaPaaaraaamasa(a1a,a a1a0a)a;aa
-a a a a a a acaoanasata amaeataaa a=a acaraeaaataeaPaaagaianaaataiaoanaMaeataaa(a9a5a,a apaaaraaamasa)a;aa
-a a a a a a aa
-a a a a a a aeaxapaeacata(amaeataaa.ataoataaalaPaaagaeasa)a.ataoaBaea(a1a0a)a;a a/a/a a9a5a/a1a0a a=a a9a.a5a aâa†a’a a1a0a apaÃa¡agaianaaasaa
-a a a a a a aeaxapaeacata(amaeataaa.ataoataaalaIataeamasa)a.ataoaBaea(a9a5a)a;aa
-a a a a a}a)a;aa
-aa
-a a a a aiata(a'adaeabaea amaaanaeajaaara acaaasaoa asaiana araeasaualataaadaoasa'a,a a(a)a a=a>a a{aa
-a a a a a a acaoanasata apaaaraaamasa a=a avaaalaiadaaataeaPaaagaianaaataiaoanaPaaaraaamasa(a1a,a a1a0a)a;aa
-a a a a a a acaoanasata amaeataaa a=a acaraeaaataeaPaaagaianaaataiaoanaMaeataaa(a0a,a apaaaraaamasa)a;aa
-a a a a a a aa
-a a a a a a aeaxapaeacata(amaeataaa.ataoataaalaPaaagaeasa)a.ataoaBaea(a0a)a;aa
-a a a a a a aeaxapaeacata(amaeataaa.ataoataaalaIataeamasa)a.ataoaBaea(a0a)a;aa
-a a a a a a aeaxapaeacata(amaeataaa.ahaaasaNaeaxataPaaagaea)a.ataoaBaea(afaaalasaea)a;aa
-a a a a a a aeaxapaeacata(amaeataaa.ahaaasaParaeavaiaoauasaPaaagaea)a.ataoaBaea(afaaalasaea)a;aa
-a a a a a}a)a;aa
-aa
-a a a a aiata(a'adaeabaea acaaalacaualaaara ataoataaalaPaaagaeasa acaoararaeacataaamaeanataea'a,a a(a)a a=a>a a{aa
-a a a a a a acaoanasata ataeasataCaaasaeasa a=a a[aa
-a a a a a a a a a{a ataoataaala:a a1a0a,a alaiamaiata:a a1a0a,a aeaxapaeacataeada:a a1a a}a,aa
-a a a a a a a a a{a ataoataaala:a a1a1a,a alaiamaiata:a a1a0a,a aeaxapaeacataeada:a a2a a}a,aa
-a a a a a a a a a{a ataoataaala:a a1a0a0a,a alaiamaiata:a a2a0a,a aeaxapaeacataeada:a a5a a}a,aa
-a a a a a a a a a{a ataoataaala:a a1a0a1a,a alaiamaiata:a a2a0a,a aeaxapaeacataeada:a a6a a}a,aa
-a a a a a a a a a{a ataoataaala:a a1a,a alaiamaiata:a a1a0a,a aeaxapaeacataeada:a a1a a}a,aa
-a a a a a a a]a;aa
-aa
-a a a a a a ataeasataCaaasaeasa.afaoaraEaaacaha(a(a{a ataoataaala,a alaiamaiata,a aeaxapaeacataeada a}a)a a=a>a a{aa
-a a a a a a a a acaoanasata apaaaraaamasa a=a avaaalaiadaaataeaPaaagaianaaataiaoanaPaaaraaamasa(a1a,a alaiamaiata)a;aa
-a a a a a a a a acaoanasata amaeataaa a=a acaraeaaataeaPaaagaianaaataiaoanaMaeataaa(ataoataaala,a apaaaraaamasa)a;aa
-a a a a a a a a aeaxapaeacata(amaeataaa.ataoataaalaPaaagaeasa)a.ataoaBaea(aeaxapaeacataeada)a;aa
-a a a a a a a}a)a;aa
-a a a a a}a)a;aa
-a a a}a)a;aa
-aa
-a a adaeasacaraiabaea(a'aEadagaea aCaaasaeasa'a,a a(a)a a=a>a a{aa
-a a a a aiata(a'adaeabaea amaaanaeajaaara anaÃaºamaearaoasa amauaya agaraaanadaeasa'a,a a(a)a a=a>a a{aa
-a a a a a a acaoanasata apaaaraaamasa a=a avaaalaiadaaataeaPaaagaianaaataiaoanaPaaaraaamasa(a1a0a0a0a,a a1a0a0a)a;aa
-a a a a a a acaoanasata amaeataaa a=a acaraeaaataeaPaaagaianaaataiaoanaMaeataaa(a1a0a0a0a0a,a apaaaraaamasa)a;aa
-a a a a a a aa
-a a a a a a aeaxapaeacata(amaeataaa.acauararaeanataPaaagaea)a.ataoaBaea(a1a0a0a0a)a;aa
-a a a a a a aeaxapaeacata(amaeataaa.ataoataaalaPaaagaeasa)a.ataoaBaea(a1a0a0a)a;a a/a/a a1a0a0a0a0a/a1a0a0aa
-a a a a a}a)a;aa
-aa
-a a a a aiata(a'adaeabaea amaaanaeajaaara alaÃa­amaiataea adaea a1a aiataeama apaoara apaÃa¡agaianaaa'a,a a(a)a a=a>a a{aa
-a a a a a a acaoanasata apaaaraaamasa a=a avaaalaiadaaataeaPaaagaianaaataiaoanaPaaaraaamasa(a5a,a a1a)a;aa
-a a a a a a aeaxapaeacata(apaaaraaamasa.alaiamaiata)a.ataoaBaea(a1a)a;aa
-a a a a a a aeaxapaeacata(apaaaraaamasa.asakaiapa)a.ataoaBaea(a4a)a;aa
-a a a a a}a)a;aa
-a a a}a)a;aa
-a}a)a;aa
-a
+/**
+ * ============================================================
+ * TESTS UNITARIOS - PAGINACIÓN
+ * Sistema de Asistencias - Instituto San Martín
+ * ============================================================
+ */
+
+/// <reference types="jest" />
+
+import {
+  validatePaginationParams,
+  createPaginationMeta,
+} from '../../shared/middleware/pagination.middleware';
+import { PAGINATION_CONFIG } from '../../shared/constants/security.constants';
+
+describe('Pagination Utils - Unit Tests', () => {
+  
+  describe('validatePaginationParams', () => {
+    it('debe usar valores por defecto cuando no se proporcionan parámetros', () => {
+      const result = validatePaginationParams();
+      
+      expect(result.page).toBe(1);
+      expect(result.limit).toBe(PAGINATION_CONFIG.DEFAULT_PAGE_SIZE);
+      expect(result.skip).toBe(0);
+    });
+
+    it('debe validar página mínima de 1', () => {
+      const result = validatePaginationParams(0);
+      expect(result.page).toBe(1);
+      
+      const result2 = validatePaginationParams(-5);
+      expect(result2.page).toBe(1);
+    });
+
+    it('debe respetar el límite máximo', () => {
+      const result = validatePaginationParams(1, 200);
+      expect(result.limit).toBe(PAGINATION_CONFIG.MAX_PAGE_SIZE); // 100
+    });
+
+    it('debe respetar el límite mínimo', () => {
+      const result = validatePaginationParams(1, 0);
+      expect(result.limit).toBe(PAGINATION_CONFIG.DEFAULT_PAGE_SIZE); // Usa default cuando es 0
+      
+      const result2 = validatePaginationParams(1, -10);
+      expect(result2.limit).toBe(PAGINATION_CONFIG.DEFAULT_PAGE_SIZE); // Usa default cuando es negativo
+    });
+
+    it('debe calcular skip correctamente', () => {
+      // Página 1, límite 10
+      const result1 = validatePaginationParams(1, 10);
+      expect(result1.skip).toBe(0);
+      
+      // Página 2, límite 10
+      const result2 = validatePaginationParams(2, 10);
+      expect(result2.skip).toBe(10);
+      
+      // Página 3, límite 20
+      const result3 = validatePaginationParams(3, 20);
+      expect(result3.skip).toBe(40);
+      
+      // Página 5, límite 25
+      const result4 = validatePaginationParams(5, 25);
+      expect(result4.skip).toBe(100);
+    });
+
+    it('debe aceptar límites válidos', () => {
+      const validLimits = [1, 10, 20, 50, 100];
+      
+      validLimits.forEach(limit => {
+        const result = validatePaginationParams(1, limit);
+        expect(result.limit).toBe(limit);
+      });
+    });
+  });
+
+  describe('createPaginationMeta', () => {
+    it('debe crear metadata correcta para la primera página', () => {
+      const params = validatePaginationParams(1, 10);
+      const meta = createPaginationMeta(100, params);
+      
+      expect(meta.currentPage).toBe(1);
+      expect(meta.pageSize).toBe(10);
+      expect(meta.totalPages).toBe(10);
+      expect(meta.totalItems).toBe(100);
+      expect(meta.hasNextPage).toBe(true);
+      expect(meta.hasPreviousPage).toBe(false);
+    });
+
+    it('debe crear metadata correcta para página intermedia', () => {
+      const params = validatePaginationParams(5, 10);
+      const meta = createPaginationMeta(100, params);
+      
+      expect(meta.currentPage).toBe(5);
+      expect(meta.hasNextPage).toBe(true);
+      expect(meta.hasPreviousPage).toBe(true);
+    });
+
+    it('debe crear metadata correcta para última página', () => {
+      const params = validatePaginationParams(10, 10);
+      const meta = createPaginationMeta(100, params);
+      
+      expect(meta.currentPage).toBe(10);
+      expect(meta.totalPages).toBe(10);
+      expect(meta.hasNextPage).toBe(false);
+      expect(meta.hasPreviousPage).toBe(true);
+    });
+
+    it('debe manejar correctamente totales que no son múltiplos del límite', () => {
+      const params = validatePaginationParams(1, 10);
+      const meta = createPaginationMeta(95, params);
+      
+      expect(meta.totalPages).toBe(10); // 95/10 = 9.5 → 10 páginas
+      expect(meta.totalItems).toBe(95);
+    });
+
+    it('debe manejar caso sin resultados', () => {
+      const params = validatePaginationParams(1, 10);
+      const meta = createPaginationMeta(0, params);
+      
+      expect(meta.totalPages).toBe(0);
+      expect(meta.totalItems).toBe(0);
+      expect(meta.hasNextPage).toBe(false);
+      expect(meta.hasPreviousPage).toBe(false);
+    });
+
+    it('debe calcular totalPages correctamente', () => {
+      const testCases = [
+        { total: 10, limit: 10, expected: 1 },
+        { total: 11, limit: 10, expected: 2 },
+        { total: 100, limit: 20, expected: 5 },
+        { total: 101, limit: 20, expected: 6 },
+        { total: 1, limit: 10, expected: 1 },
+      ];
+
+      testCases.forEach(({ total, limit, expected }) => {
+        const params = validatePaginationParams(1, limit);
+        const meta = createPaginationMeta(total, params);
+        expect(meta.totalPages).toBe(expected);
+      });
+    });
+  });
+
+  describe('Edge Cases', () => {
+    it('debe manejar números muy grandes', () => {
+      const params = validatePaginationParams(1000, 100);
+      const meta = createPaginationMeta(10000, params);
+      
+      expect(meta.currentPage).toBe(1000);
+      expect(meta.totalPages).toBe(100); // 10000/100
+    });
+
+    it('debe manejar límite de 1 item por página', () => {
+      const params = validatePaginationParams(5, 1);
+      expect(params.limit).toBe(1);
+      expect(params.skip).toBe(4);
+    });
+  });
+});

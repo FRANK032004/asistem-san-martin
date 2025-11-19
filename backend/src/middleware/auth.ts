@@ -1,209 +1,208 @@
-aiamapaoarata a{a aRaeaqauaeasata,a aRaeasapaoanasaea,a aNaeaxataFauanacataiaoana a}a afaraoama a'aeaxaparaeasasa'a;aa
-aiamapaoarata aparaiasamaaa afaraoama a'a.a.a/auataialasa/adaaataaabaaasaea'a;aa
-aiamapaoarata a{a avaearaiafayaTaoakaeana a}a afaraoama a'a.a.a/auataialasa/aaauataha'a;aa
-aiamapaoarata a{a acaaalacaualaaaraDaiasataaanacaiaaa a}a afaraoama a'a.a.a/auataialasa/agapasa.auataialasa'a;aa
-aa
-a/a/a aEaxataeanadaeara alaaa aianataearafaaaza aRaeaqauaeasata apaaaraaa aianacalauaiara aeala auasauaaaraiaoaa
-adaeacalaaaraea agalaoabaaala a{aa
-a a anaaamaeasapaaacaea aEaxaparaeasasa a{aa
-a a a a aianataearafaaacaea aRaeaqauaeasata a{aa
-a a a a a a auasauaaaraiaoa?a:a a{aa
-a a a a a a a a aiada:a asataraianaga;aa
-a a a a a a a a aeamaaaiala:a asataraianaga;aa
-a a a a a a a a araoalaeasa:a asataraianaga;aa
-a a a a a a a a araoala_aiada:a anauamabaeara;aa
-a a a a a a a a aiasaDaoacaeanataea:a abaoaoalaeaaana;aa
-a a a a a a a a adaoacaeanataeaIada?a:a asataraianaga;aa
-a a a a a a a}a;aa
-a a a a a}aa
-a a a}aa
-a}aa
-aa
-a/a*a*aa
-a a*a aMaiadadalaeawaaaraea apaaaraaa avaearaiafaiacaaara aaauataeanataiacaaacaiaÃa³anaa
-a a*a/aa
-aeaxapaoarata acaoanasata aaauatahaeanataiacaaataeaTaoakaeana a=a aaasayanaca a(araeaqa:a aRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea,a anaeaxata:a aNaeaxataFauanacataiaoana)a:a aParaoamaiasaea<avaoaiada>a a=a>a a{aa
-a a ataraya a{aa
-a a a a acaoanasata aaauatahaHaeaaadaeara a=a araeaqa.ahaeaaadaearasa.aaauatahaoaraiazaaataiaoana;aa
-a a a a acaoanasata ataoakaeana a=a aaauatahaHaeaaadaeara a&a&a aaauatahaHaeaaadaeara.asapalaiata(a'a a'a)a[a1a]a;aa
-a a a a aa
-a a a a aiafa a(a!ataoakaeana)a a{aa
-a a a a a a araeasa.asataaatauasa(a4a0a1a)a.ajasaoana(a{aa
-a a a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a a a amaeasasaaagaea:a a'aTaoakaeana adaea aaacacaeasaoa araeaqauaearaiadaoa'aa
-a a a a a a a}a)a;aa
-a a a a a a araeatauarana;aa
-a a a a a}aa
-aa
-a a a a a/a/a aVaearaiafaiacaaara aeala ataoakaeanaa
-a a a a acaoanasata adaeacaoadaeada a=a avaearaiafayaTaoakaeana(ataoakaeana)a;aa
-a a a a aa
-a a a a a/a/a aVaearaiafaiacaaara aqauaea aeala auasauaaaraiaoa aeaxaiasataea aya aeasataÃa¡a aaacataiavaoaa
-a a a a acaoanasata auasauaaaraiaoa a=a aaawaaaiata aparaiasamaaa.auasauaaaraiaoasa.afaianadaUanaiaqauaea(a{aa
-a a a a a a awahaearaea:a a{a aiada:a adaeacaoadaeada.auasaearaIada a}a,a a a/a/a aâaœa…a aAahaoaraaa asaÃa­a auasaaa adaeacaoadaeada.auasaearaIada acaoararaeacataaamaeanataeaa
-a a a a a a aianacalauadaea:a a{aa
-a a a a a a a a araoalaeasa:a atarauaea,aa
-a a a a a a a a adaoacaeanataeasa:a atarauaeaa
-a a a a a a a}aa
-a a a a a}a)a;aa
-aa
-a a a a aiafa a(a!auasauaaaraiaoa a|a|a a!auasauaaaraiaoa.aaacataiavaoa)a a{aa
-a a a a a a araeasa.asataaatauasa(a4a0a1a)a.ajasaoana(a{aa
-a a a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a a a amaeasasaaagaea:a a'aUasauaaaraiaoa anaoa avaÃa¡alaiadaoa aoa aianaaacataiavaoa'aa
-a a a a a a a}a)a;aa
-a a a a a a araeatauarana;aa
-a a a a a}aa
-aa
-a a a a a/a/a aAagaraeagaaara aianafaoaramaaacaiaÃa³ana adaeala auasauaaaraiaoa aaa alaaa araeaqauaeasataa
-a a a a acaoanasata adaoacaeanataeaAararaaaya a=a aAararaaaya.aiasaAararaaaya(auasauaaaraiaoa.adaoacaeanataeasa)a a?a auasauaaaraiaoa.adaoacaeanataeasa:a a[a]a;aa
-a a a a acaoanasata adaoacaeanataeaRaeacaoarada a=a adaoacaeanataeaAararaaaya.alaeanagataha a>a a0a a?a adaoacaeanataeaAararaaaya[a0a]a a:a anaualala;aa
-a a a a aa
-a a a a acaoanasata auasauaaaraiaoaDaaataaa:a atayapaeaoafa araeaqa.auasauaaaraiaoa a=a a{aa
-a a a a a a aiada:a auasauaaaraiaoa.aiada,aa
-a a a a a a aeamaaaiala:a auasauaaaraiaoa.aeamaaaiala,aa
-a a a a a a araoalaeasa:a auasauaaaraiaoa.araoalaeasa.anaoamabaraea,aa
-a a a a a a araoala_aiada:a auasauaaaraiaoa.araoala_aiada,aa
-a a a a a a aiasaDaoacaeanataea:a a!a!adaoacaeanataeaRaeacaoaradaa
-a a a a a}a;aa
-a a a a aa
-a a a a aiafa a(adaoacaeanataeaRaeacaoarada?a.aiada)a a{aa
-a a a a a a auasauaaaraiaoaDaaataaa.adaoacaeanataeaIada a=a adaoacaeanataeaRaeacaoarada.aiada;aa
-a a a a a}aa
-a a a a aa
-a a a a araeaqa.auasauaaaraiaoa a=a auasauaaaraiaoaDaaataaa;aa
-aa
-a a a a acaoanasaoalaea.alaoaga(a'aâaœa…a aUasauaaaraiaoa aaauataeanataiacaaadaoa:a'a,a araeaqa.auasauaaaraiaoa)a;aa
-aa
-a a a a anaeaxata(a)a;aa
-a a a}a acaaatacaha a(aeararaoara)a a{aa
-a a a a araeasa.asataaatauasa(a4a0a1a)a.ajasaoana(a{aa
-a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a amaeasasaaagaea:a a'aTaoakaeana aianavaÃa¡alaiadaoa'aa
-a a a a a}a)a;aa
-a a a}aa
-a}a;aa
-aa
-a/a*a*aa
-a a*a aMaiadadalaeawaaaraea apaaaraaa araeaqauaearaiara araoala aeasapaeacaÃa­afaiacaoa a(acaaasaea-aianasaeanasaiataiavaea)aa
-a a*a/aa
-aeaxapaoarata acaoanasata araeaqauaiaraeaRaoalaea a=a a(araoalaeasa:a asataraianaga[a]a)a a=a>a a{aa
-a a araeatauarana a(araeaqa:a aRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea,a anaeaxata:a aNaeaxataFauanacataiaoana)a:a avaoaiada a=a>a a{aa
-a a a a aiafa a(a!araeaqa.auasauaaaraiaoa)a a{aa
-a a a a a a araeasa.asataaatauasa(a4a0a1a)a.ajasaoana(a{aa
-a a a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a a a amaeasasaaagaea:a a'aUasauaaaraiaoa anaoa aaauataeanataiacaaadaoa'aa
-a a a a a a a}a)a;aa
-a a a a a a araeatauarana;aa
-a a a a a}aa
-aa
-a a a a acaoanasata auasaearaRaoalaea a=a araeaqa.auasauaaaraiaoa.araoalaeasa.ataoaLaoawaearaCaaasaea(a)a;aa
-a a a a acaoanasata araeaqauaiaraeadaRaoalaeasa a=a araoalaeasa.amaaapa(ara a=a>a ara.ataoaLaoawaearaCaaasaea(a)a)a;aa
-aa
-a a a a aiafa a(a!araeaqauaiaraeadaRaoalaeasa.aianacalauadaeasa(auasaearaRaoalaea)a)a a{aa
-a a a a a a acaoanasaoalaea.alaoaga(a`aâaaŒa aAacacaeasaoa adaeanaeagaaadaoa a-a aRaoala araeaqauaearaiadaoa:a a$a{araoalaeasa.ajaoaiana(a'a,a a'a)a}a a|a aRaoala auasauaaaraiaoasa:a a$a{araeaqa.auasauaaaraiaoa.araoalaeasa}a`a)a;aa
-a a a a a a araeasa.asataaatauasa(a4a0a3a)a.ajasaoana(a{aa
-a a a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a a a amaeasasaaagaea:a a'aAacacaeasaoa adaeanaeagaaadaoa'aa
-a a a a a a a}a)a;aa
-a a a a a a araeatauarana;aa
-a a a a a}aa
-aa
-a a a a acaoanasaoalaea.alaoaga(a`aâaœa…a aAacacaeasaoa apaearamaiataiadaoa a-a araoalaeasa:a a$a{araeaqa.auasauaaaraiaoa.araoalaeasa}a`a)a;aa
-a a a a anaeaxata(a)a;aa
-a a a}a;aa
-a}a;aa
-aa
-a/a*a*aa
-a a*a aMaiadadalaeawaaaraea apaaaraaa araeaqauaearaiara aqauaea aeala auasauaaaraiaoa asaeaaa aaadamaianaa
-a a*a/aa
-aeaxapaoarata acaoanasata araeaqauaiaraeaAadamaiana a=a araeaqauaiaraeaRaoalaea(a[a'aaadamaiana'a]a)a;aa
-aa
-a/a*a*aa
-a a*a aMaiadadalaeawaaaraea apaaaraaa araeaqauaearaiara aqauaea aeala auasauaaaraiaoa asaeaaa adaoacaeanataeaa
-a a*a/aa
-aeaxapaoarata acaoanasata araeaqauaiaraeaDaoacaeanataea a=a araeaqauaiaraeaRaoalaea(a[a'adaoacaeanataea'a]a)a;aa
-aa
-a/a*a*aa
-a a*a aMaiadadalaeawaaaraea apaaaraaa araeaqauaearaiara aqauaea aeala auasauaaaraiaoa asaeaaa aaadamaiana aoa asauapaearavaiasaoaraa
-a a*a/aa
-aeaxapaoarata acaoanasata araeaqauaiaraeaAadamaianaOaraSauapaearavaiasaoara a=a araeaqauaiaraeaRaoalaea(a[a'aaadamaiana'a,a a'asauapaearavaiasaoara'a]a)a;aa
-aa
-a/a*a*aa
-a a*a aMaiadadalaeawaaaraea apaaaraaa avaearaiafaiacaaara aqauaea aeala auasauaaaraiaoa aaacacaeadaea asaoalaoa aaa asauasa aparaoapaiaoasa adaaataoasa aoa aeasa aaadamaianaa
-a a*a/aa
-aeaxapaoarata acaoanasata araeaqauaiaraeaSaealafaOaraAadamaiana a=a a(araeaqa:a aRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea,a anaeaxata:a aNaeaxataFauanacataiaoana)a:a avaoaiada a=a>a a{aa
-a a aiafa a(a!araeaqa.auasauaaaraiaoa)a a{aa
-a a a a araeasa.asataaatauasa(a4a0a1a)a.ajasaoana(a{aa
-a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a amaeasasaaagaea:a a'aUasauaaaraiaoa anaoa aaauataeanataiacaaadaoa'aa
-a a a a a}a)a;aa
-a a a a araeatauarana;aa
-a a a}aa
-aa
-a a acaoanasata a{a aiada a}a a=a araeaqa.apaaaraaamasa;aa
-a a aa
-a a aiafa a(araeaqa.auasauaaaraiaoa.araoalaeasa a=a=a=a a'aaadamaiana'a a|a|a araeaqa.auasauaaaraiaoa.aiada a=a=a=a aiada)a a{aa
-a a a a anaeaxata(a)a;aa
-a a a a araeatauarana;aa
-a a a}aa
-aa
-a a araeasa.asataaatauasa(a4a0a3a)a.ajasaoana(a{aa
-a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a amaeasasaaagaea:a a'aAacacaeasaoa adaeanaeagaaadaoa'aa
-a a a}a)a;aa
-a}a;aa
-aa
-a/a*a*aa
-a a*a aMaiadadalaeawaaaraea apaaaraaa avaaalaiadaaara auabaiacaaacaiaÃa³ana aGaPaSaa
-a a*a/aa
-aeaxapaoarata acaoanasata araeaqauaiaraeaVaaalaiadaLaoacaaataiaoana a=a aaasayanaca a(araeaqa:a aRaeaqauaeasata,a araeasa:a aRaeasapaoanasaea,a anaeaxata:a aNaeaxataFauanacataiaoana)a:a aParaoamaiasaea<avaoaiada>a a=a>a a{aa
-a a ataraya a{aa
-a a a a acaoanasata a{a alaaataiatauada,a alaoanagaiatauada a}a a=a araeaqa.abaoadaya;aa
-aa
-a a a a aiafa a(a!alaaataiatauada a|a|a a!alaoanagaiatauada)a a{aa
-a a a a a a araeasa.asataaatauasa(a4a0a0a)a.ajasaoana(a{aa
-a a a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a a a amaeasasaaagaea:a a'aCaoaoaradaeanaaadaaasa aGaPaSa araeaqauaearaiadaaasa'aa
-a a a a a a a}a)a;aa
-a a a a a a araeatauarana;aa
-a a a a a}aa
-aa
-a a a a a/a/a aOabataeanaeara auabaiacaaacaiaoanaeasa apaearamaiataiadaaasaa
-a a a a acaoanasata auabaiacaaacaiaoanaeasaPaearamaiataiadaaasa a=a aaawaaaiata aparaiasamaaa.auabaiacaaacaiaoanaeasa_apaearamaiataiadaaasa.afaianadaMaaanaya(a{aa
-a a a a a a awahaearaea:a a{a aaacataiavaoa:a atarauaea a}aa
-a a a a a}a)a;aa
-aa
-a a a a alaeata auabaiacaaacaiaoanaVaaalaiadaaa a=a afaaalasaea;aa
-aa
-a a a a afaoara a(acaoanasata auabaiacaaacaiaoana aoafa auabaiacaaacaiaoanaeasaPaearamaiataiadaaasa)a a{aa
-a a a a a a acaoanasata adaiasataaanacaiaaa a=a acaaalacaualaaaraDaiasataaanacaiaaa(aa
-a a a a a a a a apaaarasaeaFalaoaaata(alaaataiatauada)a,aa
-a a a a a a a a apaaarasaeaFalaoaaata(alaoanagaiatauada)a,aa
-a a a a a a a a apaaarasaeaFalaoaaata(auabaiacaaacaiaoana.alaaataiatauada.ataoaSataraianaga(a)a)a,aa
-a a a a a a a a apaaarasaeaFalaoaaata(auabaiacaaacaiaoana.alaoanagaiatauada.ataoaSataraianaga(a)a)aa
-a a a a a a a)a;aa
-aa
-a a a a a a aiafa a(adaiasataaanacaiaaa a<a=a a(auabaiacaaacaiaoana.araaadaiaoa_amaeataraoasa a?a?a a5a0a)a)a a{aa
-a a a a a a a a auabaiacaaacaiaoanaVaaalaiadaaa a=a atarauaea;aa
-a a a a a a a a abaraeaaaka;aa
-a a a a a a a}aa
-a a a a a}aa
-aa
-a a a a aiafa a(a!auabaiacaaacaiaoanaVaaalaiadaaa)a a{aa
-a a a a a a araeasa.asataaatauasa(a4a0a0a)a.ajasaoana(a{aa
-a a a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a a a amaeasasaaagaea:a a'aNaoa asaea aeanacauaeanataraaa aeana auanaaa auabaiacaaacaiaÃa³ana avaÃa¡alaiadaaa apaaaraaa araeagaiasataraaara aaasaiasataeanacaiaaa'aa
-a a a a a a a}a)a;aa
-a a a a a a araeatauarana;aa
-a a a a a}aa
-aa
-a a a a anaeaxata(a)a;aa
-a a a}a acaaatacaha a(aeararaoara)a a{aa
-a a a a araeasa.asataaatauasa(a5a0a0a)a.ajasaoana(a{aa
-a a a a a a asauacacaeasasa:a afaaalasaea,aa
-a a a a a a amaeasasaaagaea:a a'aEararaoara aaala avaaalaiadaaara auabaiacaaacaiaÃa³ana'aa
-a a a a a}a)a;aa
-a a a}aa
-a}a;aa
-a
+import { Request, Response, NextFunction } from 'express';
+import prisma from '../utils/database';
+import { verifyToken } from '../utils/auth';
+import { calcularDistancia } from '../utils/gps.utils';
+
+// Extender la interfaz Request para incluir el usuario
+declare global {
+  namespace Express {
+    interface Request {
+      usuario?: {
+        id: string;
+        email: string;
+        roles: string;
+        rol_id: number;
+        isDocente: boolean;
+        docenteId?: string;
+      };
+    }
+  }
+}
+
+/**
+ * Middleware para verificar autenticación
+ */
+export const authenticateToken = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  try {
+    const authHeader = req.headers.authorization;
+    const token = authHeader && authHeader.split(' ')[1];
+    
+    if (!token) {
+      res.status(401).json({
+        success: false,
+        message: 'Token de acceso requerido'
+      });
+      return;
+    }
+
+    // Verificar el token
+    const decoded = verifyToken(token);
+    
+    // Verificar que el usuario existe y está activo
+    const usuario = await prisma.usuarios.findUnique({
+      where: { id: decoded.userId },  // ✅ Ahora sí usa decoded.userId correctamente
+      include: {
+        roles: true,
+        docentes: true
+      }
+    });
+
+    if (!usuario || !usuario.activo) {
+      res.status(401).json({
+        success: false,
+        message: 'Usuario no válido o inactivo'
+      });
+      return;
+    }
+
+    // Agregar información del usuario a la request
+    const docenteArray = Array.isArray(usuario.docentes) ? usuario.docentes: [];
+    const docenteRecord = docenteArray.length > 0 ? docenteArray[0] : null;
+    
+    const usuarioData: typeof req.usuario = {
+      id: usuario.id,
+      email: usuario.email,
+      roles: usuario.roles.nombre,
+      rol_id: usuario.rol_id,
+      isDocente: !!docenteRecord
+    };
+    
+    if (docenteRecord?.id) {
+      usuarioData.docenteId = docenteRecord.id;
+    }
+    
+    req.usuario = usuarioData;
+
+    console.log('✅ Usuario autenticado:', req.usuario);
+
+    next();
+  } catch (error) {
+    res.status(401).json({
+      success: false,
+      message: 'Token inválido'
+    });
+  }
+};
+
+/**
+ * Middleware para requerir rol específico (case-insensitive)
+ */
+export const requireRole = (roles: string[]) => {
+  return (req: Request, res: Response, next: NextFunction): void => {
+    if (!req.usuario) {
+      res.status(401).json({
+        success: false,
+        message: 'Usuario no autenticado'
+      });
+      return;
+    }
+
+    const userRole = req.usuario.roles.toLowerCase();
+    const requiredRoles = roles.map(r => r.toLowerCase());
+
+    if (!requiredRoles.includes(userRole)) {
+      console.log(`❌ Acceso denegado - Rol requerido: ${roles.join(', ')} | Rol usuarios: ${req.usuario.roles}`);
+      res.status(403).json({
+        success: false,
+        message: 'Acceso denegado'
+      });
+      return;
+    }
+
+    console.log(`✅ Acceso permitido - roles: ${req.usuario.roles}`);
+    next();
+  };
+};
+
+/**
+ * Middleware para requerir que el usuario sea admin
+ */
+export const requireAdmin = requireRole(['admin']);
+
+/**
+ * Middleware para requerir que el usuario sea docente
+ */
+export const requireDocente = requireRole(['docente']);
+
+/**
+ * Middleware para requerir que el usuario sea admin o supervisor
+ */
+export const requireAdminOrSupervisor = requireRole(['admin', 'supervisor']);
+
+/**
+ * Middleware para verificar que el usuario accede solo a sus propios datos o es admin
+ */
+export const requireSelfOrAdmin = (req: Request, res: Response, next: NextFunction): void => {
+  if (!req.usuario) {
+    res.status(401).json({
+      success: false,
+      message: 'Usuario no autenticado'
+    });
+    return;
+  }
+
+  const { id } = req.params;
+  
+  if (req.usuario.roles === 'admin' || req.usuario.id === id) {
+    next();
+    return;
+  }
+
+  res.status(403).json({
+    success: false,
+    message: 'Acceso denegado'
+  });
+};
+
+/**
+ * Middleware para validar ubicación GPS
+ */
+export const requireValidLocation = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  try {
+    const { latitud, longitud } = req.body;
+
+    if (!latitud || !longitud) {
+      res.status(400).json({
+        success: false,
+        message: 'Coordenadas GPS requeridas'
+      });
+      return;
+    }
+
+    // Obtener ubicaciones permitidas
+    const ubicacionesPermitidas = await prisma.ubicaciones_permitidas.findMany({
+      where: { activo: true }
+    });
+
+    let ubicacionValida = false;
+
+    for (const ubicacion of ubicacionesPermitidas) {
+      const distancia = calcularDistancia(
+        parseFloat(latitud),
+        parseFloat(longitud),
+        parseFloat(ubicacion.latitud.toString()),
+        parseFloat(ubicacion.longitud.toString())
+      );
+
+      if (distancia <= (ubicacion.radio_metros ?? 50)) {
+        ubicacionValida = true;
+        break;
+      }
+    }
+
+    if (!ubicacionValida) {
+      res.status(400).json({
+        success: false,
+        message: 'No se encuentra en una ubicación válida para registrar asistencia'
+      });
+      return;
+    }
+
+    next();
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: 'Error al validar ubicación'
+    });
+  }
+};
