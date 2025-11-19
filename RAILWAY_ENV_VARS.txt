@@ -1,0 +1,64 @@
+# ========================================
+# VARIABLES DE ENTORNO PARA RAILWAY
+# ========================================
+# Copia estas variables en Railway → Variables
+# ========================================
+
+# 🔴 CRÍTICO - Base de Datos
+# Railway generará esto automáticamente cuando agregues PostgreSQL
+# Si no, copia el valor del servicio PostgreSQL
+DATABASE_URL=postgresql://postgres:password@hostname:5432/railway
+
+# 🔴 CRÍTICO - Puerto
+PORT=5000
+
+# 🔴 CRÍTICO - Ambiente
+NODE_ENV=production
+
+# 🔐 CRÍTICO - JWT Secrets (USA LOS GENERADOS ARRIBA)
+# ⚠️ IMPORTANTE: Reemplaza estos con los que generaste con generar-secretos.js
+JWT_SECRET=92aa4db7a075ea2b08c2bdaa4626466d0b925d3e1adaa46275e5fd5ef85baa5877ff099dd7553c0b7162330d55281b78d3e04c87a971470fec89c458b70493f4
+JWT_EXPIRES_IN=24h
+JWT_REFRESH_SECRET=23f24df3b5bb44b093c381cd894c769f8ce25c31a77236af9909a375cae5857e35107c10864cfbbac912c7124c091bdc61ebcf62648d2f70ff8f62a6d2adfea3
+JWT_REFRESH_EXPIRES_IN=7d
+
+# 🌐 CRÍTICO - URLs del Frontend
+# ⚠️ Reemplaza con tu URL real de Vercel
+FRONTEND_URL=https://asistem-san-martin.vercel.app
+ALLOWED_ORIGINS=https://asistem-san-martin.vercel.app,https://asistem-san-martin-git-main-frank032004.vercel.app
+
+# 📍 GPS Configuration
+GPS_PRECISION_METERS=50
+GPS_TIMEOUT_SECONDS=30
+
+# 🚦 Rate Limiting
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX_REQUESTS=100
+
+# 📊 Logging
+LOG_LEVEL=info
+DEBUG=false
+
+# 📚 Swagger (Deshabilitado en producción por seguridad)
+ENABLE_SWAGGER=false
+
+# ========================================
+# VARIABLES OPCIONALES (Email, etc.)
+# ========================================
+# Solo configurar si tienes servicio de email
+
+# SMTP_HOST=smtp.gmail.com
+# SMTP_PORT=587
+# SMTP_USER=tu_email@gmail.com
+# SMTP_PASS=tu_password_de_aplicacion
+# EMAIL_FROM=noreply@sanmartin.edu.pe
+
+# ========================================
+# INSTRUCCIONES:
+# ========================================
+# 1. Ve a Railway → Tu proyecto → Backend service → Variables
+# 2. Copia cada variable (Name y Value)
+# 3. Haz clic en "Add Variable" para cada una
+# 4. DATABASE_URL se generará automáticamente cuando agregues PostgreSQL
+# 5. Asegúrate de usar los JWT secrets que generaste con generar-secretos.js
+# ========================================
