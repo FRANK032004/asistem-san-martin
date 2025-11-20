@@ -6,7 +6,34 @@ const prisma = new PrismaClient();
 async function main() {
   console.log('🌱 Iniciando seed de la base de datos...');
 
-  // 1. Crear usuario admin
+  // 1. Crear roles
+  console.log('👥 Creando roles...');
+  const rolAdmin = await prisma.roles.upsert({
+    where: { id: 1 },
+    update: {},
+    create: {
+      id: 1,
+      nombre: 'Administrador',
+      descripcion: 'Acceso total al sistema',
+      permisos: JSON.stringify(['all']),
+      activo: true,
+    },
+  });
+
+  const rolDocente = await prisma.roles.upsert({
+    where: { id: 2 },
+    update: {},
+    create: {
+      id: 2,
+      nombre: 'Docente',
+      descripcion: 'Registro de asistencias y consultas',
+      permisos: JSON.stringify(['asistencias.create', 'asistencias.read']),
+      activo: true,
+    },
+  });
+  console.log('✅ Roles creados: Admin y Docente');
+
+  // 2. Crear usuario admin
   console.log('📝 Creando usuario administrador...');
   const hashedPasswordAdmin = await bcrypt.hash('admin123', 10);
   
