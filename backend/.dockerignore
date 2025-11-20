@@ -77,9 +77,9 @@ scripts/
 *.sh
 *.bat
 
-# Prisma (excepto schema)
+# Prisma (excepto schema y seed)
 prisma/migrations/
-prisma/seed.ts
+# prisma/seed.ts  # Necesario para poblar la BD
 
 # TypeScript
 # tsconfig.json  # COMENTADO: Necesario para build en Railway
