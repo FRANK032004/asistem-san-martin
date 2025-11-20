@@ -249,8 +249,8 @@ async function main() {
       data: {
         docente_id: docentes[0].id,
         dia_semana: 1, // Lunes
-        hora_inicio: '08:00:00',
-        hora_fin: '10:00:00',
+        hora_inicio: new Date('1970-01-01T08:00:00Z'),
+        hora_fin: new Date('1970-01-01T10:00:00Z'),
         area_id: areas[0].id,
         tipo_clase: 'teorica',
         horas_semana: 2,
@@ -262,8 +262,8 @@ async function main() {
       data: {
         docente_id: docentes[0].id,
         dia_semana: 3, // Miércoles
-        hora_inicio: '08:00:00',
-        hora_fin: '10:00:00',
+        hora_inicio: new Date('1970-01-01T08:00:00Z'),
+        hora_fin: new Date('1970-01-01T10:00:00Z'),
         area_id: areas[0].id,
         tipo_clase: 'teorica',
         horas_semana: 2,
@@ -275,8 +275,8 @@ async function main() {
       data: {
         docente_id: docentes[0].id,
         dia_semana: 5, // Viernes
-        hora_inicio: '10:00:00',
-        hora_fin: '12:00:00',
+        hora_inicio: new Date('1970-01-01T10:00:00Z'),
+        hora_fin: new Date('1970-01-01T12:00:00Z'),
         area_id: areas[0].id,
         tipo_clase: 'practica',
         horas_semana: 2,
@@ -289,8 +289,8 @@ async function main() {
       data: {
         docente_id: docentes[1].id,
         dia_semana: 2, // Martes
-        hora_inicio: '08:00:00',
-        hora_fin: '10:00:00',
+        hora_inicio: new Date('1970-01-01T08:00:00Z'),
+        hora_fin: new Date('1970-01-01T10:00:00Z'),
         area_id: areas[1].id,
         tipo_clase: 'teorica',
         horas_semana: 2,
@@ -302,8 +302,8 @@ async function main() {
       data: {
         docente_id: docentes[1].id,
         dia_semana: 4, // Jueves
-        hora_inicio: '08:00:00',
-        hora_fin: '10:00:00',
+        hora_inicio: new Date('1970-01-01T08:00:00Z'),
+        hora_fin: new Date('1970-01-01T10:00:00Z'),
         area_id: areas[1].id,
         tipo_clase: 'teorica',
         horas_semana: 2,
@@ -316,8 +316,8 @@ async function main() {
       data: {
         docente_id: docentes[2].id,
         dia_semana: 1, // Lunes
-        hora_inicio: '14:00:00',
-        hora_fin: '16:00:00',
+        hora_inicio: new Date('1970-01-01T14:00:00Z'),
+        hora_fin: new Date('1970-01-01T16:00:00Z'),
         area_id: areas[3].id,
         tipo_clase: 'teorica',
         horas_semana: 2,
@@ -329,8 +329,8 @@ async function main() {
       data: {
         docente_id: docentes[2].id,
         dia_semana: 3, // Miércoles
-        hora_inicio: '14:00:00',
-        hora_fin: '16:00:00',
+        hora_inicio: new Date('1970-01-01T14:00:00Z'),
+        hora_fin: new Date('1970-01-01T16:00:00Z'),
         area_id: areas[3].id,
         tipo_clase: 'practica',
         horas_semana: 2,
