@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "nodemon src/index.ts",
     "build": "tsc",
-    "start": "npm run prisma:deploy && npm run prisma:seed:if-empty && node dist/index.js",
+    "start": "npm run prisma:push && npm run prisma:seed:if-empty && node dist/index.js",
     "start:dev": "ts-node src/index.ts",
+    "prisma:push": "prisma db push --accept-data-loss",
     "prisma:deploy": "prisma migrate deploy",
     "prisma:seed:if-empty": "ts-node prisma/seed-if-empty.ts",
     "prisma:generate": "prisma generate",
