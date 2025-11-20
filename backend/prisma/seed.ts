@@ -8,27 +8,25 @@ async function main() {
 
   // 1. Crear roles
   console.log('👥 Creando roles...');
-  const rolAdmin = await prisma.roles.upsert({
+  await prisma.roles.upsert({
     where: { id: 1 },
     update: {},
     create: {
       id: 1,
       nombre: 'Administrador',
       descripcion: 'Acceso total al sistema',
-      permisos: JSON.stringify(['all']),
-      activo: true,
+      permisos: ['all'],
     },
   });
 
-  const rolDocente = await prisma.roles.upsert({
+  await prisma.roles.upsert({
     where: { id: 2 },
     update: {},
     create: {
       id: 2,
       nombre: 'Docente',
       descripcion: 'Registro de asistencias y consultas',
-      permisos: JSON.stringify(['asistencias.create', 'asistencias.read']),
-      activo: true,
+      permisos: ['asistencias.create', 'asistencias.read'],
     },
   });
   console.log('✅ Roles creados: Admin y Docente');
