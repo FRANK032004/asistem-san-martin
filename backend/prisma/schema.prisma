@@ -501,12 +501,12 @@ model ubicaciones_permitidas {
   created_at         DateTime?                 @default(now()) @db.Timestamp(6)
   updated_at         DateTime?                 @default(now()) @db.Timestamp(6)
   tipo_ubicacion     String?                   @default("sede") @db.VarChar(20)
-  punto_geo          Unsupported("geography")?
+  // punto_geo       Unsupported("geography")? // Comentado: Requiere PostGIS
   asistenciasEntrada asistencias[]             @relation("AsistenciasUbicacionEntrada")
   asistenciasSalida  asistencias[]             @relation("AsistenciasUbicacionSalida")
 
   @@index([activo], map: "idx_ubicaciones_activo")
-  @@index([punto_geo], map: "idx_ubicaciones_punto_geo", type: Gist)
+  // @@index([punto_geo], map: "idx_ubicaciones_punto_geo", type: Gist) // Comentado: Requiere PostGIS
 }
 
 model usuarios {
