@@ -1,7 +1,7 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from 'axios';
 
-// Forzar URL correcta - Solución temporal
-const API_BASE_URL = 'http://localhost:5000/api';
+// Usar variable de entorno o fallback a localhost en desarrollo
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 
 // Configuración de reintentos y timeouts
 const MAX_RETRIES = 3;
