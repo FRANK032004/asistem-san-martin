@@ -29,7 +29,7 @@ model areas {
 }
 
 model asistencias {
-  id                 String                  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  id                 String                  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   docenteId          String                  @map("docente_id") @db.Uuid
   fecha              DateTime                @db.Date
   horaEntrada        DateTime?               @map("hora_entrada") @db.Timestamp(6)
@@ -126,7 +126,7 @@ model contratos_docentes {
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model detalle_planillas {
-  id               String       @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  id               String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   planilla_id      String       @db.Uuid
   asistencia_id    String?      @db.Uuid
   fecha            DateTime     @db.Date
@@ -144,7 +144,7 @@ model detalle_planillas {
 }
 
 model docentes {
-  id                    String                  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  id                    String                  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   usuario_id            String                  @db.Uuid
   area_id               Int?
   codigo_docente        String?                 @unique @db.VarChar(20)
@@ -183,7 +183,7 @@ model docentes {
 }
 
 model evaluaciones_docentes {
-  id                     String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  id                     String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   docente_id             String   @db.Uuid
   evaluador_id           String   @db.Uuid
   periodo                String   @db.VarChar(20)
@@ -247,7 +247,7 @@ model horarios_especiales {
 }
 
 model horas_trabajadas {
-  id                String         @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  id                String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   docente_id        String         @db.Uuid
   horario_base_id   Int?
   asistencia_id     String?        @db.Uuid
@@ -273,7 +273,7 @@ model horas_trabajadas {
 }
 
 model justificaciones {
-  id                   String       @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  id                   String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   docente_id           String       @db.Uuid
   fecha_inicio         DateTime     @db.Date
   fecha_fin            DateTime     @db.Date
@@ -303,7 +303,7 @@ model justificaciones {
 }
 
 model logs_actividad {
-  id               String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  id               String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   usuario_id       String?   @db.Uuid
   accion           String    @db.VarChar(100)
   tabla_afectada   String?   @db.VarChar(50)
@@ -327,7 +327,7 @@ model logs_actividad {
 }
 
 model notificaciones {
-  id          String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   usuario_id  String    @db.Uuid
   tipo        String    @db.VarChar(50)
   titulo      String    @db.VarChar(100)
@@ -348,7 +348,7 @@ model notificaciones {
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model planillas {
-  id                                      String              @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  id                                      String              @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   usuario_id                              String              @db.Uuid
   mes                                     Int
   anio                                    Int
@@ -378,7 +378,7 @@ model planillas {
 }
 
 model planillas_horas {
-  id                    String             @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  id                    String             @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   docente_id            String             @db.Uuid
   contrato_id           Int
   mes                   Int
@@ -417,7 +417,7 @@ model planillas_horas {
 }
 
 model refresh_tokens {
-  id         String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   token      String    @unique
   usuario_id String    @db.Uuid
   expires_at DateTime  @db.Timestamp(6)
@@ -430,7 +430,7 @@ model refresh_tokens {
 }
 
 model reportes {
-  id                String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  id                String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   generado_por      String    @db.Uuid
   tipo_reporte      String    @db.VarChar(50)
   parametros        Json?
@@ -462,7 +462,7 @@ model roles {
 }
 
 model sesiones_usuarios {
-  id               String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  id               String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   usuario_id       String   @db.Uuid
   token            String   @unique
   dispositivo      String?
@@ -510,7 +510,7 @@ model ubicaciones_permitidas {
 }
 
 model usuarios {
-  id                                       String                  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  id                                       String                  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   dni                                      String                  @unique @db.VarChar(20)
   nombres                                  String                  @db.VarChar(100)
   apellidos                                String                  @db.VarChar(100)
