@@ -62,10 +62,10 @@ export const rateLimiters = {
     }
   }),
 
-  // Autenticación - 5 intentos por 15 minutos
+  // Autenticación - 10 intentos por 15 minutos
   auth: rateLimit({
     windowMs: 15 * 60 * 1000,
-    max: 5,
+    max: 10,
     skipSuccessfulRequests: true,
     keyGenerator: (req: Request) => getClientIP(req),
     handler: (_req: Request, res: Response) => {
