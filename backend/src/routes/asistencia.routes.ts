@@ -55,7 +55,7 @@ router.put('/salida',
  */
 router.get('/hoy', 
   authenticateToken, 
-  requireRole(['ADMIN', 'docente']), 
+  requireRole(['Administrador', 'docente']), 
   obtenerAsistenciasHoy
 );
 

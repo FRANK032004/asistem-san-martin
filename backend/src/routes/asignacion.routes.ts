@@ -26,7 +26,7 @@ const router = Router();
 router.patch(
   '/area',
   authenticateToken,
-  requireRole(['ADMIN']),
+  requireRole(['Administrador']),
   validateDTO(AsignarAreaDocenteDTO),
   asignarAreaDocente
 );
@@ -39,7 +39,7 @@ router.patch(
 router.get(
   '/docente/:docenteId/horarios',
   authenticateToken,
-  requireRole(['ADMIN']),
+  requireRole(['Administrador']),
   obtenerHorariosDocente
 );
 

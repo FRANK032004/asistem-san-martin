@@ -33,7 +33,7 @@ const router = Router();
 
 // Middleware: Solo administradores pueden acceder
 router.use(authenticateToken);
-router.use(requireRole(['ADMIN']));
+router.use(requireRole(['Administrador']));
 
 // Rutas de dashboard y estadísticas
 router.get('/estadisticas', obtenerEstadisticasAdmin);

@@ -69,7 +69,7 @@ router.delete('/:id',
  */
 router.get('/pendientes', 
   authenticateToken, 
-  requireRole(['ADMIN']),
+  requireRole(['Administrador']),
   obtenerJustificacionesPendientes
 );
 
@@ -80,7 +80,7 @@ router.get('/pendientes',
  */
 router.patch('/:id/estado', 
   authenticateToken, 
-  requireRole(['ADMIN']),
+  requireRole(['Administrador']),
   validateDTO(AprobarJustificacionDTO),
   cambiarEstadoJustificacion
 );
