@@ -1424,7 +1424,8 @@ export default function UsuariosPage() {
         ...(rolFilter && { rol: rolFilter })
       });
       
-      const response = await fetch(`http://localhost:5000/api/admin/usuarios?${params}`, {
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+      const response = await fetch(`${API_URL}/admin/usuarios?${params}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
           'Content-Type': 'application/json'

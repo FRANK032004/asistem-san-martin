@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 import { motion } from 'framer-motion';
 import { 
   Plus, 
@@ -149,7 +151,7 @@ export default function HorariosAdminPage() {
       
       // Intentar cargar desde API real
       try {
-        const response = await fetch('http://localhost:5000/api/horarios', {
+        const response = await fetch(`${API_URL}/horarios`, {
           headers: {
             'Authorization': `Bearer ${user?.token}`,
             'Content-Type': 'application/json'
@@ -254,7 +256,7 @@ export default function HorariosAdminPage() {
     try {
       // Intentar cargar desde API real
       try {
-        const response = await fetch('http://localhost:5000/api/areas', {
+        const response = await fetch(`${API_URL}/areas`, {
           headers: {
             'Authorization': `Bearer ${user?.token}`,
             'Content-Type': 'application/json'
@@ -329,7 +331,7 @@ export default function HorariosAdminPage() {
     if (!selectedHorario) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/horarios/${selectedHorario.id}`, {
+      const response = await fetch(`${API_URL}/horarios/${selectedHorario.id}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${user?.token}`,
@@ -357,7 +359,7 @@ export default function HorariosAdminPage() {
     if (!selectedHorario) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/horarios/${selectedHorario.id}`, {
+      const response = await fetch(`${API_URL}/horarios/${selectedHorario.id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${user?.token}`,
@@ -382,7 +384,7 @@ export default function HorariosAdminPage() {
 
   const toggleEstadoHorario = async (horario: Horario) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/horarios/${horario.id}/toggle`, {
+      const response = await fetch(`${API_URL}/horarios/${horario.id}/toggle`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${user?.token}`,

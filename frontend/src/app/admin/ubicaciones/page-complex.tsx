@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 import { motion } from 'framer-motion';
 import { 
   Plus, 
@@ -137,7 +139,7 @@ export default function UbicacionesAdminPage() {
       
       // Intentar cargar desde API real
       try {
-        const response = await fetch('http://localhost:5000/api/ubicaciones', {
+        const response = await fetch(`${API_URL}/ubicaciones`, {
           headers: {
             'Authorization': `Bearer ${user?.token}`,
             'Content-Type': 'application/json'
@@ -247,7 +249,7 @@ export default function UbicacionesAdminPage() {
     try {
       // Intentar cargar desde API real
       try {
-        const response = await fetch('http://localhost:5000/api/areas', {
+        const response = await fetch(`${API_URL}/areas`, {
           headers: {
             'Authorization': `Bearer ${user?.token}`,
             'Content-Type': 'application/json'
@@ -328,7 +330,7 @@ export default function UbicacionesAdminPage() {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/ubicaciones', {
+      const response = await fetch(`${API_URL}/ubicaciones`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${user?.token}`,
@@ -362,7 +364,7 @@ export default function UbicacionesAdminPage() {
     if (!selectedUbicacion) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/ubicaciones/${selectedUbicacion.id}`, {
+      const response = await fetch(`${API_URL}/ubicaciones/${selectedUbicacion.id}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${user?.token}`,
@@ -395,7 +397,7 @@ export default function UbicacionesAdminPage() {
     if (!selectedUbicacion) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/ubicaciones/${selectedUbicacion.id}`, {
+      const response = await fetch(`${API_URL}/ubicaciones/${selectedUbicacion.id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${user?.token}`,
@@ -420,7 +422,7 @@ export default function UbicacionesAdminPage() {
 
   const toggleEstadoUbicacion = async (ubicacion: UbicacionGPS) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/ubicaciones/${ubicacion.id}/toggle`, {
+      const response = await fetch(`${API_URL}/ubicaciones/${ubicacion.id}/toggle`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${user?.token}`,
