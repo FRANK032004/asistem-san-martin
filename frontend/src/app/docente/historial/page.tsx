@@ -71,7 +71,7 @@ export default function HistorialAsistenciasPage() {
   });
 
   useEffect(() => {
-    if (!user || user.rol?.nombre !== 'DOCENTE') {
+    if (!user || user.rol?.nombre?.toLowerCase() !== 'docente') {
       router.push('/login');
       return;
     }

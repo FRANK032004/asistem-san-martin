@@ -42,13 +42,13 @@ export default function EstadisticasDocentePage() {
       router.push('/login');
       return;
     }
-    if (user.rol?.nombre !== 'DOCENTE') {
+    if (user.rol?.nombre?.toLowerCase() !== 'docente') {
       router.push('/dashboard');
       return;
     }
   }, [user, router]);
 
-  if (!user || user.rol?.nombre !== 'DOCENTE') {
+  if (!user || user.rol?.nombre?.toLowerCase() !== 'docente') {
     return null;
   }
 

@@ -22,7 +22,7 @@ export default function MisHorariosPage() {
   const [soloActivos, setSoloActivos] = useState(true);
 
   useEffect(() => {
-    if (!user || user.rol?.nombre !== 'DOCENTE') {
+    if (!user || user.rol?.nombre?.toLowerCase() !== 'docente') {
       router.push('/login');
       return;
     }

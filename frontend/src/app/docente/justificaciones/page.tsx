@@ -63,7 +63,7 @@ export default function MisJustificacionesPage() {
   } = form;
 
   useEffect(() => {
-    if (!user || user.rol?.nombre !== 'DOCENTE') {
+    if (!user || user.rol?.nombre?.toLowerCase() !== 'docente') {
       router.push('/login');
       return;
     }
