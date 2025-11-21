@@ -107,17 +107,25 @@ if (process.env.NODE_ENV === 'production') {
 const corsOptions = {
   origin: function (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) {
     // Permitir requests sin origin (como Postman, apps móviles)
-    if (!origin) return callback(null, true);
-    
-    if (process.env.NODE_ENV === 'development') {
-      console.log(`🌐 CORS: Permitiendo origen: ${origin}`);
+    if (!origin) {
+      console.log('🌐 CORS: Request sin origin - PERMITIDO');
       return callback(null, true);
     }
     
-    const allowedOrigins = (process.env.ALLOWED_ORIGINS || '').split(',');
-    if (allowedOrigins.indexOf(origin) !== -1) {
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`🌐 CORS: Desarrollo - Permitiendo origen: ${origin}`);
+      return callback(null, true);
+    }
+    
+    const allowedOrigins = (process.env.ALLOWED_ORIGINS || '').split(',').map(o => o.trim());
+    console.log(`🌐 CORS: Verificando origen: ${origin}`);
+    console.log(`🌐 CORS: Orígenes permitidos:`, allowedOrigins);
+    
+    if (allowedOrigins.includes(origin)) {
+      console.log(`✅ CORS: Origen ${origin} PERMITIDO`);
       callback(null, true);
     } else {
+      console.log(`❌ CORS: Origen ${origin} NO PERMITIDO`);
       callback(new Error('No permitido por CORS'));
     }
   },
