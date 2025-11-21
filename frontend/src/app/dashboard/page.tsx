@@ -202,14 +202,14 @@ export default function Dashboard() {
                   ¡Buen día, {user.nombres}! 👋
                 </h2>
                 <p className="text-blue-100">
-                  {(typeof user.rol === 'string' ? user.rol : user.rol?.nombre) === 'ADMIN' 
+                  {(typeof user.rol === 'string' ? user.rol : user.rol?.nombre) === 'Administrador' 
                     ? 'Panel de administración del sistema de asistencias'
                     : 'Registra tu asistencia de forma rápida y segura'
                   }
                 </p>
               </div>
               <div className="flex items-center gap-4">
-                {(typeof user.rol === 'string' ? user.rol : user.rol?.nombre) === 'ADMIN' && (
+                {(typeof user.rol === 'string' ? user.rol : user.rol?.nombre) === 'Administrador' && (
                   <Button 
                     variant="secondary" 
                     className="bg-white/20 hover:bg-white/30 text-white border-white/30"
@@ -220,7 +220,7 @@ export default function Dashboard() {
                   </Button>
                 )}
                 <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
-                  {typeof user.rol === 'string' ? user.rol : user.rol?.nombre || 'ADMIN'}
+                  {typeof user.rol === 'string' ? user.rol : user.rol?.nombre || 'Administrador'}
                 </Badge>
               </div>
             </div>
@@ -228,7 +228,7 @@ export default function Dashboard() {
         </motion.div>
 
         {/* Dashboard según el rol */}
-        {(typeof user.rol === 'string' ? user.rol : user.rol?.nombre) === 'ADMIN' ? (
+        {(typeof user.rol === 'string' ? user.rol : user.rol?.nombre) === 'Administrador' ? (
           <AdminDashboard />
         ) : (
           <DocenteDashboard 
