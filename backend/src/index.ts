@@ -99,9 +99,11 @@ if (process.env.NODE_ENV === 'production') {
     legacyHeaders: false,
     // Generar clave única por IP real
     keyGenerator: (req) => {
-      const forwarded = req.headers['x-forwarded-for'] as string;
-      const ip = forwarded ? forwarded.split(',')[0].trim() : (req.ip || 'unknown');
-      return ip;
+      const forwarded = req.headers['x-forwarded-for'];
+      if (typeof forwarded === 'string') {
+        return forwarded.split(',')[0]!.trim();
+      }
+      return req.ip || 'unknown';
     },
   });
   
@@ -118,9 +120,11 @@ if (process.env.NODE_ENV === 'production') {
     legacyHeaders: false,
     skipSuccessfulRequests: true, // No contar requests exitosos
     keyGenerator: (req) => {
-      const forwarded = req.headers['x-forwarded-for'] as string;
-      const ip = forwarded ? forwarded.split(',')[0].trim() : (req.ip || 'unknown');
-      return `auth_${ip}`;
+      const forwarded = req.headers['x-forwarded-for'];
+      if (typeof forwarded === 'string') {
+        return `auth_${forwarded.split(',')[0]!.trim()}`;
+      }
+      return `auth_${req.ip || 'unknown'}`;
     },
   });
   
