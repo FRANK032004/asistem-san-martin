@@ -1,7 +1,7 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from 'axios';
 
 // Usar variable de entorno o fallback a localhost en desarrollo
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://asistem-san-martin-production-b195.up.railway.app/api';
 
 // Configuración de reintentos y timeouts
 const MAX_RETRIES = 3;
