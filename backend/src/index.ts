@@ -100,8 +100,8 @@ if (process.env.NODE_ENV === 'production') {
     // Generar clave única por IP real
     keyGenerator: (req) => {
       const forwarded = req.headers['x-forwarded-for'] as string;
-      const ip = forwarded ? forwarded.split(',')[0].trim() : req.ip;
-      return ip || 'unknown';
+      const ip = forwarded ? forwarded.split(',')[0].trim() : (req.ip || 'unknown');
+      return ip;
     },
   });
   
@@ -119,8 +119,8 @@ if (process.env.NODE_ENV === 'production') {
     skipSuccessfulRequests: true, // No contar requests exitosos
     keyGenerator: (req) => {
       const forwarded = req.headers['x-forwarded-for'] as string;
-      const ip = forwarded ? forwarded.split(',')[0].trim() : req.ip;
-      return `auth_${ip || 'unknown'}`;
+      const ip = forwarded ? forwarded.split(',')[0].trim() : (req.ip || 'unknown');
+      return `auth_${ip}`;
     },
   });
   
