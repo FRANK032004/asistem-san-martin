@@ -128,7 +128,7 @@ export const login = asyncHandler(async (req: Request, res: Response): Promise<v
   res.cookie('refreshToken', refreshToken, {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', // 'none' permite CORS entre dominios
     maxAge: 7 * 24 * 60 * 60 * 1000 // 7 días
   });
 
@@ -197,7 +197,7 @@ export const refreshAccessToken = asyncHandler(async (req: Request, res: Respons
   res.cookie('refreshToken', tokenPair.refreshToken, {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', // 'none' permite CORS entre dominios
     maxAge: 7 * 24 * 60 * 60 * 1000 // 7 días
   });
 
