@@ -107,14 +107,14 @@ if (process.env.NODE_ENV === 'production') {
     },
   });
   
-  // Rate limiter específico para auth - más restrictivo
+  // Rate limiter específico para auth - MUY permisivo durante testing
   const authLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutos
-    max: 50, // 50 intentos de login por IP por 15 minutos
+    windowMs: 1 * 60 * 1000, // 1 minuto (reducido de 15)
+    max: 100, // 100 intentos por minuto (muy permisivo)
     message: {
-      error: 'Demasiados intentos de login. Por favor, intenta de nuevo en 15 minutos.',
+      error: 'Demasiados intentos de login. Por favor, espera 1 minuto.',
       code: 'RATE_LIMIT_AUTH',
-      retryAfter: 900,
+      retryAfter: 60,
     },
     standardHeaders: true,
     legacyHeaders: false,
@@ -130,7 +130,7 @@ if (process.env.NODE_ENV === 'production') {
   
   app.use('/api', generalLimiter);
   app.use('/api/auth', authLimiter);
-  console.log('🛡️  Rate limiter activado - General: 500/15min, Auth: 50/15min');
+  console.log('🛡️  Rate limiter activado - General: 500/15min, Auth: 100/1min (TESTING)');
 } else {
   console.log('⚠️  Rate limiter DESHABILITADO (desarrollo)');
 }
