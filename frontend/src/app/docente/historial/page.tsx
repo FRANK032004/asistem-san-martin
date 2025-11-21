@@ -83,24 +83,21 @@ export default function HistorialAsistenciasPage() {
       setLoading(true);
       setError(null);
       
-      // Usar el servicio API correcto con la URL de Railway
-      const response = await docentePanelService.obtenerHistorialAsistencias({
-        page: paginaActual,
-        limit: registrosPorPagina,
-        ...(estadoFiltro !== 'TODOS' && { estado: estadoFiltro }),
-        ...(fechaInicio && { fechaInicio }),
-        ...(fechaFin && { fechaFin })
-      });
+      // Calcular offset según la página actual
+      const offset = (paginaActual - 1) * registrosPorPagina;
       
-      if (response.ok) {
-        setHistorial(response.data || []);
-        setTotalPaginas(Math.ceil((response.total || 0) / registrosPorPagina));
-        
-        // Calcular estadísticas
-        calcularEstadisticas(response.data || []);
-      } else {
-        throw new Error(response.error?.message || 'Error al cargar historial');
-      }
+      // Llamar al servicio con parámetros individuales (no objeto)
+      const response = await docentePanelService.obtenerHistorialAsistencias(
+        registrosPorPagina,
+        offset
+      );
+      
+      // El servicio devuelve directamente los datos
+      setHistorial(response.asistencias || []);
+      setTotalPaginas(Math.ceil((response.total || 0) / registrosPorPagina));
+      
+      // Calcular estadísticas
+      calcularEstadisticas(response.asistencias || []);
       
     } catch (error: any) {
       console.error('❌ Error:', error);
