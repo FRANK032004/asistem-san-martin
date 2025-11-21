@@ -84,7 +84,7 @@ export default function HistorialAsistenciasPage() {
       setError(null);
       
       // Usar el servicio API correcto con la URL de Railway
-      const response = await docentePanelService.obtenerHistorial({
+      const response = await docentePanelService.obtenerHistorialAsistencias({
         page: paginaActual,
         limit: registrosPorPagina,
         ...(estadoFiltro !== 'TODOS' && { estado: estadoFiltro }),
