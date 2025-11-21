@@ -1,0 +1,21 @@
+﻿========================================
+REPORTE DE TESTING COMPLETO
+2025-11-20 22:29:25
+========================================
+
+Total: 22 tests
+Exitosos: 15
+Fallidos: 7
+Tasa de Exito: 68.2%
+
+ERRORES:
+- Database Connection - DB Status: @{status=healthy; details=}
+- GET Roles - Error en el servidor remoto: (404) No se encontró.
+- GET Areas - Areas encontradas: 
+- GET Ubicaciones - Ubicaciones: 
+- POST Area (Crear) - Area creada: ID 
+- GET Usuarios - Error en el servidor remoto: (404) No se encontró.
+- Proteccion sin token - Endpoint permite acceso sin autenticacion
+
+
+========================================

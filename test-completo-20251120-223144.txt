@@ -1,0 +1,15 @@
+﻿========================================
+REPORTE DE TESTING COMPLETO
+2025-11-20 22:31:44
+========================================
+
+Total: 20 tests
+Exitosos: 19
+Fallidos: 1
+Tasa de Exito: 95%
+
+ERRORES:
+- POST Area (Crear) - Area creada: ID 
+
+
+========================================

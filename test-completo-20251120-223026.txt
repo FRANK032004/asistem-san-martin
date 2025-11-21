@@ -1,0 +1,19 @@
+﻿========================================
+REPORTE DE TESTING COMPLETO
+2025-11-20 22:30:26
+========================================
+
+Total: 22 tests
+Exitosos: 17
+Fallidos: 5
+Tasa de Exito: 77.3%
+
+ERRORES:
+- Refresh Token - Error en el servidor remoto: (429) Too Many Requests.
+- GET Roles - Error en el servidor remoto: (404) No se encontró.
+- POST Area (Crear) - Area creada: ID 
+- GET Usuarios - Error en el servidor remoto: (404) No se encontró.
+- Proteccion sin token - HTTP 404 (esperado)
+
+
+========================================

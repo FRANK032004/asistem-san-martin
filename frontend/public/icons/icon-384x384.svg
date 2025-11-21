@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="384" height="384" viewBox="0 0 384 384" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Fondo con gradiente -->
+  <rect width="384" height="384" rx="57.599999999999994" fill="url(#bgGradient)"/>
+  
+  <!-- Círculo decorativo con sombra -->
+  <circle cx="192" cy="134.39999999999998" r="96" fill="rgba(255,255,255,0.1)" filter="url(#shadow)"/>
+  
+  <!-- Texto principal "AS" con sombra y fuente sans-serif moderna -->
+  <text 
+    x="192" 
+    y="161.28" 
+    font-family="'Segoe UI', Arial, sans-serif" 
+    font-size="134.39999999999998px" 
+    font-weight="700" 
+    fill="#ffffff" 
+    text-anchor="middle" 
+    dominant-baseline="middle"
+    filter="url(#shadow)"
+    style="letter-spacing: 7.68px;">AS</text>
+  
+  <!-- Subtítulo "San Martín" -->
+  <text 
+    x="192" 
+    y="288" 
+    font-family="'Segoe UI', Arial, sans-serif" 
+    font-size="46.08px" 
+    font-weight="600" 
+    fill="#ffffff" 
+    text-anchor="middle" 
+    opacity="0.95"
+    style="letter-spacing: 1.536px;">San Martín</text>
+  
+  <!-- Barra decorativa inferior -->
+  <rect x="115.19999999999999" y="326.4" width="153.60000000000002" height="7.68" rx="3.84" fill="rgba(255,255,255,0.3)"/>
+</svg>

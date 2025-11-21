@@ -23,6 +23,8 @@
     "test:unit": "jest --testPathPattern=unit",
     "test:integration": "jest --testPathPattern=integration",
     "test:ci": "jest --ci --coverage --maxWorkers=2",
+    "test:api": "node scripts/test-api.js",
+    "test:production": "node scripts/test-api.js",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix",
     "format": "prettier --write src/**/*.ts",

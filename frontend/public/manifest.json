@@ -1,6 +1,6 @@
 {
-  "name": "ASISTEM San Martín",
-  "short_name": "ASISTEM",
+  "name": "Asistencia San Martín",
+  "short_name": "San Martín",
   "description": "Sistema de Control de Asistencias con GPS para Docentes",
   "start_url": "/",
   "display": "standalone",

@@ -121,8 +121,43 @@
   * {
     @apply border-border outline-ring/50;
   }
+  
+  /* 🎨 TIPOGRAFÍA PROFESIONAL CON ANTIALIASING OPTIMIZADO */
   body {
     @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  }
+  
+  /* Mejora de legibilidad para títulos */
+  h1, h2, h3, h4, h5, h6 {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+  
+  /* Sombras de texto sutiles para mejor contraste */
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-shadow-md {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Antialiasing para elementos blancos sobre fondos oscuros */
+  .text-white, .text-blue-50, .text-blue-100 {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   }
 }
 
