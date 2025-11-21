@@ -78,6 +78,7 @@ const withPWA = require('next-pwa')({
 });
 
 const nextConfig: NextConfig = {
+  // Fix roles: 2025-11-20
   typescript: {
     // ⚠️ PELIGROSO: Ignora errores de TypeScript en build
     ignoreBuildErrors: true,
