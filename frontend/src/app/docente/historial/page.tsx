@@ -83,30 +83,24 @@ export default function HistorialAsistenciasPage() {
       setLoading(true);
       setError(null);
       
-      // Simulación de llamada al endpoint /api/docente/asistencia/historial
-      // En producción, crear el servicio correspondiente
-      const response = await fetch(
-        `/api/docente/asistencia/historial?` +
-        `page=${paginaActual}&` +
-        `limit=${registrosPorPagina}` +
-        `${estadoFiltro !== 'TODOS' ? `&estado=${estadoFiltro}` : ''}` +
-        `${fechaInicio ? `&fechaInicio=${fechaInicio}` : ''}` +
-        `${fechaFin ? `&fechaFin=${fechaFin}` : ''}`,
-        {
-          headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
-          }
-        }
-      );
+      // Usar el servicio API correcto con la URL de Railway
+      const response = await docentePanelService.obtenerHistorial({
+        page: paginaActual,
+        limit: registrosPorPagina,
+        ...(estadoFiltro !== 'TODOS' && { estado: estadoFiltro }),
+        ...(fechaInicio && { fechaInicio }),
+        ...(fechaFin && { fechaFin })
+      });
       
-      if (!response.ok) throw new Error('Error al cargar historial');
-      
-      const data = await response.json();
-      setHistorial(data.data || []);
-      setTotalPaginas(Math.ceil((data.total || 0) / registrosPorPagina));
-      
-      // Calcular estadísticas
-      calcularEstadisticas(data.data || []);
+      if (response.ok) {
+        setHistorial(response.data || []);
+        setTotalPaginas(Math.ceil((response.total || 0) / registrosPorPagina));
+        
+        // Calcular estadísticas
+        calcularEstadisticas(response.data || []);
+      } else {
+        throw new Error(response.error?.message || 'Error al cargar historial');
+      }
       
     } catch (error: any) {
       console.error('❌ Error:', error);
