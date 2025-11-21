@@ -80,6 +80,12 @@ app.use(helmet({
   },
 }));
 
+// TRUST PROXY para Railway (debe estar ANTES del rate limiting)
+if (process.env.NODE_ENV === 'production') {
+  app.set('trust proxy', 1);
+  console.log('🔧 Trust proxy habilitado para Railway');
+}
+
 // Rate limiting - DESHABILITADO EN DESARROLLO
 if (process.env.NODE_ENV === 'production') {
   const limiter = rateLimit({
