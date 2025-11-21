@@ -82,7 +82,7 @@ export default function Dashboard() {
   }, [user]);
 
   // Si es docente, no renderizar nada mientras redirige
-  if (user && user.rol?.nombre === 'DOCENTE') {
+  if (user && user.rol?.nombre?.toLowerCase() === 'docente') {
     return null;
   }
   

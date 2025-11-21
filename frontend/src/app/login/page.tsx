@@ -45,7 +45,7 @@ export default function LoginPage() {
         });
 
         // Redirigir según el rol del usuario
-        if (currentUser?.rol?.nombre === 'DOCENTE') {
+        if (currentUser?.rol?.nombre?.toLowerCase() === 'docente') {
           router.push('/docente');
         } else {
           router.push('/dashboard');
