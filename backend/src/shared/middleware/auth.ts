@@ -117,7 +117,7 @@ export const requireRole = (roles: string[]) => {
 /**
  * Middleware para requerir que el usuario sea admin
  */
-export const requireAdmin = requireRole(['admin']);
+export const requireAdmin = requireRole(['administrador']);
 
 /**
  * Middleware para requerir que el usuario sea docente
@@ -127,7 +127,7 @@ export const requireDocente = requireRole(['docente']);
 /**
  * Middleware para requerir que el usuario sea admin o supervisor
  */
-export const requireAdminOrSupervisor = requireRole(['admin', 'supervisor']);
+export const requireAdminOrSupervisor = requireRole(['administrador', 'supervisor']);
 
 /**
  * Middleware para verificar que el usuario accede solo a sus propios datos o es admin
