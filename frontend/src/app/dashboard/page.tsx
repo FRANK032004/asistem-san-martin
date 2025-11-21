@@ -75,7 +75,7 @@ export default function Dashboard() {
   
   // Redireccionar docentes a su panel específico INMEDIATAMENTE
   useEffect(() => {
-    if (user && user.rol?.nombre === 'DOCENTE') {
+    if (user && user.rol?.nombre?.toLowerCase() === 'docente') {
       // Redirigir inmediatamente sin renderizar nada
       window.location.href = '/docente';
     }

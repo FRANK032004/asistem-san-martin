@@ -75,7 +75,7 @@ export default function DocenteDashboardProfessional() {
       router.push('/login');
       return;
     }
-    if (user.rol?.nombre !== 'DOCENTE') {
+    if (user.rol?.nombre?.toLowerCase() !== 'docente') {
       router.push('/dashboard');
       return;
     }
@@ -91,7 +91,7 @@ export default function DocenteDashboardProfessional() {
     }
   }, [error]);
 
-  if (!user || user.rol?.nombre !== 'DOCENTE') {
+  if (!user || user.rol?.nombre?.toLowerCase() !== 'docente') {
     return null;
   }
 
