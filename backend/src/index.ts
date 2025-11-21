@@ -86,19 +86,47 @@ if (process.env.NODE_ENV === 'production') {
   console.log('🔧 Trust proxy habilitado para Railway');
 }
 
-// Rate limiting - DESHABILITADO EN DESARROLLO
+// Rate limiting - Configuración más permisiva para Railway
 if (process.env.NODE_ENV === 'production') {
-  const limiter = rateLimit({
-    windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS || '900000'), // 15 minutos
-    max: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || '100'), // 100 requests por ventana
+  // Rate limiter general - más permisivo
+  const generalLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutos
+    max: 500, // 500 requests por ventana (aumentado de 100)
     message: {
       error: 'Demasiadas solicitudes desde esta IP, intenta de nuevo más tarde.',
     },
     standardHeaders: true,
     legacyHeaders: false,
+    // Generar clave única por IP real
+    keyGenerator: (req) => {
+      const forwarded = req.headers['x-forwarded-for'] as string;
+      const ip = forwarded ? forwarded.split(',')[0].trim() : req.ip;
+      return ip || 'unknown';
+    },
   });
-  app.use('/api', limiter);
-  console.log('🛡️  Rate limiter activado (producción)');
+  
+  // Rate limiter específico para auth - más restrictivo
+  const authLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutos
+    max: 50, // 50 intentos de login por IP por 15 minutos
+    message: {
+      error: 'Demasiados intentos de login. Por favor, intenta de nuevo en 15 minutos.',
+      code: 'RATE_LIMIT_AUTH',
+      retryAfter: 900,
+    },
+    standardHeaders: true,
+    legacyHeaders: false,
+    skipSuccessfulRequests: true, // No contar requests exitosos
+    keyGenerator: (req) => {
+      const forwarded = req.headers['x-forwarded-for'] as string;
+      const ip = forwarded ? forwarded.split(',')[0].trim() : req.ip;
+      return `auth_${ip || 'unknown'}`;
+    },
+  });
+  
+  app.use('/api', generalLimiter);
+  app.use('/api/auth', authLimiter);
+  console.log('🛡️  Rate limiter activado - General: 500/15min, Auth: 50/15min');
 } else {
   console.log('⚠️  Rate limiter DESHABILITADO (desarrollo)');
 }
