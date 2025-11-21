@@ -14,7 +14,6 @@ import cors from 'cors';
 import helmet from 'helmet';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
-import rateLimit from 'express-rate-limit';
 
 // Logger profesional
 import { logger } from './shared/utils/logger';
@@ -80,60 +79,14 @@ app.use(helmet({
   },
 }));
 
-// TRUST PROXY para Railway (debe estar ANTES del rate limiting)
+// TRUST PROXY para Railway
 if (process.env.NODE_ENV === 'production') {
   app.set('trust proxy', 1);
   console.log('🔧 Trust proxy habilitado para Railway');
 }
 
-// Rate limiting - Configuración más permisiva para Railway
-if (process.env.NODE_ENV === 'production') {
-  // Rate limiter general - más permisivo
-  const generalLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutos
-    max: 500, // 500 requests por ventana (aumentado de 100)
-    message: {
-      error: 'Demasiadas solicitudes desde esta IP, intenta de nuevo más tarde.',
-    },
-    standardHeaders: true,
-    legacyHeaders: false,
-    // Generar clave única por IP real
-    keyGenerator: (req) => {
-      const forwarded = req.headers['x-forwarded-for'];
-      if (typeof forwarded === 'string') {
-        return forwarded.split(',')[0]!.trim();
-      }
-      return req.ip || 'unknown';
-    },
-  });
-  
-  // Rate limiter específico para auth - MUY permisivo durante testing
-  const authLimiter = rateLimit({
-    windowMs: 1 * 60 * 1000, // 1 minuto (reducido de 15)
-    max: 100, // 100 intentos por minuto (muy permisivo)
-    message: {
-      error: 'Demasiados intentos de login. Por favor, espera 1 minuto.',
-      code: 'RATE_LIMIT_AUTH',
-      retryAfter: 60,
-    },
-    standardHeaders: true,
-    legacyHeaders: false,
-    skipSuccessfulRequests: true, // No contar requests exitosos
-    keyGenerator: (req) => {
-      const forwarded = req.headers['x-forwarded-for'];
-      if (typeof forwarded === 'string') {
-        return `auth_${forwarded.split(',')[0]!.trim()}`;
-      }
-      return `auth_${req.ip || 'unknown'}`;
-    },
-  });
-  
-  app.use('/api', generalLimiter);
-  app.use('/api/auth', authLimiter);
-  console.log('🛡️  Rate limiter activado - General: 500/15min, Auth: 100/1min (TESTING)');
-} else {
-  console.log('⚠️  Rate limiter DESHABILITADO (desarrollo)');
-}
+// Rate limiting DESHABILITADO - No necesario para app interna de instituto
+console.log('ℹ️  Rate limiter DESHABILITADO - App interna sin exposición pública');
 
 // CORS - Configuración permisiva para desarrollo
 const corsOptions = {
