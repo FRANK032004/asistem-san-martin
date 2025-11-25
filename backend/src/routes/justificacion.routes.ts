@@ -47,6 +47,22 @@ router.get('/mis-justificaciones',
   obtenerMisJustificaciones
 );
 
+// ========================================
+// RUTAS PARA ADMINISTRADORES
+// ========================================
+
+/**
+ * GET /api/justificaciones/pendientes
+ * Obtener todas las justificaciones pendientes
+ * Acceso: Solo Administradores
+ * IMPORTANTE: Debe estar ANTES de /:id para que no se confunda
+ */
+router.get('/pendientes', 
+  authenticateToken, 
+  requireRole(['Administrador']),
+  obtenerJustificacionesPendientes
+);
+
 /**
  * DELETE /api/justificaciones/:id
  * Eliminar una justificación pendiente
@@ -56,21 +72,6 @@ router.delete('/:id',
   authenticateToken, 
   requireDocente,
   eliminarJustificacion
-);
-
-// ========================================
-// RUTAS PARA ADMINISTRADORES
-// ========================================
-
-/**
- * GET /api/justificaciones/pendientes
- * Obtener todas las justificaciones pendientes
- * Acceso: Solo Administradores
- */
-router.get('/pendientes', 
-  authenticateToken, 
-  requireRole(['Administrador']),
-  obtenerJustificacionesPendientes
 );
 
 /**
