@@ -11,7 +11,7 @@ import {
 import { authenticateToken } from '../middleware/auth';
 import { validateDTO } from '../middleware/validate.middleware';
 import { LoginDTO, RegisterDTO, UpdateProfileDTO, ChangePasswordDTO } from '../dtos/auth.dto';
-import { authRateLimiter } from '../middleware/rate-limiter.middleware';
+// import { authRateLimiter } from '../middleware/rate-limiter.middleware'; // DESHABILITADO - Sistema interno
 
 const router = express.Router();
 
@@ -23,25 +23,22 @@ const router = express.Router();
  * POST /api/auth/login
  * Iniciar sesión
  * Valida automáticamente con LoginDTO
- * Rate limited: 5 intentos por 15 minutos
  */
-router.post('/login', authRateLimiter, validateDTO(LoginDTO), login);
+router.post('/login', validateDTO(LoginDTO), login);
 
 /**
  * POST /api/auth/register
  * Registrar nuevo usuario (solo admin)
  * Valida automáticamente con RegisterDTO
- * Rate limited: 5 intentos por 15 minutos
  */
-router.post('/register', authRateLimiter, validateDTO(RegisterDTO), register);
+router.post('/register', validateDTO(RegisterDTO), register);
 
 /**
  * POST /api/auth/refresh
  * Renovar access token usando refresh token
  * No requiere autenticación (usa refresh token)
- * Rate limited: 5 intentos por 15 minutos
  */
-router.post('/refresh', authRateLimiter, refreshAccessToken);
+router.post('/refresh', refreshAccessToken);
 
 // ========================================
 // RUTAS PROTEGIDAS
